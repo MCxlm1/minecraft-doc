@@ -294,13 +294,24 @@ function main() {
   console.log(`生成 ${genList.length} 个 (版本,模块)：`);
   const manifest = loadManifest();
   const moduleResults = [];
+  // 生成去重：同模块 + 同口味(rc/beta) + 源文件哈希一致 → 复用 typedoc 结果（stable/preview 相同版本时省一半生成）
+  const typedocCache = new Map(); // `${dir}|${regDir}|${srcHash}` -> genModuleDir
 
   for (const t of genList) {
     const verId = t.ver.id;
     const modId = t.mod.genId;
     const genModuleDir = path.join(GEN_ROOT, verId, modId);
-    console.log(`  → ${verId}/${modId} (${t.mod.dir})`);
-    runTypedoc(t.src, genModuleDir);
+    const srcHash = sha1(fs.readFileSync(t.src));
+    const cacheKey = `${t.mod.dir}|${t.mod.regDir}|${srcHash}`;
+    if (typedocCache.has(cacheKey)) {
+      fs.rmSync(genModuleDir, { recursive: true, force: true });
+      fs.cpSync(typedocCache.get(cacheKey), genModuleDir, { recursive: true });
+      console.log(`  → ${verId}/${modId} (${t.mod.dir}) [复用生成结果]`);
+    } else {
+      console.log(`  → ${verId}/${modId} (${t.mod.dir})`);
+      runTypedoc(t.src, genModuleDir);
+      typedocCache.set(cacheKey, genModuleDir);
+    }
     const res = processModule(verId, modId, t.mod, genModuleDir, manifest);
     moduleResults.push({ ver: t.ver, mod: t.mod, verId, modId, ...res });
   }

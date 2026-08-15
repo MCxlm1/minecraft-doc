@@ -54,7 +54,7 @@ jobs:
       - name: 构建 Docusaurus 静态站点
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
-        run: node node_modules/@docusaurus/core/bin/docusaurus.mjs build
+        run: node node_modules/@docusaurus/core/bin/docusaurus.mjs build --no-minify
 
       - name: 部署到 GitHub Pages (gh-pages)
         uses: peaceiris/actions-gh-pages@v4

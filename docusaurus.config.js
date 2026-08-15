@@ -60,6 +60,13 @@ const config = {
       copyright: `由 typedoc + Docusaurus 自动生成`,
     },
   },
+  webpack: {
+    configure(config) {
+      // 文档量巨大（数千页面），降低并行度控制编译内存峰值
+      config.parallelism = 2;
+      return config;
+    },
+  },
 };
 
 module.exports = config;
