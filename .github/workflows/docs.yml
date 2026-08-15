@@ -10,7 +10,7 @@ on:
         default: 'rebuild'
         options:
           - 'rebuild'               # 仅重新构建网页（用已下载的包 + 现有翻译）
-          - 'rebuild-and-update'    # 按 docs-config.json 重新 npm 下载对应版本 + 重建网页
+          - 'rebuild-and-update'    # 按 minecraft-versions.json 重新 npm 下载对应版本 + 重建网页
 
 permissions:
   contents: write
@@ -41,7 +41,7 @@ jobs:
       - name: 确保 @minecraft 包存在 (rebuild 兜底)
         if: ${{ github.event.inputs.mode != 'rebuild-and-update' }}
         run: |
-          if [ ! -f registry/stable/node_modules/@minecraft/server/index.d.ts ]; then
+          if [ ! -f registry/stable/rc/node_modules/@minecraft/server/index.d.ts ]; then
             echo "未找到已下载的包，执行 npm-update…"
             node scripts/npm-update.mjs
           fi
