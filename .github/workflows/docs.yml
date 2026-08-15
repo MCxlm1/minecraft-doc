@@ -1,0 +1,60 @@
+name: 构建文档站 (typedoc → Docusaurus)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: '构建模式'
+        required: true
+        default: 'rebuild'
+        options:
+          - 'rebuild'               # 仅重新构建网页（用已下载的包 + 现有翻译）
+          - 'rebuild-and-update'    # 按 docs-config.json 重新 npm 下载对应版本 + 重建网页
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 安装项目依赖 (pnpm)
+        run: |
+          corepack enable
+          pnpm install --no-frozen-lockfile
+
+      - name: 重新下载 npm 对应版本 (rebuild-and-update)
+        if: ${{ github.event.inputs.mode == 'rebuild-and-update' }}
+        run: node scripts/npm-update.mjs
+
+      - name: 确保 @minecraft 包存在 (rebuild 兜底)
+        if: ${{ github.event.inputs.mode != 'rebuild-and-update' }}
+        run: |
+          if [ ! -f registry/stable/node_modules/@minecraft/server/index.d.ts ]; then
+            echo "未找到已下载的包，执行 npm-update…"
+            node scripts/npm-update.mjs
+          fi
+
+      - name: 生成文档 (typedoc → md → 翻译/侧边栏/未翻译页)
+        run: node scripts/generate.mjs
+
+      - name: 构建 Docusaurus 静态站点
+        run: node node_modules/@docusaurus/core/bin/docusaurus.mjs build
+
+      - name: 部署到 GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          force_orphan: true

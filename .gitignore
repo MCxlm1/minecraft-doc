@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 生成的文档与构建产物（generate.mjs / docusaurus 生成）
+docs/
+generated/
+sidebars.js
+build/
+.docusaurus/
+_gen/
+_staging/
+_work/
+
+# 需 npm 下载的 @minecraft 包（由 npm-update.mjs 生成 registry/package.json + node_modules）
+registry/
+
+# 压缩包
+*.tar.gz
+*.zip

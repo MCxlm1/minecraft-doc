@@ -1,0 +1,40 @@
+{
+  "comment": "JSON A: npm 版本。workflow 的 rebuild-and-update 模式按此重新 npm 下载。catalog: stable=latest 正式版, preview=@beta 测试版(当前 1.26.50-preview.25)。",
+  "mcVersion": "1.26.50.25",
+  "registries": {
+    "stable": {
+      "comment": "正式版：全部用 latest",
+      "packages": {
+        "@minecraft/common": "latest",
+        "@minecraft/debug-utilities": "latest",
+        "@minecraft/diagnostics": "latest",
+        "@minecraft/math": "latest",
+        "@minecraft/server": "latest",
+        "@minecraft/server-admin": "latest",
+        "@minecraft/server-editor": "latest",
+        "@minecraft/server-gametest": "latest",
+        "@minecraft/server-graphics": "latest",
+        "@minecraft/server-net": "latest",
+        "@minecraft/server-ui": "latest",
+        "@minecraft/vanilla-data": "latest"
+      }
+    },
+    "preview": {
+      "comment": "测试版：有 @beta 用 beta；common/math/vanilla-data 无 beta tag 用 latest",
+      "packages": {
+        "@minecraft/common": "latest",
+        "@minecraft/debug-utilities": "beta",
+        "@minecraft/diagnostics": "beta",
+        "@minecraft/math": "latest",
+        "@minecraft/server": "beta",
+        "@minecraft/server-admin": "beta",
+        "@minecraft/server-editor": "beta",
+        "@minecraft/server-gametest": "beta",
+        "@minecraft/server-graphics": "beta",
+        "@minecraft/server-net": "beta",
+        "@minecraft/server-ui": "beta",
+        "@minecraft/vanilla-data": "latest"
+      }
+    }
+  }
+}

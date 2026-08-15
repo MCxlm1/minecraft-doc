@@ -1,0 +1,34 @@
+{
+  "comment": "JSON B: 显示哪些版本/模块、排序、标题、侧边栏包含类型、隐藏、分组、未翻译页开关。catalog 决定去 registry/<catalog>/ 取包，stable=正式版, preview=测试版(@beta)。",
+  "site": {
+    "title": "Minecraft @minecraft 类型文档",
+    "lang": "zh-CN",
+    "untranslatedPage": true,
+    "defaultCatalog": "stable"
+  },
+  "versions": [
+    {
+      "id": "stable",
+      "title": "正式版 (Stable)",
+      "catalog": "stable",
+      "display": true,
+      "order": 1,
+      "modules": [
+        { "id": "server", "dir": "server", "title": "server (正式版)", "display": true, "order": 1, "showTypes": ["classes", "interfaces", "enumerations", "type-aliases", "functions", "variables"], "hide": [], "grouping": {} },
+        { "id": "server-ui", "dir": "server-ui", "title": "server-ui", "display": true, "order": 2, "showTypes": ["classes", "interfaces", "enumerations", "type-aliases"], "hide": [], "grouping": {} },
+        { "id": "math", "dir": "math", "title": "math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 3, "showTypes": ["classes", "interfaces", "type-aliases", "functions"], "hide": [], "grouping": {} }
+      ]
+    },
+    {
+      "id": "preview",
+      "title": "Preview (1.26.50-preview.25)",
+      "catalog": "preview",
+      "display": true,
+      "order": 2,
+      "modules": [
+        { "id": "server", "dir": "server", "title": "server (Preview)", "display": true, "order": 1 },
+        { "id": "math", "dir": "math", "title": "math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 2 }
+      ]
+    }
+  ]
+}

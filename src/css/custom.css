@@ -1,0 +1,85 @@
+/* 主页 */
+.home-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.hero h1 {
+  font-size: 2.2rem;
+}
+.hero-sub {
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.5rem;
+}
+.version-card {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+}
+.version-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+.module-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.module-chip {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  font-weight: 600;
+  text-decoration: none;
+}
+.module-chip:hover {
+  text-decoration: none;
+  filter: brightness(0.96);
+}
+.hint {
+  margin-top: 2rem;
+}
+
+/* 未翻译页 */
+.untranslated-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.expired-count {
+  color: var(--ifm-color-danger);
+}
+.ut-version {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+}
+.ut-sub {
+  font-size: 1rem;
+  margin: 0.6rem 0 0.4rem;
+}
+.ut-expired {
+  background: #fff3f3;
+  border-left: 4px solid var(--ifm-color-danger);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+}
+.expired-item {
+  color: var(--ifm-color-danger);
+}
+.expired-badge {
+  display: inline-block;
+  background: var(--ifm-color-danger);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  margin-right: 0.35rem;
+}
+.ut-path {
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
