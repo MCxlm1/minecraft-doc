@@ -23,6 +23,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: 'docs',
+          // 版本化：docs/ = 默认版本(stable, 路径 /docs/stable/)；preview 为独立版本(/docs/preview/)
+          // 侧边栏只显示当前版本的模块；顶部有版本切换下拉
+          lastVersion: 'current',
+          versions: {
+            current: { path: 'stable', label: '正式版 (Stable)', banner: 'none' },
+            preview: { label: 'Preview (1.26.50-preview.25)', banner: 'none', badge: false },
+          },
         },
         blog: false,
         theme: {
@@ -35,7 +42,7 @@ const config = {
     navbar: {
       title: siteConfig.site.title || 'Docs',
       items: [
-        { to: '/docs/', label: '文档', position: 'left' },
+        { to: '/docs/stable/', label: '文档', position: 'left' },
         { to: '/untranslated', label: '未翻译清单', position: 'left' },
       ],
     },

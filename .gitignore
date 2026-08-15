@@ -4,6 +4,9 @@ node_modules/
 
 # 生成的文档与构建产物（generate.mjs / docusaurus 生成）
 docs/
+versioned_docs/
+versioned_sidebars/
+versions.json
 generated/
 sidebars.js
 build/

@@ -1,10 +1,11 @@
 {
-  "comment": "JSON B: 显示哪些版本/模块、排序、标题、侧边栏包含类型、隐藏、分组、未翻译页开关。catalog 决定去 registry/<catalog>/ 取包，stable=正式版, preview=测试版(@beta)。",
+  "comment": "JSON B: 显示哪些版本/模块、排序、标题、侧边栏包含类型、隐藏、分组、未翻译页开关。catalog 决定去 registry/<catalog>/ 取包，stable=正式版(latest), preview=测试版(@beta)。defaultVersion 决定哪个版本作为 Docusaurus 默认版本(docs/)。",
   "site": {
     "title": "Minecraft @minecraft 类型文档",
     "lang": "zh-CN",
     "untranslatedPage": true,
-    "defaultCatalog": "stable"
+    "defaultCatalog": "stable",
+    "defaultVersion": "stable"
   },
   "versions": [
     {
@@ -14,9 +15,18 @@
       "display": true,
       "order": 1,
       "modules": [
-        { "id": "server", "dir": "server", "title": "server (正式版)", "display": true, "order": 1, "showTypes": ["classes", "interfaces", "enumerations", "type-aliases", "functions", "variables"], "hide": [], "grouping": {} },
-        { "id": "server-ui", "dir": "server-ui", "title": "server-ui", "display": true, "order": 2, "showTypes": ["classes", "interfaces", "enumerations", "type-aliases"], "hide": [], "grouping": {} },
-        { "id": "math", "dir": "math", "title": "math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 3, "showTypes": ["classes", "interfaces", "type-aliases", "functions"], "hide": [], "grouping": {} }
+        { "id": "common", "dir": "common", "title": "@minecraft/common", "display": true, "order": 1 },
+        { "id": "debug-utilities", "dir": "debug-utilities", "title": "@minecraft/debug-utilities", "display": true, "order": 2 },
+        { "id": "diagnostics", "dir": "diagnostics", "title": "@minecraft/diagnostics", "display": true, "order": 3 },
+        { "id": "math", "dir": "math", "title": "@minecraft/math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 4 },
+        { "id": "server", "dir": "server", "title": "@minecraft/server", "display": true, "order": 5 },
+        { "id": "server-admin", "dir": "server-admin", "title": "@minecraft/server-admin", "display": true, "order": 6 },
+        { "id": "server-editor", "dir": "server-editor", "title": "@minecraft/server-editor", "display": true, "order": 7 },
+        { "id": "server-gametest", "dir": "server-gametest", "title": "@minecraft/server-gametest", "display": true, "order": 8 },
+        { "id": "server-graphics", "dir": "server-graphics", "title": "@minecraft/server-graphics", "display": true, "order": 9 },
+        { "id": "server-net", "dir": "server-net", "title": "@minecraft/server-net", "display": true, "order": 10 },
+        { "id": "server-ui", "dir": "server-ui", "title": "@minecraft/server-ui", "display": true, "order": 11 },
+        { "id": "vanilla-data", "dir": "vanilla-data", "title": "@minecraft/vanilla-data", "entry": "lib/index.d.ts", "display": true, "order": 12 }
       ]
     },
     {
@@ -26,8 +36,18 @@
       "display": true,
       "order": 2,
       "modules": [
-        { "id": "server", "dir": "server", "title": "server (Preview)", "display": true, "order": 1 },
-        { "id": "math", "dir": "math", "title": "math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 2 }
+        { "id": "common", "dir": "common", "title": "@minecraft/common", "display": true, "order": 1 },
+        { "id": "debug-utilities", "dir": "debug-utilities", "title": "@minecraft/debug-utilities", "display": true, "order": 2 },
+        { "id": "diagnostics", "dir": "diagnostics", "title": "@minecraft/diagnostics", "display": true, "order": 3 },
+        { "id": "math", "dir": "math", "title": "@minecraft/math", "entry": "lib/types/math-public.d.ts", "display": true, "order": 4 },
+        { "id": "server", "dir": "server", "title": "@minecraft/server", "display": true, "order": 5 },
+        { "id": "server-admin", "dir": "server-admin", "title": "@minecraft/server-admin", "display": true, "order": 6 },
+        { "id": "server-editor", "dir": "server-editor", "title": "@minecraft/server-editor", "display": true, "order": 7 },
+        { "id": "server-gametest", "dir": "server-gametest", "title": "@minecraft/server-gametest", "display": true, "order": 8 },
+        { "id": "server-graphics", "dir": "server-graphics", "title": "@minecraft/server-graphics", "display": true, "order": 9 },
+        { "id": "server-net", "dir": "server-net", "title": "@minecraft/server-net", "display": true, "order": 10 },
+        { "id": "server-ui", "dir": "server-ui", "title": "@minecraft/server-ui", "display": true, "order": 11 },
+        { "id": "vanilla-data", "dir": "vanilla-data", "title": "@minecraft/vanilla-data", "entry": "lib/index.d.ts", "display": true, "order": 12 }
       ]
     }
   ]

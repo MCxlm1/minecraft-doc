@@ -13,7 +13,10 @@ docs-site/
 ├── site-config.json          # JSON B：显示哪些版本/模块、标题、排序、隐藏、分组、未翻译页开关
 ├── site-config.full.json     # 完整版 JSON B 备份（含全部 12 个 @minecraft 模块）
 ├── docusaurus.config.js      # Docusaurus 配置（中文、侧边栏）
-├── sidebars.js               # 由 generate.mjs 生成
+├── sidebars.js               # 由 generate.mjs 生成（默认版本侧边栏）
+├── versioned_docs/           # 由 generate.mjs 生成（preview 等其它版本文档）
+├── versioned_sidebars/       # 由 generate.mjs 生成（其它版本侧边栏）
+├── versions.json             # 由 generate.mjs 生成（版本列表）
 ├── docs/                     # 生成后的源文档（Docusaurus 编译）
 ├── translations/zh-CN/       # 中文翻译（镜像 typedoc 结构，只放已翻译的 md）
 │   └── manifest.json         # 翻译有效性清单（记录源 md 哈希）
@@ -33,7 +36,16 @@ docs-site/
 | 文件 | 作用 |
 |---|---|
 | `docs-config.json` | **JSON A**：`registries.<catalog>.packages`，列出每个 catalog（stable/preview）要 npm 安装的包和版本。仅 `rebuild-and-update` 模式使用 |
-| `site-config.json` | **JSON B**：`versions[].modules[]`，决定**哪些版本/模块显示**、`title`（显示名）、`order`（排序）、`showTypes`（侧边栏包含的类型）、`hide`（隐藏符号）、`grouping`（自定义分组）、`site.untranslatedPage`（未翻译页开关） |
+| `site-config.json` | **JSON B**：`versions[].modules[]`，决定**哪些版本/模块显示**、`title`（显示名）、`order`（排序）、`showTypes`（侧边栏包含的类型）、`hide`（隐藏符号）、`grouping`（自定义分组）、`site.untranslatedPage`（未翻译页开关）、`site.defaultVersion`（默认版本） |
+
+## 版本化与侧边栏
+
+- 用 Docusaurus **版本化**实现「侧边栏只显示当前版本的模块」：
+  - `stable` = 默认版本（`docs/`），URL：`/docs/stable/<模块>/...`
+  - `preview` = 独立版本（`versioned_docs/version-preview/`），URL：`/docs/preview/<模块>/...`
+  - 顶部有**版本切换下拉**（正式版 / Preview），切到哪个版本侧边栏就只显示哪个版本的模块
+- 模块在侧边栏显示包全名（`@minecraft/server`、`@minecraft/server-ui` 等），由 `title` 控制
+- 主页：版本 → 模块 → 文档的层级跳转；无默认直达，从主页进入
 
 ## 翻译逻辑
 
@@ -62,7 +74,7 @@ on:
 ```bash
 pnpm install              # 或 npm install --legacy-peer-deps
 node scripts/npm-update.mjs   # 可选：重新下载包
-node scripts/generate.mjs     # 生成 docs/ + sidebars.js + generated/
+node scripts/generate.mjs     # 生成 docs/ + versioned_docs/ + sidebars + versions.json
 pnpm start                # 开发预览（先 generate 再 docusaurus start）
 pnpm build && pnpm serve  # 生产构建 + 预览
 ```

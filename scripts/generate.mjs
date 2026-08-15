@@ -272,14 +272,24 @@ function main() {
 
   saveManifest(manifest);
 
-  // 写 docs/
-  fs.rmSync(DOCS_DIR, { recursive: true, force: true });
-  const sidebars = { docs: [] };
+  // ---------- 写文档（Docusaurus 版本化） ----------
+  // 默认版本(defaultVersion) → docs/；其它版本 → versioned_docs/version-<id>/
+  // 侧边栏：默认版本键 'docs'，其它版本键 'version-<id>'，各自只含该版本的模块
+  const defaultVersionId =
+    (SITE.site && SITE.site.defaultVersion) || ((SITE.versions || [])[0] && (SITE.versions[0].id)) || 'stable';
+  const versionKey = (verId) => (verId === defaultVersionId ? '' : `version-${verId}`);
+  const versionDocRoot = (verId) =>
+    verId === defaultVersionId ? DOCS_DIR : path.join(ROOT, 'versioned_docs', versionKey(verId));
 
-  // 版本级菜单
-  const versionMap = new Map(); // versionId -> {label, order, modules:[...]}
+  fs.rmSync(DOCS_DIR, { recursive: true, force: true });
+  fs.rmSync(path.join(ROOT, 'versioned_docs'), { recursive: true, force: true });
+  fs.rmSync(path.join(ROOT, 'versioned_sidebars'), { recursive: true, force: true });
+
+  const sidebars = {}; // 'docs' = 默认版本，'version-<id>' = 其它版本
+  const versionMap = new Map(); // verId -> {id, label, order, modules:[...]}
+
   for (const r of moduleResults) {
-    const docModuleDir = path.join(DOCS_DIR, r.verId, r.modId);
+    const docModuleDir = path.join(versionDocRoot(r.verId), r.modId);
     fs.mkdirSync(docModuleDir, { recursive: true });
     for (const c of r.copies) {
       const dest = path.join(docModuleDir, c.rel);
@@ -287,37 +297,35 @@ function main() {
       fs.writeFileSync(dest, c.bytes);
     }
 
+    // id 前缀：侧边栏 doc id 始终相对该版本目录（Docusaurus 会自动做版本命名空间）
+    const idPrefix = r.modId;
+
     // 组装该模块的侧边栏分类（含 grouping）
-    const show = r.mod.showTypes || Object.keys(KIND_TITLES).filter(k => k !== 'README');
+    const show = r.mod.showTypes || Object.keys(KIND_TITLES).filter((k) => k !== 'README');
     const grouping = r.mod.grouping || {};
-    // 收集本模块最后实际写出的文件（映射最终 rel）
     const finalFiles = r.copies.map((c) => c.rel);
-    // 分类: 默认按 KIND 目录；grouping 把指定符号挪到自定义组
     const categories = new Map(); // label -> {label, items:[]}
     function addCat(label) {
       if (!categories.has(label)) categories.set(label, { label, items: [] });
       return categories.get(label);
     }
-    addCat('概述');
     for (const rel of finalFiles) {
-      if (rel === 'README.md') continue;
+      if (rel === 'README.md' || rel === 'index.md') continue;
       const cat = fileCategory(rel);
       const base = path.basename(rel).replace(/\.md$/, '');
       const group = grouping[base] || grouping[rel];
       const label = group ? `#${group}` : (KIND_TITLES[cat] || cat);
       const catEntry = addCat(label);
-      const id = `${r.verId}/${r.modId}/${rel.replace(/\.md$/, '')}`;
-      catEntry.items.push({ type: 'doc', id, label: base });
+      catEntry.items.push({ type: 'doc', id: `${idPrefix}/${rel.replace(/\.md$/, '')}`, label: base });
     }
 
     // 组装模块 category
     const moduleCat = { type: 'category', label: r.mod.title || r.mod.dir, collapsed: false, items: [] };
     // README.md 作为模块首页（第一个 item）
-    const idxId = `${r.verId}/${r.modId}/README`;
-    moduleCat.items.push({ type: 'doc', id: idxId, label: '概述' });
+    moduleCat.items.push({ type: 'doc', id: `${idPrefix}/README`, label: '概述' });
     // 自定义分组在前（按 # 前缀），普通分类在后，普通分类按 showTypes 顺序
-    const customCats = [...categories.values()].filter(c => c.label.startsWith('#'));
-    const kindCats = [...categories.values()].filter(c => !c.label.startsWith('#') && c.label !== '概述');
+    const customCats = [...categories.values()].filter((c) => c.label.startsWith('#'));
+    const kindCats = [...categories.values()].filter((c) => !c.label.startsWith('#') && c.label !== '概述');
     const titleToFolder = Object.fromEntries(Object.entries(KIND_TITLES).map(([k, v]) => [v, k]));
     kindCats.sort((a, b) => {
       const ia = show.indexOf(titleToFolder[a.label]);
@@ -333,27 +341,30 @@ function main() {
     // 注册到版本
     let v = versionMap.get(r.verId);
     if (!v) {
-      v = { label: r.ver.title || r.verId, order: r.ver.order || 0, modules: [] };
+      v = { id: r.verId, label: r.ver.title || r.verId, order: r.ver.order || 0, modules: [] };
       versionMap.set(r.verId, v);
     }
     v.modules.push({ label: moduleCat.label, order: r.mod.order || 0, cat: moduleCat });
   }
 
-  // 侧边栏顶层：版本
   const sortedVersions = [...versionMap.values()].sort((a, b) => a.order - b.order);
+
+  // 侧边栏：默认版本 → 根 sidebars.js 的 'docs' 键；
+  // 其它版本 → versioned_sidebars/version-<id>-sidebars.json（内容同样是 { docs: [...] }）
   for (const v of sortedVersions) {
     v.modules.sort((a, b) => (a.order || 0) - (b.order || 0));
-    sidebars.docs.push({
-      type: 'category',
-      label: v.label,
-      collapsed: true,
-      items: v.modules.map((m) => m.cat),
-    });
+    const items = v.modules.map((m) => m.cat);
+    const sidebarObj = { docs: [{ type: 'doc', id: 'index', label: '总览' }, ...items] };
+    if (v.id === defaultVersionId) {
+      sidebars.docs = sidebarObj.docs;
+    } else {
+      writeJson(path.join(ROOT, 'versioned_sidebars', `version-${v.id}-sidebars.json`), sidebarObj);
+    }
   }
-
+  if (!sidebars.docs) sidebars.docs = [];
   writeFile(path.join(ROOT, 'sidebars.js'), `module.exports = ${JSON.stringify(sidebars, null, 2)};\n`);
 
-  // docs/index.md 总览（/docs/ 落地）
+  // 每个版本一个 index 落地页（/docs/stable/、/docs/preview/）
   const groups = new Map();
   for (const r of moduleResults) {
     if (!groups.has(r.verId)) {
@@ -361,16 +372,17 @@ function main() {
     }
     groups.get(r.verId).mods.push({ id: r.modId, title: r.mod.title || r.mod.dir, order: r.mod.order || 0 });
   }
-  const lines = [`# ${(SITE.site && SITE.site.title) || 'Docs'}`, '', '选择版本与模块开始浏览：', ''];
-  for (const g of [...groups.values()].sort((a, b) => a.order - b.order)) {
-    lines.push(`## ${g.title}`, '');
+  for (const v of sortedVersions) {
+    const g = groups.get(v.id);
+    const lines = [`# ${(SITE.site && SITE.site.title) || 'Docs'}`, '', `## ${v.label}`, '', '模块列表：', ''];
     g.mods.sort((a, b) => (a.order || 0) - (b.order || 0));
-    for (const m of g.mods) lines.push(`- [${m.title}](/docs/${g.id}/${m.id}/)`);
+    for (const m of g.mods) lines.push(`- [${m.title}](/docs/${v.id}/${m.id}/)`);
     lines.push('');
+    writeFile(path.join(versionDocRoot(v.id), 'index.md'), lines.join('\n'));
   }
-  writeFile(path.join(DOCS_DIR, 'index.md'), lines.join('\n'));
-  sidebars.docs.unshift({ type: 'doc', id: 'index', label: '总览' });
-  writeFile(path.join(ROOT, 'sidebars.js'), `module.exports = ${JSON.stringify(sidebars, null, 2)};\n`);
+
+  // versions.json（非默认版本，供 Docusaurus 版本下拉）
+  writeJson(path.join(ROOT, 'versions.json'), sortedVersions.filter((v) => v.id !== defaultVersionId).map((v) => v.id));
 
   // 未翻译页数据
   const untranslated = [];
@@ -382,6 +394,7 @@ function main() {
       order: r.ver.order || 0,
       moduleId: r.modId,
       moduleTitle: r.mod.title || r.mod.dir,
+      urlPath: `/${r.verId}/${r.modId}/`,
       missing: r.missing,
       expired: r.expired,
     });
@@ -393,7 +406,7 @@ function main() {
   for (const r of moduleResults) {
     let v = siteMap.versions.find((x) => x.id === r.verId);
     if (!v) {
-      v = { id: r.verId, title: r.ver.title || r.verId, order: r.ver.order || 0, modules: [] };
+      v = { id: r.verId, title: r.ver.title || r.verId, order: r.ver.order || 0, path: r.verId, modules: [] };
       siteMap.versions.push(v);
     }
     v.modules.push({ id: r.modId, title: r.mod.title || r.mod.dir, dir: r.mod.dir });
