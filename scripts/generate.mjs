@@ -35,7 +35,8 @@ function catalogOf(version) {
 function moduleSource(version, mod) {
   const cat = catalogOf(version) || 'stable';
   const entry = mod.entry || 'index.d.ts';
-  return path.join(REGISTRY, cat, 'node_modules', '@minecraft', mod.dir, entry);
+  // registry/<版本>/<rc|beta>/node_modules/@minecraft/<dir>/<entry>
+  return path.join(REGISTRY, cat, mod.regDir || 'rc', 'node_modules', '@minecraft', mod.dir, entry);
 }
 
 /* ---------------- utils ---------------- */
@@ -270,12 +271,22 @@ function main() {
     if (ver.display === false) continue;
     for (const mod of ver.modules || []) {
       if (mod.display === false) continue;
-      const src = moduleSource(ver, mod);
-      if (!fs.existsSync(src)) {
-        console.warn(`[skip] 找不到源文件: ${src}`);
-        continue;
+      // 每个模块展开为 rc（@minecraft/x）与 beta（@minecraft/x@beta）两个入口
+      for (const flavor of ['rc', 'beta']) {
+        const m = {
+          ...mod,
+          genId: flavor === 'rc' ? mod.id : `${mod.id}@beta`,
+          title: flavor === 'rc' ? mod.title : `${mod.title}@beta`,
+          regDir: flavor,
+          beta: flavor === 'beta',
+        };
+        const src = moduleSource(ver, m);
+        if (!fs.existsSync(src)) {
+          console.warn(`[skip] 找不到源文件: ${src}`);
+          continue;
+        }
+        targets.push({ ver, mod: m, src });
       }
-      targets.push({ ver, mod, src });
     }
   }
   const genList = targets.slice(0, limit);
@@ -286,7 +297,7 @@ function main() {
 
   for (const t of genList) {
     const verId = t.ver.id;
-    const modId = t.mod.id || t.mod.dir;
+    const modId = t.mod.genId;
     const genModuleDir = path.join(GEN_ROOT, verId, modId);
     console.log(`  → ${verId}/${modId} (${t.mod.dir})`);
     runTypedoc(t.src, genModuleDir);
@@ -321,12 +332,12 @@ function main() {
     const idPrefix = r.modId;
     const isBetaVersion = (mcEntry(r.verId) || {}).type === 'preview';
 
-    // 模块 category：默认折叠（激活自动展开），符号直接平铺，带 kind/beta customProps
+    // 模块 category：默认折叠（激活自动展开），符号直接平铺，带 kind customProps
     const moduleCat = {
       type: 'category',
-      label: r.mod.title || r.mod.dir,
+      label: r.mod.title || r.mod.dir, // beta 模块名自带 @beta 后缀
       collapsed: true,
-      customProps: { beta: isBetaVersion },
+      customProps: { beta: false },
       items: [{ type: 'doc', id: `${idPrefix}/README`, label: '概述' }],
     };
     const symbolItems = [];

@@ -21,8 +21,12 @@ docs-site/
 ├── translations/zh-CN/       # 中文翻译（镜像 typedoc 结构，只放已翻译的 md）
 │   └── manifest.json         # 翻译有效性清单（记录源 md 哈希）
 ├── registry/
-│   ├── stable/               # 正式版包（装 rc 版本）
-│   └── preview/              # preview 测试版包（装 beta 版本）
+│   ├── stable/
+│   │   ├── rc/                # 正式版包（装 rc 版本）
+│   │   └── beta/              # beta 包（装 beta 版本）
+│   └── preview/
+│       ├── rc/                # preview 的 rc 包
+│       └── beta/              # preview 的 beta 包
 ├── scripts/
 │   ├── generate.mjs          # 主生成器：typedoc→md→转换→翻译→侧边栏→未翻译页
 │   ├── npm-update.mjs        # 版本自动工具：npm view 更新版本号 + 下载包
@@ -44,11 +48,12 @@ docs-site/
 ## 站点结构
 
 - **主页 `/`**：只保留**版本入口**（正式版 / Preview@beta），点击进入版本主页
-- **版本主页 `/docs/stable/`、`/docs/preview/`**：该版本的模块入口列表（beta 版标 `@beta`）
-- **模块文档 `/docs/stable/<模块>/...`**：
-  - 侧边栏：模块名（`@minecraft/server` 等）→ 符号**直接平铺**（类/接口/枚举/函数/类型别名/变量），每个符号前有**彩色 SVG 字母图标**（C=类蓝 / I=接口绿 / E=枚举紫 / F=函数橙 / V=变量青 / T=类型别名粉）
+- **版本主页 `/docs/stable/`、`/docs/preview/`**：该版本的模块入口列表；**每个模块都有 rc 和 beta 两个入口**：
+  - rc：`@minecraft/server`（用 rc 版本生成）
+  - beta：`@minecraft/server@beta`（用 beta 版本生成）
+- **模块文档 `/docs/stable/<模块>/...`**（rc 与 beta 各自独立）：
+  - 侧边栏：模块名（`@minecraft/server`、`@minecraft/server@beta` 等）→ 符号**直接平铺**，每个符号前有**彩色 SVG 字母图标**（C=类蓝 / I=接口绿 / E=枚举紫 / F=函数橙 / V=变量青 / T=类型别名粉）
   - 侧边栏**只展开当前打开的模块**，其它模块默认折叠；顶部有版本切换下拉（正式版 / Preview）
-  - beta 版本（preview）的模块名旁标 `@beta`，正式版不标
 - 页面头部精简为：`@minecraft/server / 符号名` + `Class: 符号名` + 描述
 - 属性/方法签名：`readonly`/`optional`/`static` 等修饰符并入 `###` 标题行（如 `### readonly optional cancelationReason?`）
 

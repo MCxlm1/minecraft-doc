@@ -46,10 +46,14 @@ jobs:
             node scripts/npm-update.mjs
           fi
 
-      - name: 生成文档 (typedoc → md → 翻译/侧边栏/未翻译页)
+      - name: 生成文档 (typedoc → md → 转换 → 翻译/侧边栏/未翻译页)
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
         run: node scripts/generate.mjs
 
       - name: 构建 Docusaurus 静态站点
+        env:
+          NODE_OPTIONS: '--max-old-space-size=6144'
         run: node node_modules/@docusaurus/core/bin/docusaurus.mjs build
 
       - name: 部署到 GitHub Pages (gh-pages)
