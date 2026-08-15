@@ -6,8 +6,8 @@ const siteConfig = require('./site-config.json');
 const config = {
   title: siteConfig.site.title || 'Docs',
   tagline: 'Minecraft @minecraft 类型文档（typedoc → Docusaurus）',
-  url: 'https://example.com',
-  baseUrl: '/',
+  url: 'https://MCxlm1.github.io',
+  baseUrl: '/minecraft-doc/',
   organizationName: 'demo',
   projectName: 'docs-site',
   onBrokenLinks: 'warn',
