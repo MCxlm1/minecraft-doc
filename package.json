@@ -26,6 +26,9 @@
   "pnpm": {
     "overrides": {
       "webpack": "5.95.0"
+    },
+    "patchedDependencies": {
+      "@docusaurus/core": "patches/@docusaurus__core.patch"
     }
   }
 }
