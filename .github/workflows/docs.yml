@@ -18,7 +18,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,6 +54,8 @@ jobs:
       - name: 构建 Docusaurus 静态站点
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
+          # SSG 分片：默认并发 32 页渲染会撑爆内存，改为串行渲染（每次仅 1 页在内存）
+          DOCUSAURUS_SSR_CONCURRENCY: '1'
         run: node node_modules/@docusaurus/core/bin/docusaurus.mjs build --no-minify
 
       - name: 部署到 GitHub Pages (gh-pages)

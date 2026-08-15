@@ -61,11 +61,8 @@ const config = {
     },
   },
   webpack: {
-    configure(config) {
-      // 文档量巨大（数千页面），降低并行度控制编译内存峰值
-      config.parallelism = 2;
-      return config;
-    },
+    // 注：Docusaurus 3.5.2 不支持 webpack.configure 字段，编译阶段内存靠 NODE_OPTIONS 控制
+    // SSG 阶段通过环境变量 DOCUSAURUS_SSR_CONCURRENCY=1 分片串行渲染（见 workflow）
   },
 };
 
