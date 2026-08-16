@@ -47,15 +47,17 @@ docs-site/
 
 ## 站点结构
 
-- **主页 `/`**：只保留**版本入口**（正式版 / Preview@beta），点击进入版本主页
-- **版本主页 `/docs/stable/`、`/docs/preview/`**：该版本的模块入口列表；**每个模块都有 rc 和 beta 两个入口**：
+- **主页 `/`**：只保留**版本入口**（当前临时仅 Preview@beta），点击进入版本主页
+- **版本主页 `/docs/preview/`**：该版本的模块入口列表；**每个模块都有 rc 和 beta 两个入口**：
   - rc：`@minecraft/server`（用 rc 版本生成）
   - beta：`@minecraft/server@beta`（用 beta 版本生成）
-- **模块文档 `/docs/stable/<模块>/...`**（rc 与 beta 各自独立）：
+- **模块文档 `/docs/preview/<模块>/...`**（rc 与 beta 各自独立）：
   - 侧边栏：模块名（`@minecraft/server`、`@minecraft/server@beta` 等）→ 符号**直接平铺**，每个符号前有**彩色 SVG 字母图标**（C=类蓝 / I=接口绿 / E=枚举紫 / F=函数橙 / V=变量青 / T=类型别名粉）
-  - 侧边栏**只展开当前打开的模块**，其它模块默认折叠；顶部有版本切换下拉（正式版 / Preview）
+  - 侧边栏**只展开当前打开的模块**，其它模块默认折叠
 - 页面头部精简为：`@minecraft/server / 符号名` + `Class: 符号名` + 描述
 - 属性/方法签名：`readonly`/`optional`/`static` 等修饰符并入 `###` 标题行（如 `### readonly optional cancelationReason?`）
+
+> 临时状态：当前只部署 preview 版本（12 模块 × rc/beta = 24 入口，控制 CI 内存）。完整双版本（正式版+preview）配置在 `site-config.full.json`，恢复方法：`cp site-config.full.json site-config.json`，并把 `docusaurus.config.js` 的 docs 配置改回双版本（`lastVersion` + `versions.preview`），同时把 CI 构建内存升级到 16GB runner。
 
 ## 翻译逻辑
 
