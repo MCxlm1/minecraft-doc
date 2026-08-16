@@ -104,6 +104,7 @@ function stripHeader(text) {
 }
 function mergeModifierIntoHeading(text) {
   const lines = text.split('\n');
+  const inserts = []; // { afterIdx, badges }
   let lastHeading = null;
   for (let i = 0; i < lines.length; i++) {
     const l = lines[i];
@@ -116,12 +117,17 @@ function mergeModifierIntoHeading(text) {
     if (m && lastHeading) {
       const tags = (m[1].match(/`[a-zA-Z]+`/g) || []).map((t) => t.replace(/`/g, ''));
       if (tags.length) {
-        // 修饰符标签做成小徽章，放在标题文本后面（类似 @beta 徽章样式）
-        const badges = tags.map((t) => `<span class="mod-badge">${t}</span>`).join(' ');
-        lines[lastHeading.idx] = `### ${lastHeading.text} ${badges}`;
+        // 修饰符徽章另起一行（标题下方单独一行，不放标题内）
+        inserts.push({ afterIdx: lastHeading.idx, badges: tags.map((t) => `<span class="mod-badge">${t}</span>`).join(' ') });
       }
       lines[i] = `> **${m[2]}**${m[3]}`;
+      lastHeading = null; // 一个标题只处理一次
     }
+  }
+  // 从后往前插入徽章行，避免索引错乱
+  inserts.sort((a, b) => b.afterIdx - a.afterIdx);
+  for (const ins of inserts) {
+    lines.splice(ins.afterIdx + 1, 0, '', ins.badges);
   }
   return lines.join('\n');
 }
@@ -250,15 +256,9 @@ function processModule(versionId, moduleId, moduleCfg, genModuleDir, manifest) {
   return { copies, missing, expired };
 }
 
-/* ---------------- 符号页类型徽章 ---------------- */
+/* ---------------- 符号页类型徽章（已移除：侧边栏 CSS 徽章取代） ---------------- */
 function insertKindBadge(md, kind) {
-  const meta = KIND_META[kind];
-  if (!meta) return md;
-  const badge = `<span class="sym-badge" style="background:${meta.color}">${meta.letter}</span>\n\n`;
-  const idx = md.indexOf('# ');
-  if (idx === -1) return badge + md;
-  // 在第一个 H1 前插入徽章
-  return md.slice(0, idx) + badge + md.slice(idx);
+  return md; // 保留函数签名兼容，不再插入页面内徽章
 }
 
 /* ---------------- 主流程 ---------------- */
@@ -428,12 +428,8 @@ function main() {
           const rel = c.rel === 'README.md' ? 'index.md' : c.rel;
           if (rel === 'index.md' || rel === 'globals.md') continue;
           const link = `${base}${m.id}/${rel.replace(/\.md$/, '')}`;
-          const kind = KIND_FOLDER[fileCategory(c.rel)];
-          const meta = kind && KIND_META[kind];
-          const badgeHtml = meta
-            ? `<span class="sym-badge" style="background:${meta.color}">${meta.letter}</span> `
-            : '';
-          symItems.push({ text: badgeHtml + path.basename(rel, '.md'), link });
+          // 纯文本符号名；类型图标由 style.css 的 ::before（按链接路径匹配）渲染
+          symItems.push({ text: path.basename(rel, '.md'), link });
         }
       }
       items.push({ text: m.title, collapsed: true, items: symItems });
