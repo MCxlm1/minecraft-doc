@@ -61,6 +61,10 @@ function mcEntry(versionId) {
   }
   return null;
 }
+/** 精简 Minecraft 版本号：1.26.50-preview.25 → 1.26.50.25 */
+function shortMc(v) {
+  return (v || '').replace(/-preview\./g, '.');
+}
 function loadManifest() {
   if (fs.existsSync(MANIFEST_PATH)) return readJson(MANIFEST_PATH);
   return {};
@@ -166,7 +170,7 @@ async function main() {
     homeReadme.push(
       `<a href="./${ver.id}/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit">`,
       `<span style="font-weight:700;font-size:1.05rem">${ver.title}${isBeta ? ' <span style="color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px;font-size:.7rem">@beta</span>' : ''}</span>`,
-      `<span style="color:var(--color-text-aside);font-size:.85rem">${e.mcVersion || ''} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
+      `<span style="color:var(--color-text-aside);font-size:.85rem">${shortMc(e.mcVersion)} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
       '</a>'
     );
   }
@@ -228,8 +232,13 @@ async function main() {
       }
     }
 
-    // 版本主页 README（标题 + 模块链接列表，无说明）
-    const readmeLines = [`# ${ver.title}${e.type === 'preview' ? '（@beta）' : ''}`, ''];
+    // 版本主页 README（无大标题，避免与顶栏重复；typedoc 会用 name(精简版本号) 渲染页面 H1）
+    const readmeLines = [
+      `${ver.title}${e.type === 'preview' ? '（@beta）' : ''}（Minecraft ${shortMc(e.mcVersion)}）`,
+      '',
+      '模块列表：',
+      '',
+    ];
     for (const mod of modules) {
       for (const flavor of ['rc', 'beta']) {
         const modName = `@minecraft/${mod.dir}${flavor === 'beta' ? '@beta' : ''}`;
@@ -242,7 +251,7 @@ async function main() {
     writeFile(path.join(genTDir, 'README.md'), readmeLines.join('\n'));
 
     saveManifest(manifest);
-    writeTsConfig(genTDir, `${ver.title}${e.type === 'preview' ? '（@beta）' : ''}`, './extra.css');
+    writeTsConfig(genTDir, shortMc(e.mcVersion), './extra.css');
     console.log(`  → typedoc 生成 _out/${ver.id}/…`);
     await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
   }
