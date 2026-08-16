@@ -214,8 +214,14 @@ async function main() {
         }
         const outName = `${mod.dir}${flavor === 'beta' ? '@beta' : ''}.d.ts`;
         const outPath = path.join(genTDir, '@minecraft', outName);
-        const res = makeTranslatedDts(srcPath, outPath, path.join(TRANS_DIR, mod.dir), `${mod.dir}/`, manifest);
-        // 未翻译/失效符号的源片段 → _out/translation-src/<模块>/<类型>/<符号>.d.ts（供工具下载翻译）
+        const res = makeTranslatedDts(
+          srcPath,
+          outPath,
+          path.join(TRANS_DIR, `${ver.id}-${flavor}`, mod.dir),
+          `${ver.id}-${flavor}/${mod.dir}/`,
+          manifest
+        );
+        // 未翻译/失效符号的源 md → _out/translation-src/<版本>-<口味>/<模块>/<类型>/<符号>.md（供工具下载翻译）
         const toSrcItems = (items) =>
           items.map((it) => {
             const rel = path.relative(TRANS_DIR, it.path);
@@ -223,6 +229,8 @@ async function main() {
             return { symbol: it.symbol, srcUrl: `/minecraft-doc/translation-src/${rel.split(path.sep).join('/')}` };
           });
         untranslatedGroups.push({
+          version: ver.id,
+          flavor,
           title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
           moduleTitle: mod.title,
           missing: toSrcItems(res.missing),

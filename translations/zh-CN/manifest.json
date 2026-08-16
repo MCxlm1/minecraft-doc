@@ -1,3 +1,3 @@
 {
-  "comment": "翻译 md 按文件名匹配：translations/zh-CN/<模块>/<类型>/<符号>.md（格式：# 符号名 + > 签名 + 注释文本）。manifest 记录源 JSDoc 哈希，源变化则翻译失效隐藏。"
+  "comment": "翻译 md 按文件名匹配：translations/zh-CN/<版本>-<口味>/<模块>/<类型>/<符号>.md。manifest key 带版本/口味前缀（如 stable-rc/math/Vector3Utils）。"
 }
