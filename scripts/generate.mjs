@@ -140,13 +140,56 @@ function buildUntranslated(groups) {
 }
 
 /* ---------------- 主流程 ---------------- */
-function main() {
+async function main() {
   const limitIdx = process.argv.indexOf('--limit');
   const limit = limitIdx >= 0 ? Number(process.argv[limitIdx + 1]) : Infinity;
 
   const versions = (SITE.versions || []).filter((v) => v.display !== false).slice(0, limit);
   const manifest = loadManifest();
   const untranslatedGroups = [];
+
+  // 主页先生成（typedoc generateDocs 会清空 outDir，先生成主页避免破坏版本站点）
+  const homeDir = path.join(GEN_T, 'home');
+  fs.rmSync(homeDir, { recursive: true, force: true });
+  fs.mkdirSync(homeDir, { recursive: true });
+  writeFile(path.join(homeDir, 'home.d.ts'), '/** 版本入口（由 generate.mjs 生成） */\nexport const versions = {} as const;\n');
+  const homeReadme = [
+    '# Minecraft @minecraft 类型文档',
+    '',
+    '由 typedoc 原生解析 `@minecraft/*` 的 index.d.ts 生成。选择一个版本进入：',
+    '',
+    '<div style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0">',
+  ];
+  for (const ver of versions) {
+    const e = mcEntry(ver.id) || {};
+    const isBeta = e.type === 'preview';
+    homeReadme.push(
+      `<a href="./${ver.id}/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit">`,
+      `<span style="font-weight:700;font-size:1.05rem">${ver.title}${isBeta ? ' <span style="color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px;font-size:.7rem">@beta</span>' : ''}</span>`,
+      `<span style="color:var(--color-text-aside);font-size:.85rem">${e.mcVersion || ''} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
+      '</a>'
+    );
+  }
+  homeReadme.push('</div>', '', '[查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
+  writeFile(path.join(homeDir, 'README.md'), homeReadme.join('\n'));
+
+  const homeTsconfig = {
+    compilerOptions: { module: 'commonjs', lib: ['es6', 'dom'], target: 'es6', noEmit: true, skipLibCheck: true },
+    typedocOptions: {
+      name: 'Minecraft @minecraft 类型文档',
+      entryPoints: ['home.d.ts'],
+      basePath: '.',
+      externalPattern: '',
+      lang: 'zh',
+      githubPages: false,
+      customCss: './extra.css',
+      cascadedModifierTags: [],
+    },
+  };
+  writeJson(path.join(homeDir, 'tsconfig.json'), homeTsconfig);
+  writeFile(path.join(homeDir, 'extra.css'), '/* 主页样式微调 */\n');
+  console.log('→ typedoc 生成主页 _out/…');
+  await generateTypedocSite({ tsconfigPath: path.join(homeDir, 'tsconfig.json'), outDir: OUT_DIR });
 
   for (const ver of versions) {
     const e = mcEntry(ver.id) || {};
@@ -194,58 +237,26 @@ function main() {
     saveManifest(manifest);
     writeTsConfig(genTDir, `${ver.title}（${e.mcVersion || ''}）`, './extra.css');
     console.log(`  → typedoc 生成 _out/${ver.id}/…`);
-    generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
+    await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
   }
 
-  // 主页（typedoc 生成）：README 放版本入口卡片
-  const homeDir = path.join(GEN_T, 'home');
-  fs.rmSync(homeDir, { recursive: true, force: true });
-  fs.mkdirSync(homeDir, { recursive: true });
-  writeFile(path.join(homeDir, 'home.d.ts'), '/** 版本入口（由 generate.mjs 生成） */\nexport const versions = {} as const;\n');
-  const homeReadme = [
-    '# Minecraft @minecraft 类型文档',
-    '',
-    '由 typedoc 原生解析 `@minecraft/*` 的 index.d.ts 生成。选择一个版本进入：',
-    '',
-    '<div style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0">',
-  ];
-  for (const ver of versions) {
-    const e = mcEntry(ver.id) || {};
-    const isBeta = e.type === 'preview';
-    homeReadme.push(
-      `<a href="./${ver.id}/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit">`,
-      `<span style="font-weight:700;font-size:1.05rem">${ver.title}${isBeta ? ' <span style="color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px;font-size:.7rem">@beta</span>' : ''}</span>`,
-      `<span style="color:var(--color-text-aside);font-size:.85rem">${e.mcVersion || ''} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
-      '</a>'
-    );
-  }
-  homeReadme.push('</div>', '', '[查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
-  writeFile(path.join(homeDir, 'README.md'), homeReadme.join('\n'));
+  // 主页（typedoc 生成）——已在 main 开头先生成（见上方），此处避免再次生成覆盖
 
-  const homeTsconfig = {
-    compilerOptions: { module: 'commonjs', lib: ['es6', 'dom'], target: 'es6', noEmit: true, skipLibCheck: true },
-    typedocOptions: {
-      name: 'Minecraft @minecraft 类型文档',
-      entryPoints: ['home.d.ts'],
-      basePath: '.',
-      externalPattern: '',
-      lang: 'zh',
-      githubPages: false,
-      customCss: './extra.css',
-      cascadedModifierTags: [],
-    },
-  };
-  writeJson(path.join(homeDir, 'tsconfig.json'), homeTsconfig);
-  writeFile(path.join(homeDir, 'extra.css'), '/* 主页样式微调 */\n');
-  console.log('→ typedoc 生成主页 _out/…');
-  generateTypedocSite({ tsconfigPath: path.join(homeDir, 'tsconfig.json'), outDir: OUT_DIR });
-
-  // 未翻译页（主页生成后再写，避免被 typedoc 清空）
+  // 未翻译页 + 未翻译 JSON（主页/站点生成后再写，避免被 typedoc 清空）
   writeFile(path.join(OUT_DIR, 'untranslated.html'), buildUntranslated(untranslatedGroups));
+  const untranslatedJson = {
+    generatedAt: new Date().toISOString(),
+    total: {
+      missing: untranslatedGroups.reduce((s, g) => s + g.missing.length, 0),
+      expired: untranslatedGroups.reduce((s, g) => s + g.expired.length, 0),
+    },
+    versions: untranslatedGroups,
+  };
+  writeJson(path.join(OUT_DIR, 'untranslated.json'), untranslatedJson);
 
   console.log('\n完成。输出目录 _out/：');
   console.log('  版本站点:', versions.map((v) => v.id).join(' | '));
   console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + g.missing.length + g.expired.length, 0));
 }
 
-main();
+main().catch((e) => { console.error(e); process.exit(1); });
