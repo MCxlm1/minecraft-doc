@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
- * generate.mjs — 生成器主脚本（MkDocs Material 版）
+ * generate.mjs — 生成器主脚本（VitePress 版）
  *  1) 读取 site-config.json（显示哪些版本/模块）+ minecraft-versions.json（版本/模块版本号）
  *  2) 对每个 (版本, 模块 rc/beta) 用 typedoc 把 @minecraft 包的 index.d.ts 转符号级 md
  *  3) 应用翻译（manifest 源哈希校验，失效隐藏）+ 渲染层转换（头部精简/readonly 标签/MDX 转义）
- *  4) 输出到 site/（MkDocs docs_dir）：
- *     - site/docs/<版本>/<模块>/ 文档（符号页带 icon front matter）
- *     - site/index.md 主页（版本入口）
- *     - site/docs/<版本>/index.md 版本主页（模块列表）
- *     - site/untranslated.md 未翻译清单
- *     - site/stylesheets/custom.css 样式
+ *  4) 输出到 VitePress 结构：
+ *     - docs/<版本>/<模块>/... 文档（符号页带类型徽章 HTML）
+ *     - docs/index.md 主页（版本入口）
+ *     - docs/<版本>/index.md 版本主页（模块列表）
+ *     - docs/untranslated.md 未翻译清单
+ *     - .vitepress/config.mjs（base/sidebar/nav，由生成器产出）
+ *     - .vitepress/theme/style.css 样式
  *
  * 用法: node scripts/generate.mjs [--limit <n>]
  */
@@ -25,13 +26,13 @@ const BIN_TYPEDOC = path.join(ROOT, 'node_modules', '.bin', 'typedoc');
 
 const REGISTRY = path.join(ROOT, 'registry');
 const GEN_ROOT = path.join(ROOT, '_gen');
-const SITE_DIR = path.join(ROOT, 'site'); // MkDocs docs_dir
-// 文档直接放 site/ 根（site/<版本>/<模块>/...），避免多出 /docs/ 路由层
-const DOCS_DIR = SITE_DIR;
+const VPDOCS = path.join(ROOT, 'docs'); // VitePress 项目根
+const VPCONFIG = path.join(VPDOCS, '.vitepress'); // VitePress 配置目录（生成）
 const MC_VERSIONS = readJson(path.join(ROOT, 'minecraft-versions.json'));
 const SITE = readJson(path.join(ROOT, 'site-config.json'));
 const LANG = (SITE.site && SITE.site.lang) || 'zh-CN';
 const TRANS_DIR = path.join(ROOT, 'translations', LANG);
+const BASE_URL = '/minecraft-doc/'; // GitHub Pages 项目页
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -66,7 +67,7 @@ function mcEntry(versionId) {
   return null;
 }
 
-/* ---------------- 渲染层转换 ---------------- */
+/* ---------------- 渲染层转换（同前） ---------------- */
 function escapeJsx(seg) {
   return seg
     .replace(/(?<!\\)<(?=[A-Za-z_$=!/>])/g, '\\<')
@@ -147,7 +148,7 @@ function walk(dir, base = '') {
 function runTypedoc(entry, outDir) {
   fs.mkdirSync(outDir, { recursive: true });
   fs.rmSync(outDir, { recursive: true, force: true });
-  execFileSync(BIN_TYPEDOC, [
+  const args = [
     '--skipErrorChecking',
     '--excludeInternal',
     '--excludePrivate',
@@ -155,7 +156,8 @@ function runTypedoc(entry, outDir) {
     '--entryPointStrategy', 'expand',
     '--entryPoints', entry,
     '--out', outDir,
-  ], { stdio: 'pipe' });
+  ];
+  execFileSync(BIN_TYPEDOC, args, { stdio: 'pipe' });
 }
 
 /* ---------------- 分类 ---------------- */
@@ -176,14 +178,14 @@ const KIND_FOLDER = {
   variables: 'variable',
   'type-aliases': 'typeAlias',
 };
-// 符号类型 → MkDocs meta.icon（overrides/icons/ 下的 SVG）
-const ICON_MAP = {
-  class: 'class-c',
-  interface: 'interface-i',
-  enum: 'enum-e',
-  function: 'function-f',
-  variable: 'variable-v',
-  typeAlias: 'type-alias-t',
+// 符号类型 → 字母 + 颜色（页面内徽章）
+const KIND_META = {
+  class: { letter: 'C', color: '#3b82f6' },
+  interface: { letter: 'I', color: '#10b981' },
+  enum: { letter: 'E', color: '#8b5cf6' },
+  function: { letter: 'F', color: '#f59e0b' },
+  variable: { letter: 'V', color: '#06b6d4' },
+  typeAlias: { letter: 'T', color: '#ec4899' },
 };
 
 function fileCategory(rel) {
@@ -215,24 +217,20 @@ function loadManifest() {
 function saveManifest(m) {
   writeJson(path.join(TRANS_DIR, 'manifest.json'), m);
 }
-
 function processModule(versionId, moduleId, moduleCfg, genModuleDir, manifest) {
   const files = walk(genModuleDir).filter((f) => f.endsWith('.md'));
   const copies = [];
   const missing = [];
   const expired = [];
   const KEY_PREFIX = `${versionId}/${moduleId}/`;
-
   for (const rel of files) {
     const cat = fileCategory(rel);
     if (!keepByShowTypes(cat, moduleCfg)) continue;
     if (isHidden(rel, moduleCfg)) continue;
-
     const srcBytes = normalize(fs.readFileSync(path.join(genModuleDir, rel), 'utf8'));
     const srcHash = sha1(srcBytes);
     const key = `${KEY_PREFIX}${rel}`;
     const isSymbolPage = !!KIND_FOLDER[cat];
-
     const transFile = path.join(TRANS_DIR, versionId, moduleId, rel);
     if (fs.existsSync(transFile)) {
       const recorded = manifest[key];
@@ -249,6 +247,17 @@ function processModule(versionId, moduleId, moduleCfg, genModuleDir, manifest) {
     }
   }
   return { copies, missing, expired };
+}
+
+/* ---------------- 符号页类型徽章 ---------------- */
+function insertKindBadge(md, kind) {
+  const meta = KIND_META[kind];
+  if (!meta) return md;
+  const badge = `<span class="sym-badge" style="background:${meta.color}">${meta.letter}</span>\n\n`;
+  const idx = md.indexOf('# ');
+  if (idx === -1) return badge + md;
+  // 在第一个 H1 前插入徽章
+  return md.slice(0, idx) + badge + md.slice(idx);
 }
 
 /* ---------------- 主流程 ---------------- */
@@ -279,7 +288,6 @@ function main() {
     }
   }
   const genList = targets.slice(0, limit);
-
   console.log(`生成 ${genList.length} 个 (版本,模块 rc/beta)：`);
   const manifest = loadManifest();
   const moduleResults = [];
@@ -294,7 +302,7 @@ function main() {
     if (typedocCache.has(cacheKey)) {
       fs.rmSync(genModuleDir, { recursive: true, force: true });
       fs.cpSync(typedocCache.get(cacheKey), genModuleDir, { recursive: true });
-      console.log(`  → ${verId}/${modId} (${t.mod.dir}) [复用]`);
+      console.log(`  → ${verId}/${modId} (${t.mod.dir}) [复用生成结果]`);
     } else {
       console.log(`  → ${verId}/${modId} (${t.mod.dir})`);
       runTypedoc(t.src, genModuleDir);
@@ -305,60 +313,64 @@ function main() {
   }
   saveManifest(manifest);
 
-  // ---------- 输出 site/（MkDocs docs_dir） ----------
-  fs.rmSync(SITE_DIR, { recursive: true, force: true });
+  // ---------- 输出 VitePress 文档 ----------
+  fs.rmSync(VPDOCS, { recursive: true, force: true });
+  fs.rmSync(VPCONFIG, { recursive: true, force: true });
 
-  const versionMap = new Map(); // verId -> {id,title,order,isBeta,mcVersion,modules:[]}
+  const versionMap = new Map();
   for (const r of moduleResults) {
-    const docModuleDir = path.join(DOCS_DIR, r.verId, r.modId);
+    const docModuleDir = path.join(VPDOCS, r.verId, r.modId);
     for (const c of r.copies) {
       const rel = c.rel === 'README.md' ? 'index.md' : c.rel;
-      let bytes = c.bytes;
       const kind = KIND_FOLDER[fileCategory(c.rel)];
-      if (kind && ICON_MAP[kind]) {
-        bytes = `---\nicon: ${ICON_MAP[kind]}\n---\n\n${bytes}`;
-      }
+      let bytes = c.bytes;
+      if (kind) bytes = insertKindBadge(bytes, kind);
       writeFile(path.join(docModuleDir, rel), bytes);
     }
-
     let v = versionMap.get(r.verId);
     if (!v) {
       const e = mcEntry(r.verId) || {};
-      v = { id: r.verId, title: r.ver.title || r.verId, order: r.ver.order || 0, isBeta: e.type === 'preview', mcVersion: e.mcVersion || '', modules: [] };
+      v = {
+        id: r.verId,
+        title: r.ver.title || r.verId,
+        order: r.ver.order || 0,
+        isBeta: e.type === 'preview',
+        mcVersion: e.mcVersion || '',
+        modules: [],
+      };
       versionMap.set(r.verId, v);
     }
     v.modules.push({ id: r.modId, title: r.mod.title || r.mod.dir, order: r.mod.order || 0 });
   }
-
   const sortedVersions = [...versionMap.values()].sort((a, b) => a.order - b.order);
+  for (const v of sortedVersions) v.modules.sort((a, b) => (a.order || 0) - (b.order || 0));
 
-  // 版本主页（模块列表）
+  // 版本主页（模块入口列表）
   for (const v of sortedVersions) {
-    v.modules.sort((a, b) => (a.order || 0) - (b.order || 0));
     const lines = [
       `# ${v.title}${v.isBeta ? ' `@beta`' : ''}`,
       '',
-      `Minecraft 版本：${v.mcVersion || '—'}｜模块 rc/beta 双入口`,
+      `Minecraft 版本：${v.mcVersion || '—'}｜每个模块含 rc 与 beta 双入口`,
       '',
       '模块列表：',
       '',
     ];
     for (const m of v.modules) lines.push(`- [${m.title}](<${m.id}/>)`);
     lines.push('');
-    writeFile(path.join(DOCS_DIR, v.id, 'index.md'), lines.join('\n'));
+    writeFile(path.join(VPDOCS, v.id, 'index.md'), lines.join('\n'));
   }
 
   // 主页（版本入口）
   const home = [
     `# ${(SITE.site && SITE.site.title) || 'Docs'}`,
     '',
-    '由 typedoc 解析 `@minecraft/*` 的 index.d.ts 生成，经 MkDocs Material 渲染。选择一个版本开始浏览：',
+    '由 typedoc 解析 `@minecraft/*` 的 index.d.ts 生成，经 VitePress 渲染。选择一个版本开始浏览：',
     '',
     '<div class="version-grid">',
   ];
   for (const v of sortedVersions) {
     home.push(
-      `  <a class="version-card" href="${v.id === 'index' ? '' : `${v.id}/`}">`,
+      `  <a class="version-card" href="${v.id}/">`,
       `    <span class="version-name">${v.title}${v.isBeta ? '<span class="beta-badge">@beta</span>' : ''}</span>`,
       `    <span class="version-mc">${v.mcVersion || ''}</span>`,
       `    <span class="version-mod-count">${v.modules.length} 个模块</span>`,
@@ -366,7 +378,7 @@ function main() {
     );
   }
   home.push('</div>', '');
-  writeFile(path.join(SITE_DIR, 'index.md'), home.join('\n'));
+  writeFile(path.join(VPDOCS, 'index.md'), home.join('\n'));
 
   // 未翻译页
   const untranslated = [];
@@ -386,9 +398,7 @@ function main() {
   const totalMissing = untranslated.reduce((s, x) => s + x.missing.length, 0);
   const totalExpired = untranslated.reduce((s, x) => s + x.expired.length, 0);
   utLines.push(`未翻译（显示英文源）：**${totalMissing}** 项　|　翻译失效（已隐藏，等待重新上传）：**${totalExpired}** 项`, '');
-  if (untranslated.length === 0) {
-    utLines.push('🎉 当前没有未翻译或失效的内容。', '');
-  }
+  if (untranslated.length === 0) utLines.push('🎉 当前没有未翻译或失效的内容。', '');
   for (const x of untranslated) {
     utLines.push(`## ${x.versionTitle} / ${x.moduleTitle}`, '');
     if (x.expired.length > 0) {
@@ -402,50 +412,105 @@ function main() {
       utLines.push('</ul>', '');
     }
   }
-  writeFile(path.join(SITE_DIR, 'untranslated.md'), utLines.join('\n'));
+  writeFile(path.join(VPDOCS, 'untranslated.md'), utLines.join('\n'));
 
-  // 样式
-  writeFile(path.join(SITE_DIR, 'stylesheets', 'custom.css'), CUSTOM_CSS);
+  // ---------- 生成 .vitepress/config.mjs（sidebar 等） ----------
+  const sidebar = {};
+  for (const v of sortedVersions) {
+    const base = `/${v.id}/`;
+    const items = [];
+    for (const m of v.modules) {
+      const r = moduleResults.find((x) => x.verId === v.id && x.modId === m.id);
+      const symItems = [{ text: '概述', link: `${base}${m.id}/` }];
+      if (r) {
+        for (const c of r.copies) {
+          const rel = c.rel === 'README.md' ? 'index.md' : c.rel;
+          if (rel === 'index.md' || rel === 'globals.md') continue;
+          const link = `${base}${m.id}/${rel.replace(/\.md$/, '')}`;
+          symItems.push({ text: path.basename(rel, '.md'), link });
+        }
+      }
+      items.push({ text: m.title, collapsed: true, items: symItems });
+    }
+    sidebar[base] = [{ text: '版本主页', link: base }, ...items];
+  }
+
+  const siteTitle = (SITE.site && SITE.site.title) || 'Docs';
+  const configMjs = `import { defineConfig } from 'vitepress'
+export default defineConfig({
+  title: ${JSON.stringify(siteTitle)},
+  description: 'Minecraft @minecraft 类型文档',
+  base: ${JSON.stringify(BASE_URL)},
+  ignoreDeadLinks: true,
+  themeConfig: {
+    nav: [
+      { text: '文档', link: '/preview/' },
+      { text: '未翻译清单', link: '/untranslated' },
+    ],
+    sidebar: ${JSON.stringify(sidebar, null, 2)},
+    outline: { level: [2, 3] },
+    search: { provider: 'local' },
+  },
+})
+`;
+  writeFile(path.join(VPCONFIG, 'config.mjs'), configMjs);
+  writeFile(path.join(VPCONFIG, 'theme', 'style.css'), STYLE_CSS);
+  writeFile(path.join(VPCONFIG, 'theme', 'index.js'), `import DefaultTheme from 'vitepress/theme'
+import './style.css'
+export default DefaultTheme
+`);
 
   console.log('\n完成。生成模块数:', moduleResults.length);
   const totalFiles = moduleResults.reduce((s, r) => s + r.copies.length, 0);
   const missTotal = moduleResults.reduce((s, r) => s + r.missing.length, 0);
   const expTotal = moduleResults.reduce((s, r) => s + r.expired.length, 0);
-  console.log(`写入 site 文件: ${totalFiles} | 未翻译: ${missTotal} | 翻译失效: ${expTotal}`);
+  console.log(`写入 docs 文件: ${totalFiles} | 未翻译: ${missTotal} | 翻译失效: ${expTotal}`);
 }
 
-const CUSTOM_CSS = `
-/* 符号类型 SVG 徽章 */
-.sym-badge { width: 1.1rem; height: 1.1rem; margin-right: 0.35rem; vertical-align: -0.2rem; }
-.md-nav__link .md-icon.sym-badge { vertical-align: -0.25rem; }
+const STYLE_CSS = `/* 符号类型徽章 */
+.sym-badge {
+  display: inline-block;
+  width: 1.15em; height: 1.15em;
+  line-height: 1.15em;
+  text-align: center;
+  color: #fff; font-weight: 700; font-size: 0.72em;
+  border-radius: 4px; margin-right: 0.4em;
+  vertical-align: 0.08em;
+}
 
 /* 主页版本入口卡片 */
 .version-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
 .version-card {
   display: inline-flex; flex-direction: column; gap: 0.3rem;
   padding: 1.1rem 1.3rem; min-width: 240px;
-  border: 1px solid var(--md-default-fg-color--lightest);
+  border: 1px solid var(--vp-c-divider);
   border-radius: 12px; text-decoration: none;
   transition: box-shadow .15s ease, border-color .15s ease;
 }
-.version-card:hover { border-color: var(--md-primary-fg-color); box-shadow: 0 4px 16px rgba(0,0,0,.1); }
-.version-name { font-size: 1.15rem; font-weight: 700; color: var(--md-primary-fg-color--dark); }
-.version-mc { color: var(--md-default-fg-color--light); font-size: .9rem; }
-.version-mod-count { color: var(--md-default-fg-color--light); font-size: .82rem; }
+.version-card:hover { text-decoration: none; border-color: var(--vp-c-brand-1); box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+.version-name { font-size: 1.1rem; font-weight: 700; color: var(--vp-c-brand-1); display: flex; align-items: center; gap: .5rem; }
 .beta-badge {
-  display: inline-block; margin-left: .4rem;
   font-size: .72rem; color: #e11d48;
-  border: 1px solid #e11d48; border-radius: 4px; padding: 0 5px; line-height: 17px;
+  border: 1px solid #e11d48; border-radius: 4px;
+  padding: 0 5px; line-height: 17px; white-space: nowrap;
 }
+.version-mc { color: var(--vp-c-text-2); font-size: .9rem; }
+.version-mod-count { color: var(--vp-c-text-3); font-size: .82rem; }
 
 /* 未翻译页 */
-.ut-expired { background: #fff1f1; border-left: 4px solid #e11d48; padding: .5rem .9rem; border-radius: 6px; }
-.ut-list { list-style: none; padding-left: .5rem; }
+.ut-expired {
+  background: rgba(225,29,72,.07);
+  border-left: 4px solid #e11d48;
+  padding: .5rem .9rem; border-radius: 6px;
+}
 .ut-expired-item { color: #e11d48; }
 .expired-badge {
   display: inline-block; background: #e11d48; color: #fff;
-  font-size: .72rem; padding: .1rem .45rem; border-radius: 4px; margin-right: .35rem;
+  font-size: .72rem; padding: 0 .45rem; border-radius: 4px;
+  margin-right: .35rem;
 }
+.ut-list li { margin: .2rem 0; }
+.ut-list code { font-size: .78em; opacity: .7; }
 `;
 
 main();

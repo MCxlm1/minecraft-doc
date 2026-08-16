@@ -10,11 +10,13 @@ _work/
 # 需 npm 下载的 @minecraft 包（由 npm-update.mjs 生成 registry/<key>/<rc|beta>/package.json + node_modules）
 registry/
 
-# MkDocs 生成物
-site/
-_site/
+# VitePress 生成物（generate.mjs 输出）
+docs/
+docs/.vitepress/dist/
 
 # 压缩包
 *.tar.gz
 *.zip
+
+# Docusaurus 遗留缓存
 .docusaurus/

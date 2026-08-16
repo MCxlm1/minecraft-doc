@@ -1,8 +1,8 @@
-# @minecraft 类型文档站（typedoc → MkDocs Material）
+# @minecraft 类型文档站（typedoc → VitePress）
 
-把多个 `@minecraft/*` 包的 `index.d.ts`，用 **typedoc** 解析成符号级 Markdown，再交给 **MkDocs Material** 渲染成中文文档站。
-支持：版本（正式版 / preview@beta）、rc/beta 双模块入口、彩色 SVG 类型图标、中文翻译（含有效性校验）、未翻译清单页、GitHub Actions 手动双模式构建并部署到 GitHub Pages。
-（从 Docusaurus 迁移而来——MkDocs 纯 Python 逐页渲染，彻底解决大文档量构建内存问题。）
+把多个 `@minecraft/*` 包的 `index.d.ts`，用 **typedoc** 解析成符号级 Markdown，再交给 **VitePress** 渲染成中文文档站。
+支持：版本（正式版 / preview@beta）、rc/beta 双模块入口、彩色类型字母徽章、中文翻译（含有效性校验）、未翻译清单页、GitHub Actions 手动双模式构建并部署到 GitHub Pages。
+（从 Docusaurus → MkDocs 迁移而来，最终选用 VitePress：构建快、原生 `base` 支持 GitHub Pages 子路径。）
 
 ---
 
@@ -13,17 +13,14 @@ docs-site/
 ├── minecraft-versions.json   # 版本来源：Minecraft 版本 → 模块 → rc(正式版)/beta(测试版) 版本号
 ├── site-config.json          # 显示配置：哪些版本/模块显示、标题、排序、隐藏、未翻译页开关
 ├── site-config.full.json     # 完整双版本配置备份（12 模块 × 正式版+preview）
-├── mkdocs.yml                # MkDocs Material 配置（docs_dir: site, site_dir: _site）
-├── overrides/
-│   └── .icons/               # SVG 字母图标（class-c / enum-e / function-f / interface-i / type-alias-t / variable-v）
 ├── scripts/
-│   ├── generate.mjs          # 主生成器：typedoc→md→转换→翻译→输出 site/（MkDocs docs_dir）
+│   ├── generate.mjs          # 主生成器：typedoc→md→转换→翻译→输出 docs/ + .vitepress/config.mjs
 │   ├── npm-update.mjs        # 版本自动工具：npm view 更新版本号 + 下载包
 │   └── dehardlink.mjs        # 仅本沙箱环境需要（断 pnpm 硬链接），可删
 ├── translations/zh-CN/       # 中文翻译（镜像结构，只放已翻译的 md）
 │   └── manifest.json         # 翻译有效性清单（记录源 md 哈希）
-├── site/                     # 生成物（MkDocs docs_dir，gitignore）
-├── _site/                    # MkDocs 构建产物（gitignore）
+├── docs/                     # 生成物（VitePress 项目根，gitignore）：index.md / preview/ / untranslated.md / .vitepress/
+├── registry/                 # @minecraft 包（gitignore，由 npm-update 下载）
 └── .github/workflows/docs.yml
 ```
 
@@ -36,13 +33,12 @@ docs-site/
 
 ## 站点结构
 
-- **主页 `site/index.md`**：版本入口卡片（当前临时仅 Preview@beta，双版本配置在 site-config.full.json）
-- **版本主页 `/preview/`**：模块入口列表；**每个模块都有 rc 和 beta 两个入口**：
-  - rc：`@minecraft/server`（用 rc 版本生成）
-  - beta：`@minecraft/server@beta`（用 beta 版本生成）
+- **主页 `/`**：版本入口卡片（当前临时仅 Preview@beta；双版本在 site-config.full.json）
+- **版本主页 `/preview/`**：模块入口列表；**每个模块有 rc 和 beta 两个入口**（`@minecraft/server` 与 `@minecraft/server@beta`）
 - **模块文档 `/preview/<模块>/...`**（rc 与 beta 各自独立）：
-  - 符号页带 `icon:` front matter（class-c / interface-i / enum-e / function-f / variable-v / type-alias-t），Material 渲染彩色 SVG 字母图标
-  - 侧边栏按目录自动生成，只展开当前模块
+  - 符号页顶部有**彩色字母徽章**（C=类蓝 / I=接口绿 / E=枚举紫 / F=函数橙 / V=变量青 / T=类型别名粉）
+  - 侧边栏按目录生成：模块默认折叠，只展开当前模块；符号平铺
+  - URL 形如 `/preview/math/classes/AABBInvalidExtentError.html`（`base: /minecraft-doc/`）
 - 页面头部精简为：`@minecraft/server / 符号名` + `Class: 符号名` + 描述
 - 属性/方法签名：`readonly`/`optional`/`static` 等修饰符并入 `###` 标题行（如 `### readonly optional cancelationReason?`）
 
@@ -51,7 +47,7 @@ docs-site/
 - 翻译文件放在 `translations/zh-CN/<version>/<module>/<同路径>.md`，**只放已翻译的**
 - **无翻译** → 显示英文源 md
 - **有效判定**：`manifest.json` 记录每份翻译对应的**源 md 完整文件哈希**；当前哈希一致 → 用翻译，否则 → **翻译失效（隐藏）**，等重新上传
-- 失效翻译列到「未翻译页」（`/untranslated/`，标红）
+- 失效翻译列到「未翻译清单页」（`/untranslated.html`，标红）
 - 注：typedoc 产物含 `<x, y, z>`、`<=`、`{a:1}` 等文本，生成器已自动转义（`\<`、`\{`），CommonMark 渲染兼容
 
 ## GitHub Actions（手动触发）
@@ -65,20 +61,20 @@ on:
 ```
 - `rebuild`：仅重新构建网页
 - `rebuild-and-update`：按 `minecraft-versions.json` 重新 `npm` 下载对应版本（`npm-update.mjs`）→ 重建
-- 流程：`pnpm install`（typedoc 工具链）→ `pip install mkdocs-material` → `node scripts/generate.mjs` → `mkdocs build` → 部署 `_site` → gh-pages
+- 流程：`pnpm install` → `node scripts/generate.mjs` → `npx vitepress build docs` → 部署 `docs/.vitepress/dist` → gh-pages
 - 站点地址 `https://MCxlm1.github.io/minecraft-doc/`
 
 ## 本地运行
 
 ```bash
-pnpm install                    # typedoc 工具链
+pnpm install                    # typedoc + vitepress
 node scripts/npm-update.mjs     # 可选：npm view 更新版本 + 下载包
-node scripts/generate.mjs       # 生成 site/（MkDocs docs_dir）
-mkdocs build                    # 构建到 _site/
-mkdocs serve                    # 本地预览 http://localhost:8000
+node scripts/generate.mjs       # 生成 docs/ + .vitepress/config.mjs
+npx vitepress dev docs          # 本地预览 http://localhost:5173/minecraft-doc/
+npx vitepress build docs        # 构建到 docs/.vitepress/dist/
 ```
 
 ## 说明
 
-- 仓库只含**源码和配置**：`site/`（生成）与 `registry/` 下的 @minecraft 包（需 `npm` 下载）不入库
-- 临时单版本 preview（12 模块 × rc/beta = 24 入口）；双版本（stable+preview）配置在 `site-config.full.json`，恢复：`cp site-config.full.json site-config.json` 后重新 generate/build（MkDocs 内存无忧，无需升级 runner）
+- 仓库只含**源码和配置**：`docs/`（生成）与 `registry/` 下的 @minecraft 包（需 `npm` 下载）不入库
+- 临时单版本 preview（12 模块 × rc/beta = 24 入口）；双版本（stable+preview）配置在 `site-config.full.json`，恢复：`cp site-config.full.json site-config.json` 后重新 generate/build

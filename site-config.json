@@ -1,5 +1,5 @@
 {
-  "comment": "临时单版本 preview（12 模块 × rc/beta）。双版本见 site-config.full.json",
+  "comment": "VitePress 单版本 preview（12 模块 × rc/beta）",
   "site": {
     "title": "Minecraft @minecraft 类型文档",
     "lang": "zh-CN",

@@ -6,11 +6,15 @@
   "scripts": {
     "generate": "node scripts/generate.mjs",
     "g": "node scripts/generate.mjs",
-    "build": "node scripts/generate.mjs && mkdocs build"
+    "build": "node scripts/generate.mjs && vitepress build docs",
+    "dev": "vitepress dev docs"
   },
   "devDependencies": {
     "typedoc": "0.26.11",
     "typedoc-plugin-markdown": "4.2.10",
     "typescript": "5.6.3"
+  },
+  "dependencies": {
+    "vitepress": "^1.6.0"
   }
 }
