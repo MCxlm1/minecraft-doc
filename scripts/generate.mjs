@@ -2,17 +2,20 @@
 /**
  * generate.mjs — 主生成器（typedoc 原生 + 翻译片段 hook，参考 sapi-typedoc）
  *  1) 读 site-config.json + minecraft-versions.json
- *  2) 对每个 (版本 × rc/beta)：
- *     - 从 registry/<版本>/<口味>/node_modules/@minecraft/<dir>/<entry> 读原始 d.ts
- *     - ts-morph 提取顶层符号 → 用 translations/zh-CN/<模块>/<类型>/<符号>.d.ts 翻译片段替换（文件名匹配）
- *     - manifest 哈希校验（源变则失效隐藏）
- *     - 生成 tsconfig.json + typedoc 原生生成 HTML 到 _out/<版本>-<口味>/
- *  3) 主页 index.html（版本×口味入口）+ 未翻译页 untranslated.html
+ *  2) 对每个版本（stable / preview）：
+ *     - rc 模块 → _gen-t/<版本>/@minecraft/<模块>.d.ts
+ *     - beta 模块 → _gen-t/<版本>/@minecraft/<模块>@beta.d.ts（模块名含 @beta，与 rc 并列同站点）
+ *     - ts-morph 提取符号 + 翻译片段替换（translations/zh-CN/<模块>/<类型>/<符号>.d.ts，文件名匹配）
+ *     - 版本 README（标题 + 模块链接列表，无说明）+ tsconfig（basePath 使模块名显示 @minecraft/server）
+ *     - typedoc 原生生成 → _out/<版本>/
+ *  3) 主页也用 typedoc 生成（README 放版本入口卡片）→ _out/
+ *  4) 未翻译页 _out/untranslated.html
  *
  * 用法: node scripts/generate.mjs [--limit <n>]
  */
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { Project } from 'ts-morph';
 import { splitSymbols, replacePieces } from './split.mjs';
@@ -22,12 +25,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, '..');
 
 const REGISTRY = path.join(ROOT, 'registry');
-const GEN_T = path.join(ROOT, '_gen-t'); // 翻译版 d.ts（每 版本-口味 一个子目录）
-const OUT_DIR = path.join(ROOT, '_out'); // typedoc 输出根（部署目录）
+const GEN_T = path.join(ROOT, '_gen-t');
+const OUT_DIR = path.join(ROOT, '_out');
 const MC_VERSIONS = readJson(path.join(ROOT, 'minecraft-versions.json'));
 const SITE = readJson(path.join(ROOT, 'site-config.json'));
 const LANG = (SITE.site && SITE.site.lang) || 'zh-CN';
-const TRANS_DIR = path.join(ROOT, 'translations', LANG); // translations/zh-CN/<模块>/<类型>/<符号>.d.ts
+const TRANS_DIR = path.join(ROOT, 'translations', LANG);
 const MANIFEST_PATH = path.join(TRANS_DIR, 'manifest.json');
 
 function readJson(p) {
@@ -43,8 +46,6 @@ function writeJson(p, obj) {
 function sha1(s) {
   return crypto.createHash('sha1').update(s, 'utf8').digest('hex');
 }
-import crypto from 'crypto';
-
 function catalogOf(version) {
   return (version.catalog || version.id || '').replace(/^v/i, '');
 }
@@ -60,7 +61,6 @@ function mcEntry(versionId) {
   }
   return null;
 }
-
 function loadManifest() {
   if (fs.existsSync(MANIFEST_PATH)) return readJson(MANIFEST_PATH);
   return {};
@@ -69,7 +69,7 @@ function saveManifest(m) {
   writeJson(MANIFEST_PATH, m);
 }
 
-/* ---------------- 翻译版 d.ts 生成 ---------------- */
+/* ---------------- 翻译版 d.ts ---------------- */
 function makeTranslatedDts(srcPath, outPath, translationsRoot, keyPrefix, manifest) {
   const content = fs.readFileSync(srcPath, 'utf-8').replace(/\r\n|\r/g, '\n');
   const project = new Project({ skipAddingFilesFromTsConfig: true, skipFileDependencyResolution: true });
@@ -80,10 +80,8 @@ function makeTranslatedDts(srcPath, outPath, translationsRoot, keyPrefix, manife
   return res;
 }
 
-/* ---------------- 生成一个 (版本×口味) 的 tsconfig ---------------- */
-function writeTsConfig(genTDir, siteName, modules) {
-  const paths = {};
-  for (const m of modules) paths[`@minecraft/${m.dir}`] = [`./${m.dir}.d.ts`];
+/* ---------------- tsconfig ---------------- */
+function writeTsConfig(genTDir, siteName, extraCss) {
   const tsconfig = {
     compilerOptions: {
       module: 'commonjs',
@@ -91,56 +89,23 @@ function writeTsConfig(genTDir, siteName, modules) {
       target: 'es6',
       noEmit: true,
       skipLibCheck: true,
-      paths,
     },
     typedocOptions: {
       name: siteName,
-      entryPoints: ['*.d.ts'],
+      entryPoints: ['@minecraft/*.d.ts'],
+      basePath: '.',
       externalPattern: '',
       lang: 'zh',
       githubPages: false,
-      customCss: './extra.css',
+      customCss: extraCss,
       cascadedModifierTags: [],
     },
   };
   writeJson(path.join(genTDir, 'tsconfig.json'), tsconfig);
-  writeFile(
-    path.join(genTDir, 'extra.css'),
-    '/* 隐藏 "Defined in"（兜底） */\n.tsd-sources { display: none !important; }\n'
-  );
+  writeFile(path.join(genTDir, 'extra.css'), '/* 隐藏 "Defined in"（兜底） */\n.tsd-sources { display: none !important; }\n');
 }
 
-/* ---------------- 主页 / 未翻译页 ---------------- */
-function buildHome(entries) {
-  const lines = [];
-  lines.push('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">');
-  lines.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
-  lines.push('<title>Minecraft @minecraft 类型文档</title>');
-  lines.push('<style>');
-  lines.push('body{font-family:system-ui,sans-serif;max-width:960px;margin:0 auto;padding:2rem 1rem;color:#1f2937}');
-  lines.push('h1{font-size:1.8rem}.sub{color:#6b7280;margin-bottom:1.5rem}');
-  lines.push('.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}');
-  lines.push('.card{display:block;padding:1.1rem 1.2rem;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;color:inherit}');
-  lines.push('.card:hover{border-color:#4f46e5;box-shadow:0 4px 16px rgba(0,0,0,.08)}');
-  lines.push('.card .t{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.5rem}');
-  lines.push('.beta{font-size:.7rem;color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px}');
-  lines.push('.card .d{color:#6b7280;font-size:.85rem;margin-top:.3rem}');
-  lines.push('</style></head><body>');
-  lines.push('<h1>Minecraft @minecraft 类型文档</h1>');
-  lines.push('<p class="sub">由 typedoc 原生解析 @minecraft/* 的 index.d.ts 生成。选择 版本 × rc/beta 进入：</p>');
-  lines.push('<div class="grid">');
-  for (const e of entries) {
-    lines.push(`<a class="card" href="${e.dir}/">`);
-    lines.push(`<span class="t">${e.title}${e.beta ? '<span class="beta">@beta</span>' : ''}</span>`);
-    lines.push(`<span class="d">${e.mcVersion} ｜ ${e.modCount} 个模块</span>`);
-    lines.push('</a>');
-  }
-  lines.push('</div>');
-  lines.push('<p style="margin-top:2rem"><a href="untranslated.html">查看未翻译 / 翻译失效清单 →</a></p>');
-  lines.push('</body></html>');
-  return lines.join('\n');
-}
-
+/* ---------------- 未翻译页 ---------------- */
 function buildUntranslated(groups) {
   const lines = [];
   lines.push('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">');
@@ -148,12 +113,13 @@ function buildUntranslated(groups) {
   lines.push('<title>未翻译清单 - Minecraft @minecraft 类型文档</title>');
   lines.push('<style>');
   lines.push('body{font-family:system-ui,sans-serif;max-width:960px;margin:0 auto;padding:2rem 1rem;color:#1f2937}');
-  lines.push('.exp{color:#e11d48}.expired{background:rgba(225,29,72,.06);border-left:4px solid #e11d48;padding:.5rem .8rem;border-radius:6px}');
+  lines.push('a{color:#4f46e5}.exp{color:#e11d48}.expired{background:rgba(225,29,72,.06);border-left:4px solid #e11d48;padding:.5rem .8rem;border-radius:6px}');
   lines.push('li{margin:.15rem 0}code{font-size:.8em;color:#6b7280}');
   lines.push('</style></head><body>');
   lines.push('<h1>未翻译 / 翻译失效清单</h1>');
   const totalMissing = groups.reduce((s, g) => s + g.missing.length, 0);
   const totalExpired = groups.reduce((s, g) => s + g.expired.length, 0);
+  lines.push(`<p><a href="./">← 返回主页</a></p>`);
   lines.push(`<p>未翻译：<b>${totalMissing}</b> 项 ｜ 翻译失效（源已变化，等待重新上传）：<b class="exp">${totalExpired}</b> 项</p>`);
   if (groups.length === 0) lines.push('<p>🎉 当前没有未翻译或失效的内容。</p>');
   for (const g of groups) {
@@ -178,65 +144,107 @@ function main() {
   const limitIdx = process.argv.indexOf('--limit');
   const limit = limitIdx >= 0 ? Number(process.argv[limitIdx + 1]) : Infinity;
 
-  const versions = (SITE.versions || []).filter((v) => v.display !== false);
+  const versions = (SITE.versions || []).filter((v) => v.display !== false).slice(0, limit);
   const manifest = loadManifest();
   const untranslatedGroups = [];
 
-  for (const ver of versions.slice(0, limit)) {
+  for (const ver of versions) {
+    const e = mcEntry(ver.id) || {};
+    const genTDir = path.join(GEN_T, ver.id);
+    fs.rmSync(genTDir, { recursive: true, force: true });
+    fs.mkdirSync(path.join(genTDir, '@minecraft'), { recursive: true });
+
+    const modules = (ver.modules || []).filter((m) => m.display !== false);
+    console.log(`[${ver.title}] 处理 ${modules.length} 模块 × rc/beta…`);
+
+    // rc + beta 各生成翻译版 d.ts（@minecraft/<模块>.d.ts 与 @minecraft/<模块>@beta.d.ts）
     for (const flavor of ['rc', 'beta']) {
-      const e = mcEntry(ver.id) || {};
-      const genTDir = path.join(GEN_T, `${ver.id}-${flavor}`);
-      fs.rmSync(genTDir, { recursive: true, force: true });
-      fs.mkdirSync(genTDir, { recursive: true });
-
-      const modules = (ver.modules || []).filter((m) => m.display !== false);
-      console.log(`[${ver.id}/${flavor}] 处理 ${modules.length} 个模块…`);
-
       for (const mod of modules) {
         const srcPath = moduleSource(ver, mod, flavor);
         if (!fs.existsSync(srcPath)) {
           console.warn(`  [skip] ${srcPath}`);
           continue;
         }
-        const outPath = path.join(genTDir, `${mod.dir}.d.ts`);
-        const translationsRoot = path.join(TRANS_DIR, mod.dir);
-        const res = makeTranslatedDts(srcPath, outPath, translationsRoot, `${mod.dir}/`, manifest);
+        const outName = `${mod.dir}${flavor === 'beta' ? '@beta' : ''}.d.ts`;
+        const outPath = path.join(genTDir, '@minecraft', outName);
+        const res = makeTranslatedDts(srcPath, outPath, path.join(TRANS_DIR, mod.dir), `${mod.dir}/`, manifest);
         untranslatedGroups.push({
           title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
           moduleTitle: mod.title,
           missing: res.missing,
           expired: res.expired,
         });
-        if (res.applied.length > 0) console.log(`  ${mod.dir}: 应用翻译 ${res.applied.length} 项`);
+        if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
       }
-
-      saveManifest(manifest);
-      writeTsConfig(genTDir, `${ver.title} ${flavor === 'beta' ? '(@beta)' : ''}`, modules);
-      console.log(`  → typedoc 生成 _out/${ver.id}-${flavor}/…`);
-      generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, `${ver.id}-${flavor}`) });
     }
+
+    // 版本主页 README（标题 + 模块链接列表，无说明）
+    const readmeLines = [`# ${ver.title}${e.type === 'preview' ? '（@beta）' : ''}`, ''];
+    for (const mod of modules) {
+      for (const flavor of ['rc', 'beta']) {
+        const modName = `@minecraft/${mod.dir}${flavor === 'beta' ? '@beta' : ''}`;
+        // typedoc 模块页文件名：特殊字符替换为 _（如 @minecraft/math → _minecraft_math）
+        const fileBase = modName.replace(/[^\w]+/g, '_');
+        readmeLines.push(`- [${modName}](modules/${fileBase}.html)`);
+      }
+    }
+    readmeLines.push('');
+    writeFile(path.join(genTDir, 'README.md'), readmeLines.join('\n'));
+
+    saveManifest(manifest);
+    writeTsConfig(genTDir, `${ver.title}（${e.mcVersion || ''}）`, './extra.css');
+    console.log(`  → typedoc 生成 _out/${ver.id}/…`);
+    generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
   }
 
-  // 主页 + 未翻译页（写入 _out 根）
-  const entries = [];
+  // 主页（typedoc 生成）：README 放版本入口卡片
+  const homeDir = path.join(GEN_T, 'home');
+  fs.rmSync(homeDir, { recursive: true, force: true });
+  fs.mkdirSync(homeDir, { recursive: true });
+  writeFile(path.join(homeDir, 'home.d.ts'), '/** 版本入口（由 generate.mjs 生成） */\nexport const versions = {} as const;\n');
+  const homeReadme = [
+    '# Minecraft @minecraft 类型文档',
+    '',
+    '由 typedoc 原生解析 `@minecraft/*` 的 index.d.ts 生成。选择一个版本进入：',
+    '',
+    '<div style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0">',
+  ];
   for (const ver of versions) {
     const e = mcEntry(ver.id) || {};
-    const modCount = (ver.modules || []).filter((m) => m.display !== false).length;
-    for (const flavor of ['rc', 'beta']) {
-      entries.push({
-        dir: `${ver.id}-${flavor}`,
-        title: `${ver.title} / ${flavor === 'rc' ? '正式版' : 'beta'}`,
-        beta: flavor === 'beta',
-        mcVersion: e.mcVersion || '',
-        modCount: modCount * 1,
-      });
-    }
+    const isBeta = e.type === 'preview';
+    homeReadme.push(
+      `<a href="./${ver.id}/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit">`,
+      `<span style="font-weight:700;font-size:1.05rem">${ver.title}${isBeta ? ' <span style="color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px;font-size:.7rem">@beta</span>' : ''}</span>`,
+      `<span style="color:var(--color-text-aside);font-size:.85rem">${e.mcVersion || ''} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
+      '</a>'
+    );
   }
-  writeFile(path.join(OUT_DIR, 'index.html'), buildHome(entries));
+  homeReadme.push('</div>', '', '[查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
+  writeFile(path.join(homeDir, 'README.md'), homeReadme.join('\n'));
+
+  const homeTsconfig = {
+    compilerOptions: { module: 'commonjs', lib: ['es6', 'dom'], target: 'es6', noEmit: true, skipLibCheck: true },
+    typedocOptions: {
+      name: 'Minecraft @minecraft 类型文档',
+      entryPoints: ['home.d.ts'],
+      basePath: '.',
+      externalPattern: '',
+      lang: 'zh',
+      githubPages: false,
+      customCss: './extra.css',
+      cascadedModifierTags: [],
+    },
+  };
+  writeJson(path.join(homeDir, 'tsconfig.json'), homeTsconfig);
+  writeFile(path.join(homeDir, 'extra.css'), '/* 主页样式微调 */\n');
+  console.log('→ typedoc 生成主页 _out/…');
+  generateTypedocSite({ tsconfigPath: path.join(homeDir, 'tsconfig.json'), outDir: OUT_DIR });
+
+  // 未翻译页（主页生成后再写，避免被 typedoc 清空）
   writeFile(path.join(OUT_DIR, 'untranslated.html'), buildUntranslated(untranslatedGroups));
 
-  console.log('\n完成。输出目录 _out/（部署此目录）：');
-  console.log('  站点:', entries.map((e) => e.dir).join(' | '));
+  console.log('\n完成。输出目录 _out/：');
+  console.log('  版本站点:', versions.map((v) => v.id).join(' | '));
   console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + g.missing.length + g.expired.length, 0));
 }
 
