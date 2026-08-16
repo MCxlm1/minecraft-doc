@@ -1,11 +1,11 @@
 {
-  "comment": "临时只部署 preview 版本（12 模块 × rc/beta）。完整双版本配置见 site-config.full.json（恢复时复制回 + docusaurus.config.js 改回双版本）",
+  "comment": "JSON B: 显示哪些版本/模块、排序、标题、侧边栏包含类型、隐藏、分组、未翻译页开关。catalog 决定去 registry/<catalog>/ 取包，stable=正式版(latest), preview=测试版(@beta)。defaultVersion 决定哪个版本作为 Docusaurus 默认版本(docs/)。",
   "site": {
     "title": "Minecraft @minecraft 类型文档",
     "lang": "zh-CN",
     "untranslatedPage": true,
-    "defaultCatalog": "preview",
-    "defaultVersion": "preview"
+    "defaultCatalog": "stable",
+    "defaultVersion": "stable"
   },
   "versions": [
     {

@@ -21,3 +21,7 @@ registry/
 # 压缩包
 *.tar.gz
 *.zip
+
+# MkDocs 生成物
+site/
+_site/
