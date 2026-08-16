@@ -2,26 +2,19 @@
 node_modules/
 .pnpm-store/
 
-# 生成的文档与构建产物（generate.mjs / docusaurus 生成）
-docs/
-versioned_docs/
-versioned_sidebars/
-versions.json
-generated/
-sidebars.js
-build/
-.docusaurus/
+# 生成残留
 _gen/
 _staging/
 _work/
 
-# 需 npm 下载的 @minecraft 包（由 npm-update.mjs 生成 registry/package.json + node_modules）
+# 需 npm 下载的 @minecraft 包（由 npm-update.mjs 生成 registry/<key>/<rc|beta>/package.json + node_modules）
 registry/
-
-# 压缩包
-*.tar.gz
-*.zip
 
 # MkDocs 生成物
 site/
 _site/
+
+# 压缩包
+*.tar.gz
+*.zip
+.docusaurus/
