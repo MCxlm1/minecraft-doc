@@ -33,6 +33,12 @@ jobs:
         with:
           node-version: 18
 
+      - name: 安装项目依赖 (pnpm 9，含 typedoc)
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.15.9 --activate
+          pnpm install --no-frozen-lockfile
+
       - name: 安装 MkDocs Material
         run: pip install mkdocs-material
 
