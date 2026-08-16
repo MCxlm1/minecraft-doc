@@ -26,7 +26,8 @@ const BIN_TYPEDOC = path.join(ROOT, 'node_modules', '.bin', 'typedoc');
 const REGISTRY = path.join(ROOT, 'registry');
 const GEN_ROOT = path.join(ROOT, '_gen');
 const SITE_DIR = path.join(ROOT, 'site'); // MkDocs docs_dir
-const DOCS_DIR = path.join(SITE_DIR, 'docs');
+// 文档直接放 site/ 根（site/<版本>/<模块>/...），避免多出 /docs/ 路由层
+const DOCS_DIR = SITE_DIR;
 const MC_VERSIONS = readJson(path.join(ROOT, 'minecraft-versions.json'));
 const SITE = readJson(path.join(ROOT, 'site-config.json'));
 const LANG = (SITE.site && SITE.site.lang) || 'zh-CN';
