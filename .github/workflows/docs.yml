@@ -40,7 +40,8 @@ jobs:
           pnpm install --no-frozen-lockfile
 
       - name: 安装 MkDocs Material
-        run: pip install mkdocs-material
+        # 锁定版本：上游 MkDocs 2.0 将破坏插件/主题覆盖，避免自动升级
+        run: pip install -r requirements.txt
 
       - name: 重新下载 npm 对应版本 (rebuild-and-update)
         if: ${{ github.event.inputs.mode == 'rebuild-and-update' }}
