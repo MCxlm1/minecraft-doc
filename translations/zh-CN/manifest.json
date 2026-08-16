@@ -1,11 +1,3 @@
 {
-  "comment": "翻译有效性清单：sourceHash 为翻译时源 md 的完整文件哈希。当前源 md 哈希与此不一致 → 该翻译失效(隐藏)。AABBInvalidExtentError.md 首次生成时自动记录正确哈希；AABBUtils.md 故意写错误哈希演示失效。",
-  "stable/math/classes/AABBUtils.md": {
-    "sourceHash": "0000000000000000000000000000000000000000",
-    "status": "translated"
-  },
-  "stable/math/classes/AABBInvalidExtentError.md": {
-    "sourceHash": "9bcd27511fa9135b5c00f3b9415fcbeb110a4a96",
-    "status": "translated"
-  }
+  "comment": "翻译有效性清单（源 md 哈希校验）。上传翻译后首次 generate 自动记录；源变化则失效隐藏。"
 }

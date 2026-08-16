@@ -1,41 +1,113 @@
 {
-  "comment": "版本来源（取代 docs-config.json）。顶层键 = Minecraft 版本号；type: stable=正式版 / preview=测试版；key 对应 site-config.json 的 versions[].id。每个模块含 rc（正式版版本）和 beta（测试版版本）两个字段。正式版条目由用户另一台设备更新；当前仅维护最新正式版 + 最新测试版。",
-  "1.26.40": {
-    "type": "stable",
-    "key": "stable",
-    "title": "正式版",
-    "modules": {
-      "common": { "rc": "1.3.0", "beta": "1.3.0" },
-      "debug-utilities": { "rc": "1.0.0-beta.1.20.70-preview.20", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "diagnostics": { "rc": "1.0.0-beta.1.21.70-preview.22", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "math": { "rc": "2.4.0", "beta": "2.4.0" },
-      "server": { "rc": "2.9.0", "beta": "2.11.0-beta.1.26.50-preview.25" },
-      "server-admin": { "rc": "1.0.0-beta.11940b24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-editor": { "rc": "0.1.0-beta.1.20.20-preview.20", "beta": "0.1.0-beta.1.26.50-preview.25" },
-      "server-gametest": { "rc": "1.0.0-beta.1.21.60-preview.24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-graphics": { "rc": "1.0.0-beta.1.21.130-preview.22", "beta": "1.1.0-beta.1.26.50-preview.25" },
-      "server-net": { "rc": "1.0.0-beta.11940b24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-ui": { "rc": "2.1.0", "beta": "2.3.0-beta.1.26.50-preview.25" },
-      "vanilla-data": { "rc": "1.26.40", "beta": "1.26.40" }
-    }
-  },
+  "comment": "版本来源。正式版条目(1.26.44)：rc 用 npm view latest（vanilla-data 等），beta 同 preview 最新；preview 条目(1.26.50-preview.25)。正式版条目由用户另一台设备维护更新。",
   "1.26.50-preview.25": {
     "type": "preview",
     "key": "preview",
     "title": "Preview",
     "modules": {
-      "common": { "rc": "1.3.0", "beta": "1.3.0" },
-      "debug-utilities": { "rc": "1.0.0-beta.1.20.70-preview.20", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "diagnostics": { "rc": "1.0.0-beta.1.21.70-preview.22", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "math": { "rc": "2.4.0", "beta": "2.4.0" },
-      "server": { "rc": "2.9.0", "beta": "2.11.0-beta.1.26.50-preview.25" },
-      "server-admin": { "rc": "1.0.0-beta.11940b24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-editor": { "rc": "0.1.0-beta.1.20.20-preview.20", "beta": "0.1.0-beta.1.26.50-preview.25" },
-      "server-gametest": { "rc": "1.0.0-beta.1.21.60-preview.24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-graphics": { "rc": "1.0.0-beta.1.21.130-preview.22", "beta": "1.1.0-beta.1.26.50-preview.25" },
-      "server-net": { "rc": "1.0.0-beta.11940b24", "beta": "1.0.0-beta.1.26.50-preview.25" },
-      "server-ui": { "rc": "2.1.0", "beta": "2.3.0-beta.1.26.50-preview.25" },
-      "vanilla-data": { "rc": "1.26.40", "beta": "1.26.40" }
+      "common": {
+        "rc": "1.3.0",
+        "beta": "1.3.0"
+      },
+      "debug-utilities": {
+        "rc": "1.0.0-beta.1.20.70-preview.20",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "diagnostics": {
+        "rc": "1.0.0-beta.1.21.70-preview.22",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "math": {
+        "rc": "2.4.0",
+        "beta": "2.4.0"
+      },
+      "server": {
+        "rc": "2.9.0",
+        "beta": "2.11.0-beta.1.26.50-preview.25"
+      },
+      "server-admin": {
+        "rc": "1.0.0-beta.11940b24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-editor": {
+        "rc": "0.1.0-beta.1.20.20-preview.20",
+        "beta": "0.1.0-beta.1.26.50-preview.25"
+      },
+      "server-gametest": {
+        "rc": "1.0.0-beta.1.21.60-preview.24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-graphics": {
+        "rc": "1.0.0-beta.1.21.130-preview.22",
+        "beta": "1.1.0-beta.1.26.50-preview.25"
+      },
+      "server-net": {
+        "rc": "1.0.0-beta.11940b24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-ui": {
+        "rc": "2.1.0",
+        "beta": "2.3.0-beta.1.26.50-preview.25"
+      },
+      "vanilla-data": {
+        "rc": "1.26.40",
+        "beta": "1.26.40"
+      }
+    }
+  },
+  "1.26.44": {
+    "type": "stable",
+    "key": "stable",
+    "title": "正式版",
+    "modules": {
+      "common": {
+        "rc": "1.3.0",
+        "beta": "1.3.0"
+      },
+      "debug-utilities": {
+        "rc": "1.0.0-beta.1.20.70-preview.20",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "diagnostics": {
+        "rc": "1.0.0-beta.1.21.70-preview.22",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "math": {
+        "rc": "2.4.0",
+        "beta": "2.4.0"
+      },
+      "server": {
+        "rc": "2.9.0",
+        "beta": "2.11.0-beta.1.26.50-preview.25"
+      },
+      "server-admin": {
+        "rc": "1.0.0-beta.11940b24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-editor": {
+        "rc": "0.1.0-beta.1.20.20-preview.20",
+        "beta": "0.1.0-beta.1.26.50-preview.25"
+      },
+      "server-gametest": {
+        "rc": "1.0.0-beta.1.21.60-preview.24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-graphics": {
+        "rc": "1.0.0-beta.1.21.130-preview.22",
+        "beta": "1.1.0-beta.1.26.50-preview.25"
+      },
+      "server-net": {
+        "rc": "1.0.0-beta.11940b24",
+        "beta": "1.0.0-beta.1.26.50-preview.25"
+      },
+      "server-ui": {
+        "rc": "2.1.0",
+        "beta": "2.3.0-beta.1.26.50-preview.25"
+      },
+      "vanilla-data": {
+        "rc": "1.26.44",
+        "beta": "1.26.40"
+      }
     }
   }
 }

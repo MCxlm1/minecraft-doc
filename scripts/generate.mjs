@@ -102,6 +102,26 @@ function stripHeader(text) {
   }
   return text;
 }
+/** 删除 "#### Defined in" 标题及其后的源文件路径行 */
+function stripDefinedIn(text) {
+  const lines = text.split('\n');
+  const out = [];
+  let skip = false;
+  for (const l of lines) {
+    if (l.trim() === '#### Defined in') {
+      skip = true; // 跳过标题、其后空行与路径行
+      continue;
+    }
+    if (skip) {
+      if (l.trim() !== '') {
+        skip = false; // 跳过路径行后恢复
+      }
+      continue;
+    }
+    out.push(l);
+  }
+  return out.join('\n');
+}
 function mergeModifierIntoHeading(text) {
   const lines = text.split('\n');
   const inserts = []; // { afterIdx, badges }
@@ -134,6 +154,7 @@ function mergeModifierIntoHeading(text) {
 function transformDoc(md, isSymbolPage) {
   let text = md;
   if (isSymbolPage) text = stripHeader(text);
+  text = stripDefinedIn(text);
   // 先做 MDX 转义，再插修饰符徽章（避免徽章 HTML 被转义）
   text = sanitizeMdx(text);
   return mergeModifierIntoHeading(text);
@@ -452,6 +473,7 @@ export default defineConfig({
     sidebar: ${JSON.stringify(sidebar, null, 2)},
     outline: { level: [2, 3] },
     search: { provider: 'local' },
+    docFooter: { prev: false, next: false },
   },
 })
 `;
