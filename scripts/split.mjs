@@ -70,7 +70,7 @@ export function splitSymbols(sourceFile, translationsRoot) {
  * @param {import('ts-morph').SourceFile} sourceFile
  * @param {Array} pieces splitSymbols 结果
  * @param {object} opts { fs, manifest, keyPrefix }
- * @returns {{ applied:number, missing:string[], expired:string[] }}
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
@@ -83,12 +83,12 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
     const key = `${keyPrefix}${p.symbolName}`;
     const srcHash = sha1(p.text);
     if (!fs.existsSync(p.path)) {
-      missing.push(p.symbolName);
+      missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
     const recorded = manifest[key];
     if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
-      expired.push(p.symbolName); // 源变了 → 翻译失效
+      expired.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 源变了 → 翻译失效
       continue;
     }
     const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();

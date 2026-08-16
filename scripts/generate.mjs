@@ -126,12 +126,12 @@ function buildUntranslated(groups) {
     lines.push(`<h2>${g.title} / ${g.moduleTitle}</h2>`);
     if (g.expired.length > 0) {
       lines.push('<div class="expired"><b>⚠️ 翻译失效（已隐藏）</b><ul>');
-      for (const s of g.expired) lines.push(`<li class="exp">${s}</li>`);
+      for (const s of g.expired) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
       lines.push('</ul></div>');
     }
     if (g.missing.length > 0) {
       lines.push('<b>未翻译（显示英文源）</b><ul>');
-      for (const s of g.missing) lines.push(`<li>${s}</li>`);
+      for (const s of g.missing) lines.push(`<li>${typeof s === 'string' ? s : s.symbol}</li>`);
       lines.push('</ul>');
     }
   }
@@ -211,11 +211,18 @@ async function main() {
         const outName = `${mod.dir}${flavor === 'beta' ? '@beta' : ''}.d.ts`;
         const outPath = path.join(genTDir, '@minecraft', outName);
         const res = makeTranslatedDts(srcPath, outPath, path.join(TRANS_DIR, mod.dir), `${mod.dir}/`, manifest);
+        // 未翻译/失效符号的源片段 → _out/translation-src/<模块>/<类型>/<符号>.d.ts（供工具下载翻译）
+        const toSrcItems = (items) =>
+          items.map((it) => {
+            const rel = path.relative(TRANS_DIR, it.path);
+            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.text + '\n');
+            return { symbol: it.symbol, srcUrl: `/minecraft-doc/translation-src/${rel.split(path.sep).join('/')}` };
+          });
         untranslatedGroups.push({
           title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
           moduleTitle: mod.title,
-          missing: res.missing,
-          expired: res.expired,
+          missing: toSrcItems(res.missing),
+          expired: toSrcItems(res.expired),
         });
         if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
       }
