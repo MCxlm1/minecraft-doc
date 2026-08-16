@@ -15,3 +15,6 @@ registry/
 # 压缩包
 *.tar.gz
 *.zip
+
+# VitePress 遗留生成物
+/docs/
