@@ -215,7 +215,7 @@ async function main() {
         const toSrcItems = (items) =>
           items.map((it) => {
             const rel = path.relative(TRANS_DIR, it.path);
-            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.text + '\n');
+            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.md);
             return { symbol: it.symbol, srcUrl: `/minecraft-doc/translation-src/${rel.split(path.sep).join('/')}` };
           });
         untranslatedGroups.push({
@@ -242,7 +242,7 @@ async function main() {
     writeFile(path.join(genTDir, 'README.md'), readmeLines.join('\n'));
 
     saveManifest(manifest);
-    writeTsConfig(genTDir, `${ver.title}（${e.mcVersion || ''}）`, './extra.css');
+    writeTsConfig(genTDir, `${ver.title}${e.type === 'preview' ? '（@beta）' : ''}`, './extra.css');
     console.log(`  → typedoc 生成 _out/${ver.id}/…`);
     await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
   }

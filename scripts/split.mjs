@@ -1,9 +1,9 @@
 /**
- * split.mjs — 移植自 https://github.com/XeroAlpha/sapi-typedoc 的 script/split.ts
- * 功能：
- *  1) splitSymbols：从 .d.ts 提取每个顶层导出符号的文本区间 + 翻译片段路径（<translationsRoot>/<类型>/<符号>.d.ts，文件名匹配）
- *  2) replacePieces：把翻译片段替换回原始 d.ts（翻译版 d.ts 供 typedoc 生成）
- *  3) 哈希校验：manifest 记录源符号哈希，源变化 → 翻译失效（不替换，列入失效列表）
+ * split.mjs — 符号级 md 翻译（参考 sapi-typedoc 的文件名匹配思路，改为 md 载体）
+ *  1) splitSymbols：提取 .d.ts 顶层导出符号的 { 符号名, 类别, JSDoc 区间, 签名, JSDoc 文本 }
+ *  2) 源 md 片段：`# 符号名` + `> 签名` + JSDoc 注释文本（下载翻译模板，文件名匹配 <模块>/<类型>/<符号>.md）
+ *  3) replacePieces：翻译 md 的注释文本作为新 JSDoc 替换回 d.ts（签名保留，typedoc 渲染 markdown/@tag）
+ *  4) 哈希校验：manifest 记录源 JSDoc 哈希，源变化 → 翻译失效
  */
 import { SyntaxKind } from 'ts-morph';
 import crypto from 'crypto';
@@ -26,17 +26,13 @@ const KindToCategory = new Map([
 ]);
 
 /**
- * 提取顶层导出符号区间。
+ * 提取顶层导出符号。
  * @param {import('ts-morph').SourceFile} sourceFile
- * @param {string} translationsRoot 翻译片段根目录
- * @returns {Array<{start:number,end:number,path:string,symbolName:string,text:string}>}
+ * @param {string} translationsRoot 翻译 md 根目录（translations/zh-CN/<模块>）
+ * @returns {Array<{start:number,end:number,path:string,symbolName:string,jsdocText:string,signatureText:string}>}
  */
 export function splitSymbols(sourceFile, translationsRoot) {
   const pieces = [];
-  const packageJSDoc = sourceFile
-    .getDescendantsOfKind(SyntaxKind.JSDoc)
-    .find((j) => j.getTags().some((t) => t.getTagName() === 'packageDocumentation'));
-
   sourceFile.forEachChild((node) => {
     if (SkippedKinds.has(node.getKind())) return;
     const category = KindToCategory.get(node.getKind());
@@ -47,57 +43,82 @@ export function splitSymbols(sourceFile, translationsRoot) {
     }
     if (!symbol) return;
     const symbolName = symbol.getName();
+    const jsdocs = typeof node.getJsDocs === 'function' ? node.getJsDocs() : [];
+    const jsdoc = jsdocs[0];
     let start = node.getStart(false);
-    const jsdocs = node
-      .getChildrenOfKind(SyntaxKind.JSDoc)
-      .filter((j) => j.getStart() !== packageJSDoc?.getStart());
-    const firstJSDoc = jsdocs.pop();
-    if (firstJSDoc) start = firstJSDoc.getStart();
-    const end = node.getEnd();
+    let jsdocText = '';
+    if (jsdoc) {
+      start = jsdoc.getStart();
+      jsdocText = jsdoc.getText().replace(/^\/\*\*/, '').replace(/\*\/\s*$/, '').trim();
+    }
     pieces.push({
       start,
-      end,
-      path: `${translationsRoot}/${category}/${symbolName}.d.ts`,
+      end: jsdoc ? jsdoc.getEnd() : start,
+      path: `${translationsRoot}/${category}/${symbolName}.md`,
       symbolName,
-      text: sourceFile.getFullText().slice(start, end),
+      jsdocText,
+      signatureText: node.getText().split('\n')[0].trim(),
     });
   });
   return pieces;
 }
 
+/** 生成源 md（下载翻译模板）：标题 + 签名 + 注释文本 */
+export function buildSourceMd(p) {
+  return `# ${p.symbolName}\n\n> ${p.signatureText}\n\n${p.jsdocText}\n`;
+}
+
+/** 从翻译 md 提取注释文本（去掉 # 标题行与 > 签名行） */
+function extractCommentFromMd(md) {
+  const lines = md.split('\n');
+  while (lines.length && (lines[0].trim() === '' || lines[0].trim().startsWith('#'))) lines.shift();
+  if (lines.length && lines[0].trim().startsWith('>')) lines.shift();
+  while (lines.length && lines[0].trim() === '') lines.shift();
+  return lines.join('\n').trim();
+}
+
 /**
- * 用翻译片段替换符号区间（hash 一致才替换）。
- * @param {import('ts-morph').SourceFile} sourceFile
- * @param {Array} pieces splitSymbols 结果
- * @param {object} opts { fs, manifest, keyPrefix }
- * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}> }}
+ * 用翻译 md 替换符号 JSDoc（哈希一致才替换）。
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,md}>, expired:Array<{symbol,path,md}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
   const applied = [];
   const missing = [];
   const expired = [];
+  const edits = [];
   let changed = false;
 
   for (const p of pieces) {
     const key = `${keyPrefix}${p.symbolName}`;
-    const srcHash = sha1(p.text);
+    const srcHash = sha1(p.jsdocText);
     if (!fs.existsSync(p.path)) {
-      missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
+      missing.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) });
       continue;
     }
     const recorded = manifest[key];
     if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
-      expired.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 源变了 → 翻译失效
+      expired.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) }); // 源变了 → 翻译失效
       continue;
     }
-    const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();
-    text = text.slice(0, p.start) + trans + text.slice(p.end);
+    const transMd = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n');
+    const comment = extractCommentFromMd(transMd);
+    if (!comment) {
+      missing.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) }); // 空翻译视为未翻译
+      continue;
+    }
+    edits.push({ start: p.start, end: p.end, comment });
     manifest[key] = { sourceHash: srcHash, status: 'translated' };
     applied.push(p.symbolName);
     changed = true;
   }
-  if (changed) sourceFile.replaceWithText(text);
+  if (changed) {
+    edits.sort((a, b) => b.start - a.start);
+    for (const e of edits) {
+      text = `${text.slice(0, e.start)}/**\n${e.comment}\n*/${text.slice(e.end)}`;
+    }
+    sourceFile.replaceWithText(text);
+  }
   return { applied, missing, expired };
 }
 
