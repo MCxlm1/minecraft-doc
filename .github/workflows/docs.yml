@@ -1,4 +1,4 @@
-name: 构建文档站 (typedoc → VitePress)
+name: 构建文档站 (typedoc 原生)
 
 on:
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: 安装项目依赖 (pnpm 9，typedoc + vitepress)
+      - name: 安装项目依赖 (pnpm 9，typedoc + ts-morph)
         run: |
           corepack enable
           corepack prepare pnpm@9.15.9 --activate
@@ -46,20 +46,15 @@ jobs:
             node scripts/npm-update.mjs
           fi
 
-      - name: 生成文档 (typedoc → docs/ + .vitepress)
+      - name: 生成文档 (typedoc 原生 + 翻译片段 hook)
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: node scripts/generate.mjs
-
-      - name: 构建 VitePress 静态站点
-        env:
-          NODE_OPTIONS: '--max-old-space-size=6144'
-        run: npx vitepress build docs
 
       - name: 部署到 GitHub Pages (gh-pages)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/.vitepress/dist
+          publish_dir: ./_out
           publish_branch: gh-pages
           force_orphan: true

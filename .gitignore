@@ -6,17 +6,12 @@ node_modules/
 _gen/
 _staging/
 _work/
+_gen-t/
+_out/
 
 # 需 npm 下载的 @minecraft 包（由 npm-update.mjs 生成 registry/<key>/<rc|beta>/package.json + node_modules）
 registry/
 
-# VitePress 生成物（generate.mjs 输出）
-docs/
-docs/.vitepress/dist/
-
 # 压缩包
 *.tar.gz
 *.zip
-
-# Docusaurus 遗留缓存
-.docusaurus/

@@ -1,3 +1,3 @@
 {
-  "comment": "翻译有效性清单（源 md 哈希校验）。上传翻译后首次 generate 自动记录；源变化则失效隐藏。"
+  "comment": "翻译片段按文件名匹配：translations/zh-CN/<模块>/<类型>/<符号>.d.ts（参考 sapi-typedoc）。manifest 记录源符号哈希，源变化则翻译失效隐藏。"
 }
