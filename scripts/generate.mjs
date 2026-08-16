@@ -114,11 +114,11 @@ function mergeModifierIntoHeading(text) {
     }
     const m = l.match(/^> ((?:`[a-zA-Z]+`\s?)*)\*\*(.+?)\*\*(.*)$/);
     if (m && lastHeading) {
-      const tags = (m[1].match(/`[a-zA-Z]+`/g) || []).map((t) => t.replace(/`/g, '')).join(' ');
-      if (tags) {
-        const headTags = (lastHeading.text.match(/^(?:[a-zA-Z]+\s)+/) || [''])[0].trim();
-        const bodyText = headTags ? lastHeading.text.slice(headTags.length) : lastHeading.text;
-        lines[lastHeading.idx] = `### ${(tags + ' ' + headTags + ' ' + bodyText).trim()}`;
+      const tags = (m[1].match(/`[a-zA-Z]+`/g) || []).map((t) => t.replace(/`/g, ''));
+      if (tags.length) {
+        // 修饰符标签做成小徽章，放在标题文本后面（类似 @beta 徽章样式）
+        const badges = tags.map((t) => `<span class="mod-badge">${t}</span>`).join(' ');
+        lines[lastHeading.idx] = `### ${lastHeading.text} ${badges}`;
       }
       lines[i] = `> **${m[2]}**${m[3]}`;
     }
@@ -128,8 +128,9 @@ function mergeModifierIntoHeading(text) {
 function transformDoc(md, isSymbolPage) {
   let text = md;
   if (isSymbolPage) text = stripHeader(text);
-  text = mergeModifierIntoHeading(text);
-  return sanitizeMdx(text);
+  // 先做 MDX 转义，再插修饰符徽章（避免徽章 HTML 被转义）
+  text = sanitizeMdx(text);
+  return mergeModifierIntoHeading(text);
 }
 
 function walk(dir, base = '') {
@@ -427,7 +428,12 @@ function main() {
           const rel = c.rel === 'README.md' ? 'index.md' : c.rel;
           if (rel === 'index.md' || rel === 'globals.md') continue;
           const link = `${base}${m.id}/${rel.replace(/\.md$/, '')}`;
-          symItems.push({ text: path.basename(rel, '.md'), link });
+          const kind = KIND_FOLDER[fileCategory(c.rel)];
+          const meta = kind && KIND_META[kind];
+          const badgeHtml = meta
+            ? `<span class="sym-badge" style="background:${meta.color}">${meta.letter}</span> `
+            : '';
+          symItems.push({ text: badgeHtml + path.basename(rel, '.md'), link });
         }
       }
       items.push({ text: m.title, collapsed: true, items: symItems });
@@ -477,6 +483,45 @@ const STYLE_CSS = `/* 符号类型徽章 */
   border-radius: 4px; margin-right: 0.4em;
   vertical-align: 0.08em;
 }
+
+/* 属性/方法修饰符徽章（readonly/optional/static 等，标题内联） */
+.mod-badge {
+  display: inline-block;
+  font-size: 0.62em;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  padding: 0 5px;
+  line-height: 1.5;
+  margin-left: 4px;
+  vertical-align: 0.15em;
+  white-space: nowrap;
+}
+
+/* 侧边栏符号类型字母徽章（按链接路径匹配） */
+.VPSidebarItem a[href*="/classes/"]::before,
+.VPSidebarItem a[href*="/interfaces/"]::before,
+.VPSidebarItem a[href*="/enumerations/"]::before,
+.VPSidebarItem a[href*="/functions/"]::before,
+.VPSidebarItem a[href*="/variables/"]::before,
+.VPSidebarItem a[href*="/type-aliases/"]::before {
+  display: inline-block;
+  width: 1.05em; height: 1.05em;
+  line-height: 1.05em;
+  text-align: center;
+  color: #fff; font-size: 0.66em; font-weight: 700;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: 0.08em;
+  flex-shrink: 0;
+}
+.VPSidebarItem a[href*="/classes/"]::before { content: "C"; background: #3b82f6; }
+.VPSidebarItem a[href*="/interfaces/"]::before { content: "I"; background: #10b981; }
+.VPSidebarItem a[href*="/enumerations/"]::before { content: "E"; background: #8b5cf6; }
+.VPSidebarItem a[href*="/functions/"]::before { content: "F"; background: #f59e0b; }
+.VPSidebarItem a[href*="/variables/"]::before { content: "V"; background: #06b6d4; }
+.VPSidebarItem a[href*="/type-aliases/"]::before { content: "T"; background: #ec4899; }
 
 /* 主页版本入口卡片 */
 .version-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
