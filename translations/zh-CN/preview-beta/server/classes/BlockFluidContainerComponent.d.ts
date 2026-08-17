@@ -1,12 +1,12 @@
 /**
- * 表示世界中方块的流体容器。用于如炼药锅等方块。
+ * 表示世界中方块的流体容器。用于像炼药锅这样的方块。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockFluidContainerComponent extends BlockComponent {
     private constructor();
     /**
      * @remarks
-     * 流体容器的相对填充液位。
+     * 流体容器的相对填充等级。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -23,11 +23,12 @@ export class BlockFluidContainerComponent extends BlockComponent {
     static readonly componentId = 'minecraft:fluid_container';
     /**
      * @remarks
-     * 向流体中添加染料。染料颜色会与任何现有自定义颜色混合。
+     * 向流体添加染料。染料颜色将与任何现有自定义颜色组合。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @param dye - 要添加的染料物品类型。
+     * @throws 如果染料类型无效或无法添加时抛出错误。
      */
     addDye(dye: ItemType): void;
     /**
@@ -36,7 +37,8 @@ export class BlockFluidContainerComponent extends BlockComponent {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @returns 当前流体类型。
+     * @throws 如果无法获取流体类型时抛出错误。
      */
     getFluidType(): FluidType;
     /**
@@ -45,7 +47,8 @@ export class BlockFluidContainerComponent extends BlockComponent {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @param fluidType - 要设置的流体类型。
+     * @throws 如果流体类型无效或无法设置时抛出错误。
      */
     setFluidType(fluidType: FluidType): void;
     /**
@@ -54,7 +57,8 @@ export class BlockFluidContainerComponent extends BlockComponent {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @param itemStack - 要设置的药水物品实例。
+     * @throws 如果物品无效或无法设置时抛出错误。
      */
     setPotion(itemStack: ItemStack): void;
 }

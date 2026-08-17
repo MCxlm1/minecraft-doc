@@ -1,36 +1,37 @@
 /**
- * 允许注册一个事件，该事件在实体从游戏中被移除时触发
- * （例如，实体被卸载，或在死亡几秒后）。
+ * 允许注册一个事件，当实体
+ * 从游戏中移除时触发（例如，卸载，或
+ * 死亡几秒后）。
  */
 export class EntityRemoveBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 每次实体从游戏中被移除时，都会调用你的函数。
+     * Will call your function every time an entity is being
+     * removed from the game.
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
      * 要调用的函数。
-     * 该闭包以受限执行权限调用。
+     * 此闭包以受限执行权限调用。
      * @returns
-     * 返回一个闭包，可用于后续的取消订阅操作。
-     * 该闭包以受限执行权限调用。
+     * 返回一个可在后续取消订阅操作中使用的闭包。
+     * 以受限执行权限调用的闭包。
      */
     subscribe(callback: (arg0: EntityRemoveBeforeEvent) => void): (arg0: EntityRemoveBeforeEvent) => void;
     /**
      * @remarks
-     * 当实体被移除时，取消订阅你的函数，
-     * 以使其不再接收后续调用。
+     * 取消订阅你的函数，使其在实体被移除时不再被调用。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 该闭包以受限执行权限调用。
+     * 此闭包以受限执行权限调用。
      */
     unsubscribe(callback: (arg0: EntityRemoveBeforeEvent) => void): void;
 }

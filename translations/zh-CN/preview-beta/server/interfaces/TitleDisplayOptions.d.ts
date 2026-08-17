@@ -1,25 +1,30 @@
 /**
- * 包含用于显示标题和可选副标题的额外选项。
+ * 包含用于显示标题和
+ * 可选副标题的附加选项。
  */
 export interface TitleDisplayOptions {
     /**
      * @remarks
-     * 标题和副标题的淡入持续时间（以刻为单位）。每秒有 20 刻。
-     * 可使用 {@link TicksPerSecond} 常量在刻与秒之间进行转换。
+     * 标题和副标题的淡入时长，以刻为单位。
+     * 每秒有 20 刻。使用 {@link TicksPerSecond} 常量
+     * 在刻与秒之间进行转换。
      *
      */
     fadeInDuration: number;
     /**
      * @remarks
-     * 标题和副标题的淡出持续时间（以刻为单位）。每秒有 20 刻。
-     * 可使用 {@link TicksPerSecond} 常量在刻与秒之间进行转换。
+     * 标题和副标题的淡出时长，以刻为单位。
+     * 每秒有 20 刻。使用 {@link TicksPerSecond} 常量
+     * 在刻与秒之间进行转换。
      *
      */
     fadeOutDuration: number;
     /**
      * @remarks
-     * 标题和副标题的停留时间（以刻为单位）。每秒有 20 刻。
-     * 可使用 {@link TicksPerSecond} 常量在刻与秒之间进行转换。
+     * 标题和副标题保持显示的时间，
+     * 以刻为单位。每秒有 20 刻。
+     * 使用 {@link TicksPerSecond} 常量
+     * 在刻与秒之间进行转换。
      *
      */
     stayDuration: number;

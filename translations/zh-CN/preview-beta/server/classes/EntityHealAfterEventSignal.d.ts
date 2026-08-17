@@ -1,21 +1,19 @@
 /**
- * 管理当实体被治疗时
- * 触发的回调。
+ * 管理与实体被治疗时触发的回调。
  */
 export class EntityHealAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当实体被治疗时
-     * 将调用该回调。
-     * @param callback - 当实体被治疗时要执行的回调函数。
-     * @param options - 可选的事件选项。
-     * @returns 返回一个函数，可用于取消此订阅。
+     * 添加一个在实体被治疗时会被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
+     * @param callback 要订阅的回调函数。
+     * @param options 事件订阅选项。
+     * @returns 用于取消订阅的回调函数。
      */
     subscribe(
         callback: (arg0: EntityHealAfterEvent) => void,
@@ -23,14 +21,13 @@ export class EntityHealAfterEventSignal {
     ): (arg0: EntityHealAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，该回调在实体被治疗时
-     * 将不再被调用。
-     * @param callback - 要移除的回调函数。
+     * 移除一个在实体被治疗时会被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
+     * @param callback 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: EntityHealAfterEvent) => void): void;
 }

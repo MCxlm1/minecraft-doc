@@ -5,7 +5,7 @@ export class InputInfo {
     private constructor();
     /**
      * @remarks
-     * 玩家上次使用的输入模式。
+     * 玩家最后使用的输入模式。
      *
      * @throws 此属性在使用时可能抛出错误。
      *
@@ -24,8 +24,8 @@ export class InputInfo {
      */
     readonly touchOnlyAffectsHotbar: boolean;
     /**
-     * @param button - 输入按钮。
-     * @returns 按钮状态。
+     * @param button - 要获取状态的按钮。
+     * @returns 返回按钮的状态。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -34,7 +34,7 @@ export class InputInfo {
      */
     getButtonState(button: InputButton): ButtonState;
     /**
-     * @returns 返回一个二维向量，表示移动方向。
+     * @returns 返回当前的移动向量。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}

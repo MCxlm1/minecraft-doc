@@ -1,18 +1,18 @@
 /**
- * 管理连接到玩家输入的回调。
+ * 管理与玩家输入相关的回调函数。
  */
 export class PlayerButtonInputAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家执行输入后被调用。
+     * 添加一个回调函数，该函数将在玩家执行输入后调用。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调。
-     * @param options - 可选的输入事件选项。
+     * @param callback - 玩家执行输入后要调用的回调函数。
+     * @param options - （可选）输入事件的附加选项。
      * @returns 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(
@@ -21,13 +21,13 @@ export class PlayerButtonInputAfterEventSignal {
     ): (arg0: PlayerButtonInputAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在玩家执行输入后被调用。
+     * 移除一个在玩家执行输入后会被调用的回调函数。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调。
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerButtonInputAfterEvent) => void): void;
 }

@@ -6,7 +6,7 @@ export class EntityStartSneakingAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已经开始潜行的实体。
+     * 已开始潜行的实体。
      *
      */
     readonly entity: Entity;

@@ -1,6 +1,5 @@
 /**
- * 当容器操作违反 {@link ContainerRules} 时
- * 抛出的错误。
+ * 当容器操作违反 {@link ContainerRules} 时抛出的错误。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ContainerRulesError extends Error {

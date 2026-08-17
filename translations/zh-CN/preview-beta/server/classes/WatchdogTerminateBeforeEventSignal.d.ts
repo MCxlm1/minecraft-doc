@@ -1,34 +1,33 @@
 /**
  * @beta
- * 管理与回调相连的回调，当脚本运行时因违反性能看门狗系统而被终止时，
- * 将调用这些回调。
+ * 管理连接到某个回调的回调，该回调会在脚本运行时因违反性能看门狗系统而被终止时被调用。
  */
 export class WatchdogTerminateBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调会在脚本运行时因违反性能看门狗系统而被终止时被调用。
+     * 添加一个回调，该回调将在脚本运行时因违反性能看门狗系统而被终止时被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 此函数可在早期执行模式下调用。
      *
      * @param callback
-     * 该闭包以受限执行权限被调用。
+     * 此闭包以受限执行特权被调用。
      * @returns
-     * 以受限执行权限被调用的闭包。
+     * 以受限执行特权被调用的闭包。
      */
     subscribe(callback: (arg0: WatchdogTerminateBeforeEvent) => void): (arg0: WatchdogTerminateBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个当脚本运行时因违反性能看门狗系统而被终止时会被调用的回调。
+     * 移除一个回调，该回调原本会在脚本运行时因违反性能看门狗系统而被终止时被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 此函数可在早期执行模式下调用。
      *
      * @param callback
-     * 该闭包以受限执行权限被调用。
+     * 此闭包以受限执行特权被调用。
      */
     unsubscribe(callback: (arg0: WatchdogTerminateBeforeEvent) => void): void;
 }

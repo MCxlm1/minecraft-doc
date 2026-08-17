@@ -1,5 +1,5 @@
 /**
- * 自定义命令接受的参数类型。
+ * 自定义命令所接受的参数类型。
  */
 export enum CustomCommandParamType {
     /**

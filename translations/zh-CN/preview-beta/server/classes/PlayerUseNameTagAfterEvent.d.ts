@@ -1,6 +1,6 @@
 /**
  * @beta
- * 包含与玩家成功使用命名名称标签物品命名实体时相关的信息。
+ * 包含玩家成功使用已命名的命名牌对实体进行命名时的相关信息。
  */
 export class PlayerUseNameTagAfterEvent {
     private constructor();
@@ -14,7 +14,7 @@ export class PlayerUseNameTagAfterEvent {
     entityNamed: Entity;
     /**
      * @remarks
-     * 玩家给予实体的新名称。
+     * 玩家为实体指定的新名称。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -22,7 +22,7 @@ export class PlayerUseNameTagAfterEvent {
     newName: string;
     /**
      * @remarks
-     * 使用名称标签的玩家的句柄。
+     * 使用命名牌的玩家句柄。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -30,8 +30,7 @@ export class PlayerUseNameTagAfterEvent {
     player: Player;
     /**
      * @remarks
-     * 玩家使用名称标签之前实体的先前名称。
-     * 如果实体之前没有命名，该值将为 undefined。
+     * 玩家使用命名牌前实体的旧名称。如果实体之前未被命名，则该值为 undefined。
      *
      * This property can't be edited in restricted-execution mode.
      *

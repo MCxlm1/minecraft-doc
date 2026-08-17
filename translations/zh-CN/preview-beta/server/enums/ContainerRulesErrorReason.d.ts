@@ -1,11 +1,11 @@
 /**
- * 抛出{@link
- * @minecraft/server.ContainerRulesError}的原因。
+ * 导致{@link
+ * @minecraft/server.ContainerRulesError}被抛出的原因。
  */
 export enum ContainerRulesErrorReason {
     /**
      * @remarks
-     * 当尝试添加在{@link
+     * 当尝试添加已在{@link
      * ContainerRules.bannedItems}中定义的物品时抛出。
      *
      */
@@ -13,14 +13,14 @@ export enum ContainerRulesErrorReason {
     /**
      * @remarks
      * 当尝试添加带有`Storage Item`组件的物品
-     * 向{@link
+     * 到{@link
      * ContainerRules.allowNestedStorageItems}设置为false的容器时抛出。
      *
      */
     NestedStorageItem = 'NestedStorageItem',
     /**
      * @remarks
-     * 当尝试添加未在非空的
+     * 当尝试添加未在非空
      * {@link ContainerRules.allowedItems}中定义的物品时抛出。
      *
      */
@@ -34,9 +34,9 @@ export enum ContainerRulesErrorReason {
     OverWeightLimit = 'OverWeightLimit',
     /**
      * @remarks
-     * 当尝试添加由
-     * `Storage Weight Modifier`组件定义的零重量物品到
-     * 定义了{@link ContainerRules.weightLimit}的容器时抛出
+     * 当尝试添加由`Storage Weight Modifier`组件定义的零重量物品
+     * 到容器，该容器定义了
+     * {@link ContainerRules.weightLimit}
      *
      */
     ZeroWeightItem = 'ZeroWeightItem',

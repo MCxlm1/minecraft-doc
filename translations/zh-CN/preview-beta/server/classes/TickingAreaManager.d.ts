@@ -1,5 +1,5 @@
 /**
- * 此管理器用于向维度添加、移除或查询临时 ticking 区域。这些 ticking 区域受每个包固定数量的 ticking 区块限制，与命令限制无关。无法修改或查询由其他包或命令添加的 ticking 区域。
+ * 此管理器用于向维度添加、移除或查询临时 ticking area。这些 ticking area 受限于每个包固定的区块数量，独立于命令的限制。无法修改或查询由其他包或命令添加的 ticking area。
  */
 export class TickingAreaManager {
     private constructor();
@@ -11,20 +11,20 @@ export class TickingAreaManager {
     readonly chunkCount: number;
     /**
      * @remarks
-     * 允许的 ticking 区块最大数量。重叠的 ticking 区域区块会计入总数。
+     * 允许的最大 tick 区块数量。重叠的 ticking area 区块也会计入总数。
      *
      */
     readonly maxChunkCount: number;
     /**
      * @remarks
-     * 创建一个 ticking 区域。当该区域内的所有区块都已加载并开始 tick 时，Promise 将返回。
+     * 创建一个 ticking area。当区域中所有区块加载并开始 tick 时，Promise 将完成。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param identifier ticking 区域的唯一标识符。
-     * @param options ticking 区域的配置选项。
-     * @returns 返回一个 Promise，在区域内的所有区块加载并开始 tick 时完成。
-     * @throws 当创建 ticking 区域失败时抛出错误。
+     * @param identifier - 要创建的 ticking area 的标识符。
+     * @param options - 用于定义 ticking area 的选项。
+     * @returns 返回一个 Promise，当区域所有区块加载并开始 tick 时完成。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -33,62 +33,72 @@ export class TickingAreaManager {
     createTickingArea(identifier: string, options: TickingAreaOptions): Promise<void>;
     /**
      * @remarks
-     * 获取此管理器添加的所有 ticking 区域。
+     * 获取此管理器添加的所有 ticking area。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @returns 返回此管理器添加的所有 ticking 区域的数组。
-     * @throws 当获取 ticking 区域时发生引擎错误，抛出 {@link minecraftcommon.EngineError}。
+     * @returns 返回一个包含所有 ticking area 的数组。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.EngineError}
      */
     getAllTickingAreas(): TickingArea[];
     /**
      * @remarks
-     * 尝试按标识符获取特定的 ticking 区域。
+     * 尝试通过标识符获取特定的 ticking area。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param identifier ticking 区域的标识符或 {@link TickingArea} 对象。
-     * @returns 返回找到的 {@link TickingArea}；若未找到则返回 undefined。
-     * @throws 当获取 ticking 区域时发生引擎错误，抛出 {@link minecraftcommon.EngineError}。
+     * @param identifier - 要查找的 ticking area 的标识符或 TickingArea 对象。
+     * @returns 返回找到的 ticking area，如果未找到则返回 undefined。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.EngineError}
      */
     getTickingArea(identifier: string | TickingArea): TickingArea | undefined;
     /**
      * @remarks
-     * 如果管理器有足够的区块容量来容纳该 ticking 区域，则返回 true，否则返回 false。如果长度或宽度超过 255 区块限制，也会返回 false。
+     * 如果管理器有足够的区块容量来容纳该 ticking area，则返回 true；否则返回 false。如果长度或宽度超过 255 个区块限制，也会返回 false。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param options 用于计算所需容量的 ticking 区域配置。
-     * @returns 若有足够容量且尺寸合法则返回 true，否则返回 false。
+     * @param options - 用于定义 ticking area 的选项。
+     * @returns 如果有足够容量则返回 true，否则返回 false。
      */
     hasCapacity(options: TickingAreaOptions): boolean;
     /**
      * @remarks
-     * 如果该标识符已存在于管理器中，则返回 true，否则返回 false。
+     * 如果标识符已存在于管理器中则返回 true，否则返回 false。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param identifier 要检查的 ticking 区域标识符。
-     * @returns 若标识符已存在则返回 true，否则返回 false。
+     * @param identifier - 要检查的标识符。
+     * @returns 如果标识符已存在则返回 true，否则返回 false。
      */
     hasTickingArea(identifier: string): boolean;
     /**
      * @remarks
-     * 移除该管理器添加的所有 ticking 区域。
+     * 移除此管理器添加的所有 ticking area。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 当移除 ticking 区域时发生引擎错误，抛出 {@link minecraftcommon.EngineError}。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.EngineError}
      */
     removeAllTickingAreas(): void;
     /**
      * @remarks
-     * 按唯一标识符移除特定的 ticking 区域。
+     * 通过唯一标识符移除特定的 ticking area。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param identifier 要移除的 ticking 区域的标识符或 {@link TickingArea} 对象。
-     * @throws 当移除 ticking 区域失败时抛出 {@link minecraftcommon.EngineError} 或 {@link TickingAreaError}。
+     * @param identifier - 要移除的 ticking area 的标识符或 TickingArea 对象。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link TickingAreaError}
      */
     removeTickingArea(identifier: string | TickingArea): void;
 }

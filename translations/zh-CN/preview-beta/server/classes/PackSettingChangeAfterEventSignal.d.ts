@@ -5,17 +5,17 @@ export class PackSettingChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 此函数不能在限制执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      */
     subscribe(callback: (arg0: PackSettingChangeAfterEvent) => void): (arg0: PackSettingChangeAfterEvent) => void;
     /**
      * @remarks
-     * 此函数不能在限制执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      */
     unsubscribe(callback: (arg0: PackSettingChangeAfterEvent) => void): void;

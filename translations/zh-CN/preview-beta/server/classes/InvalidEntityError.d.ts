@@ -1,6 +1,5 @@
 /**
- * 当实体无效时调用的错误。这可能会发生
- * 在访问已移除实体上的组件时。
+ * 当实体无效时引发的错误。可能在访问已移除实体上的组件时发生。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class InvalidEntityError extends Error {
@@ -9,7 +8,7 @@ export class InvalidEntityError extends Error {
      * @remarks
      * 现在无效的实体的ID。
      *
-     * 此属性可以在早期执行模式下读取。
+     * This property can be read in early-execution mode.
      *
      */
     readonly id: string;
@@ -17,7 +16,7 @@ export class InvalidEntityError extends Error {
      * @remarks
      * 现在无效的实体的类型。
      *
-     * 此属性可以在早期执行模式下读取。
+     * This property can be read in early-execution mode.
      *
      */
     readonly type: string;

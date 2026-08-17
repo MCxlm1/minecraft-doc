@@ -1,15 +1,14 @@
 /**
- * 包含关于特定容器方块
- * 被关闭的信息。
+ * 包含关于某个容器方块被关闭时的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockContainerClosedAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 被关闭的方块容器的来源。
+     * 正在关闭的方块容器的来源。
      *
-     * 此属性在受限执行模式下无法编辑。
+     * This property can't be edited in restricted-execution mode.
      *
      */
     closeSource: ContainerAccessSource;

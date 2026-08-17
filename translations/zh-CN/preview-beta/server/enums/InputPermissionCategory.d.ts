@@ -1,7 +1,8 @@
 /**
  * 输入权限类别。由 {@link
- * PlayerInputPermissionCategoryChangeAfterEvent} 用于指定更改的类别，以及 {@link
- * PlayerInputPermissions} 用于获取或设置权限。
+ * PlayerInputPermissionCategoryChangeAfterEvent} 指定
+ * 哪个类别被更改，并由 {@link
+ * PlayerInputPermissions} 获取或设置权限。
  */
 export enum InputPermissionCategory {
     /**
@@ -12,25 +13,25 @@ export enum InputPermissionCategory {
     Camera = 1,
     /**
      * @remarks
-     * 与所有玩家移动相关的玩家输入。禁用此选项等同于禁用跳跃、潜行、横向移动、骑乘和下马。
+     * 与所有玩家移动相关的玩家输入。禁用此项等同于禁用跳跃、潜行、横向移动、骑乘和解除骑乘。
      *
      */
     Movement = 2,
     /**
      * @remarks
-     * 在游戏世界中横向移动的玩家输入。在键盘上对应 WASD，在游戏手柄或触屏上对应移动摇杆。
+     * 用于在世界中横向移动的玩家输入。这相当于键盘上的 WASD，或手柄或触摸屏上的移动摇杆。
      *
      */
     LateralMovement = 4,
     /**
      * @remarks
-     * 与潜行相关的玩家输入。同时影响向下飞行。
+     * 与潜行相关的玩家输入。这也会影响向下飞行。
      *
      */
     Sneak = 5,
     /**
      * @remarks
-     * 与跳跃相关的玩家输入。同时影响向上飞行。
+     * 与跳跃相关的玩家输入。这也会影响向上飞行。
      *
      */
     Jump = 6,
@@ -42,31 +43,31 @@ export enum InputPermissionCategory {
     Mount = 7,
     /**
      * @remarks
-     * 与下马/下船相关的玩家输入。禁用后，玩家仍可通过其他方式离开载具，例如在马上可以跳下，在船上可以进入另一艘船。
+     * 与解除骑乘相关的玩家输入。禁用后，玩家仍可通过其他方式解除骑乘，例如骑马时仍可跳下，在船上时玩家可以进入另一艘船。
      *
      */
     Dismount = 8,
     /**
      * @remarks
-     * 与向前移动玩家相关的玩家输入。
+     * 与玩家向前移动相关的玩家输入。
      *
      */
     MoveForward = 9,
     /**
      * @remarks
-     * 与向后移动玩家相关的玩家输入。
+     * 与玩家向后移动相关的玩家输入。
      *
      */
     MoveBackward = 10,
     /**
      * @remarks
-     * 与向左移动玩家相关的玩家输入。
+     * 与玩家向左移动相关的玩家输入。
      *
      */
     MoveLeft = 11,
     /**
      * @remarks
-     * 与向右移动玩家相关的玩家输入。
+     * 与玩家向右移动相关的玩家输入。
      *
      */
     MoveRight = 12,

@@ -1,19 +1,19 @@
 /**
- * 管理与实体拾取物品时相关的回调。
+ * 管理实体拾取物品时调用的回调。
  */
 export class EntityItemPickupAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在实体拾取物品时被调用。
+     * 添加一个回调，当实体拾取物品时将被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在限制执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback 要添加的回调，当实体拾取物品时会被调用。
-     * @param options 事件的可选配置。
-     * @returns 已订阅的回调函数，可用于 {@link unsubscribe} 以取消订阅。
+     * @param callback - 要添加的回调函数。
+     * @param options - 操作选项。
+     * @returns 返回用于取消订阅的回调函数。
      */
     subscribe(
         callback: (arg0: EntityItemPickupAfterEvent) => void,
@@ -23,11 +23,11 @@ export class EntityItemPickupAfterEventSignal {
      * @remarks
      * 移除一个回调，使其不再在实体拾取物品时被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在限制执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback 要移除的回调函数。
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: EntityItemPickupAfterEvent) => void): void;
 }

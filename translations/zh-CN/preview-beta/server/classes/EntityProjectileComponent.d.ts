@@ -1,6 +1,6 @@
 /**
- * 投射物组件控制投射物实体的属性，并允许其向给定方向发射。
- * 当实体具有 minecraft:projectile 组件时，此组件存在。
+ * 弹射物组件控制弹射物实体的属性，并允许其向指定方向射击。
+ * 当实体拥有 minecraft:projectile 组件时，此组件存在。
  * @example shootArrow.ts
  * ```typescript
  * import { DimensionLocation, EntityProjectileComponent } from '@minecraft/server';
@@ -25,7 +25,7 @@ export class EntityProjectileComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 投射物在空气中移动时，每 tick 保持的速度比例。
+     * 弹射物在空气中飞行时，每 tick 保持的速度比例。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -33,8 +33,7 @@ export class EntityProjectileComponent extends EntityComponent {
     airInertia: number;
     /**
      * @remarks
-     * 如果为 true，实体受到伤害时会着火。默认燃烧时长为 5 秒。
-     * 可通过 onFireTime 属性修改此时长。如果实体免疫火焰或处于湿润状态，则不会着火。
+     * 如果为 true，实体受伤时将着火。默认燃烧持续时间为 5 秒。可通过 onFireTime 属性修改此持续时间。如果实体免疫或处于潮湿状态，则不会着火。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -42,7 +41,7 @@ export class EntityProjectileComponent extends EntityComponent {
     catchFireOnHurt: boolean;
     /**
      * @remarks
-     * 如果为 true，投射物被玩家击中时会生成暴击粒子。例如：玩家攻击潜影贝子弹时。
+     * 如果为 true，弹射物被玩家击中时会生成暴击粒子。例如：玩家攻击潜影贝子弹。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -50,7 +49,7 @@ export class EntityProjectileComponent extends EntityComponent {
     critParticlesOnProjectileHurt: boolean;
     /**
      * @remarks
-     * 如果为 true，投射物受到伤害时会被销毁。例如：玩家攻击潜影贝子弹时。
+     * 如果为 true，弹射物受到伤害时会被销毁。例如：玩家攻击潜影贝子弹。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -58,8 +57,7 @@ export class EntityProjectileComponent extends EntityComponent {
     destroyOnProjectileHurt: boolean;
     /**
      * @remarks
-     * 应用于投射物的重力。当实体不在地面上时，每 tick 从投射物的垂直位置变化中减去此值。
-     * 该值越大，投射物下落越快。若为负值，实体将上升而非下落。
+     * 应用于弹射物的重力。当实体不在地面上时，每 tick 从弹射物的垂直位置变化中减去此值。值越大，弹射物下落越快。如果为负数，实体将上升而非下降。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -67,7 +65,7 @@ export class EntityProjectileComponent extends EntityComponent {
     gravity: number;
     /**
      * @remarks
-     * 投射物击中实体时播放的声音。
+     * 弹射物击中实体时播放的声音。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -75,7 +73,7 @@ export class EntityProjectileComponent extends EntityComponent {
     hitEntitySound?: string;
     /**
      * @remarks
-     * 投射物击中方块时播放的声音。
+     * 弹射物击中地面时播放的声音。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -83,7 +81,7 @@ export class EntityProjectileComponent extends EntityComponent {
     hitGroundSound?: string;
     /**
      * @remarks
-     * 投射物击中目标时生成的粒子。
+     * 弹射物击中物体时生成的粒子。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -91,8 +89,7 @@ export class EntityProjectileComponent extends EntityComponent {
     hitParticle?: string;
     /**
      * @remarks
-     * 如果为 true，天气为雷暴且实体能看到天空时，实体被击中后会受到雷击。
-     * 例如：带有引雷附魔的投掷三叉戟。
+     * 如果为 true，且天气为雷暴，实体与天空有视线通路，则实体被击中时将被闪电击中。例如：投掷的带有引雷附魔的三叉戟。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -100,7 +97,7 @@ export class EntityProjectileComponent extends EntityComponent {
     lightningStrikeOnHit: boolean;
     /**
      * @remarks
-     * 投射物在液体中移动时，每 tick 保持的速度比例。
+     * 弹射物在液体中飞行时，每 tick 保持的速度比例。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -108,7 +105,7 @@ export class EntityProjectileComponent extends EntityComponent {
     liquidInertia: number;
     /**
      * @remarks
-     * 当 catchFireOnHurt 设为 true 时，被击中的实体着火的持续时长（秒）。
+     * 当 catchFireOnHurt 设置为 true 时，被击中的实体着火的持续时间（秒）。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -116,7 +113,7 @@ export class EntityProjectileComponent extends EntityComponent {
     onFireTime: number;
     /**
      * @remarks
-     * 投射物的所有者。用于确定投射物可以碰撞和伤害哪些对象，同时决定哪个实体被指定为攻击者。
+     * 弹射物的所有者。用于确定弹射物可以碰撞和伤害的对象。它还决定了哪个实体被指定为攻击者。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -124,7 +121,7 @@ export class EntityProjectileComponent extends EntityComponent {
     owner?: Entity;
     /**
      * @remarks
-     * 如果为 true，当未造成伤害时，投射物会从生物身上弹开。例如：生成中的凋灵。
+     * 如果为 true，弹射物在未造成伤害时会在生物身上弹跳。例如：生成时的凋灵。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -132,7 +129,7 @@ export class EntityProjectileComponent extends EntityComponent {
     shouldBounceOnHit: boolean;
     /**
      * @remarks
-     * 如果为 true，投射物击中实体时会停止移动，如同被阻挡一般。例如：投掷三叉戟命中时的行为。
+     * 如果为 true，弹射物击中实体时将停止移动，如同被格挡。例如：投掷三叉戟的击中行为。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -141,16 +138,16 @@ export class EntityProjectileComponent extends EntityComponent {
     static readonly componentId = 'minecraft:projectile';
     /**
      * @remarks
-     * 使用给定速度发射投射物。投射物将从其当前位置发射。
+     * 以给定的速度射击弹射物。弹射物将从其当前位置射出。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param velocity
-     * 发射投射物的速度。这同时控制投射物发射的速度和方向。
+     * 射击弹射物的速度。这控制弹射物射击的速度和方向。
      * @param options
-     * 发射时的可选配置。
+     * 射击的可选配置。
      * @throws
-     * 如果组件或实体已不存在，则抛出错误。
+     * 如果组件或实体不再存在，则抛出错误。
      */
     shoot(velocity: Vector3, options?: ProjectileShootOptions): void;
 }

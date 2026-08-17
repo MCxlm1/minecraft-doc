@@ -1,5 +1,6 @@
 /**
- * {@link Dimension.createExplosion} 方法的额外配置选项。
+ * 为 {@link
+ * Dimension.createExplosion} 方法提供的额外配置选项。
  * @example createNoBlockExplosion.ts
  * ```typescript
  * import { DimensionLocation } from '@minecraft/server';
@@ -33,7 +34,7 @@
 export interface ExplosionOptions {
     /**
      * @remarks
-     * 爆炸是否也会影响水下部分。
+     * 是否爆炸的部分也会影响水下。
      *
      */
     allowUnderwater?: boolean;
@@ -45,7 +46,7 @@ export interface ExplosionOptions {
     breaksBlocks?: boolean;
     /**
      * @remarks
-     * 若为 true，爆炸会在爆炸半径内或附近引发火灾。
+     * 如果为 true，则爆炸会在爆炸半径内或附近产生火焰。
      *
      */
     causesFire?: boolean;

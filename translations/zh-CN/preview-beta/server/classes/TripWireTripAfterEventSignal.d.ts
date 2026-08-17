@@ -1,6 +1,6 @@
 /**
- * 管理与绊线被触发时相关的回调。
- *
+ * 管理连接到绊线被触发时的
+ * 回调函数。
  * @example tripWireTripEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -41,25 +41,29 @@ export class TripWireTripAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个当绊线被触发时会被调用的回调函数。
+     * 添加一个在绊线被触发时
+     * 调用的回调函数。
      *
-     * 该函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 该函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调函数。
-     * @returns 返回用于取消订阅的回调函数。
+     * @param callback - 用于绊线触发事件的回调函数。
+     * @returns - 用于取消订阅的函数。
+     *
      */
     subscribe(callback: (arg0: TripWireTripAfterEvent) => void): (arg0: TripWireTripAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个当绊线被触发时会被调用的回调函数。
+     * 移除一个在绊线被触发时
+     * 调用的回调函数。
      *
-     * 该函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 该函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback - 要移除的回调函数。
+     *
      */
     unsubscribe(callback: (arg0: TripWireTripAfterEvent) => void): void;
 }

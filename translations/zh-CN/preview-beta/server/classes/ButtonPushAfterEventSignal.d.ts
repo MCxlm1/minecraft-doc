@@ -1,5 +1,5 @@
 /**
- * 管理与按钮被按下时相关的回调。
+ * 管理按钮被按下时连接的调用回调。
  * @example buttonPushEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -36,25 +36,28 @@ export class ButtonPushAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个当按钮被按下时将调用的回调函数。
+     * 添加一个将在按钮被按下时调用的回调函数。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 按钮被按下时将调用的回调函数。
-     * @returns - 返回传入的回调函数，可用于取消订阅。
+     * @param callback
+     * 按钮被按下时要调用的函数。
+     * @returns
+     * 返回用于取消订阅的回调函数。
      */
     subscribe(callback: (arg0: ButtonPushAfterEvent) => void): (arg0: ButtonPushAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个按钮被按下时的回调函数。
+     * 移除一个在按钮被按下时调用的回调函数。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调函数。
+     * @param callback
+     * 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: ButtonPushAfterEvent) => void): void;
 }

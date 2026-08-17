@@ -1,24 +1,24 @@
 /**
- * 管理在玩家选中的快捷栏槽位更改后
- * 连接的回调。
+ * 管理玩家选中的快捷栏槽位发生变化后
+ * 所关联的回调。
  */
 export class PlayerHotbarSelectedSlotChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家选中的快捷栏槽位
-     * 更改后被调用。
+     * 添加一个回调，该回调将在玩家选中的
+     * 快捷栏槽位发生变化后被调用。
      *
-     * 不能在受限执行模式下调用此函数。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 可以在早期执行模式下调用此函数。
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 事件触发时要调用的函数回调。
+     * 当此事件触发时被调用的函数回调。
      * @param options
-     * 事件订阅的附加筛选选项。
+     * 事件订阅的附加过滤选项。
      * @returns
-     * 返回传入的回调函数，可用于后续取消订阅。
+     * 返回一个函数，用于取消对此事件的订阅。
      */
     subscribe(
         callback: (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void,
@@ -26,12 +26,12 @@ export class PlayerHotbarSelectedSlotChangeAfterEventSignal {
     ): (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其在玩家选中的快捷栏槽位
-     * 更改后不再被调用。
+     * 移除一个回调，使其不再在玩家选中的
+     * 快捷栏槽位发生变化后被调用。
      *
-     * 不能在受限执行模式下调用此函数。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 可以在早期执行模式下调用此函数。
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
      * 要移除的回调函数。

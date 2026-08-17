@@ -1,19 +1,19 @@
 /**
- * 管理实体掉落物品时触发的回调。
+ * 管理与实体掉落物品时相关的回调。
  */
 export class EntityItemDropAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调会在实体掉落物品时被调用。
+     * 添加一个将在实体掉落物品时被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 要添加的回调函数。
-     * @param options - 可选的事件选项。
-     * @returns 返回传入的回调函数，以便后续取消订阅。
+     * @param callback - 当实体掉落物品时要调用的回调函数。
+     * @param options - 可选的额外事件选项。
+     * @returns 所订阅的回调函数。
      */
     subscribe(
         callback: (arg0: EntityItemDropAfterEvent) => void,
@@ -21,9 +21,9 @@ export class EntityItemDropAfterEventSignal {
     ): (arg0: EntityItemDropAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在实体掉落物品时被调用。
+     * 移除一个回调，使其在实体掉落物品时不再被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *

@@ -1,6 +1,6 @@
 /**
- * 包含与实体生成相关的数据
- * 在世界中。
+ * 包含与世界中实体生成相关的
+ * 数据。
  * @example logEntitySpawnEvent.ts
  * ```typescript
  * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -29,13 +29,13 @@ export class EntitySpawnAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 初始化原因（生成、出生 ...）。
+     * 初始化原因（生成、出生等）。
      *
      */
     readonly cause: EntityInitializationCause;
     /**
      * @remarks
-     * 被生成的实体。
+     * 已生成的实体。
      *
      * This property can't be edited in restricted-execution mode.
      *

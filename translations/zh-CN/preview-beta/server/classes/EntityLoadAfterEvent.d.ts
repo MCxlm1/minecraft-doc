@@ -1,15 +1,13 @@
 /**
- * 包含与在世界中加载的实体相关的数据。
- * 这可能在重新加载未加载的区块时发生，或者
- * 在实体改变维度时发生。
+ * 包含世界内加载实体的相关数据。这可能在未加载的区块重新加载，或实体改变维度时发生。
  */
 export class EntityLoadAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已加载的实体。
+     * 被加载的实体。
      *
-     * 此属性无法在受限执行模式下编辑。
+     * This property can't be edited in restricted-execution mode.
      *
      */
     entity: Entity;

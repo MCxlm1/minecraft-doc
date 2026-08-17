@@ -1,18 +1,18 @@
 /**
  * 为 {@link
- * StructureManager.placeJigsaw} 提供额外选项。
+ * StructureManager.placeJigsaw} 提供额外的选项。
  */
 export interface JigsawPlaceOptions {
     /**
      * @remarks
-     * 结构是否应包含实体。
+     * 结构生成时是否应包含实体。
      * 默认为 true。
      *
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * 生成结构时是否保留拼图方块。
+     * 生成结构时是否应保留 Jigsaw 方块。
      * 默认为 false。
      *
      */

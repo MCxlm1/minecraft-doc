@@ -1,5 +1,5 @@
 /**
- * 表示已加载的结构模板（.mcstructure 文件）。
+ * 表示一个已加载的结构模板（.mcstructure 文件）。
  * 可以使用 /structure 命令或 {@link StructureManager} API
  * 将结构放置到世界中。
  */
@@ -10,8 +10,7 @@ export class Structure extends ISerializable {
      * @remarks
      * 结构的名称。标识符必须包含命名空间。
      * 对于通过 /structure 命令或结构方块创建的结构，
-     * 此命名空间默认为
-     * "mystructure"。
+     * 此命名空间默认为 "mystructure"。
      *
      */
     readonly id: string;
@@ -24,27 +23,27 @@ export class Structure extends ISerializable {
     readonly isValid: boolean;
     /**
      * @remarks
-     * 结构的尺寸。例如，单个方块结构的大小为 {x:1, y:1, z:1}
+     * 结构的尺寸。例如，单个方块结构的尺寸为
+     * {x:1, y:1, z:1}
      *
-     * @throws
-     * 此属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      *
      * {@link InvalidStructureError}
      */
     readonly size: Vector3;
     /**
      * @remarks
-     * 返回一个 BlockPermutation，表示给定位置处
-     * 结构内含有的方块。
+     * 返回一个 BlockPermutation，表示 Structure 中
+     * 指定位置所包含的方块。
      *
      * @param location
-     * 相对于结构原点的方块位置。
+     * 相对于 Structure 原点的方块位置。
      * @returns
-     * 返回一个 BlockPermutation。如果给定位置不存在方块，
+     * 返回一个 BlockPermutation。如果指定位置不存在方块，
      * 则返回 undefined。
      * @throws
      * 如果位置超出结构边界则抛出异常。
-     * 如果结构已被删除则抛出异常。
+     * 如果 Structure 已被删除则抛出异常。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -53,18 +52,16 @@ export class Structure extends ISerializable {
     getBlockPermutation(location: Vector3): BlockPermutation | undefined;
     /**
      * @remarks
-     * 返回给定位置的方块是否为
-     * 含水方块。
+     * 返回指定位置的方块是否含水。
      *
      * @param location
-     * 相对于结构原点的方块位置。
+     * 相对于 Structure 原点的方块位置。
      * @returns
-     * 返回给定位置的方块是否为
-     * 含水方块。如果该位置不存在方块，则
-     * 返回 false。
+     * 返回指定位置的方块是否含水。
+     * 如果指定位置不存在方块，则返回 false。
      * @throws
      * 如果位置超出结构边界则抛出异常。
-     * 如果结构已被删除则抛出异常。
+     * 如果 Structure 已被删除则抛出异常。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -73,22 +70,21 @@ export class Structure extends ISerializable {
     getIsWaterlogged(location: Vector3): boolean;
     /**
      * @remarks
-     * 创建 Structure 的副本并使用新名称保存。
+     * 创建一个 Structure 的副本，并使用新名称保存。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式中调用。
      *
      * @param identifier
-     * 新创建的 Structure 的名称。
+     * 新创建 Structure 的名称。
      * @param saveMode
-     * 确定 Structure 的保存方式。默认为
-     * 保存到世界。
-     * 默认为：1
+     * 决定如何保存 Structure。默认为保存到世界。
+     * 默认值：1
      * @returns
      * 返回新创建的结构。
      * @throws
      * 如果标识符无效则抛出异常。有效标识符必须
      * 包含命名空间且必须唯一。
-     * 如果结构已被删除则抛出异常。
+     * 如果 Structure 已被删除则抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -99,38 +95,37 @@ export class Structure extends ISerializable {
     saveAs(identifier: string, saveMode?: StructureSaveMode): Structure;
     /**
      * @remarks
-     * 将修改后的 Structure 保存到世界文件中。
+     * 将修改后的 Structure 保存到世界文件。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式中调用。
      *
      * @throws
-     * 如果结构已被删除则抛出异常。
+     * 如果 Structure 已被删除则抛出异常。
      *
      * {@link InvalidStructureError}
      */
     saveToWorld(): void;
     /**
      * @remarks
-     * 在 Structure 内设置 BlockPermutation。
+     * 在 Structure 中设置 BlockPermutation。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式中调用。
      *
      * @param location
-     * 相对于结构原点的方块位置。
+     * 相对于 Structure 原点的方块位置。
      * @param blockPermutation
      * 要设置的 BlockPermutation。
-     * 默认为：null
+     * 默认值：null
      * @param waterlogged
-     * 指定方块是否应为含水方块。空气和
-     * undefined 方块不能为含水方块。
-     * 默认为：false
+     * 指定方块是否应含水。空气和未定义的方块
+     * 不能为含水状态。
+     * 默认值：false
      * @throws
-     * 如果方块类型为 StructureVoid，则抛出异常。
-     * 如果方块为 undefined 且 waterlogged 设置为
-     * true，则抛出异常。
-     * 如果方块为空气且 waterlogged 设置为 true，则抛出异常。
+     * 如果方块类型为 StructureVoid 则抛出异常。
+     * 如果方块为 undefined 且 waterlogged 设置为 true 则抛出异常。
+     * 如果方块为空气且 waterlogged 设置为 true 则抛出异常。
      * 如果位置超出结构边界则抛出异常。
-     * 如果结构已被删除则抛出异常。
+     * 如果 Structure 已被删除则抛出异常。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *

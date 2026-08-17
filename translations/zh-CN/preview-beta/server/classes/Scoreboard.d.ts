@@ -48,10 +48,9 @@ export class Scoreboard {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param objectiveId
-     * 目标的标识符。
-     * @param displayName
-     * 目标的显示名称。如果未提供，则使用 `objectiveId` 作为显示名称。
+     * @param objectiveId - 目标的标识符。
+     * @param displayName - 目标的显示名称（可选）。
+     * @returns 新添加的记分板目标。
      * @throws 此函数可能抛出错误。
      * @example updateScoreboard.ts
      * ```typescript
@@ -96,50 +95,42 @@ export class Scoreboard {
     addObjective(objectiveId: string, displayName?: string): ScoreboardObjective;
     /**
      * @remarks
-     * 清除指定显示栏位中的记分板目标。
+     * 清除占据某个显示槽位的目标。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param displaySlotId
-     * 要清除的显示栏位 ID。
-     * @returns
-     * 返回被清除的记分板目标；如果该显示栏位原本没有设置目标，则返回 `undefined`。
+     * @param displaySlotId - 要清除的显示槽位。
+     * @returns 之前占据该显示槽位的目标；如果没有目标，则返回 `undefined`。
      */
     clearObjectiveAtDisplaySlot(displaySlotId: DisplaySlotId): ScoreboardObjective | undefined;
     /**
      * @remarks
-     * 返回指定 ID 的记分板目标。
+     * 返回指定 ID 的目标。
      *
-     * @param objectiveId
-     * 目标的标识符。
-     * @returns
-     * 返回与 `objectiveId` 对应的记分板目标；如果未找到，则返回 `undefined`。
+     * @param objectiveId - 目标的标识符。
+     * @returns 对应的记分板目标，如果不存在则返回 `undefined`。
      */
     getObjective(objectiveId: string): ScoreboardObjective | undefined;
     /**
      * @remarks
-     * 返回占据指定显示栏位的记分板目标。
+     * 返回占据指定显示槽位的目标。
      *
-     * @param displaySlotId
-     * 要查询的显示栏位 ID。
-     * @returns
-     * 返回指定显示栏位中设置的记分板目标显示选项；如果该栏位没有目标，则返回 `undefined`。
+     * @param displaySlotId - 要查询的显示槽位。
+     * @returns 对应显示槽位的目标显示设置；如果未设置则返回 `undefined`。
      */
     getObjectiveAtDisplaySlot(displaySlotId: DisplaySlotId): ScoreboardObjectiveDisplayOptions | undefined;
     /**
      * @remarks
-     * 返回所有已定义的记分板目标。
+     * 返回所有已定义的目标。
      *
-     * @returns
-     * 返回所有已定义的记分板目标数组。
+     * @returns 所有已定义的目标数组。
      */
     getObjectives(): ScoreboardObjective[];
     /**
      * @remarks
      * 返回所有已定义的记分板身份。
      *
-     * @returns
-     * 返回所有已定义的记分板身份数组。
+     * @returns 所有已定义的记分板身份数组。
      */
     getParticipants(): ScoreboardIdentity[];
     /**
@@ -148,25 +139,20 @@ export class Scoreboard {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param objectiveId
-     * 要移除的记分板目标或其 ID。
-     * @returns
-     * 如果目标被成功移除，则返回 `true`；否则返回 `false`。
+     * @param objectiveId - 要移除的目标或目标 ID。
+     * @returns 如果目标被成功移除则返回 `true`。
      * @throws 此函数可能抛出错误。
      */
     removeObjective(objectiveId: ScoreboardObjective | string): boolean;
     /**
      * @remarks
-     * 将一个目标设置到指定显示栏位，并附带其他显示设置。
+     * 将目标设置到显示槽位，并附加显示设置。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param displaySlotId
-     * 要设置目标的显示栏位 ID。
-     * @param objectiveDisplaySetting
-     * 包含目标及其显示设置的对象。
-     * @returns
-     * 返回此前在该显示栏位中设置的 `ScoreboardObjective`；如果之前没有设置目标，则返回 `undefined`。
+     * @param displaySlotId - 要设置的显示槽位。
+     * @param objectiveDisplaySetting - 目标的显示设置。
+     * @returns 返回之前设置在该显示槽位的 `ScoreboardObjective`；如果之前没有设置目标，则返回 `undefined`。
      * @throws 此函数可能抛出错误。
      */
     setObjectiveAtDisplaySlot(

@@ -7,7 +7,7 @@ export class BookError extends Error {
     private constructor();
     /**
      * @remarks
-     * 错误的原因。
+     * 错误原因。
      *
      * 此属性可在早期执行模式下读取。
      *

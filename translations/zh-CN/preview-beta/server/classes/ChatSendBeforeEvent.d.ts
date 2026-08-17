@@ -6,7 +6,7 @@ export class ChatSendBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 如果在 beforeChat 事件处理程序中设置为 true，则此消息不会广播出去。
+     * 如果在beforeChat事件处理程序中设置为true，则此消息不会广播出去。
      *
      */
     cancel: boolean;
@@ -24,7 +24,7 @@ export class ChatSendBeforeEvent {
     readonly sender: Player;
     /**
      * @remarks
-     * 可选的要接收此消息的玩家列表。如果已定义，此消息将直接定向给一个或多个玩家（即不进行广播）。
+     * 可选，将接收此消息的玩家列表。如果定义了，则此消息直接定向到一个或多个玩家（即不广播）。
      *
      */
     readonly targets?: Player[];

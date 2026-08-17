@@ -5,23 +5,23 @@ export class PlayerInputPermissions {
     private constructor();
     /**
      * @remarks
-     * 如果输入权限已启用，则返回true。
+     * 如果输入权限已启用，则返回 true。
      *
-     * 此函数无法在受限执行模式下调用。
-     * @param permissionCategory - 输入权限类别。
-     * @returns 如果权限已启用则返回true，否则返回false。
+     * This function can't be called in restricted-execution mode.
      *
+     * @param permissionCategory - 要检查的输入权限类别。
+     * @returns 若输入权限已启用则返回 true，否则返回 false。
      * @throws 此函数可能抛出错误。
      */
     isPermissionCategoryEnabled(permissionCategory: InputPermissionCategory): boolean;
     /**
      * @remarks
-     * 启用或禁用输入权限。启用时输入将生效，禁用时则无效。
+     * 启用或禁用输入权限。启用时输入将正常工作，禁用时则无效。
      *
-     * 此函数无法在受限执行模式下调用。
-     * @param permissionCategory - 输入权限类别。
-     * @param isEnabled - 若要启用输入权限，则设为true；若要禁用，则设为false。
+     * This function can't be called in restricted-execution mode.
      *
+     * @param permissionCategory - 要设置状态的输入权限类别。
+     * @param isEnabled - 是否启用该输入权限。
      * @throws 此函数可能抛出错误。
      */
     setPermissionCategory(permissionCategory: InputPermissionCategory, isEnabled: boolean): void;

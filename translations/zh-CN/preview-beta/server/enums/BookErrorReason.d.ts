@@ -1,6 +1,6 @@
 /**
- * 与使用 {@link
- * ItemBookComponent} 相关的错误原因枚举。
+ * 关于使用 {@link
+ * ItemBookComponent} 时产生的错误原因枚举。
  */
 export enum BookErrorReason {
     /**
@@ -12,14 +12,14 @@ export enum BookErrorReason {
     ExceedsMaxPageLength = 'ExceedsMaxPageLength',
     /**
      * @remarks
-     * 无法创建该页面，因为这会超过最大
+     * 无法创建页面，因为它会超过最大
      * 页数 50。
      *
      */
     ExceedsMaxPages = 'ExceedsMaxPages',
     /**
      * @remarks
-     * 正在签名的标题超过了最大标题长度
+     * 签署的标题超过了最大标题长度
      * 16。
      *
      */

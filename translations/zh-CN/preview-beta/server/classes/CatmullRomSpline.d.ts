@@ -1,5 +1,5 @@
 /**
- * CatmullRom 样条创建。
+ * CatmullRom 样条曲线创建。
  */
 export class CatmullRomSpline {
     /**

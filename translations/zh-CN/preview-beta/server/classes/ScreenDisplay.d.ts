@@ -1,5 +1,6 @@
 /**
- * 包含关于当前屏幕上显示的用户界面元素的信息。
+ * 包含有关显示在屏幕上的
+ * 用户界面元素的信息。
  * @example setTitle.ts
  * ```typescript
  * import { world, DimensionLocation } from '@minecraft/server';
@@ -58,79 +59,99 @@ export class ScreenDisplay {
     private constructor();
     /**
      * @remarks
-     * 如果当前引用的屏幕显示管理器对象有效且可用，则返回 true。
+     * 如果当前对此屏幕显示管理器对象的引用有效且可用，则返回 true。
      *
      */
     readonly isValid: boolean;
     /**
-     * 获取当前被隐藏的 HUD 元素列表。
      * @remarks
      * 此函数无法在受限执行模式下调用。
      *
-     * @returns 当前被隐藏的 HUD 元素数组。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}。
+     * @returns 当前隐藏的 HUD 元素数组。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
      */
     getHiddenHudElements(): HudElement[];
     /**
-     * 隐藏除指定元素之外的所有 HUD 元素。
      * @remarks
      * 此函数无法在受限执行模式下调用。
      *
      * @param hudElements
-     * 需要保持可见的 HUD 元素列表。省略时，将隐藏所有 HUD 元素。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}。
+     * 可选的 HUD 元素列表，用于指定需要保持可见的元素。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
      */
     hideAllExcept(hudElements?: HudElement[]): void;
     /**
-     * 检查指定的 HUD 元素是否被强制隐藏。
      * @remarks
      * 此函数无法在受限执行模式下调用。
      *
      * @param hudElement
-     * 要检查的 HUD 元素。
-     * @returns 如果该 HUD 元素被强制隐藏，则返回 true；否则返回 false。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}。
+     * 要检查是否被强制隐藏的 HUD 元素。
+     * @returns 如果该 HUD 元素被强制隐藏，则返回 true。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
      */
     isForcedHidden(hudElement: HudElement): boolean;
     /**
-     * 将所有 HUD 元素的可见性重置为默认状态。
      * @remarks
      * 此函数无法在受限执行模式下调用。
      *
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
      */
     resetHudElementsVisibility(): void;
     /**
-     * 设置动作栏文本——即显示在标题下方、快捷栏上方的文本。
+     * @remarks
+     * 设置行动栏文本——显示在标题下方、快捷栏上方的文本。
+     *
      * 此函数无法在受限执行模式下调用。
      *
      * @param text
-     * 动作栏文本的新值。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}；当原始消息格式无效时抛出 {@link RawMessageError}。
+     * 行动栏文本的新值。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
+     *
+     * {@link RawMessageError}
      */
     setActionBar(text: (RawMessage | string)[] | RawMessage | string): void;
     /**
-     * 设置特定 HUD 元素的可见性。
      * @remarks
+     * 设置平视显示器（HUD）中某个元素的可见性。
+     *
      * 此函数无法在受限执行模式下调用。
      *
      * @param visible
-     * 是否将 HUD 元素设置为不可见，或重置回默认状态。
+     * 是将 HUD 元素设置为不可见，还是将其重置为默认状态。
      * @param hudElements
-     * 可选的要配置可见性的 HUD 元素列表。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}。
+     * 可选的 HUD 元素列表，用于配置可见性。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
      */
     setHudVisibility(visible: HudVisibility, hudElements?: HudElement[]): void;
     /**
-     * 让标题显示在玩家的屏幕显示上。如果设置为空字符串，将清除标题。你还可以选择指定附加字幕以及淡入、停留和淡出时间。
      * @remarks
+     * 将在玩家的屏幕显示上显示一个标题。如果设置为空字符串，将清除标题。你还可以选择指定附加副标题以及淡入、停留和淡出时间。
+     *
      * 此函数无法在受限执行模式下调用。
      *
      * @param title
      * 要显示的标题文本。
      * @param options
-     * 可选的标题显示选项，包括字幕以及淡入、停留和淡出时间。
-     * @throws 当某个参数超出允许范围时抛出 {@link minecraftcommon.ArgumentOutOfBoundsError}；当此屏幕显示管理器所关联的实体不再有效时抛出 {@link InvalidEntityError}；当原始消息格式无效时抛出 {@link RawMessageError}。
+     * 标题显示选项，包括副标题及淡入、停留和淡出时间。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.ArgumentOutOfBoundsError}
+     *
+     * {@link InvalidEntityError}
+     *
+     * {@link RawMessageError}
      * @example setTitle.ts
      * ```typescript
      * import { world, DimensionLocation } from '@minecraft/server';
@@ -187,13 +208,18 @@ export class ScreenDisplay {
      */
     setTitle(title: (RawMessage | string)[] | RawMessage | string, options?: TitleDisplayOptions): void;
     /**
-     * 如果之前已通过 setTitle 方法显示了字幕，则更新该字幕。
      * @remarks
+     * 如果副标题先前已通过 setTitle 方法显示，则更新副标题。
+     *
      * 此函数无法在受限执行模式下调用。
      *
      * @param subtitle
-     * 新的字幕文本。
-     * @throws 当此屏幕显示管理器所关联的实体不再有效时，抛出 {@link InvalidEntityError}；当原始消息格式无效时抛出 {@link RawMessageError}。
+     * 新的副标题文本。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link InvalidEntityError}
+     *
+     * {@link RawMessageError}
      * @example countdown.ts
      * ```typescript
      * import { world, system, DimensionLocation } from '@minecraft/server';

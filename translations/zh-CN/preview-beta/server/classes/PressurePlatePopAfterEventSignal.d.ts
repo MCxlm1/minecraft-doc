@@ -1,13 +1,11 @@
 /**
- * 管理与压力板弹出时
- * 相关的回调。
+ * 管理在压力板被弹出时触发的回调函数。
  */
 export class PressurePlatePopAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调函数，当压力板
-     * 弹出时会被调用。
+     * 添加一个回调函数，当压力板被弹出时将被调用。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -17,8 +15,7 @@ export class PressurePlatePopAfterEventSignal {
     subscribe(callback: (arg0: PressurePlatePopAfterEvent) => void): (arg0: PressurePlatePopAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调函数，当压力板
-     * 弹出时不再被调用。
+     * 移除一个当压力板被弹出时被调用的回调函数。
      *
      * This function can't be called in restricted-execution mode.
      *

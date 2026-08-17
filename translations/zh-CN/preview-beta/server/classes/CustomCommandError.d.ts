@@ -1,5 +1,5 @@
 /**
- * 当 CustomCommandRegistry 发生错误时抛出的错误对象。
+ * 当 CustomCommandRegistry 错误发生时抛出的错误对象。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class CustomCommandError extends Error {

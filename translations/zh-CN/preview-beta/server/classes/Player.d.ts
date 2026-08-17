@@ -1,5 +1,5 @@
 /**
- * 表示世界中的玩家。
+ * 表示世界中的一位玩家。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class Player extends Entity {
@@ -18,9 +18,9 @@ export class Player extends Entity {
      * @remarks
      * 玩家的聊天显示名称，由 {@link
      * Player.chatNamePrefix} + {@link Player.name} + {@link
-     * Player.chatNameSuffix} 组成。这是该玩家发送的聊天消息中
-     * 显示的作者名称。要更改玩家头顶显示的名称，
-     * 请使用 {@link Entity.nameTag}。
+     * Player.chatNameSuffix} 组成。该名称显示为
+     * 此玩家发送的聊天消息的作者。要更改
+     * 玩家头顶显示的名称，请使用 {@link Entity.nameTag}。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -31,13 +31,15 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 一个可选字符串，设置后会添加到该玩家发送的聊天消息文本之前。
-     * 可用于对玩家的消息应用格式或颜色代码（例如，'§a' 使消息变为绿色）。
-     * 不影响玩家的名称显示 - 若要修改聊天中显示的名称，请使用 {@link
-     * Player.chatNamePrefix}；若要修改玩家头顶的名称，请使用 {@link Entity.nameTag}。
+     * 一个可选字符串，设置后，会前置到
+     * 该玩家发送的聊天消息文本之前。可用于为玩家的消息应用
+     * 格式或颜色代码（例如，使用 '§a'
+     * 使消息变为绿色）。不影响玩家的
+     * 名称显示——如需在聊天中显示名称，请使用 {@link Player.chatNamePrefix}；
+     * 如需玩家头顶显示的名称，请使用 {@link Entity.nameTag}。
      * 设置为 undefined 以清除。
      *
-     * This property can't be edited in restricted-execution mode.
+     * 此属性在受限执行模式下无法编辑。
      *
      */
     chatMessagePrefix?: string;
@@ -45,12 +47,14 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 一个可选字符串，设置后会添加到玩家在聊天消息中的名称之前。
-     * 不影响玩家头顶的名称标签或玩家列表 - 若要修改这些，请使用 {@link
-     * Entity.nameTag}。若要为消息文本本身添加前缀，请使用 {@link
-     * Player.chatMessagePrefix}。设置为 undefined 以清除。
+     * 一个可选字符串，设置后，会前置到
+     * 聊天消息中的玩家名称之前。不影响
+     * 玩家头顶的名称标签或玩家列表——请使用 {@link
+     * Entity.nameTag} 来修改。若要为消息文本添加前缀，
+     * 请使用 {@link Player.chatMessagePrefix}。设置为 undefined 以
+     * 清除。
      *
-     * This property can't be edited in restricted-execution mode.
+     * 此属性在受限执行模式下无法编辑。
      *
      */
     chatNamePrefix?: string;
@@ -58,12 +62,13 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 一个可选字符串，设置后会附加到玩家在聊天消息中的名称之后。
-     * 不影响玩家头顶的名称标签或玩家列表 - 若要修改这些，请使用 {@link
-     * Entity.nameTag}。另请参阅 {@link Player.chatNamePrefix}。
-     * 设置为 undefined 以清除。
+     * 一个可选字符串，设置后，会追加到
+     * 聊天消息中的玩家名称之后。不影响
+     * 玩家头顶的名称标签或玩家列表——请使用 {@link
+     * Entity.nameTag}。另请参阅 {@link
+     * Player.chatNamePrefix}。设置为 undefined 以清除。
      *
-     * This property can't be edited in restricted-execution mode.
+     * 此属性在受限执行模式下无法编辑。
      *
      */
     chatNameSuffix?: string;
@@ -78,7 +83,7 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * 此属性在受限执行模式下无法编辑。
      *
      */
     commandPermissionLevel: CommandPermissionLevel;
@@ -86,15 +91,17 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 包含用于操作玩家渲染距离雾设置的方法。
+     * 包含用于操控玩家
+     * 渲染距离雾设置的方法。
      *
      */
     readonly fogSettings: FogSettings;
 
     /**
      * @remarks
-     * 获取玩家客户端的当前图形模式。该模式可在设置菜单的视频部分更改，
-     * 具体取决于可用的硬件。
+     * 获取玩家客户端的当前图形模式。此设置
+     * 可在设置菜单的视频部分根据可用的
+     * 硬件进行更改。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -118,7 +125,7 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 如果为 true，表示玩家当前正在做表情。
+     * 如果为 true，表示玩家当前正在做表情动作。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -126,7 +133,8 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 玩家是否在飞行。例如，在创造模式或旁观者模式中。
+     * 玩家是否正在飞行。例如，在创造或
+     * 旁观者模式中。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -142,7 +150,7 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 玩家是否正在跳跃。当玩家按住跳跃动作时，此值将保持为 true。
+     * 玩家是否正在跳跃。当玩家按住跳跃动作时，该值将保持为 true。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -158,7 +166,8 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 玩家的定位器栏。此属性用于管理 HUD 上显示的路标点。
+     * 玩家的定位栏。此属性用于管理
+     * HUD 上显示的路标点。
      *
      */
     readonly locatorBar: LocatorBar;
@@ -173,7 +182,8 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 包含用于操作玩家屏幕显示的方法。
+     * 包含用于操控玩家
+     * 屏幕显示的方法。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -182,7 +192,8 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 一个可用于跨会话识别玩家的标识符。
+     * 可用于跨会话标识玩家的
+     * 标识符。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -201,14 +212,15 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * 此属性在受限执行模式下无法编辑。
      *
      */
     selectedSlotIndex: number;
 
     /**
      * @remarks
-     * 玩家达到下一等级所需的总经验值。
+     * 玩家达到下一等级所需的
+     * 总经验值。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -216,7 +228,7 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 玩家在当前等级已获得的经验值。
+     * 玩家当前已获得的经验值。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -224,12 +236,13 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 向玩家添加/移除经验，并返回玩家当前的经验值。
+     * 向玩家增加/移除经验值，并返回
+     * 玩家当前的经验值。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param amount
-     * 要添加的经验量。注意可以为负数。
+     * 要增加的经验值数量。注意，该值可以为负数。
      * 最小/最大边界为 -2^24 ~ 2^24
      * 边界：[-16777216, 16777216]
      * @returns
@@ -240,28 +253,29 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 向玩家添加/移除等级，并返回玩家当前的等级。
+     * 向玩家增加/移除等级，并返回
+     * 玩家当前等级。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param amount
-     * 要添加到玩家的量。最小/最大边界为 -2^24 ~ 2^24
+     * 要增加给玩家的等级数量。最小/最大边界为 -2^24 ~ 2^24
      * 边界：[-16777216, 16777216]
      * @returns
-     * 返回玩家当前的等级。
+     * 返回玩家当前等级。
      * @throws 此函数可能抛出错误。
      */
     addLevels(amount: number): number;
 
     /**
      * @remarks
-     * 对于该玩家，移除目标实体上所有实体属性覆盖。此更改将在下一 tick 生效，
-     * 并且不会应用于其他玩家。
+     * 对于该玩家，移除目标实体上所有实体属性的覆盖。
+     * 此更改直到下一 tick 才会应用，且不会应用于其他玩家。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param targetEntity
-     * 要清除实体属性覆盖的实体或实体 ID。
+     * 目标实体或其实体 ID，将清除其上的实体属性覆盖。
      * @throws
      * 如果实体或实体 ID 无效，则抛出异常。
      */
@@ -270,14 +284,15 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 吃一个物品，向玩家提供该物品的饥饿度和饱和度效果。只能用于食物物品。
+     * 食用一个物品，为玩家提供该物品的饥饿度与饱和度效果。
+     * 仅能用于食物物品。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param itemStack
-     * 要吃的物品。
+     * 要食用的物品。
      * @throws
-     * 如果该物品不是食物，则抛出异常。
+     * 如果物品不是食物，则抛出异常。
      */
     eatItem(itemStack: ItemStack): void;
 
@@ -285,15 +300,13 @@ export class Player extends Entity {
      * @remarks
      * 玩家的瞄准辅助设置。
      *
-     * @returns 玩家的瞄准辅助设置。
      */
     getAimAssist(): PlayerAimAssist;
 
     /**
      * @remarks
-     * 返回玩家当前的操作模式（控制方案）。
+     * 返回玩家当前的控制方案。
      *
-     * @returns 玩家当前的控制方案。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -304,7 +317,6 @@ export class Player extends Entity {
      * @remarks
      * 获取该玩家的当前游戏模式（如果已指定）。
      *
-     * @returns 该玩家的当前游戏模式。
      * @throws 此函数可能抛出错误。
      */
     getGameMode(): GameMode;
@@ -315,7 +327,6 @@ export class Player extends Entity {
      *
      * @param cooldownCategory
      * 指定要获取当前冷却时间的冷却类别。
-     * @returns 该冷却类别的当前冷却时间。
      * @throws 此函数可能抛出错误。
      */
     getItemCooldown(cooldownCategory: string): number;
@@ -323,10 +334,10 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 获取玩家的延迟（以毫秒为单位）。
+     * 获取玩家的网络延迟（毫秒）。
      *
      * @returns
-     * 玩家的延迟（以毫秒为单位）。
+     * 玩家的网络延迟（毫秒）。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -339,7 +350,6 @@ export class Player extends Entity {
      * @remarks
      * 获取玩家当前的出生点。
      *
-     * @returns 玩家当前的出生点，如果未设置则返回 undefined。
      * @throws 此函数可能抛出错误。
      */
     getSpawnPoint(): DimensionLocation | undefined;
@@ -350,7 +360,7 @@ export class Player extends Entity {
      * 返回玩家的分屏槽位。
      *
      * @returns
-     * 玩家的分屏槽位，如果玩家不在分屏会话中则返回 undefined。
+     * 玩家的分屏槽位；如果玩家未处于分屏会话中，则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -361,7 +371,7 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     *  获取玩家的总经验值。
+     * 获取玩家的总经验值。
      *
      * @throws 此函数可能抛出错误。
      */
@@ -369,9 +379,9 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 播放只有该特定玩家能听到的音乐曲目。
+     * 播放仅该玩家可以听见的音乐曲目。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param trackId
      * 要播放的音乐曲目的标识符。
@@ -383,16 +393,14 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 播放只有该特定玩家能听到的声音。
+     * 播放仅该玩家可以听见的声音。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数在受限执行模式下无法调用。
      *
      * @param soundId
      * 要播放的声音的标识符或声音定义。
      * @param soundOptions
      * 声音的附加可选选项。
-     * @returns
-     * 返回播放的声音实例。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -428,49 +436,55 @@ export class Player extends Entity {
      * ```
      */
     playSound(soundId: SoundDefinition | string, soundOptions?: PlayerSoundOptions): SoundInstance;
+}
 
-/**
+    /**
      * @beta
      * @remarks
      * 这是一个面向内部的方法，用于向下游客户端发送系统消息。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @param id
+     * 消息的标识符。
+     * @param value
+     * 消息的内容。
+     * @throws
+     * 此函数可能抛出错误。
      */
     postClientMessage(id: string, value: string): void;
 
     /**
      * @remarks
-     * 排队一首额外的音乐曲目，仅此特定玩家可以听到。如果当前没有曲目播放，则会播放一首音乐曲目。
+     * 为当前玩家排队播放额外的音乐曲目。如果没有曲目正在播放，将播放一首音乐曲目。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param trackId
      * 要播放的音乐曲目的标识符。
      * @param musicOptions
      * 音乐曲目的附加选项。
      * @throws
-     * 如果音量小于0.0，则会抛出错误。
-     * 如果淡入淡出小于0.0，则会抛出错误。
+     * 如果音量（volume）小于 0.0，将抛出错误。
+     * 如果淡入淡出（fade）小于 0.0，将抛出错误。
      *
      */
     queueMusic(trackId: string, musicOptions?: MusicOptions): void;
 
     /**
      * @remarks
-     * 对于此玩家，移除对实体属性的覆盖。此更改直到下一个刻才会应用，并且不会应用于其他玩家。
+     * 为该玩家移除对某个实体属性的覆盖。此更改要到下一个游戏刻才会生效，并且不会应用到其他玩家。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param targetEntity
-     * 要移除其实体属性覆盖的实体。
+     * 正在移除实体属性覆盖的实体。
      * @param identifier
-     * 实体属性标识符。
+     * 实体属性的标识符。
      * @throws
-     * 如果实体无效，则抛出。
-     * 如果提供了无效的标识符，则抛出。
-     * 如果提供的值类型与属性类型不匹配，则抛出。
+     * 如果实体无效，则抛出错误。
+     * 如果提供了无效的标识符，则抛出错误。
+     * 如果提供的值类型与属性类型不匹配，则抛出错误。
      */
     removePropertyOverrideForEntity(targetEntity: Entity, identifier: string): void;
 
@@ -478,9 +492,10 @@ export class Player extends Entity {
      * @remarks
      * 重置玩家的等级。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @throws
+     * 此函数可能抛出错误。
      */
     resetLevel(): void;
 
@@ -491,7 +506,7 @@ export class Player extends Entity {
      * @param message
      * 要显示的消息。
      * @throws
-     * 如果提供的 {@link RawMessage} 格式无效，此方法可能会抛出。例如，如果向 `score` 提供了空 `name` 字符串。
+     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出错误。例如，向 `score` 提供了空的 `name` 字符串。
      *
      * {@link InvalidEntityError}
      *
@@ -573,15 +588,16 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 设置玩家的控制方案。玩家的活动相机预设必须通过脚本（如 camera.setCamera()）或命令设置。
+     * 设置玩家的控制方案。玩家的活动相机预设必须由脚本（例如通过 camera.setCamera()）或命令设置。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param controlScheme
-     * 控制方案类型。如果此参数未定义，此方法将清除玩家的控制方案，恢复为玩家相机的默认控制方案。
+     * 控制方案类型。如果此参数为 undefined，此方法将清除玩家的控制方案，并恢复为该玩家相机的默认控制方案。
      * @returns
-     * 如果控制方案成功添加或更新，则返回空。如果玩家的当前相机不允许该控制方案，则可能抛出 InvalidArgumentError。
-     * @throws 此函数可能会抛出错误。
+     * 如果控制方案成功添加或更新，则不返回任何值。如果玩家的当前相机不允许该控制方案，则可能抛出 InvalidArgumentError。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -595,42 +611,46 @@ export class Player extends Entity {
      * @remarks
      * 为此玩家设置游戏模式覆盖。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param gameMode
-     * 活动的游戏模式。
-     * @throws 此函数可能会抛出错误。
+     * 当前活动的游戏模式。
+     * @throws
+     * 此函数可能抛出错误。
      */
     setGameMode(gameMode?: GameMode): void;
 
     /**
      * @remarks
-     * 对于此玩家，覆盖目标实体上的实体属性为提供的值。此属性必须为客户端同步。此更改直到下一个刻才会应用，并且不会应用于其他玩家。
+     * 为此玩家，将目标实体上的一个实体属性覆盖为提供的值。此属性必须为客户端同步（client synced）。此更改要到下一个游戏刻才会生效，且不会应用到其他玩家。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param targetEntity
-     * 要被覆盖实体属性的实体。
+     * 正在覆盖其实体属性的实体。
      * @param identifier
-     * 实体属性标识符。
+     * 实体属性的标识符。
      * @param value
      * 覆盖值。提供的类型必须与实体定义中指定的类型兼容。
      * @throws
-     * 如果实体无效，则抛出。
-     * 如果提供了无效的标识符，则抛出。
-     * 如果提供的值类型与属性类型不匹配，则抛出。
-     * 如果提供的值超出预期范围（整数、浮点数属性），则抛出。
-     * 如果提供的字符串值与接受的枚举值集合不匹配（枚举属性），则抛出。
+     * 如果实体无效，则抛出错误。
+     * 如果提供了无效的标识符，则抛出错误。
+     * 如果提供的值类型与属性类型不匹配，则抛出错误。
+     * 如果提供的值超出预期范围（int、float 属性），则抛出错误。
+     * 如果提供的字符串值与可接受的枚举值集合不匹配（枚举属性），则抛出错误。
      */
     setPropertyOverrideForEntity(targetEntity: Entity, identifier: string, value: boolean | number | string): void;
 
     /**
      * @remarks
-     * 设置此特定玩家的当前起始重生点。
+     * 为此玩家设置当前的出生点。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @param spawnPoint
+     * 要设置的出生点位置。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -640,17 +660,18 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 在世界中指定位置创建一个新的粒子发射器。仅对目标玩家可见。
+     * 在世界的指定位置创建一个新的粒子发射器。仅对目标玩家可见。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param effectName
      * 要创建的粒子的标识符。
      * @param location
      * 创建粒子发射器的位置。
      * @param molangVariables
-     * 一组可选的、可自定义的变量，可以为此粒子调整。
-     * @throws 此函数可能会抛出错误。
+     * 一组可选的、可自定义的变量，可用于调整此粒子。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -686,26 +707,28 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 设置特定冷却类别的物品冷却时间。
+     * 为特定的冷却类别设置物品冷却时间。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param cooldownCategory
-     * 指定要获取当前冷却时间的冷却类别。
+     * 指定要设置冷却时间的冷却类别。
      * @param tickDuration
-     * 物品冷却的持续时间（以刻为单位）。范围：[0, 32767]
-     * @throws 此函数可能会抛出错误。
+     * 物品冷却的持续时间（以刻为单位）。取值范围：[0, 32767]
+     * @throws
+     * 此函数可能抛出错误。
      */
     startItemCooldown(cooldownCategory: string, tickDuration: number): void;
 
     /**
      * @beta
      * @remarks
-     * 停止所有正在为此特定玩家播放的声音。
+     * 停止此玩家当前播放的所有声音。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
@@ -713,24 +736,26 @@ export class Player extends Entity {
 
     /**
      * @remarks
-     * 停止所有正在为此特定玩家播放的音乐曲目。
+     * 停止为此玩家播放的任何音乐曲目。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @throws
+     * 此函数可能抛出错误。
      */
     stopMusic(): void;
 
     /**
      * @beta
      * @remarks
-     * 停止为此特定玩家播放的声音。
+     * 停止为此玩家播放的声音。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param soundId
      * 声音的标识符。
-     * @throws 此函数可能会抛出错误。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */

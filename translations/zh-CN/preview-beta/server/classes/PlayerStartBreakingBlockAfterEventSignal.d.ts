@@ -1,21 +1,19 @@
 /**
- * 管理回调函数，与玩家开始
- * 破坏方块时相关。
+ * 管理与玩家开始破坏方块时触发的回调。
  */
 export class PlayerStartBreakingBlockAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调函数，当玩家开始
-     * 破坏方块时将被调用。
+     * 添加一个当玩家开始破坏方块时调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback - 被添加的回调函数。
-     * @param options - 可选的选项，用于过滤事件。
-     * @returns 返回传入的回调函数。
+     * @param callback - 要添加的回调函数，接收 PlayerStartBreakingBlockAfterEvent 事件。
+     * @param options - 可选的事件选项。
+     * @returns 传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: PlayerStartBreakingBlockAfterEvent) => void,
@@ -23,12 +21,11 @@ export class PlayerStartBreakingBlockAfterEventSignal {
     ): (arg0: PlayerStartBreakingBlockAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调函数，使其不再在玩家开始
-     * 破坏方块时被调用。
+     * 移除一个在玩家开始破坏方块时调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
      * @param callback - 要移除的回调函数。
      */

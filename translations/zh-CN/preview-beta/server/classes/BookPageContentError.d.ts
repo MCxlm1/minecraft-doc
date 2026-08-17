@@ -1,16 +1,16 @@
 /**
- * 当在{@link ItemBookComponent}上设置的页面内容无效时引发的错误，
- * 即超过最大
- * 页面长度。
+ * 当设置在 {@link
+ * ItemBookComponent} 上的页面内容无效时（即超过最大页面长度）
+ * 调用的错误。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BookPageContentError extends Error {
     private constructor();
     /**
      * @remarks
-     * 要修改的页面的索引。
+     * 请求修改的页面的索引。
      *
-     * This property can be read in early-execution mode.
+     * 此属性可在早期执行模式下读取。
      *
      */
     readonly pageIndex: number;
@@ -18,7 +18,7 @@ export class BookPageContentError extends Error {
      * @remarks
      * 错误的原因。
      *
-     * This property can be read in early-execution mode.
+     * 此属性可在早期执行模式下读取。
      *
      */
     readonly reason: BookErrorReason;
