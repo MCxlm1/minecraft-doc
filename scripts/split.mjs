@@ -1,10 +1,9 @@
 /**
- * split.mjs — 符号级 md 翻译（参考 sapi-typedoc 的文件名匹配，md 载体）
- *  - splitSymbols：提取 .d.ts 顶层导出符号（类/接口/枚举/函数/类型别名/变量）及其**所有成员**
- *    （方法/属性/访问器/构造器/枚举成员）的签名 + JSDoc 区间
- *  - 源 md（下载翻译模板）：`# 符号名` + `> 签名` + 符号注释 + `## 成员`（每个成员 `### 名称` + `> 签名` + 注释）
- *  - replacePieces：翻译 md 的注释文本替换回 d.ts 对应符号/成员的 JSDoc（签名保留）
- *  - 哈希校验：manifest 记录源 JSDoc 哈希，源变化 → 翻译失效
+ * split.mjs — 翻译片段机制（照搬 sapi-typedoc 汉化方案）
+ *  - splitSymbols：提取 .d.ts 顶层导出符号的完整区间（JSDoc + 签名 + 全部成员），文件名匹配 <类型>/<符号>.d.ts
+ *  - 翻译片段（下载/上传）：完整符号 d.ts 文本（翻译其内所有 JSDoc，签名保留）
+ *  - replacePieces：翻译片段**整体替换**符号区间（无解析问题，最可靠）
+ *  - 哈希校验：manifest 记录源符号哈希，源变化 → 翻译失效
  */
 import { SyntaxKind } from 'ts-morph';
 import crypto from 'crypto';
@@ -29,37 +28,14 @@ const KindToCategory = new Map([
 function jsdocOf(node) {
   const jsdocs = typeof node.getJsDocs === 'function' ? node.getJsDocs() : [];
   const jsdoc = jsdocs[0];
-  if (!jsdoc) return { start: null, end: null, text: '' };
-  return {
-    start: jsdoc.getStart(),
-    end: jsdoc.getEnd(),
-    text: jsdoc.getText().replace(/^\/\*\*/, '').replace(/\*\/\s*$/, '').trim(),
-  };
-}
-
-/** 提取顶层符号的直接成员（方法/属性/访问器/构造器/枚举成员等） */
-function extractMembers(node) {
-  if (typeof node.getMembers !== 'function') return [];
-  const members = [];
-  for (const m of node.getMembers()) {
-    const jsdoc = jsdocOf(m);
-    const name = typeof m.getName === 'function' && m.getName() ? m.getName() : m.getText().split('\n')[0].trim();
-    members.push({
-      name,
-      signature: m.getText().split('\n')[0].trim(),
-      jsdocText: jsdoc.text,
-      jsdocStart: jsdoc.start,
-      jsdocEnd: jsdoc.end,
-      start: m.getStart(false), // 成员起始位置（无 JSDoc 时用于插入）
-    });
-  }
-  return members;
+  if (!jsdoc) return { start: null };
+  return { start: jsdoc.getStart() };
 }
 
 /**
- * 提取顶层导出符号（含成员）。
+ * 提取顶层导出符号的完整区间。
  * @param {import('ts-morph').SourceFile} sourceFile
- * @param {string} translationsRoot 翻译 md 根目录（translations/zh-CN/<版本>-<口味>/<模块>）
+ * @param {string} translationsRoot 翻译片段根目录（translations/zh-CN/<版本>-<口味>/<模块>）
  */
 export function splitSymbols(sourceFile, translationsRoot) {
   const pieces = [];
@@ -74,69 +50,22 @@ export function splitSymbols(sourceFile, translationsRoot) {
     if (!symbol) return;
     const symbolName = symbol.getName();
     const jsdoc = jsdocOf(node);
+    const start = jsdoc.start ?? node.getStart(false);
+    const end = node.getEnd();
     pieces.push({
-      start: jsdoc.start ?? node.getStart(false),
-      end: jsdoc.end ?? node.getStart(false),
-      path: `${translationsRoot}/${category}/${symbolName}.md`,
+      start,
+      end,
+      path: `${translationsRoot}/${category}/${symbolName}.d.ts`,
       symbolName,
-      jsdocText: jsdoc.text,
-      signatureText: node.getText().split('\n')[0].trim(),
-      members: extractMembers(node),
+      text: sourceFile.getFullText().slice(start, end),
     });
   });
   return pieces;
 }
 
-/** 生成源 md（完整：符号注释 + 所有成员签名/注释） */
-export function buildSourceMd(p) {
-  const lines = [`# ${p.symbolName}`, '', `> ${p.signatureText}`, '', p.jsdocText, ''];
-  if (p.members && p.members.length > 0) {
-    lines.push('## 成员', '');
-    for (const m of p.members) {
-      lines.push(`### ${m.name}`, '', `> ${m.signature}`, '', m.jsdocText, '');
-    }
-  }
-  return lines.join('\n');
-}
-
-/** 解析翻译 md：类注释 + 成员注释映射（### 名称 → 注释） */
-function parseTranslatedMd(md) {
-  const lines = md.split('\n');
-  const classComment = [];
-  const memberComments = new Map();
-  let section = 'class';
-  let currentMember = null;
-  let buffer = [];
-
-  const flush = () => {
-    const text = buffer.join('\n').trim();
-    buffer = [];
-    if (!text) return;
-    if (section === 'class') classComment.push(text);
-    else if (currentMember) memberComments.set(currentMember, text);
-  };
-
-  for (const line of lines) {
-    const t = line.trim();
-    if (t.startsWith('# ') || t.startsWith('## ')) {
-      if (t.startsWith('## ')) { flush(); section = 'members'; }
-      continue;
-    }
-    if (t.startsWith('### ')) {
-      flush();
-      currentMember = t.slice(4).trim();
-      continue;
-    }
-    if (t.startsWith('> ')) continue; // 签名行
-    buffer.push(line);
-  }
-  flush();
-  return { classComment: classComment.join('\n\n'), memberComments };
-}
-
 /**
- * 用翻译 md 替换符号/成员 JSDoc（哈希一致才替换）。
- * @returns {{ applied:Array<string>, missing:Array<{symbol,path,md}>, expired:Array<{symbol,path,md}> }}
+ * 用翻译片段整体替换符号区间（哈希一致才替换）。
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
@@ -148,35 +77,22 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
 
   for (const p of pieces) {
     const key = `${keyPrefix}${p.symbolName}`;
-    const srcHash = sha1(p.jsdocText);
+    const srcHash = sha1(p.text);
     if (!fs.existsSync(p.path)) {
-      missing.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) });
+      missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
     const recorded = manifest[key];
     if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
-      expired.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) }); // 源变了 → 翻译失效
+      expired.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 源变了 → 翻译失效
       continue;
     }
-    const transMd = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n');
-    const { classComment, memberComments } = parseTranslatedMd(transMd);
-    if (!classComment && memberComments.size === 0) {
-      missing.push({ symbol: p.symbolName, path: p.path, md: buildSourceMd(p) }); // 空翻译视为未翻译
+    const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();
+    if (!trans) {
+      missing.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 空片段视为未翻译
       continue;
     }
-    if (classComment && p.jsdocText) {
-      edits.push({ start: p.start, end: p.end, comment: classComment });
-    }
-    for (const m of p.members) {
-      if (!memberComments.has(m.name)) continue;
-      const comment = memberComments.get(m.name);
-      if (m.jsdocStart != null) {
-        edits.push({ start: m.jsdocStart, end: m.jsdocEnd, comment });
-      } else {
-        // 成员原本无 JSDoc → 在成员声明前插入注释
-        edits.push({ start: m.start, end: m.start, insert: `/**\n${comment}\n*/\n` });
-      }
-    }
+    edits.push({ start: p.start, end: p.end, text: trans });
     manifest[key] = { sourceHash: srcHash, status: 'translated' };
     applied.push(p.symbolName);
     changed = true;
@@ -184,11 +100,7 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   if (changed) {
     edits.sort((a, b) => b.start - a.start);
     for (const e of edits) {
-      if (e.insert) {
-        text = `${text.slice(0, e.start)}${e.insert}${text.slice(e.end)}`;
-      } else {
-        text = `${text.slice(0, e.start)}/**\n${e.comment}\n*/${text.slice(e.end)}`;
-      }
+      text = `${text.slice(0, e.start)}${e.text}${text.slice(e.end)}`;
     }
     sourceFile.replaceWithText(text);
   }

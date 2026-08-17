@@ -221,11 +221,11 @@ async function main() {
           `${ver.id}-${flavor}/${mod.dir}/`,
           manifest
         );
-        // 未翻译/失效符号的源 md → _out/translation-src/<版本>-<口味>/<模块>/<类型>/<符号>.md（供工具下载翻译）
+        // 未翻译/失效符号的源片段 → _out/translation-src/<版本>-<口味>/<模块>/<类型>/<符号>.d.ts（供工具下载翻译）
         const toSrcItems = (items) =>
           items.map((it) => {
             const rel = path.relative(TRANS_DIR, it.path);
-            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.md);
+            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.text + '\n');
             return { symbol: it.symbol, srcUrl: `/minecraft-doc/translation-src/${rel.split(path.sep).join('/')}` };
           });
         untranslatedGroups.push({
