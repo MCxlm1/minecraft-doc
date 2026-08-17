@@ -10,7 +10,7 @@ export interface EntityEffectOptions {
     amplifier?: number;
     /**
      * @remarks
-     * 如果为 true，当效果作用于实体时，将显示粒子。
+     * 如果为 true，则当效果在实体上时显示粒子。
      *
      */
     showParticles?: boolean;

@@ -4,7 +4,7 @@
 export interface GreaterThanOrEqualsComparison {
     /**
      * @remarks
-     * 与此比较的阈值。
+     * 进行比较的阈值。
      *
      */
     greaterThanOrEquals: number;

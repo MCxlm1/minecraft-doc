@@ -10,19 +10,19 @@ export interface CustomCommand {
     cheatsRequired?: boolean;
     /**
      * @remarks
-     * 命令在命令行中显示的描述。
+     * 命令行中显示的命令描述。
      *
      */
     description: string;
     /**
      * @remarks
-     * 必选命令参数列表。
+     * 必需的命令参数列表。
      *
      */
     mandatoryParameters?: CustomCommandParameter[];
     /**
      * @remarks
-     * 命令的名称。需要命名空间。
+     * 命令的名称。需要一个命名空间。
      *
      */
     name: string;

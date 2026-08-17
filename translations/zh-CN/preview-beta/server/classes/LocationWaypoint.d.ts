@@ -1,23 +1,27 @@
 /**
- * 指向世界中固定位置的航点。
- * 与实体航点不同，位置航点始终保持有效，并且其位置可以更新。
+ * 指向世界中固定位置的路标点。
+ * 与实体路标点不同，位置路标点始终有效，且其位置可以更新。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class LocationWaypoint extends Waypoint {
     /**
-     * @param dimensionLocation 维度位置，包含维度和坐标。
-     * @param textureSelector 航点纹理选择器。
-     * @param color 可选的颜色。
-     * @throws 如果提供的纹理选择器无效，则抛出 {@link InvalidWaypointTextureSelectorError}。
+     * @throws 此函数可能抛出错误。
+     *
+     * 当提供的纹理选择器无效时，抛出 {@link InvalidWaypointTextureSelectorError}。
+     *
+     * @param dimensionLocation 路标点所在的位置（维度和坐标）。
+     * @param textureSelector 路标点使用的纹理选择器。
+     * @param color 路标点的颜色（可选）。
      */
     constructor(dimensionLocation: DimensionLocation, textureSelector: WaypointTextureSelector, color?: RGB);
     /**
      * @remarks
-     * 更新此航点指向的维度和位置。
+     * 更新此路标点所指向的维度和位置。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * @param dimensionLocation 新的航点 {@link DimensionLocation}（维度和坐标）。
+     * @param dimensionLocation
+     * 路标点的新 {@link DimensionLocation}（维度和坐标）。
      */
     setDimensionLocation(dimensionLocation: DimensionLocation): void;
 }

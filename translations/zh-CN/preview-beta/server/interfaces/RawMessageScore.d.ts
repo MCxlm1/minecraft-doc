@@ -1,5 +1,5 @@
 /**
- * 提供对原始消息中使用的分数令牌的描述。
+ * 提供用于原始消息中的分数令牌的描述。
  */
 export interface RawMessageScore {
     /**

@@ -1,16 +1,16 @@
 /**
- * 描述实体初始化原因的枚举。
+ * 一个描述实体初始化原因的枚举。
  */
 export enum EntityInitializationCause {
     /**
      * @remarks
-     * 当实体作为其他实体的子实体被创建时的情况，例如牛生出小牛，或史莱姆死亡后分裂出更小的史莱姆。
+     * 当实体作为其他实体或实体的子实体被创建时的情况，例如，牛生出小牛，或史莱姆死亡后生成更小的史莱姆。
      *
      */
     Born = 'Born',
     /**
      * @remarks
-     * 当实体由某个事件创建时的情况，例如流浪商人生成羊驼。
+     * 当实体通过事件被创建时的情况，例如，流浪商人生成羊驼。
      *
      */
     Event = 'Event',
@@ -28,7 +28,7 @@ export enum EntityInitializationCause {
     Spawned = 'Spawned',
     /**
      * @remarks
-     * 当实体被转换为另一种实体时的情况。
+     * 当实体被转化为另一个实体时的情况。
      *
      */
     Transformed = 'Transformed',

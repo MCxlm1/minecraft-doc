@@ -1,19 +1,19 @@
 /**
  * @beta
- * 提供对当前世界加载的音效定义的只读访问。
+ * 提供对当前世界加载的声音定义的只读访问。
  */
 export class SoundDefinitionRegistry {
     private constructor();
     /**
      * @remarks
-     * 返回注册表中的音效定义，可通过过滤器缩小范围。
+     * 返回注册表中的声音定义，可选择通过过滤器缩小范围。
      *
      * @param filter
-     * 可选过滤器，应用于每个定义。如果省略，则返回所有定义。
+     * 应用于每个定义的可选过滤器。省略时，返回所有定义。
      * @returns
-     * 与过滤器匹配的所有音效定义，如果未提供过滤器，则返回所有音效定义。
+     * 所有与过滤器匹配的声音定义，或者未提供过滤器时返回所有声音定义。
      * @throws
-     * 如果 filter.minDuration 大于 filter.maxDuration，则会抛出错误。
+     * 如果 filter.minDuration 大于 filter.maxDuration，将抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      */

@@ -1,6 +1,5 @@
-```typescript
 /**
- * 表示世界中一个方块（如箱子）的物品栏。
+ * 表示世界中方块（如箱子）的库存。
  * @example placeItemsInChest.ts
  * ```typescript
  * import { ItemStack, BlockInventoryComponent, DimensionLocation } from '@minecraft/server';
@@ -45,4 +44,3 @@ export class BlockInventoryComponent extends BlockComponent {
     readonly container?: Container;
     static readonly componentId = 'minecraft:inventory';
 }
-```

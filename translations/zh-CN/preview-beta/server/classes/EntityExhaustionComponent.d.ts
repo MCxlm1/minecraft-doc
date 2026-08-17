@@ -1,6 +1,6 @@
 /**
- * 定义此实体与消耗度的交互。
- * 包装 `minecraft.player.exhaustion` 属性。
+ * Defines the interactions with this entity for Exhaustion.
+ * Wraps the `minecraft.player.exhaustion` attribute.
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityExhaustionComponent extends EntityAttributeComponent {

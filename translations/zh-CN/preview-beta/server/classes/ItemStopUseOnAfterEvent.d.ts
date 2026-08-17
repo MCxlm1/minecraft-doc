@@ -1,14 +1,11 @@
 /**
- * 包含与物品停止在方块上使用的相关信息。
- * 此事件在玩家通过按下“使用物品/放置方块”按钮成功使用物品或放置方块时触发。
- * 如果放置了多个方块，此事件将在方块放置开始时仅触发一次。
- * 注意：此事件不能与锄或斧头物品一起使用。
+ * 包含有关物品停止在方块上使用的相关信息。当玩家通过按下“使用物品 / 放置方块”按钮成功使用物品或放置方块时，会触发此事件。如果放置了多个方块，此事件将仅在放置方块开始时触发一次。注意：此事件不能与锄头或斧头物品一起使用。
  */
 export class ItemStopUseOnAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 物品使用的方块。
+     * 物品所使用的方块。
      *
      */
     readonly block: Block;
@@ -20,7 +17,7 @@ export class ItemStopUseOnAfterEvent {
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * 触发此物品事件的源实体。
+     * 返回触发此物品事件的源实体。
      *
      */
     readonly source: Player;

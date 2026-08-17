@@ -5,9 +5,9 @@ export class InputInfo {
     private constructor();
     /**
      * @remarks
-     * 玩家最后使用的输入模式。
+     * 玩家上次使用的输入模式。
      *
-     * @throws 当此属性被访问时可能抛出错误，例如实体无效或发生引擎错误。
+     * @throws 此属性在使用时可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -16,19 +16,19 @@ export class InputInfo {
     readonly lastInputModeUsed: InputMode;
     /**
      * @remarks
-     * 玩家的触摸输入是否仅影响快捷栏。
+     * 玩家触摸输入是否仅影响触摸栏。
      *
-     * @throws 当此属性被访问时可能抛出错误，例如实体无效。
+     * @throws 此属性在使用时可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     readonly touchOnlyAffectsHotbar: boolean;
     /**
-     * 获取指定输入按钮的状态。
+     * 获取指定按钮的状态。
      *
-     * @param button 要查询状态的输入按钮。
-     * @returns 该按钮的当前状态。
-     * @throws 当函数执行时可能抛出错误，例如实体无效或发生引擎错误。
+     * @param button - 输入按钮。
+     * @returns 按钮状态。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -36,10 +36,10 @@ export class InputInfo {
      */
     getButtonState(button: InputButton): ButtonState;
     /**
-     * 获取当前的移动向量。
+     * 获取移动向量。
      *
-     * @returns 表示移动输入方向的二维向量。
-     * @throws 当函数执行时可能抛出错误，例如实体无效。
+     * @returns 移动向量。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */

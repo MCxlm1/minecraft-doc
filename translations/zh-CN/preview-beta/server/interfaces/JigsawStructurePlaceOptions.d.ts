@@ -1,23 +1,22 @@
 /**
- * 为 {@link
- * StructureManager.placeJigsawStructure} 提供附加选项。
+ * 为 {@link StructureManager.placeJigsawStructure} 提供额外的选项。
  */
 export interface JigsawStructurePlaceOptions {
     /**
      * @remarks
-     * 是否应忽略 jigsaw 结构定义中定义的起始高度，并使用指定的 y 坐标覆盖。默认为 false。
+     * 是否应忽略拼图结构定义中定义的起始高度，并使用指定的 y 坐标覆盖。默认为 false。
      *
      */
     ignoreStartHeight?: boolean;
     /**
      * @remarks
-     * 结构中是否包含实体。默认为 true。
+     * 结构中是否应包含实体。默认为 true。
      *
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * 生成结构时是否保留 jigsaw 方块。默认为 false。
+     * 生成结构时是否应保留拼图方块。默认为 false。
      *
      */
     keepJigsaws?: boolean;

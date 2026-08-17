@@ -6,7 +6,7 @@ export class ItemUseBeforeEvent extends ItemUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 如果设置为 true，这将取消物品使用行为。
+     * 如果设置为 true，将取消物品使用行为。
      *
      */
     cancel: boolean;

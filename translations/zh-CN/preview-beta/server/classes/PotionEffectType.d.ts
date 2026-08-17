@@ -5,10 +5,10 @@ export class PotionEffectType {
     private constructor();
     /**
      * @remarks
-     * 效果应用于实体时的持续时间（以刻为单位）。如果为undefined则表示效果不会过期。
+     * 以刻为单位的效果持续时间，适用于实体。
+     * 未定义表示效果不会过期。
      *
-     * @throws
-     * 此属性在使用时可能抛出错误。
+     * @throws 当使用此属性时可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      */

@@ -1,4 +1,3 @@
-```typescript
 /**
  * @beta
  */
@@ -7,4 +6,3 @@ export type VanillaEntityIdentifier =
     | minecraftvanilladata.MinecraftEntityTypes
     | `${minecraftvanilladata.MinecraftEntityTypes}`
     | `${minecraftvanilladata.MinecraftEntityTypes}<${string}>`;
-```

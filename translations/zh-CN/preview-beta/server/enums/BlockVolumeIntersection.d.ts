@@ -4,13 +4,13 @@
 export enum BlockVolumeIntersection {
     /**
      * @remarks
-     * 体积 B 与体积 A 无任何相交点
+     * 体积 B 与体积 A 没有交点
      *
      */
     Disjoint = 0,
     /**
      * @remarks
-     * 体积 B 完全位于体积 A 内部
+     * 体积 B 完全包含在体积 A 内部
      *
      */
     Contains = 1,

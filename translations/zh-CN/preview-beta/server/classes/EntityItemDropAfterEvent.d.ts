@@ -5,13 +5,13 @@ export class EntityItemDropAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已掉落物品的实体。
+     * 掉落物品的实体。
      *
      */
     readonly entity: Entity;
     /**
      * @remarks
-     * 实体已掉落的物品列表。
+     * 实体掉落的物品列表。
      *
      */
     readonly items: Entity[];

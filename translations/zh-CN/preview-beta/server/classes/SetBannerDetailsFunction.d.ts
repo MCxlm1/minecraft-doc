@@ -1,6 +1,5 @@
 /**
- * 修改掉落旗帜类型的
- * 战利品物品函数。
+ * 战利品物品函数，用于修改掉落旗帜的类型。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class SetBannerDetailsFunction extends LootItemFunction {

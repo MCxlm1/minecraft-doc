@@ -4,19 +4,19 @@
 export interface Vector3 {
     /**
      * @remarks
-     * 此向量的X分量。
+     * 此向量的 X 分量。
      *
      */
     x: number;
     /**
      * @remarks
-     * 此向量的Y分量。
+     * 此向量的 Y 分量。
      *
      */
     y: number;
     /**
      * @remarks
-     * 此向量的Z分量。
+     * 此向量的 Z 分量。
      *
      */
     z: number;

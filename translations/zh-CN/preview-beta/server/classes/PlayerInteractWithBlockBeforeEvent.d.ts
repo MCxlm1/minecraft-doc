@@ -11,25 +11,25 @@ export class PlayerInteractWithBlockBeforeEvent {
     readonly block: Block;
     /**
      * @remarks
-     * 正在交互的方块面。
+     * 正在被交互的方块的面。
      *
      */
     readonly blockFace: Direction;
     /**
      * @remarks
-     * 如果设置为 true，交互将被取消。
+     * 如果设置为 true，则交互将被取消。
      *
      */
     cancel: boolean;
     /**
      * @remarks
-     * 相对于方块底部西北角的位置，物品将放置在此处。
+     * 物品放置位置相对于方块底部西北角的位置。
      *
      */
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * 如果事件是在玩家初始按下交互按钮时触发，则该值为 true；如果是在按住交互按钮期间触发，则为 false。
+     * 如果事件是在玩家初始交互按钮按下时触发的，则此值为 true；如果事件是由按住交互按钮触发的，则为 false。
      *
      */
     readonly isFirstEvent: boolean;

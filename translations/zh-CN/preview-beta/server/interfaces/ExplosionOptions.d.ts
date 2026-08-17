@@ -1,5 +1,5 @@
 /**
- * {@link Dimension.createExplosion} 方法的额外配置选项。
+ * 用于 {@link Dimension.createExplosion} 方法的额外配置选项。
  * @example createNoBlockExplosion.ts
  * ```typescript
  * import { DimensionLocation } from '@minecraft/server';
@@ -33,7 +33,7 @@
 export interface ExplosionOptions {
     /**
      * @remarks
-     * 爆炸的某些部分是否也会影响水下区域。
+     * 爆炸是否也会影响水下部分。
      *
      */
     allowUnderwater?: boolean;
@@ -51,7 +51,7 @@ export interface ExplosionOptions {
     causesFire?: boolean;
     /**
      * @remarks
-     * 爆炸的可选来源实体。
+     * 爆炸的可选来源。
      *
      */
     source?: Entity;

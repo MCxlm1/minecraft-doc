@@ -1,4 +1,3 @@
-```ts
 export interface EntityQueryPropertyOptions {
     exclude?: boolean;
     propertyId: string;
@@ -13,4 +12,3 @@ export interface EntityQueryPropertyOptions {
         | NotEqualsComparison
         | RangeComparison;
 }
-```

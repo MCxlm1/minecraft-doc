@@ -11,7 +11,7 @@ export class EntityHitEntityAfterEvent {
     readonly damagingEntity: Entity;
     /**
      * @remarks
-     * 受到该攻击击中的实体。
+     * 被攻击击中的实体。
      *
      */
     readonly hitEntity: Entity;

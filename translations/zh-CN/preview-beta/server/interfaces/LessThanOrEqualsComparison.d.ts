@@ -1,10 +1,10 @@
 /**
- * 小于等于运算符。
+ * 小于或等于运算符。
  */
 export interface LessThanOrEqualsComparison {
     /**
      * @remarks
-     * 比较的阈值。
+     * 用于比较的阈值。
      *
      */
     lessThanOrEquals: number;

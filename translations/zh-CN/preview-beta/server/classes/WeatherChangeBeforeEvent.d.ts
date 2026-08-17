@@ -5,7 +5,7 @@ export class WeatherChangeBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 如果设置为 true，天气变化将被取消。
+     * 如果设置为 true，则将取消天气变化。
      *
      */
     cancel: boolean;
@@ -23,7 +23,7 @@ export class WeatherChangeBeforeEvent {
     newWeather: WeatherType;
     /**
      * @remarks
-     * 事件触发前的天气类型。
+     * 事件触发之前的天气类型。
      *
      */
     readonly previousWeather: WeatherType;

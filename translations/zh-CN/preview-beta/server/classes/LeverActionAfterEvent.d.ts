@@ -1,5 +1,5 @@
 /**
- * 包含与拉杆激活或停用变更相关的信息。
+ * 包含与拉杆激活或停用变化相关的信息。
  * @example leverActionEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from '@minecraft/server';

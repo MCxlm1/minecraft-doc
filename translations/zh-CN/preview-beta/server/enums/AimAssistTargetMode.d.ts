@@ -4,13 +4,13 @@
 export enum AimAssistTargetMode {
     /**
      * @remarks
-     * 基于角度的瞄准。
+     * 基于角度的目标选择。
      *
      */
     Angle = 'Angle',
     /**
      * @remarks
-     * 基于距离的瞄准。
+     * 基于距离的目标选择。
      *
      */
     Distance = 'Distance',

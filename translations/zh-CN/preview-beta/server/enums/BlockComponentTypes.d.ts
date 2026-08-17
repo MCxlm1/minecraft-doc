@@ -1,5 +1,5 @@
 /**
- * 可通过 Block.getComponent 函数访问的方块组件类型。
+ * 可通过函数 Block.getComponent 访问的方块组件类型。
  */
 export enum BlockComponentTypes {
     /**
@@ -13,7 +13,7 @@ export enum BlockComponentTypes {
     Instrument = 'minecraft:instrument_sound',
     /**
      * @remarks
-     * 表示世界中方块的物品栏。用于箱子之类的方块。
+     * 表示世界中方块的容器。用于箱子等方块。
      *
      */
     Inventory = 'minecraft:inventory',
@@ -25,19 +25,19 @@ export enum BlockComponentTypes {
     MapColor = 'minecraft:map_color',
     /**
      * @remarks
-     * 表示可移动的方块（如活塞）。
+     * 表示可以移动的方块（如活塞）。
      *
      */
     Movable = 'minecraft:movable',
     /**
      * @remarks
-     * 如果存在，此方块具有类似活塞的行为。包含用于查询方块活塞状态的附加属性。
+     * 当存在此组件时，该方块具有类似活塞的行为。包含用于获取方块活塞状态的附加属性。
      *
      */
     Piston = 'minecraft:piston',
     /**
      * @remarks
-     * 表示方块如何与降水（如雨或雪）进行交互。
+     * 表示方块与降水（如雨或雪）的交互方式。
      *
      */
     PrecipitationInteractions = 'minecraft:precipitation_interactions',
@@ -55,7 +55,7 @@ export enum BlockComponentTypes {
     RedstoneProducer = 'minecraft:redstone_producer',
     /**
      * @remarks
-     * 表示可以在其上显示文本的方块。
+     * 表示可以在其上显示文字的方块。
      *
      */
     Sign = 'minecraft:sign',

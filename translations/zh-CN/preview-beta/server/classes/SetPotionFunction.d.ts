@@ -1,4 +1,3 @@
-```typescript
 /**
  * 战利品物品函数，用于为掉落的药水分配类型。
  */
@@ -7,9 +6,8 @@ export class SetPotionFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 要分配给掉落的药水的ID。
+     * 分配给掉落药水的药水 ID。
      *
      */
     readonly id: string;
 }
-```

@@ -1,31 +1,29 @@
-```ts
 /**
- * Minecraft 不同难度级别的枚举。
+ * 用于表示 Minecraft 中各种难度级别的枚举。
  */
 export enum Difficulty {
     /**
      * @remarks
-     * 简单难度等级。
+     * 简单难度级别。
      *
      */
     Easy = 'Easy',
     /**
      * @remarks
-     * 困难难度等级。
+     * 困难难度级别。
      *
      */
     Hard = 'Hard',
     /**
      * @remarks
-     * 普通难度等级。
+     * 普通难度级别。
      *
      */
     Normal = 'Normal',
     /**
      * @remarks
-     * 和平难度等级。
+     * 和平难度级别。
      *
      */
     Peaceful = 'Peaceful',
 }
-```

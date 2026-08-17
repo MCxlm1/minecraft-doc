@@ -8,7 +8,7 @@ export class EntityPushThroughComponent extends EntityComponent {
      * @remarks
      * 此实体的推动穿过距离值。
      *
-     * @throws 此属性在使用时可能抛出异常。
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly value: number;
     static readonly componentId = 'minecraft:push_through';

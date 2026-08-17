@@ -1,5 +1,5 @@
 /**
- * 包含关于已发生的爆炸的信息。
+ * 包含与已发生的爆炸相关的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ExplosionBeforeEvent extends ExplosionAfterEvent {
@@ -12,7 +12,7 @@ export class ExplosionBeforeEvent extends ExplosionAfterEvent {
     cancel: boolean;
     /**
      * @remarks
-     * 更新受此爆炸事件影响的一组方块。
+     * 更新受此爆炸事件影响的方块集合。
      *
      * @param blocks
      * 受此爆炸影响的新方块列表。

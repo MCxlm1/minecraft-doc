@@ -1,22 +1,19 @@
 /**
- * 管理与实体被治疗时的回调。
+ * 管理与实体被治愈时相关的回调。
  */
 export class EntityHealAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调会在实体被治疗时调用。
+     * 添加一个回调，该回调将在实体被治愈时被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback
-     * 要添加的回调。
-     * @param options
-     * 事件的其他选项。
-     * @returns
-     * 返回传入的回调函数。
+     * @param callback - 实体被治愈时调用的回调函数。
+     * @param options - 可选的实体治愈事件选项。
+     * @returns 返回传入的回调函数，用于后续调用 unsubscribe 取消订阅。
      */
     subscribe(
         callback: (arg0: EntityHealAfterEvent) => void,
@@ -24,14 +21,13 @@ export class EntityHealAfterEventSignal {
     ): (arg0: EntityHealAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其在实体被治疗时不再被调用。
+     * 移除一个在实体被治愈时调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback
-     * 要移除的回调。
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: EntityHealAfterEvent) => void): void;
 }

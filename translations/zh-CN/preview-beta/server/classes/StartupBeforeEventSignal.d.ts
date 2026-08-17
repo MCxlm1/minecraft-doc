@@ -2,24 +2,24 @@ export class StartupBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在早期执行权限下被调用。
+     * 此闭包将以早期执行权限调用。
      * @returns
-     * 返回在早期执行权限下被调用的闭包。
+     * 以早期执行权限调用的闭包。
      */
     subscribe(callback: (arg0: StartupEvent) => void): (arg0: StartupEvent) => void;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在早期执行权限下被调用。
+     * 此闭包将以早期执行权限调用。
      */
     unsubscribe(callback: (arg0: StartupEvent) => void): void;
 }

@@ -6,7 +6,7 @@ export class EntityKilledCondition extends LootItemCondition {
     private constructor();
     /**
      * @remarks
-     * 此条件要求实体类型为指定值。
+     * 此条件通过所需的实体类型。
      * 示例：'minecraft:skeleton'。
      *
      */

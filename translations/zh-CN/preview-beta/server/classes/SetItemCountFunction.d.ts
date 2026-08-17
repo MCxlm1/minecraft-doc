@@ -6,7 +6,7 @@ export class SetItemCountFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 函数随机选择掉落物品数量的取值范围。包含最小值和最大值。
+     * 该函数随机选择掉落物品数量的数值范围。包含最小值和最大值。
      *
      */
     readonly count: minecraftcommon.NumberRange;

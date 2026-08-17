@@ -5,28 +5,28 @@ export class EffectAddBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当效果添加到实体时将被调用。
+     * 添加一个回调，当效果被添加到实体时将调用该回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 这个闭包在受限执行权限下调用。
+     * This closure is called with restricted-execution privilege.
      * @returns
-     * 在受限执行权限下调用的闭包。
+     * Closure that is called with restricted-execution privilege.
      */
     subscribe(callback: (arg0: EffectAddBeforeEvent) => void): (arg0: EffectAddBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在效果添加到实体时被调用。
+     * 移除一个回调，当效果被添加到实体时不再调用该回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 这个闭包在受限执行权限下调用。
+     * This closure is called with restricted-execution privilege.
      */
     unsubscribe(callback: (arg0: EffectAddBeforeEvent) => void): void;
 }

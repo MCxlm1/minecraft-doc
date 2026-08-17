@@ -1,11 +1,11 @@
 /**
- * 包含与可充电物品完成充电相关的信息。
+ * 包含关于一个可充能物品完成充能的相关信息。
  */
 export class ItemCompleteUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 返回已完成充电的物品堆叠。
+     * 返回已完成充能的物品实例。
      *
      */
     readonly itemStack: ItemStack;
@@ -17,7 +17,7 @@ export class ItemCompleteUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回充电完成周期前剩余的时间（以刻为单位）。
+     * 返回充能完成其循环之前剩余的时间（以刻为单位）。
      *
      */
     readonly useDuration: number;

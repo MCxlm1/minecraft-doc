@@ -40,21 +40,21 @@ export class LeverActionAfterEventSignal {
      * @remarks
      * 添加一个回调，当拉杆被移动（激活或取消激活）时调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调函数，接收一个 LeverActionAfterEvent 参数。
-     * @returns 返回传入的回调函数，可用于取消订阅。
+     * @param callback - 要添加的回调函数，接收 LeverActionAfterEvent 事件对象。
+     * @returns - 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(callback: (arg0: LeverActionAfterEvent) => void): (arg0: LeverActionAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在拉杆被移动（激活或取消激活）时调用。
+     * 移除一个回调，不再在拉杆被移动（激活或取消激活）时调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback - 要移除的回调函数。
      */

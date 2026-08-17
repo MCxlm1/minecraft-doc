@@ -1,14 +1,14 @@
 /**
- * 跟踪玩家位置的路点。扩展了{@link
- * EntityWaypoint}，增加了玩家特定的可见性规则，例如隐藏状态和旁观者模式。
+ * 追踪玩家位置的路点。通过额外的玩家特定可见性规则（如隐藏状态和旁观模式）扩展了 {@link
+ * EntityWaypoint}。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class PlayerWaypoint extends EntityWaypoint {
     /**
      * @remarks
-     * 控制路点何时显示基于玩家状态的{@link PlayerVisibilityRules}（例如，隐藏、旁观者模式、旁观者观看另一个旁观者）。
+     * 控制根据玩家状态（例如：隐藏、旁观模式、另一个旁观者）显示路点的 {@link PlayerVisibilityRules}。
      *
-     * @throws 此属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      *
      * {@link InvalidWaypointError}
      *
@@ -16,11 +16,11 @@ export class PlayerWaypoint extends EntityWaypoint {
      */
     readonly playerRules: PlayerVisibilityRules;
     /**
-     * @param player - 路点关联的玩家。
-     * @param textureSelector - 路点纹理选择器。
-     * @param playerRules - 路点可见性规则。
-     * @param color - 路点的颜色（可选）。
-     * @throws 此函数可能抛出异常。
+     * @param player 玩家。
+     * @param textureSelector 路点纹理选择器。
+     * @param playerRules 玩家可见性规则。
+     * @param color 颜色（可选）。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidWaypointTextureSelectorError}
      */

@@ -1,29 +1,28 @@
-```typescript
 /**
- * 为实体添加一个成长定时器。可通过向实体提供 feedItems 中定义的喜好物品来加速成长。
+ * 添加一个用于实体成长的计时器。可以通过给予实体它喜欢的物品（由 feedItems 定义）来加速成长。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityAgeableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 实体成长前的剩余时间，-1 表示永远为幼体。
+     * 实体成长前的时间，-1 表示永远为幼体。
      *
-     * @throws 读取该属性时可能抛出错误（例如组件未附加到实体时）。
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly duration: number;
     /**
      * @remarks
-     * 当该实体成长时触发的事件。
+     * 当此实体成长时运行的事件。
      *
-     * @throws 读取该属性时可能抛出错误（例如组件未附加到实体时）。
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly growUp: Trigger;
     /**
      * @remarks
-     * 成功交互后，所使用的喂养物品会转化成该物品。
+     * 成功交互后，使用的饲料物品会转化为该物品。
      *
-     * @throws 读取该属性时可能抛出错误（例如组件未附加到实体时）。
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly transformToItem: string;
     static readonly componentId = 'minecraft:ageable';
@@ -32,18 +31,15 @@ export class EntityAgeableComponent extends EntityComponent {
      * 实体成长时掉落的物品列表。
      *
      * @returns 实体成长时掉落的物品列表。
-     *
-     * @throws 调用此函数时可能抛出错误（例如组件未附加到实体时）。
+     * @throws 此函数可能抛出错误。
      */
     getDropItems(): string[];
     /**
      * @remarks
-     * 可喂养给实体的物品列表。其中 'item' 表示物品名称，'growth' 表示增加的成长时间。
+     * 可以喂给实体的物品列表。其中 'item' 表示物品名称，'growth' 表示成长的时间量。
      *
-     * @returns 可喂养给实体的物品列表，每个元素包含物品名称及成长增量。
-     *
-     * @throws 调用此函数时可能抛出错误（例如组件未附加到实体时）。
+     * @returns 可以喂给实体的物品列表。
+     * @throws 此函数可能抛出错误。
      */
     getFeedItems(): EntityDefinitionFeedItem[];
 }
-```

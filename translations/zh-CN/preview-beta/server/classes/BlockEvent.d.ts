@@ -1,17 +1,17 @@
 /**
- * 包含针对特定方块的事件相关信息。
+ * 包含关于影响特定方块的事件的信息。
  */
 export class BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 此事件位置处的世界当前方块。
+     * 事件位置世界中当前的方块。
      *
      */
     readonly block: Block;
     /**
      * @remarks
-     * 包含此事件主题方块的维度。
+     * 包含该事件主题方块所在的维度。
      *
      */
     readonly dimension: Dimension;

@@ -6,7 +6,7 @@ export class EnchantRandomlyFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 决定是否在随机选择的附魔中包含宝藏附魔。
+     * 确定随机选择的附魔中是否包含宝藏附魔。
      *
      */
     readonly treasure: boolean;

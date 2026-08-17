@@ -1,14 +1,15 @@
 /**
- * 当容器操作违反 {@link ContainerRules} 时抛出的错误。
+ * Error thrown if {@link ContainerRules} are broken on
+ * container operations.
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ContainerRulesError extends Error {
     private constructor();
     /**
      * @remarks
-     * 抛出该错误的具体原因。
+     * The specific reason the error was thrown.
      *
-     * 此属性可在早期执行模式下读取。
+     * This property can be read in early-execution mode.
      *
      */
     readonly reason: ContainerRulesErrorReason;

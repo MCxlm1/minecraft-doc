@@ -1,10 +1,10 @@
 /**
- * 提供关于伤害如何应用于实体的信息。
+ * 提供关于伤害如何施加到实体上的信息。
  */
 export interface EntityDamageSource {
     /**
      * @remarks
-     * 伤害的原因枚举。
+     * 伤害的成因枚举。
      *
      */
     cause: EntityDamageCause;
@@ -16,7 +16,7 @@ export interface EntityDamageSource {
     damagingEntity?: Entity;
     /**
      * @remarks
-     * 可能造成伤害的可选弹射物。
+     * 可能造成伤害的可选投射物。
      *
      */
     damagingProjectile?: Entity;

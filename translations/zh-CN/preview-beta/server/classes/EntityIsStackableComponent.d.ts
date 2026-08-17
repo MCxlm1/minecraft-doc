@@ -1,5 +1,5 @@
 /**
- * 当添加此组件时，表示该实体可以被堆叠。
+ * 添加后，此组件表示该实体可以被堆叠。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsStackableComponent extends EntityComponent {

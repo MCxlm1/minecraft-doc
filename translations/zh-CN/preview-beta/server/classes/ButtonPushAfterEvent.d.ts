@@ -1,5 +1,5 @@
 /**
- * 包含与按钮按下相关的变化信息。
+ * 包含与按钮按下事件相关的信息。
  * @example buttonPushEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -37,7 +37,7 @@ export class ButtonPushAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 触发按钮按下的可选来源。
+     * 触发按钮按下的可选来源实体。
      *
      */
     readonly source: Entity;

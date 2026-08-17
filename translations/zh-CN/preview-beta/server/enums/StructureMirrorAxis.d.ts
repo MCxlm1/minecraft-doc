@@ -1,6 +1,5 @@
-```typescript
 /**
- * 指定放置结构时镜像的方式。
+ * 指定放置时结构应如何镜像。
  */
 export enum StructureMirrorAxis {
     /**
@@ -28,4 +27,3 @@ export enum StructureMirrorAxis {
      */
     Z = 'Z',
 }
-```

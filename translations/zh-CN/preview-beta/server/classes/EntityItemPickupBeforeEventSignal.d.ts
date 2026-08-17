@@ -1,22 +1,20 @@
 /**
- * 管理实体将要拾取物品时连接的回调。
+ * 管理与实体将要拾取物品时相关的回调。
  */
 export class EntityItemPickupBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在实体将要拾取物品时被调用。
+     * 添加一个回调函数，当实体将要拾取物品时调用。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 此闭包在受限执行权限下被调用。
-     * @param options
-     * 可选的事件选项。
+     * 此闭包将使用受限执行权限调用。
      * @returns
-     * 返回在受限执行权限下被调用的闭包。
+     * 将使用受限执行权限调用的闭包。
      */
     subscribe(
         callback: (arg0: EntityItemPickupBeforeEvent) => void,
@@ -24,14 +22,14 @@ export class EntityItemPickupBeforeEventSignal {
     ): (arg0: EntityItemPickupBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个将在实体将要拾取物品时被调用的回调。
+     * 移除一个当实体将要拾取物品时调用的回调函数。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 要移除的闭包，此闭包在受限执行权限下被调用。
+     * 此闭包将使用受限执行权限调用。
      */
     unsubscribe(callback: (arg0: EntityItemPickupBeforeEvent) => void): void;
 }

@@ -1,5 +1,5 @@
 /**
- * 包含与被治疗实体相关的信息。
+ * 包含与实体被治疗相关的信息。
  */
 export class EntityHealAfterEvent {
     private constructor();
@@ -17,7 +17,7 @@ export class EntityHealAfterEvent {
     readonly healing: number;
     /**
      * @remarks
-     * 关于治疗来源的信息。
+     * 治疗来源的信息。
      *
      */
     readonly healSource: EntityHealSource;

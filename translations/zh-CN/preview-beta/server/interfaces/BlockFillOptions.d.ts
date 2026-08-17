@@ -10,8 +10,7 @@ export interface BlockFillOptions {
     blockFilter?: BlockFilter;
     /**
      * @remarks
-     * 当为 true 时，如果填充体积的一部分超出已加载区块边界，fillBlocks 不会报错。
-     * 相反，它只会填充已加载区块边界内的方块，并忽略外部方块。
+     * 当为 true 时，如果填充体积的一部分超出已加载区块的边界，fillBlocks 不会报错。而是只填充已加载区块边界内的方块，忽略外部的方块。
      *
      */
     ignoreChunkBoundErrors?: boolean;

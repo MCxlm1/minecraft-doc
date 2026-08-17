@@ -1,5 +1,5 @@
 /**
- * 用于区分实体变体与其他实体的组件组。（例如：豹猫、村民）。
+ * 用于区分实体变体的组件组与其他实体。（例如豹猫、村民。）
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityVariantComponent extends EntityComponent {

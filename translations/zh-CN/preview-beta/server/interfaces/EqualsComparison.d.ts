@@ -1,10 +1,10 @@
 /**
- * 相等运算符。
+ * 等于运算符。
  */
 export interface EqualsComparison {
     /**
      * @remarks
-     * 用于比较的阈值。
+     * 进行比较的阈值。
      *
      */
     equals: boolean | number | string;

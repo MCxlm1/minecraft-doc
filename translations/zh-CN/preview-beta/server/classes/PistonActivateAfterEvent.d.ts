@@ -1,5 +1,5 @@
 /**
- * 包含与活塞扩展或收回时的变化相关的信息。
+ * 包含与活塞扩展或收缩变化相关的信息。
  * @example pistonAfterEvent.ts
  * ```typescript
  * import {
@@ -52,13 +52,13 @@ export class PistonActivateAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 活塞正在扩展过程中时为 true。
+     * 如果活塞正在扩展中，则为 true。
      *
      */
     readonly isExpanding: boolean;
     /**
      * @remarks
-     * 包含活塞的附加属性和详细信息。
+     * 包含活塞的其他属性和详细信息。
      *
      */
     readonly piston: BlockPistonComponent;

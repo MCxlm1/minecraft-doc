@@ -1,16 +1,16 @@
 /**
- * 指定与实体当前手持物品相关的选项。
+ * 指定与实体当前持有的物品相关的选项。
  */
 export enum HeldItemOption {
     /**
      * @remarks
-     * 正在持有任意物品。
+     * 任意物品被持有。
      *
      */
     AnyItem = 'AnyItem',
     /**
      * @remarks
-     * 没有持有物品。
+     * 没有物品被持有。
      *
      */
     NoItem = 'NoItem',

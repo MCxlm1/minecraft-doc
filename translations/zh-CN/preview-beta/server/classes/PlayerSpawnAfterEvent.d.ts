@@ -1,11 +1,11 @@
 /**
- * 一个包含关于玩家生成的更多信息的事件。
+ * 一个包含有关玩家生成更多信息的事件。
  */
 export class PlayerSpawnAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 若为 true，表示玩家加入游戏后的初始生成。
+     * 如果为 true，表示这是玩家在加入游戏后的初始生成。
      *
      * This property can't be edited in restricted-execution mode.
      *

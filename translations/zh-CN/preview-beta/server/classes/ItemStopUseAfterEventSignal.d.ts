@@ -1,31 +1,32 @@
-```typescript
 /**
- * 管理与已注册 minecraft:chargeable 组件的物品停止充能时相关的回调。
+ * 管理与已注册 minecraft:chargeable 组件的物品停止充能时连接的回调。
  */
 export class ItemStopUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当可充电物品停止充能时将被调用。
+     * 添加一个回调，当可充能物品停止充能时调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 无法在受限执行模式下调用此函数。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 可以在早期执行模式下调用此函数。
      *
-     * @param callback - 要订阅的回调函数。
-     * @returns 传入的回调函数本身，可用于后续取消订阅。
+     * @param callback
+     * 要添加的回调。
+     * @returns
+     * 传入的回调函数。
      */
     subscribe(callback: (arg0: ItemStopUseAfterEvent) => void): (arg0: ItemStopUseAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在可充电物品停止充能时被调用的回调。
+     * 移除一个当可充能物品停止充能时会被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 无法在受限执行模式下调用此函数。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 可以在早期执行模式下调用此函数。
      *
-     * @param callback - 要取消订阅的回调函数。
+     * @param callback
+     * 要移除的回调。
      */
     unsubscribe(callback: (arg0: ItemStopUseAfterEvent) => void): void;
 }
-```

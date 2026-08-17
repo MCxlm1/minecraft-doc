@@ -1,10 +1,10 @@
 /**
- * 保存相机动画旋转的关键帧。
+ * 持有相机动画旋转的关键帧。
  */
 export interface RotationKeyFrame {
     /**
      * @remarks
-     * 帧用于旋转的可选缓动类型。
+     * 帧将用于旋转的可选缓动类型。
      *
      */
     easingFunc?: EasingType;

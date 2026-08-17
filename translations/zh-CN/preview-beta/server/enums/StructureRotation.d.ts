@@ -1,5 +1,5 @@
 /**
- * 枚举描述结构放置的旋转方式。
+ * 描述结构放置旋转的枚举。
  */
 export enum StructureRotation {
     /**
@@ -10,19 +10,19 @@ export enum StructureRotation {
     None = 'None',
     /**
      * @remarks
-     * 旋转180度。
+     * 180度旋转。
      *
      */
     Rotate180 = 'Rotate180',
     /**
      * @remarks
-     * 旋转270度。
+     * 270度旋转。
      *
      */
     Rotate270 = 'Rotate270',
     /**
      * @remarks
-     * 旋转90度。
+     * 90度旋转。
      *
      */
     Rotate90 = 'Rotate90',

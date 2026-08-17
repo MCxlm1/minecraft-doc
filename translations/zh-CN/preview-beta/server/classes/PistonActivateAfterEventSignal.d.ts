@@ -1,16 +1,17 @@
 /**
- * 管理与活塞激活相关联的回调函数。
+ * 管理连接到活塞激活的回调。
  */
 export class PistonActivateAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 用于接收活塞激活事件的回调函数。
-     * @returns 返回传入的回调函数，可用于取消订阅。
+     * @param callback 当活塞激活时要调用的回调函数。
+     * @returns 用于取消订阅的回调函数。
+     *
      * @example pistonAfterEvent.ts
      * ```typescript
      * import {
@@ -61,13 +62,14 @@ export class PistonActivateAfterEventSignal {
     subscribe(callback: (arg0: PistonActivateAfterEvent) => void): (arg0: PistonActivateAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在活塞扩展或收缩时调用的回调函数。
+     * 移除当活塞扩展或收缩时调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 要移除的回调函数。
+     * @param callback 要移除的回调函数。
+     *
      */
     unsubscribe(callback: (arg0: PistonActivateAfterEvent) => void): void;
 }

@@ -1,6 +1,5 @@
-```typescript
 /**
- * 当实体从世界中移除时发生的事件的数据（例如，实体因远离玩家而被卸载）。
+ * 当一个实体从世界中移除时发生的事件的数据（例如，实体因为离玩家太远而被卸载）。
  */
 export class EntityRemoveAfterEvent {
     private constructor();
@@ -17,4 +16,3 @@ export class EntityRemoveAfterEvent {
      */
     readonly typeId: string;
 }
-```

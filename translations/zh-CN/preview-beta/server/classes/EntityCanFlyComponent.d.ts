@@ -1,6 +1,5 @@
 /**
- * 添加此组件后，表示该实体可以飞行，
- * 并且寻路器将不会受到需要下方有固体方块的路线的限制。
+ * 当添加此组件时，表示实体可以飞行，且寻路器不会限制路径必须下方有实体方块。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityCanFlyComponent extends EntityComponent {

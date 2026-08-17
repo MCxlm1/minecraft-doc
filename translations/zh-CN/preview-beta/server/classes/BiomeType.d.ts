@@ -11,10 +11,8 @@ export class BiomeType {
     readonly id: string;
     /**
      * @remarks
-     * 返回该生物群系的标签列表。
+     * 返回该生物群系标签的列表。
      *
-     * @returns
-     * 该生物群系的所有标签的字符串列表。
      */
     getTags(): string[];
     /**
@@ -22,9 +20,7 @@ export class BiomeType {
      * 检查该生物群系是否拥有所有提供的标签。
      *
      * @param tags
-     * 要对照该生物群系检查的标签列表。
-     * @returns
-     * 如果生物群系拥有所有提供的标签，则返回 `true`；否则返回 `false`。
+     * 要检查的标签列表，用于与生物群系进行比对。
      */
     hasTags(tags: string[]): boolean;
 }

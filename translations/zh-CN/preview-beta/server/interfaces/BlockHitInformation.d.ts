@@ -1,5 +1,5 @@
 /**
- * 包含有关方块被击中事件的更多信息。
+ * 包含方块被击中事件的更多信息。
  */
 export interface BlockHitInformation {
     /**
@@ -10,7 +10,7 @@ export interface BlockHitInformation {
     block: Block;
     /**
      * @remarks
-     * 被击中的方块的面。
+     * 被击中的方块面。
      *
      */
     face: Direction;

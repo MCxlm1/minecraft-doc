@@ -1,37 +1,35 @@
-```typescript
 /**
- * 描述一个设备的内存。
+ * 描述设备的内存等级。
  */
 export enum MemoryTier {
     /**
      * @remarks
-     * 超低级别的最大内存为 1.5GB。
+     * 超低等级的最大内存为 1.5GB。
      *
      */
     SuperLow = 0,
     /**
      * @remarks
-     * 低级别的最大内存为 2GB。
+     * 低等级的最大内存为 2GB。
      *
      */
     Low = 1,
     /**
      * @remarks
-     * 中级别的最大内存为 4GB。
+     * 中等级的最大内存为 4GB。
      *
      */
     Mid = 2,
     /**
      * @remarks
-     * 高级别的最大内存为 8GB。
+     * 高等级的最大内存为 8GB。
      *
      */
     High = 3,
     /**
      * @remarks
-     * 超高级别的内存大于 8GB。
+     * 超高等级的内存为 8GB 以上。
      *
      */
     SuperHigh = 4,
 }
-```

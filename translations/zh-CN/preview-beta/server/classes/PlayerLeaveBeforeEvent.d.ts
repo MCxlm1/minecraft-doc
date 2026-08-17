@@ -1,11 +1,11 @@
 /**
- * 包含有关正在离开世界的玩家的信息。
+ * 包含关于即将离开世界的玩家的信息。
  */
 export class PlayerLeaveBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 离开的玩家。
+     * 正在离开的玩家。
      *
      */
     readonly player: Player;

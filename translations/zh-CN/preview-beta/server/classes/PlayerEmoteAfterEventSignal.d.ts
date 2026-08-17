@@ -2,21 +2,21 @@ export class PlayerEmoteAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback 要订阅事件时执行的回调函数。
-     * @returns 返回传入的回调函数，以便后续用于取消订阅。
+     * @param callback - 要订阅的回调函数，接收 PlayerEmoteAfterEvent 事件对象。
+     * @returns 返回用于取消订阅的回调函数。
      */
     subscribe(callback: (arg0: PlayerEmoteAfterEvent) => void): (arg0: PlayerEmoteAfterEvent) => void;
     /**
      * @remarks
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback 要取消订阅的回调函数。
+     * @param callback - 要取消订阅的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerEmoteAfterEvent) => void): void;
 }

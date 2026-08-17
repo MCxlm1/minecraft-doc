@@ -1,4 +1,3 @@
-```typescript
 /**
  * 用于将相机附加到非玩家实体。
  */
@@ -11,9 +10,8 @@ export interface CameraAttachOptions {
     entity: Entity;
     /**
      * @remarks
-     * 要瞄准的实体位置（例如头部、脚部、眼睛）。
+     * 您要瞄准的实体的位置（例如头部、脚部、眼睛）。
      *
      */
     locator: EntityAttachPoint;
 }
-```

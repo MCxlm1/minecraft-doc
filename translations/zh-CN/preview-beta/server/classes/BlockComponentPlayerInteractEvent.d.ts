@@ -1,5 +1,5 @@
 /**
- * 包含有关与特定方块交互的信息。
+ * 包含关于特定方块被交互的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentPlayerInteractEvent extends BlockEvent {

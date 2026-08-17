@@ -1,32 +1,32 @@
 /**
- * 管理连接到天气变化前的回调函数。
+ * 管理在天气改变之前连接的回调。
  */
 export class WeatherChangeBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个在天气变化前调用的回调函数。
+     * 添加一个将在天气变化前被调用的回调。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
      * @param callback
-     * 这个闭包将以受限执行权限被调用。
+     * 此闭包以受限执行权限被调用。
      * @returns
      * 返回一个以受限执行权限被调用的闭包。
      */
     subscribe(callback: (arg0: WeatherChangeBeforeEvent) => void): (arg0: WeatherChangeBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个在天气变化前调用的回调函数。
+     * 移除一个在天气变化前被调用的回调。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
      * @param callback
-     * 这个闭包将以受限执行权限被调用。
+     * 此闭包以受限执行权限被调用。
      */
     unsubscribe(callback: (arg0: WeatherChangeBeforeEvent) => void): void;
 }

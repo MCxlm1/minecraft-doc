@@ -6,7 +6,7 @@ export class ItemComponentUseOnEvent extends ItemUseOnEvent {
     private constructor();
     /**
      * @remarks
-     * 在方块上使用物品的实体。
+     * 使用物品于方块上的实体。
      *
      */
     readonly source: Entity;

@@ -5,7 +5,7 @@ export class GameRuleChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 规则标识符，对应于已更改的 world.gameRules 属性。
+     * 已更改的 world.gameRules 属性对应的规则标识符。
      *
      */
     readonly rule: GameRule;

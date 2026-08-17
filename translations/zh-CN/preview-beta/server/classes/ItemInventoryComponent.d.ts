@@ -1,6 +1,5 @@
 /**
- * 此组件会添加到带有 `Storage Item` 组件的物品上。
- * 可以访问和修改该物品的库存容器。
+ * 此组件添加到具有`Storage Item`组件的物品上。可以访问和修改此物品的库存容器。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemInventoryComponent extends ItemComponent {

@@ -1,10 +1,10 @@
 /**
- * 包含生成实体时的附加选项。
+ * 包含生成实体时的额外选项。
  */
 export interface SpawnEntityOptions {
     /**
      * @remarks
-     * 可选的布尔值，决定此实体是否应保留在游戏世界中。持久化可防止实体自动消失。
+     * 可选的布尔值，决定该实体是否应在游戏世界中持久存在。持久性可防止实体自动消失。
      *
      */
     initialPersistence?: boolean;

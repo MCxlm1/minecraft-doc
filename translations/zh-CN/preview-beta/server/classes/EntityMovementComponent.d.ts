@@ -1,5 +1,5 @@
 /**
- * 定义此实体的通用移动速度。
+ * 定义此实体的常规移动速度。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityMovementComponent extends EntityAttributeComponent {

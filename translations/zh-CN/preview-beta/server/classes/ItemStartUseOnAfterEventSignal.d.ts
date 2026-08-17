@@ -1,29 +1,26 @@
 /**
- * 管理连接到物品开始用于方块事件时的回调。
+ * 管理当物品开始被用于方块事件时触发的回调。
  */
 export class ItemStartUseOnAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当物品用于方块时调用。
+     * 添加一个将在物品被用于方块时调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 一个回调函数，接收 ItemStartUseOnAfterEvent 参数。
-     * @returns 返回传入的回调函数，以便后续移除。
      */
     subscribe(callback: (arg0: ItemStartUseOnAfterEvent) => void): (arg0: ItemStartUseOnAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，当物品用于方块时不再调用。
+     * 移除一个在物品被用于方块时调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 一个之前通过 subscribe 添加的回调函数。
      */
     unsubscribe(callback: (arg0: ItemStartUseOnAfterEvent) => void): void;
 }

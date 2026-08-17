@@ -1,14 +1,17 @@
 /**
- * 显示在玩家定位栏上的路径点的基类。路径点可以跟踪位置或实体，并使用可自定义的纹理和颜色进行渲染。
+ * 显示在玩家定位器栏上的导航点的基类。
+ * 导航点可以追踪位置或实体，并使用可自定义的纹理和颜色进行渲染。
  *
- * 路径点作为共享句柄，可以添加到多个玩家的定位栏中。当你修改路径点的属性（如颜色、纹理或启用状态）时，
- * 所有在定位栏中拥有该路径点的玩家都会看到更改。这使你可以跨多个玩家高效管理路径点，而无需为每个玩家创建单独的实例。
+ * 导航点充当共享句柄，可以添加到多个玩家的定位器栏中。
+ * 当你修改导航点的属性（例如颜色、纹理或启用状态）时，
+ * 所有在其定位器栏中拥有该导航点的玩家都将看到更改。
+ * 这允许你高效地管理多个玩家之间的导航点，而无需为每个玩家创建单独的实例。
  */
 export class Waypoint {
     private constructor();
     /**
      * @remarks
-     * 可选的 {@link RGB} 颜色色调，应用于路径点图标。如果未指定，路径点使用默认颜色。
+     * 应用于导航点图标的可选 {@link RGB} 颜色色调。如果未指定，导航点将使用其默认颜色。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -16,7 +19,7 @@ export class Waypoint {
     color?: RGB;
     /**
      * @remarks
-     * 控制路径点当前是否显示在玩家屏幕上。禁用时，路径点隐藏但保持有效。
+     * 控制导航点是否当前显示在玩家屏幕上。禁用时，导航点隐藏但仍然有效。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -24,13 +27,13 @@ export class Waypoint {
     isEnabled: boolean;
     /**
      * @remarks
-     * 返回路径点当前是否有效。当路径点跟踪的实体不再有效时，路径点变为无效。
+     * 返回导航点当前是否有效。当导航点追踪的实体不再有效时，导航点变为无效。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * 决定路径点显示哪个图标纹理的 {@link WaypointTextureSelector}，基于距离或其他条件。
+     * 决定导航点根据距离或其他条件显示哪个图标纹理的 {@link WaypointTextureSelector}。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -38,17 +41,22 @@ export class Waypoint {
     textureSelector: WaypointTextureSelector;
     /**
      * @remarks
-     * 获取路径点的当前 {@link DimensionLocation}。对于实体路径点，返回实体的当前位置；对于位置路径点，返回存储的位置。
+     * 获取导航点当前的 {@link DimensionLocation}。
+     * 对于实体导航点，返回实体的当前位置。
+     * 对于位置导航点，返回存储的位置。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @returns 当前路径点的位置（{@link DimensionLocation}）。
-     * @throws 若路径点无效，抛出 {@link InvalidWaypointError}；若路径点的纹理选择器无效，抛出 {@link InvalidWaypointTextureSelectorError}。
+     * @throws 此函数可能会抛出错误。
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link InvalidWaypointTextureSelectorError}
      */
     getDimensionLocation(): DimensionLocation;
     /**
      * @remarks
-     * 从所有已添加的定位栏中移除该路径点。这会影响所有在定位栏中拥有该路径点的玩家。
+     * 从所有已添加的定位器栏中移除该导航点。这会影响到所有在其定位器栏中拥有此导航点的玩家。
      *
      * This function can't be called in restricted-execution mode.
      *

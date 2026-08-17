@@ -1,10 +1,10 @@
 /**
- * 当通过投射物造成伤害时使用的附加选项。
+ * 通过投射物造成伤害时的附加选项。
  */
 export interface EntityApplyDamageByProjectileOptions {
     /**
      * @remarks
-     * 可选：发射该投射物的实体。
+     * 可选，发射该投射物的实体。
      *
      */
     damagingEntity?: Entity;

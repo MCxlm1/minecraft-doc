@@ -16,7 +16,7 @@ export class ItemDyeableComponent extends ItemComponent {
      * @remarks
      * 返回物品的默认颜色。
      *
-     * @throws 使用该属性时可能抛出异常。
+     * @throws 此属性在使用时可能抛出异常。
      */
     readonly defaultColor?: RGB;
     static readonly componentId = 'minecraft:dyeable';

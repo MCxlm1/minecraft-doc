@@ -2,7 +2,7 @@ export class CustomComponentNameError extends Error {
     private constructor();
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * This property can be read in early-execution mode.
      *
      */
     readonly reason: CustomComponentNameErrorReason;

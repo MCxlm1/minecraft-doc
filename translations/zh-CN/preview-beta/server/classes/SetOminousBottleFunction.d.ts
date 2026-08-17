@@ -1,5 +1,5 @@
 /**
- * 战利品物品函数，用于修改不祥之瓶的增幅值。
+ * 修改不祥之瓶增幅值的战利品物品函数。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class SetOminousBottleFunction extends LootItemFunction {

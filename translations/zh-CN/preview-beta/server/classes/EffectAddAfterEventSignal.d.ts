@@ -1,19 +1,19 @@
 /**
- * 管理当效果被添加到实体时执行的回调。
+ * 管理当效果被添加到实体时触发的回调。
  */
 export class EffectAddAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当效果被添加到实体时将会调用该回调。
+     * 添加一个回调函数，当效果被添加到实体时将会调用该函数。
      *
      * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 当效果被添加到实体时要调用的回调。
-     * @param options - 可选的事件选项。
-     * @returns 返回传入的回调函数，便于后续取消订阅。
+     * @param callback - 当效果被添加到实体时要调用的回调函数。
+     * @param options - （可选）用于配置事件监听的选项。
+     * @returns 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: EffectAddAfterEvent) => void,

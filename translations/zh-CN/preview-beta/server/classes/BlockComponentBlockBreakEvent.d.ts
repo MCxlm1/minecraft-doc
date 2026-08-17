@@ -12,7 +12,7 @@ export class BlockComponentBlockBreakEvent extends BlockEvent {
     readonly blockDestructionSource?: Block;
     /**
      * @remarks
-     * 返回此方块被破坏前的排列信息。
+     * 返回有关此方块在被破坏之前的置换信息。
      *
      */
     readonly brokenBlockPermutation: BlockPermutation;

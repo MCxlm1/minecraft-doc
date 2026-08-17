@@ -1,5 +1,5 @@
 /**
- * 表示维度类型。目前仅适用于原版维度。
+ * 表示一种维度类型。目前仅适用于原版维度。
  */
 export class DimensionType {
     private constructor();

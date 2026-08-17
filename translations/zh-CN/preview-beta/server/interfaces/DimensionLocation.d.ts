@@ -10,19 +10,19 @@ export interface DimensionLocation {
     dimension: Dimension;
     /**
      * @remarks
-     * 此维度位置的 X 分量。
+     * 此维度位置的X分量。
      *
      */
     x: number;
     /**
      * @remarks
-     * 此维度位置的 Y 分量。
+     * 此维度位置的Y分量。
      *
      */
     y: number;
     /**
      * @remarks
-     * 此维度位置的 Z 分量。
+     * 此维度位置的Z分量。
      *
      */
     z: number;

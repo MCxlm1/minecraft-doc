@@ -5,15 +5,17 @@ export class EntityTypes {
     private constructor();
     /**
      * @remarks
-     * 使用基于字符串的标识符检索实体类型。
-     * @param identifier - 基于字符串的实体类型标识符。
-     * @returns 返回对应的 EntityType 对象，如果未找到则返回 undefined。
+     * 使用字符串标识符获取实体类型。
+     *
+     * @param identifier 实体类型的字符串标识符。
+     * @returns 如果找到则返回对应的实体类型，否则返回 undefined。
      */
     static get<T = never>(identifier: EntityIdentifierType<NoInfer<T>>): EntityType | undefined;
     /**
      * @remarks
-     * 检索世界中所有实体类型的集合。
-     * @returns 返回一个包含所有实体类型的数组。
+     * 获取此世界中的所有实体类型。
+     *
+     * @returns 包含此世界中所有实体类型的数组。
      */
     static getAll(): EntityType[];
 }

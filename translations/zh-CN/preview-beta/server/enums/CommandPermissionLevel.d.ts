@@ -4,7 +4,7 @@
 export enum CommandPermissionLevel {
     /**
      * @remarks
-     * 任何实体都可以执行此等级。
+     * 任何实体都可以执行此命令。
      *
      */
     Any = 0,
@@ -16,7 +16,7 @@ export enum CommandPermissionLevel {
     GameDirectors = 1,
     /**
      * @remarks
-     * 任何操作员都可以执行此命令，但不包括命令方块。
+     * 任何操作员都可以执行此命令，但命令方块除外。
      *
      */
     Admin = 2,
@@ -28,7 +28,7 @@ export enum CommandPermissionLevel {
     Host = 3,
     /**
      * @remarks
-     * 只有专用服务器可以执行此命令。
+     * 仅专用服务器可以执行此命令。
      *
      */
     Owner = 4,

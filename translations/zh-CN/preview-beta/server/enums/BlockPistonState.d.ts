@@ -4,25 +4,25 @@
 export enum BlockPistonState {
     /**
      * @remarks
-     * 活塞是否已完全展开。
+     * 活塞是否完全展开。
      *
      */
     Expanded = 'Expanded',
     /**
      * @remarks
-     * 活塞是否正在展开过程中。
+     * 活塞是否正在展开。
      *
      */
     Expanding = 'Expanding',
     /**
      * @remarks
-     * 活塞是否已完全收回。
+     * 活塞是否完全收回。
      *
      */
     Retracted = 'Retracted',
     /**
      * @remarks
-     * 活塞是否正在收回过程中。
+     * 活塞是否正在收回。
      *
      */
     Retracting = 'Retracting',

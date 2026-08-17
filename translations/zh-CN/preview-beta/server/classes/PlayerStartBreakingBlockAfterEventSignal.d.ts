@@ -1,19 +1,19 @@
 /**
- * 管理当玩家开始破坏方块时触发的回调。
+ * 管理与玩家开始破坏方块时相关的回调。
  */
 export class PlayerStartBreakingBlockAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当玩家开始破坏方块时将调用该回调。
+     * 添加一个回调，当玩家开始破坏方块时调用。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
-     * @param callback - 用于接收玩家开始破坏方块事件的回调函数。
-     * @param options - 可选的事件选项，用于过滤事件。
-     * @returns 返回传入的回调函数，可用于后续取消订阅。
+     * @param callback - 要添加的回调函数。
+     * @param options - 可选的事件选项。
+     * @returns 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: PlayerStartBreakingBlockAfterEvent) => void,

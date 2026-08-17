@@ -6,7 +6,7 @@ export class SetStewEffectFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 一个整数数组，对应炖菜效果，将从中随机选择并应用到掉落的物品上。
+     * 一组整数，对应炖菜效果，将从中随机选择并应用于掉落的物品。
      *
      */
     readonly effects: number[];

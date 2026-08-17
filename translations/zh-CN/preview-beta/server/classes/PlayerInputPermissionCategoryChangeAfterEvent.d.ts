@@ -1,5 +1,5 @@
 /**
- * 包含玩家输入权限更改后事件的相关信息。
+ * 包含关于玩家输入权限更改后事件的信息。
  */
 export class PlayerInputPermissionCategoryChangeAfterEvent {
     private constructor();
@@ -17,7 +17,7 @@ export class PlayerInputPermissionCategoryChangeAfterEvent {
     readonly enabled: boolean;
     /**
      * @remarks
-     * 输入权限已更改的玩家。
+     * 输入权限已被更改的玩家。
      *
      */
     readonly player: Player;

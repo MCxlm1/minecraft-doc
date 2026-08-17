@@ -1,10 +1,10 @@
 /**
- * 描述设备输入的类型。
+ * 描述设备的输入类型。
  */
 export enum InputMode {
     /**
      * @remarks
-     * 手柄输入。
+     * 游戏手柄输入。
      *
      */
     Gamepad = 'Gamepad',

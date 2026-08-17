@@ -1,19 +1,19 @@
 /**
- * 管理当实体受到伤害时触发的回调。
+ * 管理实体受伤时触发的回调。
  */
 export class EntityHurtAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当实体受到伤害时调用。
+     * 添加一个将在实体受伤时被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调函数。
-     * @param options - 可选的回调选项。
-     * @returns 返回传入的回调函数。
+     * @param callback 当实体受伤时要调用的回调函数。
+     * @param options 用于配置回调触发的附加选项。
+     * @returns 返回传入的回调函数，可用于后续取消订阅。
      */
     subscribe(
         callback: (arg0: EntityHurtAfterEvent) => void,
@@ -21,13 +21,13 @@ export class EntityHurtAfterEventSignal {
     ): (arg0: EntityHurtAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个当实体受到伤害时调用的回调。
+     * 移除一个回调，使其不再在实体受伤时被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调函数。
+     * @param callback 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: EntityHurtAfterEvent) => void): void;
 }

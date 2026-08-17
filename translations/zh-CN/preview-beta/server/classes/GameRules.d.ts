@@ -1,4 +1,3 @@
-```typescript
 /**
  * 表示世界体验的游戏规则。
  */
@@ -234,4 +233,3 @@ export class GameRules {
      */
     tntExplosionDropDecay: boolean;
 }
-```

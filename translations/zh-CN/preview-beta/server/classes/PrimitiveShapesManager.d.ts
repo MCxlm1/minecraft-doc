@@ -1,23 +1,21 @@
 /**
- * 用于向世界添加和移除文本基元的原始形状类。
+ * 基本形状类，用于向世界添加和移除文本原语。
  */
 export class PrimitiveShapesManager {
     private constructor();
     /**
      * @remarks
-     * 这是允许的最大原始形状数量。
+     * 允许的最大原始形状数量。
      *
      */
     readonly maxShapes: number;
     /**
      * @remarks
-     * 向世界添加一个新的文本基元。
+     * 向世界添加一个新的文本原语。
      *
      * @param text
-     * 要添加的文本基元。
-     * @param dimension
-     * 可选的目标维度。如果未指定，则默认使用当前维度。
-     * @throws 该函数可能会抛出错误。
+     * 要添加的文本原语。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -27,25 +25,22 @@ export class PrimitiveShapesManager {
     /**
      * @beta
      * @remarks
-     * 获取并查询管理器中存储的所有原始形状，并以形状句柄数组的形式返回结果。
+     * 获取并查询管理器中存储的所有原始形状，并将结果作为形状句柄数组返回。
      *
      * @param options
-     * 用于查询现有形状的可选选项，以缩小结果范围。
-     * @returns 返回一个形状句柄数组，其中包含所有匹配的原始形状。
+     * 用于查询现有形状的选项，可以缩小结果范围。
      */
     getShapes(options?: PrimitiveShapeQueryOptions): PrimitiveShape[];
     /**
      * @remarks
-     * 从世界中移除所有文本基元。
+     * 从世界中移除所有文本原语。
      *
      */
     removeAll(): void;
     /**
      * @remarks
-     * 从世界中移除一个文本基元实例。这等同于在文本本身上调用remove。
+     * 从世界中移除一个文本原语实例。这相当于在文本本身上调用移除。
      *
-     * @param text
-     * 要移除的文本基元实例。
      */
     removeText(text: TextPrimitive): void;
 }

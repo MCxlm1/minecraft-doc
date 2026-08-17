@@ -1,6 +1,6 @@
 /**
  * 表示方块实例的可配置状态值。
- * 例如，楼梯的朝向方向可以作为方块状态访问。
+ * 例如，楼梯的朝向方向可作为方块状态访问。
  */
 export class BlockStateType {
     private constructor();
@@ -12,7 +12,7 @@ export class BlockStateType {
     readonly id: string;
     /**
      * @remarks
-     * 方块属性的一组有效值。
+     * 该方块属性的一组有效值。
      *
      */
     readonly validValues: (boolean | number | string)[];

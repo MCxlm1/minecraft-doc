@@ -4,7 +4,7 @@
 export interface GreaterThanComparison {
     /**
      * @remarks
-     * 用于比较的阈值。
+     * 进行比较的阈值。
      *
      */
     greaterThan: number;

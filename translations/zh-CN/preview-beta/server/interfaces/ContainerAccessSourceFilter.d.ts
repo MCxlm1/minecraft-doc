@@ -4,7 +4,7 @@
 export interface ContainerAccessSourceFilter {
     /**
      * @remarks
-     * 访问容器的源实体的筛选选项。
+     * 访问容器的源实体的过滤选项。
      *
      */
     entityFilter?: EntityFilter;

@@ -1,4 +1,3 @@
-```
 /**
  * 指定玩家物品栏类型。
  */
@@ -16,4 +15,3 @@ export enum PlayerInventoryType {
      */
     Inventory = 'Inventory',
 }
-```

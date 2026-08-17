@@ -1,5 +1,5 @@
 /**
- * 表示一个包含要掉落物品的战利品池条目。
+ * 表示一个包含掉落物品的战利品池条目。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class LootItem extends LootPoolEntry {

@@ -1,11 +1,10 @@
 /**
- * 用于 {@link
- * World.playMusic}/{@link World.queueMusic} 方法的附加配置选项。
+ * 用于 {@link World.playMusic}/{@link World.queueMusic} 方法的额外配置选项。
  */
 export interface MusicOptions {
     /**
      * @remarks
-     * 指定音乐播放结束时的淡入淡出重叠量。
+     * 指定音乐播放结束时的淡出重叠。
      *
      */
     fade?: number;

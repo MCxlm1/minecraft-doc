@@ -10,7 +10,7 @@ export enum ScoreboardIdentityType {
     Entity = 'Entity',
     /**
      * @remarks
-     * 此计分板参与者与一个伪玩家实体绑定——通常用于将分数存储为数据或抽象进度。
+     * 此计分板参与者与一个伪玩家实体绑定 - 通常用于将分数存储为数据或抽象进度。
      *
      */
     FakePlayer = 'FakePlayer',

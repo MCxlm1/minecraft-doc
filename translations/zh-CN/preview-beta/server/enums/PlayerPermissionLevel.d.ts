@@ -4,7 +4,7 @@
 export enum PlayerPermissionLevel {
     /**
      * @remarks
-     * 访问者只能观察世界，不能与之交互。
+     * 访客只能观察世界，不能与之交互。
      *
      */
     Visitor = 0,
@@ -16,7 +16,7 @@ export enum PlayerPermissionLevel {
     Member = 1,
     /**
      * @remarks
-     * 操作员可以传送和使用命令，此外还可以执行成员的所有操作。
+     * 操作员可以传送和使用命令，此外还能执行成员能做的所有事情。
      *
      */
     Operator = 2,

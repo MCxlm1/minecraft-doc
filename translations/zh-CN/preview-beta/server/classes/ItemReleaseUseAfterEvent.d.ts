@@ -1,5 +1,5 @@
 /**
- * 包含当玩家结束使用物品并释放蓄力操作时，与可蓄力物品相关的信息。
+ * 包含关于可蓄力物品的信息，当玩家使用完该物品并释放蓄力动作时。
  */
 export class ItemReleaseUseAfterEvent {
     private constructor();
@@ -17,7 +17,7 @@ export class ItemReleaseUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回以刻为单位的剩余时间，即蓄力完成其循环前剩余的时间。
+     * 返回在蓄力完成其周期之前剩余的持续时间，以刻为单位。
      *
      */
     readonly useDuration: number;

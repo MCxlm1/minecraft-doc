@@ -5,7 +5,7 @@ export class ItemComponentConsumeEvent {
     private constructor();
     /**
      * @remarks
-     * 被消耗的物品实例。
+     * 被消耗的物品栈。
      *
      */
     readonly itemStack: ItemStack;

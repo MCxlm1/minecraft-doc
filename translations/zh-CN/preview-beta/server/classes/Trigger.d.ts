@@ -11,7 +11,6 @@ export class Trigger {
     /**
      * @remarks
      * 创建一个新的触发器。
-     * @param eventName 触发器的事件名称。
      *
      */
     constructor(eventName: string);

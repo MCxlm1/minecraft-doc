@@ -10,7 +10,7 @@ export enum GraphicsMode {
     Deferred = 'Deferred',
     /**
      * @remarks
-     * 一种图形模式，指的是精美图形模式设置。在此设置下，大多数特殊图形效果会被开启。
+     * 一种图形模式，指的是 fancy 图形模式设置。在此设置下，大多数特殊图形效果都会开启。
      *
      */
     Fancy = 'Fancy',
@@ -22,7 +22,7 @@ export enum GraphicsMode {
     RayTraced = 'RayTraced',
     /**
      * @remarks
-     * 一种图形模式，指的是简单图形模式设置。在此设置下，大多数图形效果会被关闭。
+     * 一种图形模式，指的是 simple 图形模式设置。在此设置下，大多数图形效果都会关闭。
      *
      */
     Simple = 'Simple',

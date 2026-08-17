@@ -1,7 +1,5 @@
-```18:08:43
 /**
- * Supports registering for an event that fires after an entity
- * has died.
+ * 支持注册一个在实体死亡后触发的事件。
  */
 export class EntityDieAfterEventSignal {
     private constructor();
@@ -9,16 +7,16 @@ export class EntityDieAfterEventSignal {
      * @remarks
      * 订阅一个在实体死亡时触发的事件。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 该函数无法在限制执行模式下调用。
      *
-     * 此函数可在早期执行模式下调用。
+     * 该函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 实体死亡时要调用的函数。
+     * 实体死亡时调用的函数。
      * @param options
-     * 用于设置订阅触发条件的附加过滤选项。
+     * 订阅触发时的额外过滤选项。
      * @returns
-     * 返回一个闭包，可用于后续调用以取消订阅。
+     * 返回可用于后续解订阅调用的闭包。
      */
     subscribe(
         callback: (arg0: EntityDieAfterEvent) => void,
@@ -26,15 +24,14 @@ export class EntityDieAfterEventSignal {
     ): (arg0: EntityDieAfterEvent) => void;
     /**
      * @remarks
-     * 当实体死亡时，停止此事件调用你的函数。
+     * 阻止此事件在实体死亡时调用你的函数。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 该函数无法在限制执行模式下调用。
      *
-     * 此函数可在早期执行模式下调用。
+     * 该函数可以在早期执行模式下调用。
      *
      * @param callback
      * 需要取消订阅的回调函数。
      */
     unsubscribe(callback: (arg0: EntityDieAfterEvent) => void): void;
 }
-```

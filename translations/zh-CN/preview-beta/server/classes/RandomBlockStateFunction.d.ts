@@ -7,7 +7,7 @@ export class RandomBlockStateFunction extends LootItemFunction {
     readonly blockState: string;
     /**
      * @remarks
-     * 函数随机选择分配给给定方块状态的值的范围。包含最小值和最大值。
+     * 函数从该范围中随机选择一个值，并将其赋给给定的方块状态。包含最小值和最大值。
      *
      */
     readonly values: minecraftcommon.NumberRange;

@@ -1,22 +1,22 @@
 /**
- * 管理当实体将要受伤时触发的回调。
+ * 管理当实体将要受到伤害时连接的回调。
  */
 export class EntityHurtBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在实体将要受伤时被调用。
+     * 添加一个回调，该回调将在实体将要受到伤害时被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在受限执行权限下调用。
+     * 此闭包以受限执行特权调用。
      * @param options
-     * 可选参数，用于指定事件回调的额外选项。
+     * 可选，配置事件回调的选项。
      * @returns
-     * 在受限执行权限下调用的闭包。
+     * 以受限执行特权调用的闭包。
      */
     subscribe(
         callback: (arg0: EntityHurtBeforeEvent) => void,
@@ -24,14 +24,14 @@ export class EntityHurtBeforeEventSignal {
     ): (arg0: EntityHurtBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个在实体将要受伤时被调用的回调。
+     * 移除一个当实体将要受到伤害时被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在受限执行权限下调用。
+     * 此闭包以受限执行特权调用。
      */
     unsubscribe(callback: (arg0: EntityHurtBeforeEvent) => void): void;
 }

@@ -1,11 +1,11 @@
 /**
  * @beta
- * 在声音定义中声明的持续时间元数据。
+ * 声音定义中声明的持续时间元数据。
  */
 export interface SoundDefinitionDurationInfo {
     /**
      * @remarks
-     * 声音的总持续时间，以秒为单位，如在声音定义中声明的那样。
+     * 声音定义中声明的声音总持续时间（秒）。
      *
      */
     duration: number;

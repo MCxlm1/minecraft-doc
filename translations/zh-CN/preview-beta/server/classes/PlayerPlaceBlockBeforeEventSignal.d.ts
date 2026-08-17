@@ -1,23 +1,21 @@
 /**
  * @beta
- * 管理在玩家放置方块之前所触发的回调。
+ * 管理在玩家放置方块之前连接的回调函数。
  */
 export class PlayerPlaceBlockBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个将在玩家放置方块之前被调用的回调。
+     * 添加一个回调函数，该回调函数将在玩家放置方块之前被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 该闭包将以受限执行权限被调用。
-     * @param options
-     * 可选的方块事件选项。
+     * 此闭包以受限执行权限被调用。
      * @returns
-     * 返回以受限执行权限被调用的闭包。
+     * 以受限执行权限调用的闭包。
      */
     subscribe(
         callback: (arg0: PlayerPlaceBlockBeforeEvent) => void,
@@ -25,14 +23,14 @@ export class PlayerPlaceBlockBeforeEventSignal {
     ): (arg0: PlayerPlaceBlockBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个将在玩家放置方块之前被调用的回调。
+     * 移除一个在玩家放置方块之前被调用的回调函数。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 该闭包以受限执行权限被调用。
+     * 此闭包以受限执行权限被调用。
      */
     unsubscribe(callback: (arg0: PlayerPlaceBlockBeforeEvent) => void): void;
 }

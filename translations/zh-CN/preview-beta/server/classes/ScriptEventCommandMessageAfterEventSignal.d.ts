@@ -5,15 +5,15 @@ export class ScriptEventCommandMessageAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 注册一个新的 ScriptEvent 事件处理器。
+     * 注册一个新的 ScriptEvent 处理器。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 回调函数，接收 ScriptEventCommandMessageAfterEvent 事件。
-     * @param options - 可选的消息过滤器选项。
-     * @returns 返回一个用于取消订阅的函数。
+     * @param callback - 要注册的事件处理器函数。
+     * @param options - 用于过滤 ScriptEvent 消息的选项，可选。
+     * @returns 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: ScriptEventCommandMessageAfterEvent) => void,
@@ -21,13 +21,13 @@ export class ScriptEventCommandMessageAfterEventSignal {
     ): (arg0: ScriptEventCommandMessageAfterEvent) => void;
     /**
      * @remarks
-     * 取消特定 ScriptEvent 事件处理器的订阅。
+     * 取消订阅一个特定的 ScriptEvent 事件处理器。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 需要取消订阅的回调函数。
+     * @param callback - 要取消订阅的事件处理器函数。
      */
     unsubscribe(callback: (arg0: ScriptEventCommandMessageAfterEvent) => void): void;
 }

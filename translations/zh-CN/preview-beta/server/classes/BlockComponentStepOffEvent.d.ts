@@ -1,12 +1,12 @@
 /**
- * 包含关于实体从特定方块上走下的相关信息。
+ * 包含关于实体从特定方块上离开的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentStepOffEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 从方块上走下的实体。
+     * 从方块上离开的实体。
      *
      */
     readonly entity?: Entity;

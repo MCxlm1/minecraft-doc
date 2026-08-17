@@ -1,5 +1,5 @@
 /**
- * 包含关于如何在显示槽中显示记分板的附加选项。
+ * 包含关于记分板在其显示槽位中如何显示的额外选项。
  */
 export interface ScoreboardObjectiveDisplayOptions {
     /**
@@ -10,7 +10,7 @@ export interface ScoreboardObjectiveDisplayOptions {
     objective: ScoreboardObjective;
     /**
      * @remarks
-     * 显示目标项时使用的排序顺序。
+     * 显示目标项时的排序顺序。
      *
      */
     sortOrder?: ObjectiveSortOrder;

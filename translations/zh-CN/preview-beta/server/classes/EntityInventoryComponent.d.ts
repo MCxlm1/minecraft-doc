@@ -6,21 +6,21 @@ export class EntityInventoryComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 该实体每获得额外力量时可增加的槽位数量。
+     * 实体每获得一点额外强度可增加的槽位数。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly additionalSlotsPerStrength: number;
     /**
      * @remarks
-     * 若为 true，则此物品栏中的物品可被漏斗抽取。
+     * 如果为 true，该物品栏中的内容可以被漏斗移除。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly canBeSiphonedFrom: boolean;
     /**
      * @remarks
-     * 定义此实体的容器。如果实体已被移除，则容器为 undefined。
+     * 定义此实体的容器。如果实体已被移除，容器将为 undefined。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -43,14 +43,14 @@ export class EntityInventoryComponent extends EntityComponent {
     readonly inventorySize: number;
     /**
      * @remarks
-     * 若为 true，实体死亡时不会掉落其物品栏。
+     * 如果为 true，实体死亡时不会掉落其物品栏。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly 'private': boolean;
     /**
      * @remarks
-     * 若为 true，则只有该实体的主人或实体本身可以访问其物品栏。
+     * 如果为 true，实体的物品栏只能由其所有者或自身访问。
      *
      * @throws 此属性在使用时可能抛出异常。
      */

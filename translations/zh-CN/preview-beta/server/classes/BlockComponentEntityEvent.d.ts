@@ -1,12 +1,12 @@
 /**
- * 包含关于世界中实体向此方块发送的事件的信息。
+ * 包含关于一个由实体发送到世界中此方块的事件的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentEntityEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 返回关于接收该事件的方块的置换信息。
+     * 返回接收此事件的方块的状态信息。
      *
      */
     readonly blockPermutation: BlockPermutation;

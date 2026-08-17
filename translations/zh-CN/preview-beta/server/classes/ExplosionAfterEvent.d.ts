@@ -5,7 +5,7 @@ export class ExplosionAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 发生爆炸的维度。
+     * 爆炸发生的维度。
      *
      */
     readonly dimension: Dimension;
@@ -17,7 +17,7 @@ export class ExplosionAfterEvent {
     readonly source?: Entity;
     /**
      * @remarks
-     * 受此爆炸事件影响的方块集合。
+     * 由此爆炸事件影响的方块集合。
      *
      */
     getImpactedBlocks(): Block[];

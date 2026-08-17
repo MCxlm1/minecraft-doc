@@ -1,5 +1,5 @@
 /**
- * 描述设备所属的平台类型。
+ * 描述设备平台类型。
  */
 export enum PlatformType {
     /**
@@ -10,7 +10,7 @@ export enum PlatformType {
     Console = 'Console',
     /**
      * @remarks
-     * 个人计算机（PC）。
+     * 个人计算机。
      *
      */
     Desktop = 'Desktop',

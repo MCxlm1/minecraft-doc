@@ -6,13 +6,13 @@ export class BlockExplodeAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 已爆炸方块的描述。
+     * 发生爆炸的方块的描述。
      *
      */
     readonly explodedBlockPermutation: BlockPermutation;
     /**
      * @remarks
-     * 爆炸的可选来源实体。
+     * 爆炸的可选来源。
      *
      */
     readonly source?: Entity;

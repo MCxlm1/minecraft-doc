@@ -1,6 +1,5 @@
-```typescript
 /**
- * 包含关于实体踩上某个特定方块的信息。
+ * 包含关于实体踩上特定方块的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentStepOnEvent extends BlockEvent {
@@ -12,4 +11,3 @@ export class BlockComponentStepOnEvent extends BlockEvent {
      */
     readonly entity?: Entity;
 }
-```

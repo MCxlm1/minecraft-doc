@@ -1,19 +1,17 @@
-```ts
 /**
- * 用于筛选实体容器访问事件的选项。
+ * 用于过滤实体容器访问事件的选项。
  */
 export interface EntityContainerAccessEventOptions {
     /**
      * @remarks
-     * 若存在，将筛选可触发事件的容器访问来源。
+     * 如果存在，将过滤哪些容器访问源可以触发事件。
      *
      */
     accessSourceFilter?: ContainerAccessSourceFilter;
     /**
      * @remarks
-     * 若存在，将筛选可触发事件的实体容器。
+     * 如果存在，将过滤哪些实体容器可以触发事件。
      *
      */
     entityFilter?: EntityFilter;
 }
-```

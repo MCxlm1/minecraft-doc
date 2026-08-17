@@ -1,5 +1,5 @@
 /**
- * 定义实体的颜色。仅对具有预定义颜色值的特定实体（如绵羊、羊驼、潜影贝）有效。
+ * 定义实体的颜色。仅适用于某些具有预定义颜色值的实体（例如羊、羊驼、潜影贝）。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityColorComponent extends EntityComponent {

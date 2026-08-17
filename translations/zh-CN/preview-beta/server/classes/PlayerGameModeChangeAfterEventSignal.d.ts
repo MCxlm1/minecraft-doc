@@ -1,29 +1,26 @@
 /**
- * 管理玩家游戏模式更改后触发的回调。
+ * 管理在玩家游戏模式更改后相关的回调。
  */
 export class PlayerGameModeChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家游戏模式更改后调用。
+     * 添加一个回调，该回调将在玩家游戏模式更改后被调用。
      *
-     * 此函数无法在限制执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调函数。
-     * @returns 返回用于取消订阅的回调函数。
      */
     subscribe(callback: (arg0: PlayerGameModeChangeAfterEvent) => void): (arg0: PlayerGameModeChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，该回调之前注册用于在玩家游戏模式更改后调用。
+     * 移除一个回调，使其不再在玩家游戏模式更改后被调用。
      *
-     * 此函数无法在限制执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerGameModeChangeAfterEvent) => void): void;
 }

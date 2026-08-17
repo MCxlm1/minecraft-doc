@@ -1,31 +1,29 @@
 /**
- * 此管理器用于向维度添加、移除或查询临时常驻区域。
- * 这些常驻区域受每个包固定数量的常驻区块限制，与命令限制无关。
- * 无法修改或查询由其他包或命令添加的常驻区域。
+ * 此管理器用于向维度添加、移除或查询临时 ticking 区域。这些 ticking 区域受每个包固定数量 tick 区块的限制，与命令限制无关。不能修改或查询由其他包或命令添加的 ticking 区域。
  */
 export class TickingAreaManager {
     private constructor();
     /**
      * @remarks
-     * 此管理器当前常驻区块的数量。
+     * 此管理器中当前 tick 的区块数量。
      *
      */
     readonly chunkCount: number;
     /**
      * @remarks
-     * 允许的最大常驻区块数量。重叠的常驻区域区块会计入总数。
+     * 允许的 tick 区块最大数量。重叠的 ticking 区域区块会计入总数。
      *
      */
     readonly maxChunkCount: number;
     /**
      * @remarks
-     * 创建一个常驻区域。当该区域中的所有区块均已加载并开始常驻时，Promise 将返回。
+     * 创建一个 ticking 区域。当区域内的所有区块都加载并开始 tick 时，Promise 将返回。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @param identifier 常驻区域的标识符。
-     * @param options 常驻区域选项。
-     * @returns 一个 Promise，在所有区块加载并常驻后解析。
+     * @param identifier - 要创建的 ticking 区域的标识符。
+     * @param options - 定义 ticking 区域位置和大小的选项。
+     * @returns 当所有区块已加载并开始 tick 时解析的 Promise。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -35,11 +33,11 @@ export class TickingAreaManager {
     createTickingArea(identifier: string, options: TickingAreaOptions): Promise<void>;
     /**
      * @remarks
-     * 获取此管理器添加的所有常驻区域。
+     * 获取由此管理器添加的所有 ticking 区域。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @returns 所有常驻区域的数组。
+     * @returns 由此管理器添加的 ticking 区域数组。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -47,12 +45,12 @@ export class TickingAreaManager {
     getAllTickingAreas(): TickingArea[];
     /**
      * @remarks
-     * 尝试通过标识符获取特定的常驻区域。
+     * 尝试根据标识符获取特定的 ticking 区域。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @param identifier 常驻区域的标识符或常驻区域对象。
-     * @returns 如果找到则返回常驻区域，否则返回 undefined。
+     * @param identifier - 要获取的 ticking 区域的标识符，或 TickingArea 对象。
+     * @returns 如果找到则返回对应的 TickingArea，否则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -60,30 +58,29 @@ export class TickingAreaManager {
     getTickingArea(identifier: string | TickingArea): TickingArea | undefined;
     /**
      * @remarks
-     * 如果管理器有足够的区块容量来容纳常驻区域，则返回 true，否则返回 false。
-     * 如果长度或宽度超过 255 区块限制，也将返回 false。
+     * 如果管理器有足够的区块容量来容纳该 ticking 区域，则返回 true，否则返回 false。如果长度或宽度超过 255 个区块的限制，也会返回 false。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @param options 常驻区域选项。
-     * @returns 如果容量足够且参数有效则返回 true，否则返回 false。
+     * @param options - 定义 ticking 区域位置和大小的选项。
+     * @returns 如果管理器有足够容量则返回 true，否则返回 false。
      */
     hasCapacity(options: TickingAreaOptions): boolean;
     /**
      * @remarks
-     * 如果标识符已存在于管理器中，则返回 true，否则返回 false。
+     * 如果该标识符已在管理器中，则返回 true，否则返回 false。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @param identifier 要检查的标识符。
+     * @param identifier - 要检查的 ticking 区域标识符。
      * @returns 如果标识符已存在则返回 true，否则返回 false。
      */
     hasTickingArea(identifier: string): boolean;
     /**
      * @remarks
-     * 移除此管理器添加的所有常驻区域。
+     * 移除由此管理器添加的所有 ticking 区域。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
      * @throws 此函数可能抛出错误。
      *
@@ -92,11 +89,11 @@ export class TickingAreaManager {
     removeAllTickingAreas(): void;
     /**
      * @remarks
-     * 通过唯一标识符移除特定的常驻区域。
+     * 根据唯一标识符移除特定的 ticking 区域。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * @param identifier 常驻区域的标识符或常驻区域对象。
+     * @param identifier - 要移除的 ticking 区域的标识符，或 TickingArea 对象。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}

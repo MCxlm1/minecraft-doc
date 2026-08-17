@@ -1,6 +1,5 @@
-```typescript
 /**
- * 包含有关使用物品挖掘方块的信息。
+ * 包含使用物品挖掘方块的相关信息。
  */
 export class ItemComponentMineBlockEvent {
     private constructor();
@@ -12,7 +11,7 @@ export class ItemComponentMineBlockEvent {
     readonly block: Block;
     /**
      * @remarks
-     * 用于挖掘该方块的物品实例。
+     * 用于挖掘方块的物品实例。
      *
      */
     readonly itemStack?: ItemStack;
@@ -24,9 +23,8 @@ export class ItemComponentMineBlockEvent {
     readonly minedBlockPermutation: BlockPermutation;
     /**
      * @remarks
-     * 挖掘该方块的实体。
+     * 挖掘方块的实体。
      *
      */
     readonly source: Entity;
 }
-```

@@ -6,7 +6,7 @@ export class EntityFlyingSpeedComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 关联实体的当前飞行速度。
+     * 关联实体的当前飞行速度值。
      *
      * This property can't be edited in restricted-execution mode.
      *

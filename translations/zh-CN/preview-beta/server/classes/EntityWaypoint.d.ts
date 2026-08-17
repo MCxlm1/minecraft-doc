@@ -1,13 +1,11 @@
 /**
- * Waypoint that tracks an entity's position. The waypoint
- * automatically updates as the entity moves and becomes
- * invalid when the entity is removed.
+ * 跟踪实体位置的路径点。该路径点会随着实体的移动自动更新，并在实体被移除时失效。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityWaypoint extends Waypoint {
     /**
      * @remarks
-     * 此路径点追踪的实体。
+     * 此路径点正在跟踪的实体。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -18,7 +16,7 @@ export class EntityWaypoint extends Waypoint {
     readonly entity: Entity;
     /**
      * @remarks
-     * 控制路径点何时根据实体状态（如潜行、隐身、死亡）显示的可见性规则。
+     * 控制路径点何时显示的可见性规则，基于实体的状态（例如，潜行、隐身、死亡）。
      *
      * @throws 此属性在使用时可能抛出异常。
      *

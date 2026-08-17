@@ -1,5 +1,5 @@
 /**
- * 包含关于特定方块红石更新事件的信息。
+ * 包含有关特定方块红石更新事件的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentRedstoneUpdateEvent extends BlockEvent {
@@ -7,19 +7,19 @@ export class BlockComponentRedstoneUpdateEvent extends BlockEvent {
     /**
      * @beta
      * @remarks
-     * 红石组件的第一个更新事件。
+     * 红石组件的第一次更新事件。
      *
      */
     readonly firstUpdate: boolean;
     /**
      * @remarks
-     * 通过此方块的红石信号强度。保证大于或等于方块 'minecraft:redstone_consumer' 组件的 min_power。
+     * 经过此方块的当前红石信号强度。它确保大于或等于该方块'minecraft:redstone_consumer'组件的'min_power'。
      *
      */
     readonly powerLevel: number;
     /**
      * @remarks
-     * 上一个游戏刻通过此方块的红石信号强度。保证大于或等于方块 'minecraft:redstone_consumer' 组件的 min_power。
+     * 上一游戏刻经过此方块的红石信号强度。它确保大于或等于该方块'minecraft:redstone_consumer'组件的'min_power'。
      *
      */
     readonly previousPowerLevel: number;

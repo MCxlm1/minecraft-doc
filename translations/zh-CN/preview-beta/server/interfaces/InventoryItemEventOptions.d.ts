@@ -1,5 +1,5 @@
 /**
- * 包含用于库存物品事件的额外过滤选项。
+ * 包含用于物品栏物品事件的附加过滤选项。
  */
 export interface InventoryItemEventOptions {
     /**
@@ -23,7 +23,7 @@ export interface InventoryItemEventOptions {
     excludeTags?: string[];
     /**
      * @remarks
-     * 指定是否仅忽略数量变化的标志。true 表示忽略数量变化，false 表示不忽略数量变化。
+     * 指定是否仅忽略数量变化的标志。为 true 时忽略数量变化，为 false 时不忽略数量变化。
      *
      */
     ignoreQuantityChange?: boolean;
@@ -41,7 +41,7 @@ export interface InventoryItemEventOptions {
     includeTags?: string[];
     /**
      * @remarks
-     * 要考虑的玩家库存类型。
+     * 要考虑的玩家物品栏类型。
      *
      */
     inventoryType?: PlayerInventoryType;

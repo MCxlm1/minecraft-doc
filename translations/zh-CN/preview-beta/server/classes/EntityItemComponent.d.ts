@@ -1,5 +1,5 @@
 /**
- * 如果添加到实体上，则表示该实体代表世界中自由漂浮的物品实例。允许您通过 itemStack 属性获取实际的物品实例内容。
+ * 如果添加到实体上，这表明该实体代表世界中自由漂浮的物品。允许您通过 itemStack 属性检索实际的物品堆叠内容。
  * @example testThatEntityIsFeatherItem.ts
  * ```typescript
  * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
@@ -30,9 +30,9 @@ export class EntityItemComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 此实体在世界中表示的物品实例。
+     * 该实体在世界中表示的物品堆叠。
      *
-     * @throws This property can throw when used.
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly itemStack: ItemStack;
     static readonly componentId = 'minecraft:item';

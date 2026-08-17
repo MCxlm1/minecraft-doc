@@ -1,6 +1,6 @@
 /**
  * @beta
- * 表示方块的上、下表面可以分配的乐器。
+ * 表示方块可以分配给其上下面的乐器。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockInstrumentComponent extends BlockComponent {
@@ -8,32 +8,38 @@ export class BlockInstrumentComponent extends BlockComponent {
     static readonly componentId = 'minecraft:instrument_sound';
     /**
      * @remarks
-     * 获取指定有效面方向的乐器名称的 getter 方法。
+     * 一个获取方法，用于获取给定有效面方向上的乐器名称。
      *
      * @param face
      * 要获取乐器名称的面方向。
      * @returns
-     * 返回指定有效面方向对应的乐器名称。
-     * @throws
-     * 如果面方向无效，抛出 {@link minecraftcommon.InvalidArgumentError}。
-     * 如果方块位置位于未加载区块中，抛出 {@link LocationInUnloadedChunkError}。
-     * 如果方块位置超出世界边界，抛出 {@link LocationOutOfWorldBoundariesError}。
+     * 返回给定有效面方向的乐器名称。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
      */
     getInstrumentName(face: Direction): string;
     /**
      * @remarks
-     * 在组件的方块位置播放指定有效面方向的乐器声音，可使用可选的 WorldSoundOptions。
+     * 在组件的方块位置使用可选的 WorldSoundOptions 播放给定有效面方向的乐器声音。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
      * @param face
      * 要播放乐器声音的面方向。
      * @param soundOptions
-     * 播放乐器声音时使用的可选 WorldSoundOptions；如果省略，则使用默认值。
-     * @throws
-     * 如果面方向无效，抛出 {@link minecraftcommon.InvalidArgumentError}。
-     * 如果方块位置位于未加载区块中，抛出 {@link LocationInUnloadedChunkError}。
-     * 如果方块位置超出世界边界，抛出 {@link LocationOutOfWorldBoundariesError}。
+     * 可选的 WorldSoundOptions，用于播放乐器声音；如果省略，则使用默认值。
+     * @throws 此函数可能抛出错误。
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
      */
     playInstrumentSound(face: Direction, soundOptions?: WorldSoundOptions): void;
 }

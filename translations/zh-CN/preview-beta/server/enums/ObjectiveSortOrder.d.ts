@@ -1,6 +1,5 @@
-```typescript
 /**
- * 用于指定目标及其参与者列表的显示排序方式。
+ * 用于指定显示目标及其参与者列表的排序顺序。
  */
 export enum ObjectiveSortOrder {
     /**
@@ -16,4 +15,3 @@ export enum ObjectiveSortOrder {
      */
     Descending = 1,
 }
-```

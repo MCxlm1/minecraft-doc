@@ -1,5 +1,5 @@
 /**
- * 包含物品用于击中实体时的相关信息。
+ * 包含关于物品用于击中实体时的信息。
  */
 export class ItemComponentHitEntityEvent {
     private constructor();
@@ -11,7 +11,7 @@ export class ItemComponentHitEntityEvent {
     readonly attackingEntity: Entity;
     /**
      * @remarks
-     * 击中是否生效或产生任何效果。
+     * 是否成功击中或产生了任何效果。
      *
      */
     readonly hadEffect: boolean;
@@ -23,7 +23,7 @@ export class ItemComponentHitEntityEvent {
     readonly hitEntity: Entity;
     /**
      * @remarks
-     * 用于击中实体的物品实例。
+     * 用于击中实体的物品堆叠。
      *
      */
     readonly itemStack?: ItemStack;

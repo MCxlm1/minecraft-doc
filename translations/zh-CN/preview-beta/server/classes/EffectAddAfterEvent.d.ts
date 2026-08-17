@@ -1,5 +1,5 @@
 /**
- * 包含与效果（如中毒）被添加到实体时变化相关的信息。
+ * 包含有关向实体添加效果（如中毒）的变化信息。
  */
 export class EffectAddAfterEvent {
     private constructor();
@@ -11,7 +11,7 @@ export class EffectAddAfterEvent {
     readonly effect: Effect;
     /**
      * @remarks
-     * 效果正在添加到的实体。
+     * 正在添加效果的目标实体。
      *
      */
     readonly entity: Entity;

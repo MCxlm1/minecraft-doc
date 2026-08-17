@@ -1,11 +1,11 @@
 /**
- * 包含与效果（如中毒）被添加到实体时相关的信息。
+ * 包含与效果（如中毒）被添加到实体时的变化相关的信息。
  */
 export class EffectAddBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 设置为 true 时将取消该事件。
+     * 当设置为 true 时将取消事件。
      *
      */
     cancel: boolean;
@@ -17,7 +17,7 @@ export class EffectAddBeforeEvent {
     duration: number;
     /**
      * @remarks
-     * 被添加的效果类型。
+     * 正在添加的效果的类型。
      *
      */
     readonly effectType: string;

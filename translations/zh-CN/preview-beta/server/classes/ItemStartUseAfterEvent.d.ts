@@ -1,11 +1,11 @@
 /**
- * 包含有关可蓄力物品开始蓄力的信息。
+ * 包含与可充能物品开始充能相关的信息。
  */
 export class ItemStartUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 正在开始蓄力的受影响的物品实例。
+     * 正在开始充能的受影响物品栈。
      *
      */
     readonly itemStack: ItemStack;
@@ -17,7 +17,7 @@ export class ItemStartUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回此蓄力过程完成其周期前剩余的时间（以刻为单位）。
+     * 返回以刻为单位的，在完成充能周期前剩余的时间。
      *
      */
     readonly useDuration: number;

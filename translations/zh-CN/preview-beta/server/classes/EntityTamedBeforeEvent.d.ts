@@ -1,12 +1,12 @@
 /**
  * @beta
- * 包含有关实体被驯服之前的事件信息。
+ * 包含关于实体被驯服之前事件的信息。
  */
 export class EntityTamedBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 当设置为 true 时，将取消事件。
+     * 当设置为 true 时将取消事件。
      *
      */
     cancel: boolean;
@@ -18,7 +18,7 @@ export class EntityTamedBeforeEvent {
     readonly entity: Entity;
     /**
      * @remarks
-     * 试图驯服该实体的实体。
+     * 正在尝试驯服该实体的实体。
      *
      */
     readonly tamingEntity: Entity;

@@ -25,7 +25,7 @@ export class EntityOnFireComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 火灾熄灭前剩余的刻数。
+     * 火焰熄灭前剩余的刻数。
      *
      */
     readonly onFireTicksRemaining: number;

@@ -1,11 +1,11 @@
 /**
- * 自定义命令所期望的每个参数的定义。
+ * 自定义命令预期每个参数的定义。
  */
 export interface CustomCommandParameter {
     /**
      * @beta
      * @remarks
-     * 可用于在{@link CustomCommandParamType}为'Enum'时引用枚举名称。
+     * 当 {@link CustomCommandParamType} 为 'Enum' 时，可用于引用枚举名称。
      * 允许参数名称与枚举名称不同。
      *
      */
