@@ -10,7 +10,7 @@ import crypto from 'crypto';
 import ts from 'typescript';
 
 /** 检查片段是否为合法 TypeScript（parseDiagnostics 为空） */
-function hasSyntaxError(content) {
+export function hasSyntaxError(content) {
   const sf = ts.createSourceFile('x.d.ts', content, ts.ScriptTarget.Latest, true);
   return !!(sf.parseDiagnostics && sf.parseDiagnostics.length);
 }
@@ -75,9 +75,9 @@ export function splitSymbols(sourceFile, translationsRoot) {
 }
 
 /**
- * 用翻译片段整体替换符号区间（哈希一致且片段完整才替换）。
- * 片段完整性校验：源符号有顶层 JSDoc 时，片段必须以 `/**` 开头（防用户编辑时丢失 JSDoc 包裹导致 d.ts 损坏）。
- * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}>, invalid:Array<{symbol,path,text,reason}> }}
+ * 用翻译片段整体替换符号区间（片段完整即应用，源变化不阻断——以当前片段为准）。
+ * 片段完整性校验：顶层 JSDoc 包裹缺失 / 语法错误 → invalid（不应用，用原文）。
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, invalid:Array<{symbol,path,text,reason}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
@@ -93,11 +93,6 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
     const srcHash = sha1(p.text);
     if (!fs.existsSync(p.path)) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
-      continue;
-    }
-    const recorded = manifest[key];
-    if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
-      expired.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 源变了 → 翻译失效
       continue;
     }
     const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();

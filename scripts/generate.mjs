@@ -18,7 +18,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { Project } from 'ts-morph';
-import { splitSymbols, replacePieces } from './split.mjs';
+import { splitSymbols, replacePieces, hasSyntaxError } from './split.mjs';
 import { generateTypedocSite } from './typedoc-gen.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -81,6 +81,12 @@ function makeTranslatedDts(srcPath, outPath, translationsRoot, keyPrefix, manife
   const pieces = splitSymbols(sf, translationsRoot);
   const res = replacePieces(sf, pieces, { fs, manifest, keyPrefix });
   sf.saveSync();
+  // 合并后全文语法检查：损坏则回退原文（防 convert 失败）
+  const merged = fs.readFileSync(outPath, 'utf8');
+  if (hasSyntaxError(merged)) {
+    fs.writeFileSync(outPath, content);
+    res.applied = [];
+  }
   return res;
 }
 
@@ -122,13 +128,13 @@ function buildUntranslated(groups) {
   lines.push('</style></head><body>');
   lines.push('<h1>未翻译 / 翻译失效清单</h1>');
   const totalMissing = groups.reduce((s, g) => s + g.missing.length, 0);
-  const totalExpired = groups.reduce((s, g) => s + g.expired.length, 0);
+  const totalExpired = groups.reduce((s, g) => s + (g.expired || []).length, 0);
   lines.push(`<p><a href="./">← 返回主页</a></p>`);
   lines.push(`<p>未翻译：<b>${totalMissing}</b> 项 ｜ 翻译失效（源已变化，等待重新上传）：<b class="exp">${totalExpired}</b> 项</p>`);
   if (groups.length === 0) lines.push('<p>🎉 当前没有未翻译或失效的内容。</p>');
   for (const g of groups) {
     lines.push(`<h2>${g.title} / ${g.moduleTitle}</h2>`);
-    if (g.expired.length > 0) {
+    if ((g.expired || []).length > 0) {
       lines.push('<div class="expired"><b>⚠️ 翻译失效（已隐藏）</b><ul>');
       for (const s of g.expired) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
       lines.push('</ul></div>');
@@ -239,7 +245,6 @@ async function main() {
           title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
           moduleTitle: mod.title,
           missing: toSrcItems(res.missing),
-          expired: toSrcItems(res.expired),
           invalid: toSrcItems(res.invalid || []),
         });
         if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
@@ -302,7 +307,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     total: {
       missing: untranslatedGroups.reduce((s, g) => s + g.missing.length, 0),
-      expired: untranslatedGroups.reduce((s, g) => s + g.expired.length, 0),
+      expired: untranslatedGroups.reduce((s, g) => s + (g.expired || []).length, 0),
       invalid: untranslatedGroups.reduce((s, g) => s + (g.invalid || []).length, 0),
     },
     versions: untranslatedGroups,
@@ -311,7 +316,7 @@ async function main() {
 
   console.log('\n完成。输出目录 _out/：');
   console.log('  版本站点:', versions.map((v) => v.id).join(' | '));
-  console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + g.missing.length + g.expired.length, 0));
+  console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + g.missing.length + (g.invalid || []).length, 0));
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
