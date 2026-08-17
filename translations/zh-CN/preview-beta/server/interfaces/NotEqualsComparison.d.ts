@@ -4,7 +4,7 @@
 export interface NotEqualsComparison {
     /**
      * @remarks
-     * 要比较的阈值。
+     * 进行对比的阈值。
      *
      */
     notEquals: boolean | number | string;

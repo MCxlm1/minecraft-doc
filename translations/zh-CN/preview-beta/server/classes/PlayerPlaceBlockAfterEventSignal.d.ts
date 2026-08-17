@@ -1,15 +1,15 @@
 /**
- * 管理与玩家放置方块时连接的回调。
+ * 管理与玩家放置方块相关的回调。
  */
 export class PlayerPlaceBlockAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个当玩家放置方块时将被调用的回调。
+     * 添加一个回调，当玩家放置方块时将被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      */
     subscribe(
@@ -18,11 +18,11 @@ export class PlayerPlaceBlockAfterEventSignal {
     ): (arg0: PlayerPlaceBlockAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个当玩家放置方块时被调用的回调。
+     * 移除一个在玩家放置方块时被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      */
     unsubscribe(callback: (arg0: PlayerPlaceBlockAfterEvent) => void): void;

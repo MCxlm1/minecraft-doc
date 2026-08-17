@@ -1,5 +1,6 @@
 /**
- * 用于描述实体挥动来源的枚举。作为 {@link PlayerSwingStartAfterEvent} 的一部分发送。
+ * Enumerator describing the source of an Entity swing. Sent as
+ * part of {@link PlayerSwingStartAfterEvent}
  */
 export enum EntitySwingSource {
     /**

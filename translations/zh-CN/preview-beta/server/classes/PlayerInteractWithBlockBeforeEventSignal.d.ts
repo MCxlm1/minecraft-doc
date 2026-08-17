@@ -5,30 +5,30 @@ export class PlayerInteractWithBlockBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个将在玩家与方块交互之前调用的回调。
+     * 添加一个回调，该回调将在玩家与方块交互之前被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包以受限执行权限调用。
+     * 此闭包在受限执行权限下被调用。
      * @returns
-     * 以受限执行权限调用的闭包。
+     * 在受限执行权限下被调用的闭包。
      */
     subscribe(
         callback: (arg0: PlayerInteractWithBlockBeforeEvent) => void,
     ): (arg0: PlayerInteractWithBlockBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家与方块交互之前调用的回调。
+     * 移除一个将在玩家与方块交互之前被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包以受限执行权限调用。
+     * 此闭包在受限执行权限下被调用。
      */
     unsubscribe(callback: (arg0: PlayerInteractWithBlockBeforeEvent) => void): void;
 }

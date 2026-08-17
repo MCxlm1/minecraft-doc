@@ -1,17 +1,17 @@
 /**
  * @beta
- * 描述CompoundBlockVolumeItem相对于父CompoundVolume的相对性的枚举。
+ * 一个枚举，用于描述CompoundBlockVolumeItem相对于父级CompoundVolume的相对性。
  */
 export enum CompoundBlockVolumePositionRelativity {
     /**
      * @remarks
-     * 相关BlockVolume内的位置相对于它们被添加到的CompoundBlockVolume。
+     * 关联BlockVolume中的位置相对于添加它们的CompoundBlockVolume。
      *
      */
     Relative = 0,
     /**
      * @remarks
-     * 相关BlockVolume内的位置位于绝对世界空间。
+     * 关联BlockVolume中的位置位于绝对世界空间中。
      *
      */
     Absolute = 1,

@@ -6,9 +6,9 @@ export class TickingAreaError extends Error {
     private constructor();
     /**
      * @remarks
-     * 错误被抛出的具体原因。
+     * 抛出该错误的具体原因。
      *
-     * 此属性可以在早期执行模式下读取。
+     * 此属性可在早期执行模式下读取。
      *
      */
     readonly reason: TickingAreaErrorReason;

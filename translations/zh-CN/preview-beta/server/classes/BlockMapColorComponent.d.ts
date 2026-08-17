@@ -13,7 +13,7 @@ export class BlockMapColorComponent extends BlockComponent {
     readonly color: RGBA;
     /**
      * @remarks
-     * 返回基础颜色乘以在给定位置计算得到的色调后的颜色。
+     * 返回在给定位置处基础颜色乘以评估后的色调的结果。
      *
      */
     readonly tintedColor: RGBA;

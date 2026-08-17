@@ -1,5 +1,5 @@
 /**
- * 表示 Minecraft 中可完全自定义的颜色。
+ * 表示 Minecraft 中一个完全可自定义的颜色。
  */
 export interface RGB {
     /**

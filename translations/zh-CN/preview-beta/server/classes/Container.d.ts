@@ -1,5 +1,5 @@
 /**
- * 表示一个可以容纳物品集合的容器。用于诸如玩家（Players）、箱子矿车（Chest Minecarts）、羊驼（Llamas）等实体。
+ * 表示一个可以容纳物品集合的容器。用于实体，如玩家、箱子矿车、羊驼等。
  * @example containers.ts
  * ```typescript
  * import { ItemStack, EntityInventoryComponent, BlockInventoryComponent, DimensionLocation } from '@minecraft/server';
@@ -80,7 +80,8 @@ export class Container {
     private constructor();
     /**
      * @remarks
-     * 如果定义了这些规则，其他容器操作在导致这些规则失效时会抛出异常。例如，将潜影盒添加到原版收纳袋中。
+     * 如果定义了这些规则，其他容器操作在导致这些规则失效时会抛出异常。
+     * 例如，将潜影盒添加到原版捆绑包中。
      *
      */
     readonly containerRules?: ContainerRules;
@@ -94,13 +95,13 @@ export class Container {
     readonly emptySlotsCount: number;
     /**
      * @remarks
-     * 返回容器对象（或此容器关联的实体或方块）在此上下文中是否仍可用。
+     * 返回一个容器对象（或与该容器关联的实体或方块）在此上下文中是否仍然可用。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * 此容器中的槽位数。例如，标准单方块箱子的容量为 27。注意，玩家的物品栏容器共有 36 个槽位，9 个快捷栏槽位加上 27 个物品栏槽位。
+     * 此容器中的槽位数。例如，一个标准的单方块箱子大小为27。注意，玩家的物品栏容器共有36个槽位：9个快捷栏槽位和27个物品栏槽位。
      *
      * @throws
      * 如果容器无效，则抛出异常。
@@ -110,24 +111,21 @@ export class Container {
      * @remarks
      * 容器中所有物品的总重量。
      *
-     * @throws
-     * 此属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出异常。
      *
      * {@link InvalidContainerError}
      */
     readonly weight: number;
     /**
      * @remarks
-     * 向容器添加一个物品。该物品会被放置到第一个可用槽位中，并可堆叠到已有相同类型的物品上。注意，如果想将物品设置到特定槽位，请使用 {@link Container.setItem}。
+     * 向容器添加一个物品。物品会放置在第一个可用的槽位中，并可以与同类型的现有物品堆叠。注意，如果希望将物品放置在特定槽位，请使用 {@link Container.setItem}。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @param itemStack
-     * 要添加的物品堆栈。
-     * @returns
-     * 如果物品未能完全添加，则返回剩余未添加的物品堆栈；如果全部添加成功，则返回 `undefined`。
+     * 要添加的物品堆。
      * @throws
-     * 超出重量限制时不会抛出 {@link ContainerRules} 错误，而是会一直添加到重量限制为止。
+     * 不会因超过重量限制而抛出 {@link ContainerRules} 错误，而是会添加物品直至达到重量限制。
      *
      * {@link ContainerRulesError}
      *
@@ -138,7 +136,7 @@ export class Container {
      * @remarks
      * 清除容器中的所有物品。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @throws
      * 如果容器无效，则抛出异常。
@@ -146,42 +144,33 @@ export class Container {
     clearAll(): void;
     /**
      * @remarks
-     * 尝试在容器中查找某个物品。
+     * 尝试在容器中查找一个物品。
      *
      * @param itemStack
      * 要查找的物品。
-     * @returns
-     * 如果容器中存在该物品，则返回 `true`；否则返回 `false`。
-     * @throws
-     * 此函数可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidContainerError}
      */
     contains(itemStack: ItemStack): boolean;
     /**
      * @remarks
-     * 查找容器中某个物品首次出现的索引。
+     * 查找容器中第一个物品实例的索引。
      *
      * @param itemStack
      * 要查找的物品。
-     * @returns
-     * 如果找到，则返回该物品首次出现的槽位索引；否则返回 `undefined`。
-     * @throws
-     * 此函数可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidContainerError}
      */
     find(itemStack: ItemStack): number | undefined;
     /**
      * @remarks
-     * 查找容器中某个物品最后一次出现的索引。
+     * 查找容器中最后一个物品实例的索引。
      *
      * @param itemStack
      * 要查找的物品。
-     * @returns
-     * 如果找到，则返回该物品最后一次出现的槽位索引；否则返回 `undefined`。
-     * @throws
-     * 此函数可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidContainerError}
      */
@@ -190,10 +179,7 @@ export class Container {
      * @remarks
      * 查找容器中第一个空槽位的索引。
      *
-     * @returns
-     * 如果存在空槽位，则返回第一个空槽位的索引；否则返回 `undefined`。
-     * @throws
-     * 此函数可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidContainerError}
      */
@@ -202,22 +188,19 @@ export class Container {
      * @remarks
      * 查找容器中第一个物品的索引。
      *
-     * @returns
-     * 如果容器中存在物品，则返回第一个物品的索引；否则返回 `undefined`。
-     * @throws
-     * 此函数可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidContainerError}
      */
     firstItem(): number | undefined;
     /**
      * @remarks
-     * 获取指定槽位中物品的 {@link ItemStack}。如果槽位为空，则返回 `undefined`。此方法不会更改或清空指定槽位的内容。要获取特定槽位的引用，请参阅 {@link Container.getSlot}。
+     * 获取指定槽位中的物品的 {@link ItemStack}。
+     * 如果槽位为空，则返回 `undefined`。此方法不会更改或清除指定槽位的内容。要获取对特定槽位的引用，请参见 {@link Container.getSlot}。
      *
      * @param slot
-     * 要获取物品的槽位的从零开始索引。最小值：0
-     * @returns
-     * 返回指定槽位中的物品堆栈；如果槽位为空，则返回 `undefined`。
+     * 要从中检索物品的槽位的从零开始的索引。
+     * 最小值：0
      * @throws
      * 如果容器无效或 `slot` 索引越界，则抛出异常。
      * @example getFirstHotbarItem.ts
@@ -244,30 +227,31 @@ export class Container {
     getItem(slot: number): ItemStack | undefined;
     /**
      * @remarks
-     * 返回一个容器槽位。这作为此容器中给定索引处的槽位的引用。
+     * 返回一个容器槽位。这作为对此容器中给定索引槽位的引用。
      *
      * @param slot
-     * 要返回的槽位的索引。此索引必须在容器边界内。最小值：0
-     * @returns
-     * 返回指定索引处的 {@link ContainerSlot} 容器槽位引用。
+     * 要返回的槽位索引。此索引必须在容器的范围内。
+     * 最小值：0
      * @throws
      * 如果容器无效或 `slot` 索引越界，则抛出异常。
      */
     getSlot(slot: number): ContainerSlot;
     /**
      * @remarks
-     * 将物品从一个槽位移动到另一个槽位，可能跨容器移动。
+     * 将一个物品从一个槽位移到另一个槽位，可能跨容器移动。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @param fromSlot
-     * 此容器中要移出物品的槽位从零开始索引。最小值：0
+     * 要从中转移物品的槽位的从零开始的索引（在此容器中）。
+     * 最小值：0
      * @param toSlot
-     * `toContainer` 中要移入物品的槽位从零开始索引。最小值：0
+     * 要将物品转移到的槽位的从零开始的索引（在 `toContainer` 上）。
+     * 最小值：0
      * @param toContainer
-     * 要移入的目标容器。注意，该容器可以与源容器相同。
+     * 要转移到的目标容器。注意，这可以是与源容器相同的容器。
      * @throws
-     * 如果此容器或 `toContainer` 无效，或 `fromSlot` 或 `toSlot` 索引越界，则抛出异常。
+     * 如果此容器或 `toContainer` 无效，或者 `fromSlot` 或 `toSlot` 索引越界，则抛出异常。
      *
      * {@link ContainerRulesError}
      *
@@ -302,14 +286,15 @@ export class Container {
     moveItem(fromSlot: number, toSlot: number, toContainer: Container): void;
     /**
      * @remarks
-     * 在指定槽位中设置一个物品堆栈。
+     * 在特定槽位中设置一个物品堆。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @param slot
-     * 要设置物品的槽位的从零开始索引。最小值：0
+     * 要设置物品的槽位的从零开始的索引。
+     * 最小值：0
      * @param itemStack
-     * 要放入指定槽位的物品堆栈。将 `itemStack` 设置为 `undefined` 将清空该槽位。
+     * 要放置在指定槽位中的物品堆。将 `itemStack` 设置为 undefined 将清除该槽位。
      * @throws
      * 如果容器无效或 `slot` 索引越界，则抛出异常。
      *
@@ -320,73 +305,115 @@ export class Container {
     setItem(slot: number, itemStack?: ItemStack): void;
     /**
      * @remarks
-     * 交换容器中两个不同槽位之间的物品。
+     * 在容器内的两个不同槽位之间交换物品。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @param slot
-     * 此容器中要交换的槽位的从零开始索引。最小值：0
+     * 要从此容器交换的槽位的从零开始的索引。
+     * 最小值：0
      * @param otherSlot
-     * 要与之交换的槽位的从零开始索引。最小值：0
+     * 要交换的槽位的从零开始的索引。
+     * 最小值：0
      * @param otherContainer
-     * 要与之交换的目标容器。注意，该容器可以与源容器相同。
+     * 要交换的目标容器。注意，这可以是与源容器相同的容器。
      * @throws
-     * 如果此容器或 `otherContainer` 无效，或 `slot` 或 `otherSlot` 越界，则抛出异常。
+     * 如果此容器或 `otherContainer` 无效，或者 `slot` 或 `otherSlot` 越界，则抛出异常。
      *
      * {@link ContainerRulesError}
      *
      * {@link Error}
      */
+    swapItems(slot: number, otherSlot: number, otherContainer: Container): void;
+    /**
+     * @remarks
+     * 将一个物品从一个槽位移到另一个槽位，可能跨容器移动。
+     *
+     * 此函数无法在受限执行模式下调用。
+     *
+     * @param fromSlot
+     * 要从中转移物品的槽位的从零开始的索引（在此容器中）。
+     * 最小值：0
+     * @param toSlot
+     * 要将物品转移到的槽位的从零开始的索引（在 `toContainer` 上）。
+     * 最小值：0
+     * @param toContainer
+     * 要转移到的目标容器。注意，这可以是与源容器相同的容器。
+     * @throws
+     * 如果此容器或 `toContainer` 无效，或者 `fromSlot` 或 `toSlot` 索引越界，则抛出异常。
+     *
+     * {@link ContainerRulesError}
+     *
+     * {@link Error}
+     * @example transferItemBetweenContainers.ts
+     * ```typescript
+     * ...
+     * ```
+     */
+    transferItem(fromSlot: number, toSlot: number, toContainer: Container): void;
 }
 
-swapItems(slot: number, otherSlot: number, otherContainer: Container): void;
-/**
- * @remarks
- * 将一个物品从一个槽位移动到另一个容器，或移动到同一容器中的第一个可用槽位。
- *
- * This function can't be called in restricted-execution mode.
- *
- * @param fromSlot
- * 此容器中要转移物品的槽位的零基索引。
- * 最小值：0
- * @param toContainer
- * 目标容器。注意，此容器可以与源容器相同。
- * @returns
- * 返回一个包含未能转移物品的 itemStack。
- * 如果所有物品均已转移，则返回 undefined。
- * @throws
- * 如果此容器或 `toContainer` 无效，或者 `fromSlot` 或 `toSlot` 索引越界，则抛出错误。
- * 超过重量限制时不会抛出 {@link ContainerRules} 错误，而是会添加物品直到达到重量限制。
- *
- * {@link ContainerRulesError}
- *
- * {@link Error}
- * @example transferBetweenContainers.ts
- * ```typescript
- * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
- * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
- *
- * function transferBetweenContainers(targetLocation: DimensionLocation) {
- *   const players = world.getAllPlayers();
- *
- *   const chestCart = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.ChestMinecart, {
- *     x: targetLocation.x + 1,
- *     y: targetLocation.y,
- *     z: targetLocation.z,
- *   });
- *
- *   if (players.length > 0) {
- *     const fromPlayer = players[0];
- *
- *     const fromInventory = fromPlayer.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
- *     const toInventory = chestCart.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
- *
- *     if (fromInventory && toInventory && fromInventory.container && toInventory.container) {
- *       fromInventory.container.transferItem(0, toInventory.container);
- *     }
- *   }
- * }
- * ```
- */
-transferItem(fromSlot: number, toContainer: Container): ItemStack | undefined;
+    /**
+     * @remarks
+     * 将此容器中的一个槽位与另一个容器中的一个槽位交换物品。
+     *
+     * 此函数不能在受限执行模式下调用。
+     *
+     * @param slot
+     * 此容器中要交换的槽位的零基索引。
+     * @param otherSlot
+     * 另一个容器中要交换的槽位的零基索引。
+     * @param otherContainer
+     * 与 `slot` 槽位交换物品的目标容器。
+     */
+    swapItems(slot: number, otherSlot: number, otherContainer: Container): void;
+    /**
+     * @remarks
+     * 将一个物品从一个槽位移动到另一个容器，或移动到同一容器中第一个可用槽位。
+     *
+     * 此函数不能在受限执行模式下调用。
+     *
+     * @param fromSlot
+     * 此容器中要转移物品的槽位的零基索引。
+     * 最小值：0
+     * @param toContainer
+     * 要转移到的目标容器。注意，该容器可以与源容器相同。
+     * @returns
+     * 一个包含无法转移的物品的 itemStack。
+     * 如果所有物品均已转移，则返回 undefined。
+     * @throws
+     * 如果此容器或 `toContainer` 无效，或 `fromSlot` 索引越界，则抛出异常。
+     * 不会因超过重量限制而抛出 {@link ContainerRules} 错误，而是会添加物品直至达到重量限制。
+     *
+     * {@link ContainerRulesError}
+     *
+     * {@link Error}
+     * @example transferBetweenContainers.ts
+     * ```typescript
+     * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
+     *
+     * function transferBetweenContainers(targetLocation: DimensionLocation) {
+     *   const players = world.getAllPlayers();
+     *
+     *   const chestCart = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.ChestMinecart, {
+     *     x: targetLocation.x + 1,
+     *     y: targetLocation.y,
+     *     z: targetLocation.z,
+     *   });
+     *
+     *   if (players.length > 0) {
+     *     const fromPlayer = players[0];
+     *
+     *     const fromInventory = fromPlayer.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+     *     const toInventory = chestCart.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+     *
+     *     if (fromInventory && toInventory && fromInventory.container && toInventory.container) {
+     *       fromInventory.container.transferItem(0, toInventory.container);
+     *     }
+     *   }
+     * }
+     * ```
+     */
+    transferItem(fromSlot: number, toContainer: Container): ItemStack | undefined;
 }

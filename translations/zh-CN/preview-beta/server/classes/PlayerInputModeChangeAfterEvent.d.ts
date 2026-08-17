@@ -5,7 +5,7 @@ export class PlayerInputModeChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 玩家使用的新输入模式。
+     * 玩家当前使用的新输入模式。
      *
      */
     readonly newInputModeUsed: InputMode;

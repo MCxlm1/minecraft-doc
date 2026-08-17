@@ -1,5 +1,5 @@
 /**
- * 包含有关玩家维度已更改的信息。
+ * 包含有关玩家维度发生变化的信息。
  */
 export class PlayerDimensionChangeAfterEvent {
     private constructor();
@@ -11,19 +11,19 @@ export class PlayerDimensionChangeAfterEvent {
     readonly fromDimension: Dimension;
     /**
      * @remarks
-     * 玩家在改变维度之前所在的位置。
+     * 玩家在改变维度之前所处的位置。
      *
      */
     readonly fromLocation: Vector3;
     /**
      * @remarks
-     * 正在改变维度的玩家的引用。
+     * 正在改变维度的玩家的句柄。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * 玩家正在前往的维度。
+     * 玩家将要前往的维度。
      *
      */
     readonly toDimension: Dimension;

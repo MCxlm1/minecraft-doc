@@ -1,5 +1,5 @@
 /**
- * 包含有关特定实体容器被打开的信息。
+ * 包含有关特定实体容器被打开时的信息。
  */
 export class EntityContainerOpenedAfterEvent {
     private constructor();

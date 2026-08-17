@@ -1,10 +1,10 @@
 /**
- * 一个在点之间线性插值的样条。
+ * 在两个点之间进行线性插值的样条线。
  */
 export class LinearSpline {
     /**
      * @remarks
-     * 线性样条的控制点。
+     * 线性样条线的控制点。
      *
      * This property can't be edited in restricted-execution mode.
      *

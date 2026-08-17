@@ -1,5 +1,5 @@
 /**
- * 表示世界中方块（如箱子）的库存。
+ * 表示世界中方块的库存。用于像箱子这样的方块。
  * @example placeItemsInChest.ts
  * ```typescript
  * import { ItemStack, BlockInventoryComponent, DimensionLocation } from '@minecraft/server';
@@ -39,7 +39,7 @@ export class BlockInventoryComponent extends BlockComponent {
      * @remarks
      * 持有 {@link ItemStack} 的容器。
      *
-     * @throws 此属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly container?: Container;
     static readonly componentId = 'minecraft:inventory';

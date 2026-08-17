@@ -1,7 +1,6 @@
 /**
  * @beta
- * 表示方块动态属性的组件。仅可从方块实体中获取。
- * 每个内容包在每个方块实体的动态属性存储中最多可存储 1KB 数据。
+ * 表示方块的动态属性。仅可从方块实体获取。每个内容包每个方块实体在其动态属性存储中最多可存储1KB数据。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemBlockDynamicPropertiesComponent extends ItemComponent {
@@ -9,14 +8,11 @@ export class ItemBlockDynamicPropertiesComponent extends ItemComponent {
     static readonly componentId = 'minecraft:block_actor_dynamic_properties';
     /**
      * @remarks
-     * 返回使用指定键存储的动态属性。键对于每个内容包是唯一的，
-     * 不能用于获取其他内容包设置的动态属性。
-     * 如果未找到该键，则返回 undefined。
+     * 使用提供的键返回存储的DynamicProperty。键是每个内容包唯一的，不能用于检索其他内容包设置的动态属性。如果未找到键，则返回undefined。
      *
-     * @param key 要检索的动态属性的键。
-     * @returns 与所给键关联的动态属性值；若未找到则返回 undefined。
-     *
-     * @throws 此函数可能抛出错误。
+     * @param key - 用于检索动态属性的键。
+     * @returns 返回与键关联的动态属性值，如果未找到则返回undefined。
+     * @throws 此函数可能会抛出错误。
      *
      * {@link Error}
      *
@@ -25,15 +21,11 @@ export class ItemBlockDynamicPropertiesComponent extends ItemComponent {
     get(key: string): boolean | number | string | Vector3 | undefined;
     /**
      * @remarks
-     * 使用提供的键和值设置动态属性。键对于每个内容包是唯一的，
-     * 不能用于为其他内容包设置动态属性。值可以是数字、字符串或 Vector3。
-     * 将属性设置为 undefined 会将其从存储中移除。
-     * 存储大小使用会计入每个内容包 1KB 的限制。
+     * 使用提供的键和值设置动态属性。键是每个内容包唯一的，不能用于为其他内容包设置动态属性。值可以是Number、String或Vector3。将属性设置为undefined值会将其从存储中移除。存储大小使用会计入每个内容包1KB的限制。
      *
-     * @param key 要设置的动态属性的键。
-     * @param value 要存储的动态属性值，或 undefined 以移除该属性。
-     *
-     * @throws 此函数可能抛出错误。
+     * @param key - 用于设置动态属性的键。
+     * @param value - 要设置的值，可以为Number、String或Vector3。如果为undefined，则移除该属性。
+     * @throws 此函数可能会抛出错误。
      *
      * {@link Error}
      *
@@ -42,12 +34,10 @@ export class ItemBlockDynamicPropertiesComponent extends ItemComponent {
     set(key: string, value?: boolean | number | string | Vector3): void;
     /**
      * @remarks
-     * 返回此方块动态属性存储的当前大小（以字节为单位）。
-     * 字节数仅计算由你的内容包设置的属性。1KB 限制是针对每个内容包的。
+     * 返回此方块动态属性存储的当前大小（以字节为单位）。字节数仅计入您的内容包设置的属性。1KB限制是每个内容包的限制。
      *
-     * @returns 当前动态属性存储的大小（以字节为单位）。
-     *
-     * @throws 此函数可能抛出错误。
+     * @returns 返回动态属性存储的字节大小。
+     * @throws 此函数可能会抛出错误。
      *
      * {@link InvalidItemStackError}
      */

@@ -5,7 +5,7 @@ export class WorldAfterEvents {
     private constructor();
     /**
      * @remarks
-     * 方块容器关闭时触发此事件。
+     * 当方块容器被关闭时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -13,7 +13,7 @@ export class WorldAfterEvents {
     readonly blockContainerClosed: BlockContainerClosedAfterEventSignal;
     /**
      * @remarks
-     * 方块容器打开时触发此事件。
+     * 当方块容器被打开时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -21,7 +21,7 @@ export class WorldAfterEvents {
     readonly blockContainerOpened: BlockContainerOpenedAfterEventSignal;
     /**
      * @remarks
-     * 每次爆炸摧毁一个方块位置时触发此事件。该事件在方块已被摧毁后触发。
+     * 此事件会在爆炸摧毁的每个方块位置（BlockLocation）上触发。它会在方块已被摧毁后触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -29,7 +29,7 @@ export class WorldAfterEvents {
     readonly blockExplode: BlockExplodeAfterEventSignal;
     /**
      * @remarks
-     * 按钮被按下时触发此事件。
+     * 当按钮被按下时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -38,7 +38,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 聊天消息广播或发送给玩家后触发此事件。
+     * 此事件在聊天消息已广播或发送给玩家后触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -46,7 +46,7 @@ export class WorldAfterEvents {
     readonly chatSend: ChatSendAfterEventSignal;
     /**
      * @remarks
-     * 当触发实体事件以更新实体的组件定义状态时，触发此事件。
+     * 当触发将更新实体组件定义状态的实体事件时，会触发此事件。
      *
      * This property can be read in early-execution mode.
      *
@@ -54,7 +54,7 @@ export class WorldAfterEvents {
     readonly dataDrivenEntityTrigger: DataDrivenEntityTriggerAfterEventSignal;
     /**
      * @remarks
-     * 当效果（如中毒）添加到实体时触发此事件。
+     * 当效果（如中毒）被添加到实体上时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -62,7 +62,7 @@ export class WorldAfterEvents {
     readonly effectAdd: EffectAddAfterEventSignal;
     /**
      * @remarks
-     * 实体容器关闭时触发此事件。
+     * 当实体容器被关闭时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -70,7 +70,7 @@ export class WorldAfterEvents {
     readonly entityContainerClosed: EntityContainerClosedAfterEventSignal;
     /**
      * @remarks
-     * 实体容器打开时触发此事件。
+     * 当实体容器被打开时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -78,7 +78,7 @@ export class WorldAfterEvents {
     readonly entityContainerOpened: EntityContainerOpenedAfterEventSignal;
     /**
      * @remarks
-     * 实体死亡时触发此事件。
+     * 当实体死亡时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -92,7 +92,7 @@ export class WorldAfterEvents {
     readonly entityHeal: EntityHealAfterEventSignal;
     /**
      * @remarks
-     * 实体生命值发生任何程度的变化时触发此事件。
+     * 当实体健康值以任何程度变化时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -100,7 +100,7 @@ export class WorldAfterEvents {
     readonly entityHealthChanged: EntityHealthChangedAfterEventSignal;
     /**
      * @remarks
-     * 实体撞击（即近战攻击）方块时触发此事件。
+     * 当实体击中（即近战攻击）一个方块时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -108,7 +108,7 @@ export class WorldAfterEvents {
     readonly entityHitBlock: EntityHitBlockAfterEventSignal;
     /**
      * @remarks
-     * 实体撞击（即近战攻击）另一个实体时触发此事件。
+     * 当实体击中（即近战攻击）另一个实体时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -116,7 +116,7 @@ export class WorldAfterEvents {
     readonly entityHitEntity: EntityHitEntityAfterEventSignal;
     /**
      * @remarks
-     * 实体受伤（受到伤害）时触发此事件。
+     * 当实体受到伤害时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -124,7 +124,7 @@ export class WorldAfterEvents {
     readonly entityHurt: EntityHurtAfterEventSignal;
     /**
      * @remarks
-     * 实体掉落物品时触发此事件。
+     * 当实体掉落物品时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -132,7 +132,7 @@ export class WorldAfterEvents {
     readonly entityItemDrop: EntityItemDropAfterEventSignal;
     /**
      * @remarks
-     * 实体拾取物品时触发此事件。
+     * 当实体拾取物品时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -140,7 +140,7 @@ export class WorldAfterEvents {
     readonly entityItemPickup: EntityItemPickupAfterEventSignal;
     /**
      * @remarks
-     * 实体加载时触发。
+     * 当实体被加载时触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -148,7 +148,7 @@ export class WorldAfterEvents {
     readonly entityLoad: EntityLoadAfterEventSignal;
     /**
      * @remarks
-     * 实体被移除时触发（例如，可能被卸载，或在被击杀后移除）。
+     * 当实体被移除时触发（例如，可能被卸载，或在被杀死后被移除）。
      *
      * This property can be read in early-execution mode.
      *
@@ -156,7 +156,7 @@ export class WorldAfterEvents {
     readonly entityRemove: EntityRemoveAfterEventSignal;
     /**
      * @remarks
-     * 实体生成时触发此事件。
+     * 当实体被生成时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -165,7 +165,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 实体开始潜行时触发此事件。
+     * 当实体开始潜行时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -174,7 +174,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 实体停止潜行时触发此事件。
+     * 当实体停止潜行时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -183,7 +183,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 实体被驯服时触发此事件。
+     * 当实体被驯服时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -197,7 +197,7 @@ export class WorldAfterEvents {
     readonly entityUpgrade: EntityUpgradeAfterEventSignal;
     /**
      * @remarks
-     * 爆炸发生后触发此事件。
+     * 在发生爆炸后触发此事件。
      *
      * This property can be read in early-execution mode.
      *
@@ -205,7 +205,7 @@ export class WorldAfterEvents {
     readonly explosion: ExplosionAfterEventSignal;
     /**
      * @remarks
-     * world.gameRules 属性发生更改时触发此事件。
+     * 当 world.gameRules 属性发生变化时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -213,7 +213,7 @@ export class WorldAfterEvents {
     readonly gameRuleChange: GameRuleChangeAfterEventSignal;
     /**
      * @remarks
-     * 可充能物品完成充能时触发此事件。
+     * 当可充能物品完成充能时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -221,7 +221,7 @@ export class WorldAfterEvents {
     readonly itemCompleteUse: ItemCompleteUseAfterEventSignal;
     /**
      * @remarks
-     * 可充能物品从充能状态释放时触发此事件。
+     * 当可充能物品从充能状态释放时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -229,7 +229,7 @@ export class WorldAfterEvents {
     readonly itemReleaseUse: ItemReleaseUseAfterEventSignal;
     /**
      * @remarks
-     * 可充能物品开始充能时触发此事件。
+     * 当可充能物品开始充能时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -237,7 +237,7 @@ export class WorldAfterEvents {
     readonly itemStartUse: ItemStartUseAfterEventSignal;
     /**
      * @remarks
-     * 玩家按下“使用物品/放置方块”按钮并成功使用物品或放置方块时触发此事件。如果放置了多个方块，此事件仅在方块放置开始的位置触发一次。注意：此事件不能与锄头或斧头物品一起使用。
+     * 当玩家按下“使用物品/放置方块”按钮成功使用物品或放置方块时，此事件触发。如果放置了多个方块，此事件只会在放置方块开始时发生一次。注意：此事件不能与锄头或斧头物品一起使用。
      *
      * This property can be read in early-execution mode.
      *
@@ -245,7 +245,7 @@ export class WorldAfterEvents {
     readonly itemStartUseOn: ItemStartUseOnAfterEventSignal;
     /**
      * @remarks
-     * 可充能物品停止充能时触发此事件。
+     * 当可充能物品停止充能时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -253,7 +253,7 @@ export class WorldAfterEvents {
     readonly itemStopUse: ItemStopUseAfterEventSignal;
     /**
      * @remarks
-     * 玩家成功使用物品后松开“使用物品/放置方块”按钮时触发此事件。注意：此事件不能与锄头或斧头物品一起使用。
+     * 当玩家成功使用物品后松开“使用物品/放置方块”按钮时，此事件触发。注意：此事件不能与锄头或斧头物品一起使用。
      *
      * This property can be read in early-execution mode.
      *
@@ -261,7 +261,7 @@ export class WorldAfterEvents {
     readonly itemStopUseOn: ItemStopUseOnAfterEventSignal;
     /**
      * @remarks
-     * 物品被玩家成功使用时触发此事件。
+     * 当物品被玩家成功使用时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -278,7 +278,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 此事件是内部实现细节，当前不具备功能性。
+     * 此事件是内部实现细节，目前除此之外没有其他功能。
      *
      * This property can be read in early-execution mode.
      *
@@ -287,7 +287,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 包设置发生更改时触发此事件。
+     * 当包设置被更改时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -295,7 +295,7 @@ export class WorldAfterEvents {
     readonly packSettingChange: PackSettingChangeAfterEventSignal;
     /**
      * @remarks
-     * 活塞伸展或收缩时触发此事件。
+     * 当活塞伸出或缩回时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -303,7 +303,7 @@ export class WorldAfterEvents {
     readonly pistonActivate: PistonActivateAfterEventSignal;
     /**
      * @remarks
-     * 玩家破坏方块时触发此事件。
+     * 当方块被玩家破坏时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -311,7 +311,7 @@ export class WorldAfterEvents {
     readonly playerBreakBlock: PlayerBreakBlockAfterEventSignal;
     /**
      * @remarks
-     * 当 {@link InputButton} 状态改变时触发此事件。
+     * 当 {@link InputButton} 状态改变时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -319,7 +319,7 @@ export class WorldAfterEvents {
     readonly playerButtonInput: PlayerButtonInputAfterEventSignal;
     /**
      * @remarks
-     * 玩家取消破坏方块时触发此事件。
+     * 当玩家取消破坏方块时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -327,7 +327,7 @@ export class WorldAfterEvents {
     readonly playerCancelBreakingBlock: PlayerCancelBreakingBlockAfterEventSignal;
     /**
      * @remarks
-     * 玩家移动到不同维度时触发。
+     * 当玩家移动到另一个维度时触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -347,7 +347,7 @@ export class WorldAfterEvents {
     readonly playerGameModeChange: PlayerGameModeChangeAfterEventSignal;
     /**
      * @remarks
-     * 玩家选择的快捷栏槽位发生变化时触发此事件。
+     * 当玩家选中的快捷栏槽位改变时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -355,7 +355,7 @@ export class WorldAfterEvents {
     readonly playerHotbarSelectedSlotChange: PlayerHotbarSelectedSlotChangeAfterEventSignal;
     /**
      * @remarks
-     * 当玩家的 {@link InputMode} 改变时触发此事件。
+     * 当玩家的 {@link InputMode} 改变时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -363,7 +363,7 @@ export class WorldAfterEvents {
     readonly playerInputModeChange: PlayerInputModeChangeAfterEventSignal;
     /**
      * @remarks
-     * 玩家的输入权限类别改变时触发此事件。
+     * 当玩家的输入权限更改时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -371,7 +371,7 @@ export class WorldAfterEvents {
     readonly playerInputPermissionCategoryChange: PlayerInputPermissionCategoryChangeAfterEventSignal;
     /**
      * @remarks
-     * 玩家与方块交互时触发的事件。
+     * 玩家与方块交互的事件。
      *
      * This property can be read in early-execution mode.
      *
@@ -379,7 +379,7 @@ export class WorldAfterEvents {
     readonly playerInteractWithBlock: PlayerInteractWithBlockAfterEventSignal;
     /**
      * @remarks
-     * 玩家与实体交互时触发此事件。
+     * 当玩家与实体交互时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -387,7 +387,7 @@ export class WorldAfterEvents {
     readonly playerInteractWithEntity: PlayerInteractWithEntityAfterEventSignal;
     /**
      * @remarks
-     * 当物品添加到玩家物品栏或从玩家物品栏移除时触发此事件。
+     * 当物品被添加到玩家物品栏或从玩家物品栏中移除时，此事件触发。
      *
      * This property can be read in early-execution mode.
      *
@@ -395,36 +395,35 @@ export class WorldAfterEvents {
     readonly playerInventoryItemChange: PlayerInventoryItemChangeAfterEventSignal;
     /**
      * @remarks
-     * 玩家加入世界时触发此事件。另请参阅 playerSpawn，这是另一个相关事件，可在玩家首次在世界中生成时捕获。
+     * 当玩家加入世界时，此事件触发。另请参阅 playerSpawn，了解另一个相关事件，可在玩家首次在世界中生成时捕获。
      *
      * This property can be read in early-execution mode.
      *
      */
+}
 
-    readonly playerJoin: PlayerJoinAfterEventSignal;
+readonly playerJoin: PlayerJoinAfterEventSignal;
     /**
      * @remarks
      * 当玩家离开世界时触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerLeave: PlayerLeaveAfterEventSignal;
     /**
      * @remarks
-     * 当玩家放置方块时，此事件针对该方块触发。
+     * 当玩家放置方块时触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerPlaceBlock: PlayerPlaceBlockAfterEventSignal;
     /**
      * @remarks
-     * 当玩家生成或重生时触发此事件。请注意，
-     * 此事件中的一个附加标志将告知您玩家是
-     * 刚刚加入后生成，还是重生。
+     * 当玩家生成或重生时触发此事件。注意，此事件中的一个额外标志将告知您玩家是刚加入后生成还是重生。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerSpawn: PlayerSpawnAfterEventSignal;
@@ -432,13 +431,13 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家开始破坏方块时触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerStartBreakingBlock: PlayerStartBreakingBlockAfterEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerSwingStart: PlayerSwingStartAfterEventSignal;
@@ -447,7 +446,7 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家对实体使用命名牌时触发的事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly playerUseNameTag: PlayerUseNameTagAfterEventSignal;
@@ -455,40 +454,40 @@ export class WorldAfterEvents {
      * @remarks
      * 压力板已弹回（即压力板上没有实体）。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly pressurePlatePop: PressurePlatePopAfterEventSignal;
     /**
      * @remarks
-     * 压力板已被按下（至少有一个实体移动到了压力板上）。
+     * 压力板已按下（至少一个实体移动到压力板上）。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly pressurePlatePush: PressurePlatePushAfterEventSignal;
     /**
      * @remarks
-     * 当投射物击中方块时触发此事件。
+     * 当抛射物击中方块时触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly projectileHitBlock: ProjectileHitBlockAfterEventSignal;
     /**
      * @remarks
-     * 当投射物击中实体时触发此事件。
+     * 当抛射物击中实体时触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly projectileHitEntity: ProjectileHitEntityAfterEventSignal;
     /**
      * @beta
      * @remarks
-     * 被追踪的声音所声明的持续时间已结束。
+     * 跟踪的声音的声明持续时间已过。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly soundCompleted: SoundCompletedAfterEventSignal;
@@ -496,7 +495,7 @@ export class WorldAfterEvents {
      * @remarks
      * 目标方块被击中。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly targetBlockHit: TargetBlockHitAfterEventSignal;
@@ -504,21 +503,21 @@ export class WorldAfterEvents {
      * @remarks
      * 绊线被触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly tripWireTrip: TripWireTripAfterEventSignal;
     /**
      * @remarks
-     * 当 Minecraft 中的天气发生变化时，将触发此事件。
+     * 当 Minecraft 中的天气变化时将触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly weatherChange: WeatherChangeAfterEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * 该属性可在早期执行模式下读取。
      *
      */
     readonly worldLoad: WorldLoadAfterEventSignal;

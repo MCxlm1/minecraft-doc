@@ -16,7 +16,7 @@ export class InputInfo {
     readonly lastInputModeUsed: InputMode;
     /**
      * @remarks
-     * 玩家触摸输入是否仅影响触摸栏。
+     * 玩家触摸输入是否仅影响快捷栏。
      *
      * @throws 此属性在使用时可能抛出错误。
      *
@@ -24,10 +24,8 @@ export class InputInfo {
      */
     readonly touchOnlyAffectsHotbar: boolean;
     /**
-     * 获取指定按钮的状态。
-     *
-     * @param button - 输入按钮。
-     * @returns 按钮状态。
+     * @param button 要查询状态的按钮。
+     * @returns 指定按钮的当前状态。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -36,9 +34,7 @@ export class InputInfo {
      */
     getButtonState(button: InputButton): ButtonState;
     /**
-     * 获取移动向量。
-     *
-     * @returns 移动向量。
+     * @returns 当前移动向量。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}

@@ -1,5 +1,5 @@
 /**
- * 包含与实体掉落物品相关的信息。
+ * 包含有关实体掉落物品的信息。
  */
 export class EntityItemDropAfterEvent {
     private constructor();

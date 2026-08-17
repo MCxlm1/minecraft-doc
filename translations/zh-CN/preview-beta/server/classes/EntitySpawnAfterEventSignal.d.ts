@@ -1,20 +1,21 @@
 /**
- * 注册一个基于脚本的事件处理器，用于处理实体生成时发生的情况。
+ * Registers a script-based event handler for handling what
+ * happens when an entity spawns.
  */
 export class EntitySpawnAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 注册一个事件处理器，用于处理实体生成时发生的情况。
+     * 注册一个事件处理函数，用于处理实体生成时发生的事件。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
      * 处理生成事件的函数。
      * @returns
-     * 可用于取消订阅此事件的函数。
+     * 返回注册的回调函数本身，可用于后续的 unsubscribe 调用。
      * @example logEntitySpawnEvent.ts
      * ```typescript
      * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -42,14 +43,14 @@ export class EntitySpawnAfterEventSignal {
     subscribe(callback: (arg0: EntitySpawnAfterEvent) => void): (arg0: EntitySpawnAfterEvent) => void;
     /**
      * @remarks
-     * 取消注册之前订阅了该订阅事件的方法。
+     * 注销之前订阅到订阅事件的函数。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 要取消注册的函数，该函数最初传入 subscribe 事件。
+     * 之前传入订阅事件、现需注销的原始函数。
      */
     unsubscribe(callback: (arg0: EntitySpawnAfterEvent) => void): void;
 }

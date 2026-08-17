@@ -1,6 +1,6 @@
 /**
  * @beta
- * 更改后的包设置名称和值。
+ * 已更改的包设置名称和值。
  */
 export class PackSettingChangeAfterEvent {
     private constructor();

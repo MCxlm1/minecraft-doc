@@ -1,23 +1,23 @@
 /**
- * 描述此可骑行实体上的一个特定座位位置。
+ * 描述此可骑乘实体上的特定座位位置。
  */
 export class Seat {
     private constructor();
     /**
      * @remarks
-     * 骑乘此实体时，骑手允许旋转的角度（以度为单位）。
+     * 骑乘者在此实体上骑行时允许旋转的角度（以度为单位）。
      *
      */
     readonly lockRiderRotation: number;
     /**
      * @remarks
-     * 此座位可以支持的最大骑手数量。
+     * 此座位可容纳的最大骑乘者数量。
      *
      */
     readonly maxRiderCount: number;
     /**
      * @remarks
-     * 如果此座位需要被占据，则可以放置在此座位位置的最小骑手数量。
+     * 若要填满此座位位置，可放置在此座位上的最小骑乘者数量。
      *
      */
     readonly minRiderCount: number;
@@ -29,7 +29,7 @@ export class Seat {
     readonly position: Vector3;
     /**
      * @remarks
-     * 用于旋转骑手的角度（以度为单位）。
+     * 骑乘者旋转的角度（以度为单位）。
      *
      */
     readonly seatRotation: number;

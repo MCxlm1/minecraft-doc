@@ -1,11 +1,11 @@
 /**
- * 包含关于玩家游戏模式改变后事件的信息。
+ * 包含玩家游戏模式更改后的事件相关信息。
  */
 export class PlayerGameModeChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 改变前的游戏模式。
+     * 更改之前的游戏模式。
      *
      */
     readonly fromGameMode: GameMode;
@@ -17,7 +17,7 @@ export class PlayerGameModeChangeAfterEvent {
     readonly player: Player;
     /**
      * @remarks
-     * 改变后的当前游戏模式。
+     * 更改之后的当前游戏模式。
      *
      */
     readonly toGameMode: GameMode;

@@ -1,5 +1,5 @@
 /**
- * 用于 {@link World.playMusic}/{@link World.queueMusic} 方法的额外配置选项。
+ * 附加配置选项，用于{@link World.playMusic}/{@link World.queueMusic}方法。
  */
 export interface MusicOptions {
     /**
@@ -10,13 +10,13 @@ export interface MusicOptions {
     fade?: number;
     /**
      * @remarks
-     * 如果设置为 true，此音乐曲目将循环播放。
+     * 如果设置为true，此音乐曲目将重复播放。
      *
      */
     loop?: boolean;
     /**
      * @remarks
-     * 音乐的相对音量级别。
+     * 音乐的相对音量水平。
      *
      */
     volume?: number;

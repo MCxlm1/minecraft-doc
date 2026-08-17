@@ -1,11 +1,12 @@
 /**
- * 当实体正在从世界中移除时（例如，实体因距离玩家过远而被卸载）所触发事件的数据。
+ * 当实体正在从世界中移除时发生的事件数据
+ * （例如，实体因不在玩家附近而被卸载。）
  */
 export class EntityRemoveBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 指向正在被移除的实体。
+     * 对正在被移除的实体的引用。
      *
      */
     readonly removedEntity: Entity;

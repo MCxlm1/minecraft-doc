@@ -1,23 +1,23 @@
 /**
- * 管理与玩家离开世界相关的回调。
+ * 管理连接到玩家离开世界的回调函数。
  */
 export class PlayerLeaveAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当玩家离开世界时将调用该回调。
+     * 添加一个回调函数，当玩家离开世界时将被调用。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
-     * @param callback 当玩家离开世界时要调用的回调函数。
-     * @returns 返回传入的回调函数，以便稍后用于取消订阅。
+     * @param callback 要订阅的回调函数。
+     * @returns 返回用于取消订阅的回调函数。
      */
     subscribe(callback: (arg0: PlayerLeaveAfterEvent) => void): (arg0: PlayerLeaveAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家离开世界时会被调用的回调。
+     * 移除一个回调函数，使其不再在玩家离开世界时被调用。
      *
      * This function can't be called in restricted-execution mode.
      *

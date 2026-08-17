@@ -5,19 +5,19 @@ export class ItemUseOnEvent {
     private constructor();
     /**
      * @remarks
-     * 此事件影响的方块。
+     * 此事件所影响的方块。
      *
      */
     readonly block: Block;
     /**
      * @remarks
-     * 物品使用时作用到的方块面。
+     * 物品被使用的方块的面。
      *
      */
     readonly blockFace: Direction;
     /**
      * @remarks
-     * 相对于物品使用时作用到的方块底部西北角的位置。
+     * 相对于物品被使用的方块底部西北角的位置。
      *
      */
     readonly faceLocation: Vector3;

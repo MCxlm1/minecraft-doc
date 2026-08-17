@@ -1,11 +1,11 @@
 /**
- * 包含有关已更改的 world.gameRules 属性的信息。
+ * 包含关于已更改的 world.gameRules 属性的信息。
  */
 export class GameRuleChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已更改的 world.gameRules 属性对应的规则标识符。
+     * 与已更改的 world.gameRules 属性相关的规则标识符。
      *
      */
     readonly rule: GameRule;

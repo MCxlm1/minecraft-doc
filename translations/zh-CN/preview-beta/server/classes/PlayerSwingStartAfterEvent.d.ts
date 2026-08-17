@@ -1,17 +1,17 @@
 /**
- * 包含玩家开始挥动手臂时的相关信息。
+ * 包含关于玩家开始挥动其手臂的信息。
  */
 export class PlayerSwingStartAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 玩家开始挥动时手中持有的物品实例。
+     * 玩家在挥动开始时手持的物品实例。
      *
      */
     readonly heldItemStack?: ItemStack;
     /**
      * @remarks
-     * 此事件的来源玩家。
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;

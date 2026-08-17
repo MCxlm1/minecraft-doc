@@ -1,5 +1,5 @@
 /**
- * 包含关于当前显示在屏幕上的用户界面元素的信息。
+ * 包含关于屏幕上显示的用户界面元素的信息。
  * @example setTitle.ts
  * ```typescript
  * import { world, DimensionLocation } from '@minecraft/server';
@@ -58,15 +58,15 @@ export class ScreenDisplay {
     private constructor();
     /**
      * @remarks
-     * 返回此屏幕显示管理器对象的当前引用是否有效且可用。
+     * 如果当前此屏幕显示管理器对象的引用有效且功能正常，则返回 true。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * @returns 获取当前被隐藏的 HUD 元素列表。
+     * @returns 当前隐藏的 HUD 元素数组。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -74,10 +74,10 @@ export class ScreenDisplay {
     getHiddenHudElements(): HudElement[];
     /**
      * @remarks
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param hudElements
-     * 要保留可见的 HUD 元素列表。如果未提供，则隐藏所有 HUD 元素。
+     * 可选的 HUD 元素列表，表示要保留显示（不隐藏）的元素。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -85,11 +85,11 @@ export class ScreenDisplay {
     hideAllExcept(hudElements?: HudElement[]): void;
     /**
      * @remarks
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param hudElement
-     * 要检查是否被强制隐藏的 HUD 元素。
-     * @returns 如果指定的 HUD 元素被强制隐藏，则返回 true；否则返回 false。
+     * 要检查是否强制隐藏的 HUD 元素。
+     * @returns 如果该 HUD 元素被强制隐藏，则返回 true，否则返回 false。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -97,7 +97,7 @@ export class ScreenDisplay {
     isForcedHidden(hudElement: HudElement): boolean;
     /**
      * @remarks
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @throws 此函数可能抛出错误。
      *
@@ -106,12 +106,12 @@ export class ScreenDisplay {
     resetHudElementsVisibility(): void;
     /**
      * @remarks
-     * 设置操作栏文本——显示在标题下方和快捷栏上方的文本。
+     * 设置动作栏文本 - 显示在标题下方和快捷栏上方的一段文本。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param text
-     * 操作栏文本的新值。
+     * 动作栏文本的新值。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -121,14 +121,14 @@ export class ScreenDisplay {
     setActionBar(text: (RawMessage | string)[] | RawMessage | string): void;
     /**
      * @remarks
-     * 设置平视显示器（HUD）中特定元素的可见性。
+     * 设置抬头显示器（HUD）特定元素的可见性。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param visible
-     * 是否将 HUD 元素设置为不可见，或将其重置为默认状态。
+     * 是否将 HUD 元素设置为不可见，或将其重置回默认值。
      * @param hudElements
-     * 要配置可见性的 HUD 元素的可选列表。
+     * 可选的 HUD 元素列表，用于配置其可见性。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
@@ -136,15 +136,14 @@ export class ScreenDisplay {
     setHudVisibility(visible: HudVisibility, hudElements?: HudElement[]): void;
     /**
      * @remarks
-     * 将在玩家的屏幕显示上显示一个标题。如果设置为空字符串，则会清除标题。
-     * 可以选择指定附加的副标题，以及淡入、停留和淡出时间。
+     * 将导致标题显示在玩家的屏幕上显示。如果设置为空字符串，则会清除标题。您可以选择指定额外的副标题以及淡入、停留和淡出时间。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param title
-     * 要显示的标题。可以是字符串或原始消息，或它们的数组。
+     * 要显示的标题文本。如果设置为空字符串，则清除标题。
      * @param options
-     * 可选参数，用于指定副标题以及淡入、停留和淡出时间。
+     * 可选的标题显示选项，包括副标题、淡入时间、停留时间和淡出时间。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
@@ -209,12 +208,12 @@ export class ScreenDisplay {
     setTitle(title: (RawMessage | string)[] | RawMessage | string, options?: TitleDisplayOptions): void;
     /**
      * @remarks
-     * 如果之前通过 setTitle 方法显示了副标题，则更新该副标题。
+     * 如果副标题先前通过 setTitle 方法显示，则更新副标题。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param subtitle
-     * 要更新的副标题文本。可以是字符串或原始消息，或它们的数组。
+     * 要更新的副标题文本。
      * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}

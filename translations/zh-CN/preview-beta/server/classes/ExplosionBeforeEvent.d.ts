@@ -1,5 +1,5 @@
 /**
- * 包含与已发生的爆炸相关的信息。
+ * 包含有关已发生的爆炸的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ExplosionBeforeEvent extends ExplosionAfterEvent {

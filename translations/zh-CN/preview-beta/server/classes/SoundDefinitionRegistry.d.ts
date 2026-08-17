@@ -6,12 +6,12 @@ export class SoundDefinitionRegistry {
     private constructor();
     /**
      * @remarks
-     * 返回注册表中的声音定义，可选择通过过滤器缩小范围。
+     * 返回注册表中的声音定义，可选地通过过滤器进行筛选。
      *
      * @param filter
-     * 应用于每个定义的可选过滤器。省略时，返回所有定义。
+     * 应用于每个定义的可选过滤器。省略时返回所有定义。
      * @returns
-     * 所有与过滤器匹配的声音定义，或者未提供过滤器时返回所有声音定义。
+     * 与过滤器匹配的所有声音定义；若未提供过滤器，则返回所有声音定义。
      * @throws
      * 如果 filter.minDuration 大于 filter.maxDuration，将抛出错误。
      *

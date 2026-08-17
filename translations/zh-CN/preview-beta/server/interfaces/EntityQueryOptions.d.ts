@@ -171,39 +171,37 @@
 export interface EntityQueryOptions extends EntityFilter {
     /**
      * @remarks
-     * 限制返回实体的数量，选择此属性指定的最接近的 N 个实体。
-     * 查询选项对象上还必须指定位置值。
+     * 限制返回实体的数量，选择由该属性指定的最近N个实体。还必须在查询选项对象上指定位置值。
      *
      */
     closest?: number;
     /**
      * @remarks
-     * 限制返回实体的数量，选择此属性指定的最远的 N 个实体。
-     * 查询选项对象上还必须指定位置值。
+     * 限制返回实体的数量，选择由该属性指定的最远N个实体。还必须在查询选项对象上指定位置值。
      *
      */
     farthest?: number;
     /**
      * @remarks
-     * 向查询添加一个种子位置，与 closest、farthest、limit、volume 和 distance 属性结合使用。
+     * 为查询添加一个种子位置，该位置与closest、farthest、limit、volume和distance属性一起使用。
      *
      */
     location?: Vector3;
     /**
      * @remarks
-     * 如果指定，则包含距离位置属性中指定的位置小于此距离的实体。
+     * 如果指定，则包括距离location属性指定的位置小于此距离的实体。
      *
      */
     maxDistance?: number;
     /**
      * @remarks
-     * 如果指定，则包含距离位置属性中指定的位置至少为此距离的实体。
+     * 如果指定，则包括距离location属性指定的位置至少为此距离的实体。
      *
      */
     minDistance?: number;
     /**
      * @remarks
-     * 与 location 结合使用，指定包含实体的长方体体积。
+     * 与location结合，指定一个包含实体的长方体体积。
      *
      */
     volume?: Vector3;

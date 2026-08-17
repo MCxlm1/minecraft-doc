@@ -10,7 +10,7 @@ export enum BookErrorReason {
     ExceedsMaxPageLength = 'ExceedsMaxPageLength',
     /**
      * @remarks
-     * 无法创建该页面，因为会超出最大页面数量 50。
+     * 无法创建该页面，因为它将超过最大页数 50。
      *
      */
     ExceedsMaxPages = 'ExceedsMaxPages',

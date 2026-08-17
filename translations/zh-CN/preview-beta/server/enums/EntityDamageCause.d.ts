@@ -4,7 +4,7 @@
 export enum EntityDamageCause {
     /**
      * @remarks
-     * 由掉落铁砧造成的伤害。
+     * 由下落的铁砧造成的伤害。
      *
      */
     anvil = 'anvil',
@@ -28,13 +28,13 @@ export enum EntityDamageCause {
     charging = 'charging',
     /**
      * @remarks
-     * 通过物理接触实体或方块造成的伤害。例如，触碰甜浆果丛或河豚。
+     * 由物理接触实体或方块造成的伤害。例如，触碰甜浆果丛或河豚。
      *
      */
     contact = 'contact',
     /**
      * @remarks
-     * 因实体处于缺氧状态并位于液体方块内造成的伤害。
+     * 由实体在液体方块中且缺乏空气造成的伤害。
      *
      */
     drowning = 'drowning',
@@ -52,25 +52,25 @@ export enum EntityDamageCause {
     entityExplosion = 'entityExplosion',
     /**
      * @remarks
-     * 摔落到地面造成的伤害。
+     * 由摔落到地面造成的伤害。
      *
      */
     fall = 'fall',
     /**
      * @remarks
-     * 由掉落的方块造成的伤害。注意：铁砧和钟乳石有各自的伤害原因。
+     * 由下落的方块造成的伤害。注意：铁砧和钟乳石有各自的伤害原因。
      *
      */
     fallingBlock = 'fallingBlock',
     /**
      * @remarks
-     * 着火造成的伤害。
+     * 由着火造成的伤害。
      *
      */
     fire = 'fire',
     /**
      * @remarks
-     * 持续燃烧造成的伤害。
+     * 由持续燃烧造成的伤害。
      *
      */
     fireTick = 'fireTick',
@@ -82,19 +82,19 @@ export enum EntityDamageCause {
     fireworks = 'fireworks',
     /**
      * @remarks
-     * 使用鞘翅滑翔时高速撞墙造成的伤害。
+     * 在使用鞘翅滑翔时高速撞墙造成的伤害。
      *
      */
     flyIntoWall = 'flyIntoWall',
     /**
      * @remarks
-     * 停留在细雪方块内造成的伤害。
+     * 由停留在细雪方块内造成的伤害。
      *
      */
     freezing = 'freezing',
     /**
      * @remarks
-     * 触碰熔岩方块造成的伤害。
+     * 由触碰熔岩方块造成的伤害。
      *
      */
     lava = 'lava',
@@ -107,19 +107,19 @@ export enum EntityDamageCause {
     maceSmash = 'maceSmash',
     /**
      * @remarks
-     * 由魔法攻击造成的伤害。例如，唤魔者尖牙或潮涌核心。
+     * 由魔法攻击造成的伤害。例如，唤魔者尖牙或潮涌核心方块。
      *
      */
     magic = 'magic',
     /**
      * @remarks
-     * 触碰岩浆块造成的伤害。
+     * 由触碰岩浆方块造成的伤害。
      *
      */
     magma = 'magma',
     /**
      * @remarks
-     * 无来源造成的伤害。例如，来自命令或脚本。
+     * 由无来源造成的伤害。例如，来自命令或脚本。
      *
      */
     none = 'none',
@@ -137,25 +137,25 @@ export enum EntityDamageCause {
     piston = 'piston',
     /**
      * @remarks
-     * 由弹射物造成的伤害。
+     * 由投射物造成的伤害。
      *
      */
     projectile = 'projectile',
     /**
      * @remarks
-     * 由山羊撞击造成的伤害。
+     * 由山羊冲撞造成的伤害。
      *
      */
     ramAttack = 'ramAttack',
     /**
      * @remarks
-     * 由/kill命令造成的伤害。
+     * 由 /kill 命令造成的伤害。
      *
      */
     selfDestruct = 'selfDestruct',
     /**
      * @remarks
-     * 由监守者的音波尖啸攻击造成的伤害。
+     * 由监守者的音波攻击造成的伤害。
      *
      */
     sonicBoom = 'sonicBoom',
@@ -167,49 +167,49 @@ export enum EntityDamageCause {
     soulCampfire = 'soulCampfire',
     /**
      * @remarks
-     * 由掉落的钟乳石方块造成的伤害。
+     * 由下落的钟乳石方块造成的伤害。
      *
      */
     stalactite = 'stalactite',
     /**
      * @remarks
-     * 触碰石笋方块造成的伤害。
+     * 由触碰石笋方块造成的伤害。
      *
      */
     stalagmite = 'stalagmite',
     /**
      * @remarks
-     * 因饥饿值持续为空造成的伤害。
+     * 因饥饿值耗尽而随时间造成的伤害。
      *
      */
     starve = 'starve',
     /**
      * @remarks
-     * 因实体处于缺氧状态并位于非液体方块内造成的伤害。
+     * 由实体在非液体方块中且缺乏空气造成的伤害。
      *
      */
     suffocation = 'suffocation',
     /**
      * @remarks
-     * 因实体处于不适宜生存的气候中造成的伤害。例如，雪傀儡在温度大于1的生物群系中。
+     * 由实体处于不适宜居住的气候中造成的伤害。例如，雪傀儡在温度高于1的生物群系中。
      *
      */
     temperature = 'temperature',
     /**
      * @remarks
-     * 由荆棘附魔和守卫者尖刺效果造成的伤害。
+     * 由荆棘盔甲附魔和守卫者荆棘效果造成的伤害。
      *
      */
     thorns = 'thorns',
     /**
      * @remarks
-     * 掉入虚空后持续造成的伤害。
+     * 因坠入虚空而随时间造成的伤害。
      *
      */
     'void' = 'void',
     /**
      * @remarks
-     * 由凋零效果造成的伤害。例如，触碰凋零玫瑰。
+     * 由凋灵效果造成的伤害。例如，触碰凋灵玫瑰。
      *
      */
     wither = 'wither',

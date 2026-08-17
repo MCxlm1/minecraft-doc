@@ -39,7 +39,7 @@ export class LeverActionAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 若拉杆已激活（即正在传输能量），则为 true。
+     * 如果拉杆已激活（即正在传输电力），则返回 true。
      *
      */
     readonly isPowered: boolean;

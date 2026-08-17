@@ -1,19 +1,19 @@
 /**
- * 管理当玩家开始挥动手臂（例如攻击、使用物品、交互）时触发的回调。
+ * 管理与玩家开始挥动其手臂（例如攻击、使用物品、交互）时连接的回调。
  */
 export class PlayerSwingStartAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当玩家开始挥动手臂（例如攻击、使用物品、交互）时调用。
+     * 添加一个回调，该回调将在玩家开始挥动其手臂（例如攻击、使用物品、交互）时被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 要添加的回调函数。
-     * @param options - 可选的事件选项。
-     * @returns 用于取消订阅的回调函数。
+     * @param callback - 当玩家开始挥动其手臂时要执行的回调函数。
+     * @param options - （可选）用于配置事件监听的附加选项。
+     * @returns 传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: PlayerSwingStartAfterEvent) => void,
@@ -21,9 +21,9 @@ export class PlayerSwingStartAfterEventSignal {
     ): (arg0: PlayerSwingStartAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在玩家开始挥动手臂（例如攻击、使用物品、交互）时调用。
+     * 移除一个在玩家开始挥动其手臂（例如攻击、使用物品、交互）时被调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *

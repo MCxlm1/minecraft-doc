@@ -1,14 +1,14 @@
 /**
- * 管理玩家定位器栏上显示的航点集合。允许添加、移除和查询航点，并具有最大容量限制。
+ * 管理玩家定位栏上显示的路径点集合。允许添加、移除和查询路径点，并有最大容量限制。
  *
- * 定位器栏中的无效航点将在下一个游戏刻自动移除。这包括与已从世界中移除的实体绑定的航点。
+ * 定位栏中的无效路径点将在下一个游戏刻自动移除。这包括绑定到已从世界中移除的实体的路径点。
  *
- * 注意：你可以使用 `playerWaypoints` {@link GameRule} 控制是否自动将原版玩家航点添加到定位器栏。接受的值有 `off`（玩家不在定位器栏上显示）和 `everyone`（所有玩家在定位器栏上可见）。
+ * 注意：你可以使用 `playerWaypoints` {@link GameRule} 控制是否将原版玩家路径点自动添加到定位栏。可接受的值为 `off`（玩家不显示在定位栏上）和 `everyone`（所有玩家都可见于定位栏）。
  *
- * 注意：你只能修改、移除或查询由该包添加的航点。
+ * 注意：你只能修改、移除或查询由本包添加的路径点。
  * @example sharedWaypoint.ts
  * ```typescript
- * / *
+ * /\*
  * import { world, LocationWaypoint, WaypointTextureSelector, WaypointTexture } from "@minecraft/server"
  *
  * function sharedWaypoint() {
@@ -42,31 +42,31 @@
  *   // Change the color - this affects both players
  *   waypoint.color = { red: 0, green: 1, blue: 0 }; // Now green for both players
  * }
- * * /
+ * *\/
  * ```
  */
 export class LocatorBar {
     private constructor();
     /**
      * @remarks
-     * 当前定位器栏中的航点数量。
+     * 当前定位栏中的路径点数量。
      *
      */
     readonly count: number;
     /**
      * @remarks
-     * 可以添加到定位器栏的最大航点数量。
+     * 可添加到定位栏的最大路径点数量。
      *
      */
     readonly maxCount: number;
     /**
      * @remarks
-     * 向定位器栏添加一个航点。如果航点已存在、达到最大航点限制或航点无效，则抛出错误。
+     * 向定位栏添加一个路径点。如果路径点已存在、达到最大路径点限制或路径点无效，则抛出错误。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param waypoint
-     * 要添加到定位器栏的 {@link Waypoint}。
+     * 要添加到定位栏的 {@link Waypoint}。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -78,25 +78,27 @@ export class LocatorBar {
     addWaypoint(waypoint: Waypoint): void;
     /**
      * @remarks
-     * 返回当前定位器栏中所有航点的数组。
+     * 返回当前定位栏中所有路径点的数组。
      *
      * This function can't be called in restricted-execution mode.
      *
+     * @returns 一个包含当前定位栏中所有路径点的数组。
      */
     getAllWaypoints(): Waypoint[];
     /**
      * @remarks
-     * 检查指定航点是否存在于定位器栏中。
+     * 检查指定的路径点是否存在于定位栏中。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param waypoint
      * 要检查的 {@link Waypoint}。
+     * @returns 如果路径点存在于定位栏中，则返回 true；否则返回 false。
      */
     hasWaypoint(waypoint: Waypoint): boolean;
     /**
      * @remarks
-     * 从定位器栏移除所有航点，将其完全清空。
+     * 从定位栏移除所有路径点，完全清空。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -107,12 +109,12 @@ export class LocatorBar {
     removeAllWaypoints(): void;
     /**
      * @remarks
-     * 从定位器栏移除一个特定航点。如果航点不在定位器栏中，则抛出错误。
+     * 从定位栏移除指定的路径点。如果路径点不存在于定位栏中，则抛出错误。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param waypoint
-     * 要从定位器栏移除的 {@link Waypoint}。
+     * 要从定位栏移除的 {@link Waypoint}。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}

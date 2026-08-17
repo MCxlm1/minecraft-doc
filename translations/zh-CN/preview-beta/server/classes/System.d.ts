@@ -1,11 +1,11 @@
 /**
- * 提供系统级事件和函数的类。
+ * 一个提供系统级事件和函数的类。
  */
 export class System {
     private constructor();
     /**
      * @remarks
-     * 返回系统级操作的 after-events（事件后）集合。
+     * 返回系统级操作的 after 事件集合。
      *
      * 此属性可在早期执行模式下读取。
      *
@@ -13,7 +13,7 @@ export class System {
     readonly afterEvents: SystemAfterEvents;
     /**
      * @remarks
-     * 返回系统级操作的 before-events（事件前）集合。
+     * 返回系统级操作的 before 事件集合。
      *
      * 此属性可在早期执行模式下读取。
      *
@@ -21,7 +21,7 @@ export class System {
     readonly beforeEvents: SystemBeforeEvents;
     /**
      * @remarks
-     * 表示服务器当前的游戏 tick（刻度）。
+     * 表示服务器当前的游戏刻（tick）。
      *
      * 此属性可在早期执行模式下读取。
      *
@@ -29,7 +29,7 @@ export class System {
     readonly currentTick: number;
     /**
      * @remarks
-     * 如果这是当前已加载编辑器的世界，则返回 true，否则返回 false。
+     * 如果当前世界已加载编辑器，则返回 true，否则返回 false。
      *
      * 此属性可在早期执行模式下读取。
      *
@@ -45,7 +45,7 @@ export class System {
     readonly serverSystemInfo: SystemInfo;
     /**
      * @remarks
-     * 取消通过 {@link System.runJob} 排队的任务的执行。
+     * 取消通过 {@link System.runJob} 排队的任务执行。
      *
      * 此函数可在早期执行模式下调用。
      *
@@ -55,26 +55,24 @@ export class System {
     clearJob(jobId: number): void;
     /**
      * @remarks
-     * 取消之前通过 {@link System.run} 计划执行的函数的运行。
+     * 取消之前通过 {@link System.run} 调度的函数运行。
      *
      * 此函数可在早期执行模式下调用。
      *
+     * @param runId
+     * 之前通过 {@link System.run} 调度的运行的 ID。
      */
     clearRun(runId: number): void;
     /**
      * @remarks
-     * 在下一个可用的将来时间运行指定的函数。
-     * 这通常用于实现延迟行为和游戏循环。在事件处理程序上下文中运行时，
-     * 通常会在事件发生的同一 tick 结束时运行代码。在其他代码中（例如
-     * system.run 回调）运行时，将在下一个 tick 运行该函数。但请注意，
-     * 根据系统负载情况，无法保证在同一 tick 或下一个 tick 中运行。
+     * 在下一个可用的未来时间运行指定函数。这通常用于实现延迟行为和游戏循环。在事件处理程序上下文中运行时，通常会在事件发生的同一刻结束时执行代码。在其他代码（如 system.run 回调）中运行时，将在下一刻执行该函数。但请注意，根据系统负载的不同，无法保证在同一刻或下一刻执行。
      *
      * 此函数可在早期执行模式下调用。
      *
      * @param callback
-     * 要在下一个游戏 tick 运行的函数回调。
+     * 在下一个游戏刻运行的函数回调。
      * @returns
-     * 一个不透明的标识符，可与 `clearRun` 函数一起使用以取消此运行的执行。
+     * 一个不透明的标识符，可用于 `clearRun` 函数取消此运行的执行。
      * @example trapTick.ts
      * ```typescript
      * import { world, system } from '@minecraft/server';
@@ -101,11 +99,11 @@ export class System {
      * 此函数可在早期执行模式下调用。
      *
      * @param callback
-     * 在间隔发生时运行的函数代码。
+     * 当此间隔发生时将运行的功能代码。
      * @param tickInterval
-     * 每隔 N 个 tick 调用一次回调的间隔。
+     * 每隔 N 刻调用一次回调的间隔。
      * @returns
-     * 一个不透明的句柄，可与 clearRun 方法一起使用以停止此函数按间隔运行。
+     * 一个不透明的句柄，可用于 clearRun 方法停止此函数的间隔运行。
      * @example every30Seconds.ts
      * ```typescript
      * import { world, system, DimensionLocation } from '@minecraft/server';
@@ -122,15 +120,14 @@ export class System {
     runInterval(callback: () => void, tickInterval?: number): number;
     /**
      * @remarks
-     * 将一个生成器排队运行直至完成。该生成器每个 tick 会被分配一个时间片，
-     * 并持续运行直到其 yield 或完成。
+     * 将一个生成器排队运行直到完成。每个刻都会给生成器一个时间片，直到它让出（yield）或完成。
      *
      * 此函数可在早期执行模式下调用。
      *
      * @param generator
      * 要运行的生成器实例。
      * @returns
-     * 一个不透明的句柄，可与 {@link System.clearJob} 一起使用以停止此生成器的运行。
+     * 一个不透明的句柄，可用于 {@link System.clearJob} 停止此生成器的运行。
      * @example cubeGenerator.ts
      * ```typescript
      * import { system, BlockPermutation, DimensionLocation } from '@minecraft/server';
@@ -159,26 +156,26 @@ export class System {
     runJob(generator: Generator<void, void, void>): number;
     /**
      * @remarks
-     * 在由 tickDelay 指定的将来时间运行一组代码。
+     * 在由 tickDelay 指定的未来时间运行一组代码。
      *
      * 此函数可在早期执行模式下调用。
      *
      * @param callback
-     * 在超时发生时运行的函数代码。
+     * 当此超时发生时将运行的功能代码。
      * @param tickDelay
-     * 在调用间隔之前等待的时间量（以 tick 为单位）。
+     * 调用间隔之前的等待时间，以刻为单位。
      * @returns
-     * 一个不透明的句柄，可与 clearRun 方法一起使用以停止此函数按间隔运行。
+     * 一个不透明的句柄，可用于 clearRun 方法停止此函数的间隔运行。
      */
     runTimeout(callback: () => void, tickDelay?: number): number;
     /**
      * @remarks
-     * 在脚本中触发一个带有指定消息 ID 和负载的事件。
+     * 使用指定的消息 ID 和有效载荷在脚本中触发一个事件。
      *
      * @param id
-     * 要发送的消息标识符。这是自定义的，取决于你在世界中可能安装的行为包和内容的类型。
+     * 要发送的消息的标识符。这是自定义的，取决于世界中可能安装的行为包和内容类型。
      * @param message
-     * 要发送的消息的数据组件。这是自定义的，取决于你在世界中可能安装的行为包和内容的类型。
+     * 要发送的消息的数据组件。这是自定义的，取决于世界中可能安装的行为包和内容类型。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -190,14 +187,14 @@ export class System {
     sendScriptEvent(id: string, message: string): void;
     /**
      * @remarks
-     * waitTicks 返回一个在请求的 tick 数量后解决的 promise。
+     * waitTicks 返回一个在请求的刻数之后解析的 promise。
      *
      * 此函数可在早期执行模式下调用。
      *
      * @param ticks
-     * 要等待的 tick 数量。最小值为 1。
+     * 要等待的刻数。最小值为 1。
      * @returns
-     * 一个在指定数量的 tick 发生后解决的 promise。
+     * 当指定数量的刻已发生时解析的 promise。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}

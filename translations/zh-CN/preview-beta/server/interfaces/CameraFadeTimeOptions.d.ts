@@ -1,16 +1,16 @@
 /**
- * 包含淡入淡出过渡的计时。
+ * 包含淡入淡出过渡的时间设置。
  */
 export interface CameraFadeTimeOptions {
     /**
      * @remarks
-     * 淡入的时间，以秒为单位。
+     * 淡入时间，以秒为单位。
      *
      */
     fadeInTime: number;
     /**
      * @remarks
-     * 淡出的时间，以秒为单位。
+     * 淡出时间，以秒为单位。
      *
      */
     fadeOutTime: number;

@@ -1,5 +1,6 @@
 /**
- * 当定位栏操作失败时抛出的错误。包含一个表示错误具体原因的原因代码。
+ * 当定位栏操作失败时抛出的错误。包含一个
+ * 原因代码，指明错误的具体原因。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class LocatorBarError extends Error {

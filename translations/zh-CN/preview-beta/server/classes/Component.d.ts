@@ -5,7 +5,7 @@ export class Component {
     private constructor();
     /**
      * @remarks
-     * 返回该组件是否有效。如果其所有者有效，并且满足组件所需的所有附加验证条件，则该组件被视为有效。
+     * 返回组件是否有效。如果其所有者有效，并且通过了组件所需的任何额外验证，则认为组件有效。
      *
      */
     readonly isValid: boolean;

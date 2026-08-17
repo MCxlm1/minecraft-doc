@@ -4,13 +4,13 @@
 export enum HeldItemOption {
     /**
      * @remarks
-     * 任意物品被持有。
+     * 正在持有任何物品。
      *
      */
     AnyItem = 'AnyItem',
     /**
      * @remarks
-     * 没有物品被持有。
+     * 没有持有物品。
      *
      */
     NoItem = 'NoItem',

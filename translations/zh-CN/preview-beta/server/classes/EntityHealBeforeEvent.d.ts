@@ -1,12 +1,12 @@
 /**
- * 包含与将接受治疗的实体相关的信息。
+ * 包含有关将要被治愈的实体的信息。
  */
 export class EntityHealBeforeEvent {
     private constructor();
     cancel: boolean;
     /**
      * @remarks
-     * 将被治疗的实体。
+     * 将要被治愈的实体。
      *
      */
     readonly healedEntity: Entity;
@@ -18,7 +18,7 @@ export class EntityHealBeforeEvent {
     healing: number;
     /**
      * @remarks
-     * 有关治疗来源的信息。
+     * 关于治愈来源的信息。
      *
      */
     readonly healSource: EntityHealSource;

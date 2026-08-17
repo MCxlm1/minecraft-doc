@@ -5,12 +5,12 @@ export class EnchantmentTypes {
     private constructor();
     /**
      * @remarks
-     * 根据指定的标识符获取附魔。
+     * 检索具有指定标识符的附魔。
      *
      * @param enchantmentId
-     * 附魔的标识符。例如，"minecraft:flame"。
+     * 附魔的标识符。例如 "minecraft:flame"。
      * @returns
-     * 如果可用，则返回一个表示指定附魔的 EnchantmentType 对象。
+     * 如果可用，返回表示指定附魔的 EnchantmentType 对象。
      */
     static get(enchantmentId: string): EnchantmentType | undefined;
     /**

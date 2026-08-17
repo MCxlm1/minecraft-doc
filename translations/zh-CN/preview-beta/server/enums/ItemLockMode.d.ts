@@ -16,7 +16,7 @@ export enum ItemLockMode {
     none = 'none',
     /**
      * @remarks
-     * 该物品不能从其槽位移动、丢弃或用于合成。
+     * 该物品不能从它的槽位移动、丢弃或用于合成。
      *
      */
     slot = 'slot',

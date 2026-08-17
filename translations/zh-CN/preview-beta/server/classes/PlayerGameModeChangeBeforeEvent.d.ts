@@ -1,5 +1,5 @@
 /**
- * 包含关于玩家与实体交互之前的事件的信息。
+ * 包含玩家与实体交互之前的事件相关信息。
  */
 export class PlayerGameModeChangeBeforeEvent {
     private constructor();
@@ -17,13 +17,13 @@ export class PlayerGameModeChangeBeforeEvent {
     readonly fromGameMode: GameMode;
     /**
      * @remarks
-     * 此事件的源玩家。
+     * 此事件的来源玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * 将要更改到的游戏模式。
+     * 要更改到的游戏模式。
      *
      */
     toGameMode: GameMode;

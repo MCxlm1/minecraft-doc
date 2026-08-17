@@ -1,28 +1,28 @@
 /**
- * 自定义命令所接受的参数类型。
+ * 自定义命令接受的参数类型。
  */
 export enum CustomCommandParamType {
     /**
      * @remarks
-     * 方块类型参数提供一个 {@link BlockType}。
+     * 方块类型参数提供 {@link BlockType}。
      *
      */
     BlockType = 'BlockType',
     /**
      * @remarks
-     * 布尔参数。
+     * 布尔值参数。
      *
      */
     Boolean = 'Boolean',
     /**
      * @remarks
-     * 实体选择器参数提供一个 {@link Entity}。
+     * 实体选择器参数提供 {@link Entity}。
      *
      */
     EntitySelector = 'EntitySelector',
     /**
      * @remarks
-     * 实体类型参数提供一个 {@link EntityType}。
+     * 实体类型参数提供 {@link EntityType}。
      *
      */
     EntityType = 'EntityType',
@@ -34,7 +34,7 @@ export enum CustomCommandParamType {
     Enum = 'Enum',
     /**
      * @remarks
-     * 浮点参数。
+     * 浮点数参数。
      *
      */
     Float = 'Float',
@@ -46,19 +46,20 @@ export enum CustomCommandParamType {
     Integer = 'Integer',
     /**
      * @remarks
-     * 物品类型参数提供一个 {@link ItemType}。
+     * 物品类型参数提供 {@link ItemType}。
      *
      */
     ItemType = 'ItemType',
     /**
      * @remarks
-     * 位置参数提供一个 {@link @minecraft/server.Location}。
+     * 位置参数提供 {@link
+     * @minecraft/server.Location}。
      *
      */
     Location = 'Location',
     /**
      * @remarks
-     * 玩家选择器参数提供一个 {@link Player}。
+     * 玩家选择器参数提供 {@link Player}。
      *
      */
     PlayerSelector = 'PlayerSelector',

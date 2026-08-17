@@ -6,7 +6,7 @@ export class LootingEnchantFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 函数随机选择额外物品掉落数量的取值范围，包含最小值和最大值。
+     * 函数随机选择掉落额外物品数量的值范围。包含最小值和最大值。
      *
      */
     readonly count: minecraftcommon.NumberRange;

@@ -1,5 +1,5 @@
 /**
- * 包含注册脚本事件回调时的附加选项。
+ * 包含用于注册脚本事件回调的额外选项。
  */
 export interface ScriptEventMessageFilterOptions {
     /**

@@ -1,5 +1,5 @@
 /**
- * 容器槽位无效。这可能发生在所属容器被销毁或卸载时。
+ * 容器槽位无效。当所属容器被销毁或卸载时可能发生此错误。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class InvalidContainerSlotError extends Error {

@@ -1,34 +1,34 @@
 /**
- * 描述设备的内存等级。
+ * 描述设备的内存。
  */
 export enum MemoryTier {
     /**
      * @remarks
-     * 超低等级的最大内存为 1.5GB。
+     * 超级低档的最大内存为1.5GB。
      *
      */
     SuperLow = 0,
     /**
      * @remarks
-     * 低等级的最大内存为 2GB。
+     * 低档的最大内存为2GB。
      *
      */
     Low = 1,
     /**
      * @remarks
-     * 中等级的最大内存为 4GB。
+     * 中档的最大内存为4GB。
      *
      */
     Mid = 2,
     /**
      * @remarks
-     * 高等级的最大内存为 8GB。
+     * 高档的最大内存为8GB。
      *
      */
     High = 3,
     /**
      * @remarks
-     * 超高等级的内存为 8GB 以上。
+     * 超级高档的内存为8GB以上。
      *
      */
     SuperHigh = 4,

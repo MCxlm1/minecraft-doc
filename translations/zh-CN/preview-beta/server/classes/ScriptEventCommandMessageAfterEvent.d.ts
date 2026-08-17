@@ -17,25 +17,25 @@ export class ScriptEventCommandMessageAfterEvent {
     readonly initiator?: Entity;
     /**
      * @remarks
-     * 随脚本事件命令传入的可选附加数据。
+     * 传递给脚本事件命令的可选附加数据。
      *
      */
     readonly message: string;
     /**
      * @remarks
-     * 如果此命令是通过方块（例如，命令方块）触发的，则来源方块。
+     * 如果此命令是通过方块（例如命令方块）触发的，则为源方块。
      *
      */
     readonly sourceBlock?: Block;
     /**
      * @remarks
-     * 如果此命令是由实体（例如，NPC）触发的，则来源实体。
+     * 如果此命令是由实体（例如 NPC）触发的，则为源实体。
      *
      */
     readonly sourceEntity?: Entity;
     /**
      * @remarks
-     * 返回触发此命令的来源类型。
+     * 返回触发此命令的源类型。
      *
      */
     readonly sourceType: ScriptEventSource;

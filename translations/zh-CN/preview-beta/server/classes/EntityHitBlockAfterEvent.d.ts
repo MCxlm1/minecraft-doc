@@ -1,11 +1,11 @@
 /**
- * 包含与实体撞击方块相关的信息。
+ * 包含与实体击中方块相关的信息。
  */
 export class EntityHitBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 被撞击方块的朝向。
+     * 被击中方块的朝向。
      *
      */
     readonly blockFace: Direction;

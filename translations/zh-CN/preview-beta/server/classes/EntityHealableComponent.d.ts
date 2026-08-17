@@ -1,14 +1,14 @@
 /**
- * 定义与此实体的治疗交互。
+ * 定义与此实体进行交互以治疗它的行为。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityHealableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 确定物品是否可以在实体生命值全满时使用。
+     * 决定物品是否可以在实体处于满生命值时使用。
      *
-     * @throws 此属性在使用时可能会抛出错误。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly forceUse: boolean;
     static readonly componentId = 'minecraft:healable';
@@ -16,8 +16,9 @@ export class EntityHealableComponent extends EntityComponent {
      * @remarks
      * 一组可以专门治疗此实体的物品。
      *
-     * @returns 可治愈此实体的物品列表。
-     * @throws 此函数可能会抛出错误。
+     * @returns
+     * 可用于治疗该实体的物品数组。
+     * @throws 此函数可能抛出错误。
      */
     getFeedItems(): FeedItem[];
 }

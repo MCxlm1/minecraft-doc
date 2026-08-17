@@ -1,13 +1,13 @@
 /**
- * 提供注册自定义命令的功能。
+ * 提供用于注册自定义命令的功能。
  */
 export class CustomCommandRegistry {
     private constructor();
     /**
      * @remarks
-     * 注册一个自定义命令，当执行时会触发脚本回调。
+     * 注册一个自定义命令，当执行时触发脚本回调。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 此函数不能在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
@@ -31,14 +31,14 @@ export class CustomCommandRegistry {
      * @remarks
      * 注册一个自定义命令枚举。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 此函数不能在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
      * @param name
      * 枚举的名称。
      * @param values
-     * 枚举的值。
+     * 枚举包含的值列表。
      * @throws 此函数可能抛出错误。
      *
      * {@link CustomCommandError}

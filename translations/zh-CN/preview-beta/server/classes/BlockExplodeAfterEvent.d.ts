@@ -6,7 +6,7 @@ export class BlockExplodeAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 发生爆炸的方块的描述。
+     * 已爆炸方块的描述。
      *
      */
     readonly explodedBlockPermutation: BlockPermutation;

@@ -1,11 +1,11 @@
 /**
- * 包含有关玩家更改已选快捷栏槽位后事件的信息。
+ * 包含关于玩家切换所选快捷栏槽位后事件的信息。
  */
 export class PlayerHotbarSelectedSlotChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 新选中的槽位的物品堆叠。
+     * 新选中槽位的物品实例。
      *
      */
     readonly itemStack?: ItemStack;
@@ -17,7 +17,7 @@ export class PlayerHotbarSelectedSlotChangeAfterEvent {
     readonly newSlotSelected: number;
     /**
      * @remarks
-     * 此事件的源玩家。
+     * 此事件的来源玩家。
      *
      */
     readonly player: Player;

@@ -4,9 +4,9 @@
 export interface HotbarEventOptions {
     /**
      * @remarks
-     * 要考虑的槽位索引。值应在0到8之间（包含）。如果未指定，则考虑所有槽位。
+     * 要考虑的槽位索引。值应在 0 到 8 之间（含）。如果未指定，则考虑所有槽位。
      *
-     * 范围：[0, 8]
+     * 边界：[0, 8]
      */
     allowedSlots?: number[];
 }

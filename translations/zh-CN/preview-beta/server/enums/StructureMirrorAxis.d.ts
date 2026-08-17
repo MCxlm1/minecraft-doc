@@ -1,5 +1,5 @@
 /**
- * 指定放置时结构应如何镜像。
+ * 指定结构放置时的镜像方式。
  */
 export enum StructureMirrorAxis {
     /**

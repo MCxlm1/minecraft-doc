@@ -1,11 +1,11 @@
 /**
- * Used to change the field of view of the current camera.
+ * 用于更改当前相机的视野。
  */
 export interface CameraFovOptions {
     easeOptions?: EaseOptions;
     /**
      * @remarks
-     * 为视野设置一个值。
+     * 设置视野的值。
      *
      */
     fov?: number;

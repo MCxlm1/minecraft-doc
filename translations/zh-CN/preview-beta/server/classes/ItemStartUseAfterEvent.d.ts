@@ -5,7 +5,7 @@ export class ItemStartUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 正在开始充能的受影响物品栈。
+     * 正在开始充能的受影响物品实例。
      *
      */
     readonly itemStack: ItemStack;
@@ -17,7 +17,7 @@ export class ItemStartUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回以刻为单位的，在完成充能周期前剩余的时间。
+     * 返回在充能完成其周期之前剩余的时间（以刻为单位）。
      *
      */
     readonly useDuration: number;

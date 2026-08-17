@@ -10,7 +10,7 @@ export interface CameraFadeOptions {
     fadeColor?: RGB;
     /**
      * @remarks
-     * 淡入、保持和淡出所花费的时间（以秒为单位）。
+     * 淡入、保持和淡出所需的时间（以秒为单位）。
      *
      */
     fadeTime?: CameraFadeTimeOptions;

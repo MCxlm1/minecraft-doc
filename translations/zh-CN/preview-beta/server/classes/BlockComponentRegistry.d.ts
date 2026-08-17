@@ -2,11 +2,9 @@ export class BlockComponentRegistry {
     private constructor();
     /**
      * @remarks
-     ɵ此函数可在早期执行模式下调用。
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param name - 要注册的自定义组件的名称。
-     * @param customComponent - 要与该名称关联的自定义组件实例。
-     * @throws 此函数可能抛出错误。
+     * @throws 此函数可能会抛出错误。
      *
      * {@link BlockCustomComponentAlreadyRegisteredError}
      *

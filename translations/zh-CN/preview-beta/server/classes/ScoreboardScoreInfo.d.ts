@@ -1,5 +1,5 @@
 /**
- * 包含一个记分板参与者和其各自分数的配对。
+ * 包含一个记分板参与者和其对应分数的配对。
  */
 export class ScoreboardScoreInfo {
     private constructor();
@@ -11,7 +11,7 @@ export class ScoreboardScoreInfo {
     readonly participant: ScoreboardIdentity;
     /**
      * @remarks
-     * 此目标下该身份对应的分数值。
+     * 该参与者在此目标下的分数值。
      *
      */
     readonly score: number;

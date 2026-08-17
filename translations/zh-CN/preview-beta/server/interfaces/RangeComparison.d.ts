@@ -1,5 +1,5 @@
 /**
- * Operator 表示一个用于表达可能数字范围的上下界结构。
+ * Operator 表示用于表达数字潜在范围的下界/上界结构。
  */
 export interface RangeComparison {
     /**

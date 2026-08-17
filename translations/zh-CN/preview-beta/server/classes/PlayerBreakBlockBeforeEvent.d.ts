@@ -1,24 +1,26 @@
 /**
- * 包含关于玩家破坏方块前的事件的信息。
+ * Contains information regarding an event before a player
+ * breaks a block.
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class PlayerBreakBlockBeforeEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 如果设置为true，则取消方块破坏事件。
+     * If set to true, cancels the block break event.
      *
      */
     cancel: boolean;
     /**
      * @remarks
-     * 正在用于破坏方块的物品实例，如果空手则为undefined。
+     * The item stack that is being used to break the block, or
+     * undefined if empty hand.
      *
      */
     itemStack?: ItemStack;
     /**
      * @remarks
-     * 此事件中破坏方块的玩家。
+     * Player breaking the block for this event.
      *
      */
     readonly player: Player;

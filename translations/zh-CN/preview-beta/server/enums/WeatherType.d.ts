@@ -1,22 +1,22 @@
 /**
- * 用于指定世界中的天气条件类型。
+ * 用于指定世界内天气状况的类型。
  */
 export enum WeatherType {
     /**
      * @remarks
-     * 指定晴朗的天气条件。
+     * 指定晴朗天气状况。
      *
      */
     Clear = 'Clear',
     /**
      * @remarks
-     * 指定降雨的天气条件。
+     * 指定下雨天气状况。
      *
      */
     Rain = 'Rain',
     /**
      * @remarks
-     * 指定降雨并伴有雷暴的天气条件。
+     * 指定雷雨天气状况。
      *
      */
     Thunder = 'Thunder',

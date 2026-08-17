@@ -1,5 +1,5 @@
 /**
- * 表示一个战利品池条目，包含对另一个战利品表的引用，由路径描述。
+ * 表示一个战利品池条目，其中包含对另一个战利品表的引用，该引用由该表的路径描述。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class LootTableReference extends LootPoolEntry {

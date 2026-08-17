@@ -4,7 +4,7 @@
 export interface CustomCommand {
     /**
      * @remarks
-     * 必须启用作弊才能运行此命令。默认为 true。
+     * 运行此命令必须启用作弊。默认为true。
      *
      */
     cheatsRequired?: boolean;
@@ -16,13 +16,13 @@ export interface CustomCommand {
     description: string;
     /**
      * @remarks
-     * 必需的命令参数列表。
+     * 必选命令参数列表。
      *
      */
     mandatoryParameters?: CustomCommandParameter[];
     /**
      * @remarks
-     * 命令的名称。需要一个命名空间。
+     * 命令的名称。需要命名空间。
      *
      */
     name: string;

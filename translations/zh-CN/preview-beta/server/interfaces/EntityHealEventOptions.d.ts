@@ -1,17 +1,17 @@
 /**
- * 包含用于注册实体治疗事件的可选参数。
+ * 包含注册实体治疗事件的可选参数。
  */
 export interface EntityHealEventOptions {
     /**
      * @remarks
-     * 如果设置了此值，则此事件将仅针对匹配的治疗原因触发。
+     * 如果设置了此值，则该事件仅在治疗原因匹配时触发。
      *
      */
     allowedHealCauses?: EntityHealCause[];
     /**
      * @remarks
-     * 如果设置了此值，则此事件将仅针对匹配的实体触发。
+     * 如果设置了此值，则该事件仅在实体匹配时触发。
      *
      */
-    entityFilter?: EntityFilter[];
+    entityFilter?: EntityFilter;
 }

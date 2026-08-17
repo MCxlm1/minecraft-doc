@@ -1,5 +1,5 @@
 /**
- * 包含使用物品挖掘方块的相关信息。
+ * 包含关于使用物品挖掘方块的信息。
  */
 export class ItemComponentMineBlockEvent {
     private constructor();
@@ -17,7 +17,7 @@ export class ItemComponentMineBlockEvent {
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * 被挖掘的方块置换。
+     * 被挖掘的方块变种。
      *
      */
     readonly minedBlockPermutation: BlockPermutation;

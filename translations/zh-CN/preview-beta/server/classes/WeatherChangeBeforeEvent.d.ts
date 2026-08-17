@@ -1,11 +1,11 @@
 /**
- * 包含与环境中天气变化相关的信息。
+ * 包含环境中天气变化的相关信息。
  */
 export class WeatherChangeBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 如果设置为 true，则将取消天气变化。
+     * 如果设为 true，天气变化将被取消。
      *
      */
     cancel: boolean;

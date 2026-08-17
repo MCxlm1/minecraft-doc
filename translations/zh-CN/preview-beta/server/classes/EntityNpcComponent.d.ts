@@ -1,6 +1,7 @@
 /**
  * @beta
- * 为实体添加NPC功能，例如自定义皮肤、名称和对话交互。
+ * 向实体添加NPC功能，如自定义皮肤、
+ * 名称和对话交互。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityNpcComponent extends EntityComponent {
@@ -15,7 +16,7 @@ export class EntityNpcComponent extends EntityComponent {
     defaultScene: string;
     /**
      * @remarks
-     * 向玩家显示的NPC名称。
+     * NPC向玩家显示的名称。
      *
      * This property can't be edited in restricted-execution mode.
      *

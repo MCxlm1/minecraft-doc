@@ -1,6 +1,6 @@
 /**
  * @beta
- * 包含关于实体被驯服之前事件的信息。
+ * 包含关于实体被驯服前事件的信息。
  */
 export class EntityTamedBeforeEvent {
     private constructor();
@@ -18,7 +18,7 @@ export class EntityTamedBeforeEvent {
     readonly entity: Entity;
     /**
      * @remarks
-     * 正在尝试驯服该实体的实体。
+     * 尝试驯服该实体的实体。
      *
      */
     readonly tamingEntity: Entity;

@@ -4,13 +4,13 @@
 export interface BlockContainerAccessEventOptions {
     /**
      * @remarks
-     * 若存在，则将过滤哪些容器访问来源可以触发事件。
+     * 如果存在，将过滤哪些容器访问源可以触发该事件。
      *
      */
     accessSourceFilter?: ContainerAccessSourceFilter;
     /**
      * @remarks
-     * 若存在，则将过滤哪些容器方块可以触发事件。
+     * 如果存在，将过滤哪些容器方块可以触发该事件。
      *
      */
     blockFilter?: BlockFilter;

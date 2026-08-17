@@ -1,5 +1,5 @@
 /**
- * 包含有关动画播放方式的额外选项。
+ * 包含关于动画播放方式的额外选项。
  */
 export interface PlayAnimationOptions {
     /**
@@ -10,25 +10,25 @@ export interface PlayAnimationOptions {
     blendOutTime?: number;
     /**
      * @remarks
-     * 指定要在实体上使用的控制器（已定义）。
+     * 指定一个已在实体上定义的控制器。
      *
      */
     controller?: string;
     /**
      * @remarks
-     * 指定要过渡到的状态。
+     * 指定要转换到的状态。
      *
      */
     nextState?: string;
     /**
      * @remarks
-     * 动画对其可见的玩家列表。
+     * 动画可见的玩家列表。
      *
      */
     players?: Player[];
     /**
      * @remarks
-     * 指定此动画完成时应执行的 Molang 表达式。
+     * 指定此动画何时完成的 Molang 表达式。
      *
      */
     stopExpression?: string;

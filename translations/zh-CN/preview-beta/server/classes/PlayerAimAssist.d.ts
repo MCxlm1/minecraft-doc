@@ -1,5 +1,5 @@
 /**
- * 与玩家瞄准辅助相关的 API 容器。
+ * 一个与玩家瞄准辅助相关的 API 容器。
  */
 export class PlayerAimAssist {
     private constructor();

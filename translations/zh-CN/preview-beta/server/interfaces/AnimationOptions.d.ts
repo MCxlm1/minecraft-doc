@@ -1,16 +1,16 @@
 /**
- * 用于创建摄像机动画。
+ * 用于创建相机动画。
  */
 export interface AnimationOptions {
     /**
      * @remarks
-     * 摄像机动画的关键帧。
+     * 相机动画的关键帧。
      *
      */
     animation: SplineAnimation;
     /**
      * @remarks
-     * 摄像机动画的总时长（秒）。
+     * 相机动画的总时间（秒）。
      *
      */
     totalTimeSeconds: number;

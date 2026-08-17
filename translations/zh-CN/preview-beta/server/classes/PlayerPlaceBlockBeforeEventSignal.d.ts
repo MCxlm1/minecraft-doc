@@ -1,12 +1,12 @@
 /**
  * @beta
- * 管理在玩家放置方块之前连接的回调函数。
+ * 管理与玩家放置方块前相关的回调。
  */
 export class PlayerPlaceBlockBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调函数，该回调函数将在玩家放置方块之前被调用。
+     * 添加一个将在玩家放置方块之前被调用的回调。
      *
      * 此函数无法在受限执行模式下调用。
      *
@@ -23,7 +23,7 @@ export class PlayerPlaceBlockBeforeEventSignal {
     ): (arg0: PlayerPlaceBlockBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家放置方块之前被调用的回调函数。
+     * 移除一个在玩家放置方块之前被调用的回调。
      *
      * 此函数无法在受限执行模式下调用。
      *

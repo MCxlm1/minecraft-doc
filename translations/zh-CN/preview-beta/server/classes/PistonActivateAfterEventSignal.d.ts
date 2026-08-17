@@ -1,16 +1,13 @@
 /**
- * 管理连接到活塞激活的回调。
+ * 管理与活塞激活相关的回调。
  */
 export class PistonActivateAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
-     *
-     * @param callback 当活塞激活时要调用的回调函数。
-     * @returns 用于取消订阅的回调函数。
+     * This function can be called in early-execution mode.
      *
      * @example pistonAfterEvent.ts
      * ```typescript
@@ -64,11 +61,9 @@ export class PistonActivateAfterEventSignal {
      * @remarks
      * 移除当活塞扩展或收缩时调用的回调。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
-     *
-     * @param callback 要移除的回调函数。
+     * This function can be called in early-execution mode.
      *
      */
     unsubscribe(callback: (arg0: PistonActivateAfterEvent) => void): void;

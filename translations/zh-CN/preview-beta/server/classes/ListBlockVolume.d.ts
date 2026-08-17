@@ -1,22 +1,22 @@
 /**
- * 由唯一方块位置的无序容器组成的体积。
+ * 由独特方块位置的无序容器组成的体积。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ListBlockVolume extends BlockVolumeBase {
     /**
      * @remarks
-     * 创建 ListBlockVolume 的新实例。
+     * 创建一个新的 ListBlockVolume 实例。
      *
      * @param locations
-     * 构造 ListBlockVolume 时将使用的初始方块位置数组。
+     * ListBlockVolume 将使用的初始方块位置数组。
      */
     constructor(locations: Vector3[]);
     /**
      * @remarks
-     * 将方块位置插入到容器中。
+     * 将方块位置插入容器中。
      *
      * @param locations
-     * 要插入到容器中的方块位置数组。
+     * 要插入容器的方块位置数组。
      */
     add(locations: Vector3[]): void;
     /**

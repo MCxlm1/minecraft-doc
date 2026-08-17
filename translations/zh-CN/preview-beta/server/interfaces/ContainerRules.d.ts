@@ -1,16 +1,16 @@
 /**
- * 如果容器操作违反了这些规则，将抛出错误。
+ * 容器操作中违反这些规则将抛出错误。
  */
 export interface ContainerRules {
     /**
      * @remarks
-     * 定义容器中唯一允许的物品。如果为空，则所有物品都允许在容器中。
+     * 定义容器中唯一允许的物品。如果为空，则容器允许所有物品。
      *
      */
     allowedItems: string[];
     /**
      * @remarks
-     * 确定是否可以将其他存储物品放入容器中。
+     * 决定是否可以将其他存储物品放入容器中。
      *
      */
     allowNestedStorageItems: boolean;

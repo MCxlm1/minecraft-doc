@@ -4,7 +4,7 @@
 export interface SplineAnimation {
     /**
      * @remarks
-     * 相机沿给定曲线进度的关键帧。
+     * 相机沿给定曲线移动的关键帧。
      *
      */
     progressKeyFrames: ProgressKeyFrame[];

@@ -1,5 +1,5 @@
 /**
- * 包含关于一种附魔类型的信息。
+ * 包含一种附魔类型的信息。
  */
 export class EnchantmentType {
     /**
@@ -15,6 +15,7 @@ export class EnchantmentType {
      */
     readonly maxLevel: number;
     /**
+     * @param enchantmentType - 附魔类型名称。
      * @throws 此函数可能会抛出错误。
      */
     constructor(enchantmentType: string);

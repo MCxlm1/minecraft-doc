@@ -1,4 +1,6 @@
-当添加此组件时，表示可以使用染料来改变该实体的颜色。
+/**
+ * 当添加此组件时，表示可以使用染料改变此实体的颜色。
+ */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsDyeableComponent extends EntityComponent {
     private constructor();

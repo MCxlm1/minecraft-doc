@@ -1,5 +1,5 @@
 /**
- * 当玩家按下按钮时的事件数据。
+ * 玩家按下按钮时的事件数据。
  */
 export class PlayerButtonInputAfterEvent {
     private constructor();
@@ -11,7 +11,7 @@ export class PlayerButtonInputAfterEvent {
     readonly button: InputButton;
     /**
      * @remarks
-     * 此按钮转换到的状态。
+     * 此按钮转移到的状态。
      *
      */
     readonly newButtonState: ButtonState;

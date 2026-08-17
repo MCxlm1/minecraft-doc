@@ -1,4 +1,6 @@
-/** 定义该实体在岩浆中的基础移动速度。 */
+/**
+ * 定义此实体在熔岩中的基础移动速度。
+ */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityLavaMovementComponent extends EntityAttributeComponent {
     private constructor();

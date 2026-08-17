@@ -52,7 +52,7 @@ export interface TeleportOptions {
     checkForBlocks?: boolean;
     /**
      * @remarks
-     * 实体可能被传送到的维度。如果未指定，实体将在其所在的维度内传送。
+     * 实体可能被传送到的维度。如果未指定，实体将在其当前所在的维度内传送。
      *
      */
     dimension?: Dimension;

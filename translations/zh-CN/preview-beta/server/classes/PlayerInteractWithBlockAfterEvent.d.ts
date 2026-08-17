@@ -1,12 +1,11 @@
 /**
- * Contains information regarding an event after a player
- * successfully interacts with a block.
+ * 包含玩家成功与方块交互后事件的相关信息。
  */
 export class PlayerInteractWithBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 交互成功之前的物品实例，如果手为空则为 undefined。
+     * 交互成功前的物品实例，如果手中为空则为 undefined。
      *
      */
     readonly beforeItemStack?: ItemStack;
@@ -18,25 +17,25 @@ export class PlayerInteractWithBlockAfterEvent {
     readonly block: Block;
     /**
      * @remarks
-     * 被交互的方块的面。
+     * 正在被交互的方块面。
      *
      */
     readonly blockFace: Direction;
     /**
      * @remarks
-     * 物品放置位置相对于方块底部西北角的坐标。
+     * 相对于方块底部西北角的位置，物品被放置在此处。
      *
      */
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * 如果事件是在玩家初次按下交互按钮时触发，则为 true；如果事件是在按住交互按钮时触发，则为 false。
+     * 如果事件是在玩家初次按下交互按钮时触发，则该值为 true；如果事件是由按住交互按钮触发，则为 false。
      *
      */
     readonly isFirstEvent: boolean;
     /**
      * @remarks
-     * 交互成功后的物品实例，如果手为空则为 undefined。
+     * 交互成功后的物品实例，如果手中为空则为 undefined。
      *
      */
     readonly itemStack?: ItemStack;

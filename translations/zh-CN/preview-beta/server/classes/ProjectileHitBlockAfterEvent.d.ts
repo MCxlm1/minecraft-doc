@@ -5,7 +5,7 @@ export class ProjectileHitBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 此弹射物击中事件发生的维度。
+     * 弹射物击中发生所在的维度。
      *
      */
     readonly dimension: Dimension;
@@ -29,13 +29,13 @@ export class ProjectileHitBlockAfterEvent {
     readonly projectile: Entity;
     /**
      * @remarks
-     * 发射弹射物的可选来源实体。
+     * 发射该弹射物的可选源实体。
      *
      */
     readonly source?: Entity;
     /**
      * @remarks
-     * 包含关于被弹射物击中方块的附加信息。
+     * 包含关于被弹射物击中的方块的附加信息。
      *
      * This function can't be called in restricted-execution mode.
      *

@@ -1,5 +1,5 @@
 /**
- * 枚举代表可用于在定位器栏上显示路径点的不同纹理图标。
+ * 枚举表示可以在定位器栏上为路径点显示的不同纹理图标。
  */
 export enum WaypointTexture {
     /**
@@ -16,7 +16,7 @@ export enum WaypointTexture {
     SmallSquare = 'minecraft:small_square',
     /**
      * @remarks
-     * 小星星路径点图标纹理。
+     * 小星形路径点图标纹理。
      *
      */
     SmallStar = 'minecraft:small_star',

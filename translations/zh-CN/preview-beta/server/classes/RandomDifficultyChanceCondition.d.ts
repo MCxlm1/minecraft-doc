@@ -1,5 +1,5 @@
 /**
- * 根据当前难度等级，将给定值应用于战利品掉落几率的战利品物品条件。
+ * 基于当前难度等级，将给定值应用于战利品掉落几率的战利品物品条件。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class RandomDifficultyChanceCondition extends LootItemCondition {

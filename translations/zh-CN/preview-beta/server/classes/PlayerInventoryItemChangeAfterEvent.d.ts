@@ -1,5 +1,5 @@
 /**
- * 包含关于玩家背包物品变化后的事件的信息。
+ * 包含关于玩家物品栏物品变化后事件的信息。
  */
 export class PlayerInventoryItemChangeAfterEvent {
     private constructor();
@@ -11,7 +11,7 @@ export class PlayerInventoryItemChangeAfterEvent {
     readonly beforeItemStack?: ItemStack;
     /**
      * @remarks
-     * 背包类型。
+     * 物品栏类型。
      *
      */
     readonly inventoryType: PlayerInventoryType;
@@ -29,7 +29,7 @@ export class PlayerInventoryItemChangeAfterEvent {
     readonly player: Player;
     /**
      * @remarks
-     * 发生变化的槽位索引。
+     * 发生变化的物品栏槽位索引。
      *
      */
     readonly slot: number;

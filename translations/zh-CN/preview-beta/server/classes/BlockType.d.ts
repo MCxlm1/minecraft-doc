@@ -1,6 +1,6 @@
 /**
- * 方块的类型（或模板）。不包含排列数据（状态），除了它代表的方块类型。
- * 此类型自 1.17.10.21 版本引入。
+ * 方块的类型（或模板）。不包含排列数据（状态），除了它所表示的方块类型。
+ * 此类型自版本 1.17.10.21 起引入。
  */
 export class BlockType {
     private constructor();
@@ -12,7 +12,7 @@ export class BlockType {
     readonly id: string;
     /**
      * @remarks
-     * 此 BlockType 名称在 .lang 文件中使用的本地化键。
+     * 用于此 BlockType 名称本地化的键，用于 .lang 文件中。
      *
      */
     readonly localizationKey: string;

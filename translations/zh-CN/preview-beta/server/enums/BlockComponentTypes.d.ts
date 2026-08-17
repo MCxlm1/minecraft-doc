@@ -13,7 +13,7 @@ export enum BlockComponentTypes {
     Instrument = 'minecraft:instrument_sound',
     /**
      * @remarks
-     * 表示世界中方块的容器。用于箱子等方块。
+     * 表示世界中方块的内容物。用于与箱子等方块配合使用。
      *
      */
     Inventory = 'minecraft:inventory',
@@ -25,13 +25,13 @@ export enum BlockComponentTypes {
     MapColor = 'minecraft:map_color',
     /**
      * @remarks
-     * 表示可以移动的方块（如活塞）。
+     * 表示可移动的方块（如活塞）。
      *
      */
     Movable = 'minecraft:movable',
     /**
      * @remarks
-     * 当存在此组件时，该方块具有类似活塞的行为。包含用于获取方块活塞状态的附加属性。
+     * 当存在时，该方块具有类似活塞的行为。包含用于发现活塞状态的附加属性。
      *
      */
     Piston = 'minecraft:piston',
@@ -55,7 +55,7 @@ export enum BlockComponentTypes {
     RedstoneProducer = 'minecraft:redstone_producer',
     /**
      * @remarks
-     * 表示可以在其上显示文字的方块。
+     * 表示可以显示文本的方块。
      *
      */
     Sign = 'minecraft:sign',

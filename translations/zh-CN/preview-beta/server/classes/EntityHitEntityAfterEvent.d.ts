@@ -1,11 +1,11 @@
 /**
- * 包含与一个实体击中（近战攻击）另一个实体相关的信息。
+ * 包含有关一个实体击中（近战攻击）另一个实体的信息。
  */
 export class EntityHitEntityAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 发起击中/近战攻击的实体。
+     * 发出击中/近战攻击的实体。
      *
      */
     readonly damagingEntity: Entity;

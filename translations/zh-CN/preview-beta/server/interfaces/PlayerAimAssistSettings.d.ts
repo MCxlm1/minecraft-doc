@@ -4,7 +4,7 @@
 export interface PlayerAimAssistSettings {
     /**
      * @remarks
-     * 瞄准辅助目标使用的视距限制。
+     * 用于瞄准辅助目标的视距限制。
      *
      */
     distance?: number;
@@ -16,13 +16,13 @@ export interface PlayerAimAssistSettings {
     presetId: string;
     /**
      * @remarks
-     * 瞄准辅助目标使用的模式。
+     * 用于瞄准辅助目标的模式。
      *
      */
     targetMode?: AimAssistTargetMode;
     /**
      * @remarks
-     * 瞄准辅助目标使用的视角限制。
+     * 用于瞄准辅助目标的视角限制。
      *
      */
     viewAngle?: Vector2;

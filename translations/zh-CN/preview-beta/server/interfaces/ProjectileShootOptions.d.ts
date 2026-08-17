@@ -4,7 +4,7 @@
 export interface ProjectileShootOptions {
     /**
      * @remarks
-     * 控制射击的精度。值为0时表示完美精度。
+     * 控制射击的精度。值为0表示完美精度。
      *
      */
     uncertainty?: number;

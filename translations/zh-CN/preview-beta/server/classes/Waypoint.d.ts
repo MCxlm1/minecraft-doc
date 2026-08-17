@@ -1,17 +1,18 @@
 /**
- * 显示在玩家定位器栏上的导航点的基类。
- * 导航点可以追踪位置或实体，并使用可自定义的纹理和颜色进行渲染。
+ * 显示在玩家定位栏上的路标点的基类。
+ * 路标点可以追踪位置或实体，并使用可自定义的纹理和颜色进行渲染。
  *
- * 导航点充当共享句柄，可以添加到多个玩家的定位器栏中。
- * 当你修改导航点的属性（例如颜色、纹理或启用状态）时，
- * 所有在其定位器栏中拥有该导航点的玩家都将看到更改。
- * 这允许你高效地管理多个玩家之间的导航点，而无需为每个玩家创建单独的实例。
+ * 路标点是共享句柄，可以被添加到多个玩家的定位栏中。
+ * 当你修改某个路标点的属性（如颜色、纹理或启用状态）时，
+ * 所有在定位栏中拥有该路标点的玩家都会看到这些更改。
+ * 这允许你跨多个玩家高效地管理路标点，而无需为每个玩家创建单独的实例。
  */
 export class Waypoint {
     private constructor();
     /**
      * @remarks
-     * 应用于导航点图标的可选 {@link RGB} 颜色色调。如果未指定，导航点将使用其默认颜色。
+     * 应用于路标点图标的可选 {@link RGB} 颜色着色。
+     * 如果未指定，路标点将使用其默认颜色。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -19,7 +20,7 @@ export class Waypoint {
     color?: RGB;
     /**
      * @remarks
-     * 控制导航点是否当前显示在玩家屏幕上。禁用时，导航点隐藏但仍然有效。
+     * 控制路标点当前是否显示在玩家屏幕上。禁用时，路标点会隐藏但仍保持有效。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -27,13 +28,13 @@ export class Waypoint {
     isEnabled: boolean;
     /**
      * @remarks
-     * 返回导航点当前是否有效。当导航点追踪的实体不再有效时，导航点变为无效。
+     * 返回路标点当前是否有效。当其追踪的实体不再有效时，路标点将变为无效。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * 决定导航点根据距离或其他条件显示哪个图标纹理的 {@link WaypointTextureSelector}。
+     * 决定路标点根据距离或其他条件显示哪种图标纹理的 {@link WaypointTextureSelector}。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -41,22 +42,20 @@ export class Waypoint {
     textureSelector: WaypointTextureSelector;
     /**
      * @remarks
-     * 获取导航点当前的 {@link DimensionLocation}。
-     * 对于实体导航点，返回实体的当前位置。
-     * 对于位置导航点，返回存储的位置。
+     * 获取路标点当前的 {@link DimensionLocation}。
+     * 对于实体路标点，返回实体的当前位置。对于位置路标点，返回存储的位置。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @throws 此函数可能会抛出错误。
+     * @returns 返回当前路标点的维度位置。
      *
-     * {@link InvalidWaypointError}
-     *
-     * {@link InvalidWaypointTextureSelectorError}
+     * @throws 当路标点无效时抛出 {@link InvalidWaypointError}。
+     * @throws 当路标点纹理选择器无效时抛出 {@link InvalidWaypointTextureSelectorError}。
      */
     getDimensionLocation(): DimensionLocation;
     /**
      * @remarks
-     * 从所有已添加的定位器栏中移除该导航点。这会影响到所有在其定位器栏中拥有此导航点的玩家。
+     * 从所有已添加的定位栏中移除路标点。这会影响所有在定位栏中拥有此路标点的玩家。
      *
      * This function can't be called in restricted-execution mode.
      *

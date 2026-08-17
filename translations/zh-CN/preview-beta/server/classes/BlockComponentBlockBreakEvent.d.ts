@@ -1,5 +1,5 @@
 /**
- * 包含关于特定方块被破坏的信息。
+ * 包含关于特定方块被破坏时的相关信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentBlockBreakEvent extends BlockEvent {
@@ -12,13 +12,13 @@ export class BlockComponentBlockBreakEvent extends BlockEvent {
     readonly blockDestructionSource?: Block;
     /**
      * @remarks
-     * 返回有关此方块在被破坏之前的置换信息。
+     * 返回该方块在被破坏之前的置换信息。
      *
      */
     readonly brokenBlockPermutation: BlockPermutation;
     /**
      * @remarks
-     * 导致破坏的实体。
+     * 导致破坏的参与者。
      *
      */
     readonly entitySource?: Entity;

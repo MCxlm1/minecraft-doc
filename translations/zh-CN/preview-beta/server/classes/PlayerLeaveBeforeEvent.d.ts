@@ -1,5 +1,5 @@
 /**
- * 包含关于即将离开世界的玩家的信息。
+ * 包含关于玩家正在离开世界的信息。
  */
 export class PlayerLeaveBeforeEvent {
     private constructor();

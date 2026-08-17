@@ -6,9 +6,10 @@ export class EntityComponent extends Component {
     private constructor();
     /**
      * @remarks
-     * 拥有此组件的实体。如果该实体已被移除，则此属性为 undefined。
+     * 拥有此组件的实体。如果实体已被移除，则为 undefined。
      *
-     * @throws 使用此属性时可能抛出异常。
+     * @throws
+     * 使用此属性时可能会抛出错误。
      *
      * {@link InvalidEntityError}
      */

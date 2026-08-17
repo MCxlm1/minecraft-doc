@@ -1,5 +1,5 @@
 /**
- * 包含与触发数据驱动实体版本升级相关的信息。
+ * 包含有关触发数据驱动实体版本升级的信息。
  */
 export class EntityUpgradeAfterEvent {
     private constructor();
@@ -11,15 +11,16 @@ export class EntityUpgradeAfterEvent {
     readonly entity: Entity;
     /**
      * @remarks
-     * 被触发的数据驱动升级的名称。
+     * 正在触发的数据驱动升级的名称。
      *
      */
     readonly upgradeId: string;
     /**
      * @remarks
-     * 此触发升级对组件状态产生的可更新修改列表。
-     * @returns 此触发升级对组件状态产生的可更新修改列表。
+     * 一个可更新的组件状态修改列表，是此次触发升级的效果。
      *
+     * @returns
+     * 可更新的组件状态修改列表，是此次触发升级的效果。
      */
     getModifiers(): DefinitionModifier[];
 }

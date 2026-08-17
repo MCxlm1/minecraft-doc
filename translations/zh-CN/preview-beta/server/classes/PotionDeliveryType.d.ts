@@ -1,5 +1,5 @@
 /**
- * 表示药水效果的传递方式。
+ * 表示药水效果传递的方式。
  */
 export class PotionDeliveryType {
     private constructor();

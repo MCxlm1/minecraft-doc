@@ -1,5 +1,5 @@
 /**
- * 定义一个用于更灵活的 JSON 结构。
+ * 定义一个用于更灵活处理的 JSON 结构。
  * @example addTranslatedSign.ts
  * ```typescript
  * import { DimensionLocation, world, BlockPermutation, BlockComponentTypes } from '@minecraft/server';
@@ -91,13 +91,13 @@
 export interface RawMessage {
     /**
      * @remarks
-     * 提供当前消息的原始文本等效项。
+     * 提供当前消息的原始文本（raw-text）等价物。
      *
      */
     rawtext?: RawMessage[];
     /**
      * @remarks
-     * 提供一个将被替换为分数值的令牌。
+     * 提供一个标记（token），该标记将被替换为分数的值。
      *
      */
     score?: RawMessageScore;
@@ -109,13 +109,13 @@ export interface RawMessage {
     text?: string;
     /**
      * @remarks
-     * 提供一个翻译令牌，如果客户端在玩家语言中有与令牌匹配的可用资源，则会在客户端进行翻译。
+     * 提供一个翻译标记（token），如果客户端拥有与玩家语言匹配的可用资源，则该标记将在客户端被翻译。
      *
      */
     translate?: string;
     /**
      * @remarks
-     * 翻译令牌的参数。可以是字符串数组，也可以是包含原始文本对象数组的 RawMessage。
+     * 翻译标记的参数。可以是字符串数组，也可以是包含原始文本对象数组的 RawMessage。
      *
      */
     with?: string[] | RawMessage;

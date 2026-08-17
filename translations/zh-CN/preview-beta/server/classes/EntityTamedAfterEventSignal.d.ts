@@ -1,14 +1,14 @@
 /**
  * @beta
- * 管理实体被驯服时触发的回调。
+ * 管理当实体被驯服时连接的回调。
  */
 export class EntityTamedAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 此函数不能在受限执行模式下调用。
+     * 不能在受限执行模式下调用此函数。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 可以在早期执行模式下调用此函数。
      *
      */
     subscribe(
@@ -17,9 +17,9 @@ export class EntityTamedAfterEventSignal {
     ): (arg0: EntityTamedAfterEvent) => void;
     /**
      * @remarks
-     * 此函数不能在受限执行模式下调用。
+     * 不能在受限执行模式下调用此函数。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 可以在早期执行模式下调用此函数。
      *
      */
     unsubscribe(callback: (arg0: EntityTamedAfterEvent) => void): void;

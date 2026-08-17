@@ -1,11 +1,11 @@
 /**
- * 包含与可充电物品完成充电相关的信息。
+ * 包含与可充能物品完成充能相关的信息。
  */
 export class ItemCompleteUseEvent {
     private constructor();
     /**
      * @remarks
-     * 返回已完成充电的物品实例。
+     * 返回已完成充能的物品实例。
      *
      */
     readonly itemStack: ItemStack;

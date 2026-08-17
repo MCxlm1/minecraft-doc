@@ -1,22 +1,22 @@
 /**
- * 管理在玩家选择的热栏槽位发生改变后连接的回调。
+ * 管理当玩家选择的热栏槽位发生变化后连接的回调。
  */
 export class PlayerHotbarSelectedSlotChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家选择的热栏槽位发生改变后被调用。
+     * 添加一个回调，当玩家选择的热栏槽位发生变化后将会调用该回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
      * 事件触发时调用的函数回调。
      * @param options
      * 事件订阅的附加过滤选项。
      * @returns
-     * 返回传入的回调函数，可用于取消订阅。
+     * 用于取消订阅的回调函数。
      */
     subscribe(
         callback: (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void,
@@ -24,11 +24,11 @@ export class PlayerHotbarSelectedSlotChangeAfterEventSignal {
     ): (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，该回调在玩家选择的热栏槽位发生改变后被调用。
+     * 移除一个回调，使其不再在玩家选择的热栏槽位发生变化后被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
      * 要移除的回调函数。

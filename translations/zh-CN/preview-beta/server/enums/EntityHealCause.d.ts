@@ -1,16 +1,16 @@
 /**
- * 描述实体治疗（healing）的来源。
+ * 描述实体的治疗来源。
  */
 export enum EntityHealCause {
     /**
      * @remarks
-     * 由物品（如药水）造成的治疗。
+     * 由药水等物品引起的治疗。
      *
      */
     Heal = 'Heal',
     /**
      * @remarks
-     * 由再生效果造成的治疗。
+     * 由生命恢复效果引起的治疗。
      *
      */
     Regeneration = 'Regeneration',

@@ -1,24 +1,24 @@
 /**
- * 修改掉落书籍内容的战利品物品函数。
+ * 战利品物品函数，用于修改掉落的书的内容。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class SetBookContentsFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 这本书作者的名字。
+     * 书的作者姓名。
      *
      */
     readonly author: string;
     /**
      * @remarks
-     * 一个文本数组，用于放置在书的页面中。
+     * 要放入书页中的文本数组。
      *
      */
     readonly pages: string[];
     /**
      * @remarks
-     * 这本书的标题。
+     * 书的标题。
      *
      */
     readonly title: string;

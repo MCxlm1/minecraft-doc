@@ -1,5 +1,5 @@
 /**
- * 战利品物品条件，用于在生物掉落战利品时检查其标记变体的值。
+ * 战利品物品条件，检查生物掉落战利品时其标记变体的值。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityHasMarkVariantCondition extends LootItemCondition {

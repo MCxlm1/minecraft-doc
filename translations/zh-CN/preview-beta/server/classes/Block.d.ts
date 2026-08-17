@@ -1,6 +1,5 @@
 /**
- * 表示维度中的一个方块。方块代表维度中唯一的 X、Y、Z 坐标，并获取/设置该位置的方块状态。
- * 此类型在 1.17.10.21 版本中进行了重大更新。
+ * 表示维度中的一个方块。方块代表维度中唯一的 X、Y、Z 坐标，并获取/设置该位置的方块状态。此类型在 1.17.10.21 版本中进行了重大更新。
  */
 export class Block {
     private constructor();
@@ -12,7 +11,7 @@ export class Block {
     readonly dimension: Dimension;
     /**
      * @remarks
-     * 如果此方块是空气方块（即空区域），则返回 true。
+     * 如果此方块为空气方块（即空区域），则返回 true。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -23,7 +22,7 @@ export class Block {
     readonly isAir: boolean;
     /**
      * @remarks
-     * 如果此方块是液体方块，则返回 true -（例如，水和熔岩是液体，而空气和石头不是。含水方块不是液体方块）。
+     * 如果此方块是液体方块，则返回 true -（例如，水和岩浆是液体，而空气和石头不是。含水的方块不是液体方块）。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -35,7 +34,7 @@ export class Block {
     /**
      * @beta
      * @remarks
-     * 如果此方块是实心且不可穿透的，则返回 true -（例如，圆石方块和钻石方块是实心的，而梯子方块和栅栏方块不是）。
+     * 如果此方块是坚固且不可通过的，则返回 true -（例如，圆石方块和钻石方块是坚固的，而梯子和栅栏方块不是）。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -46,7 +45,7 @@ export class Block {
     readonly isSolid: boolean;
     /**
      * @remarks
-     * 如果对此方块的引用仍然有效（例如，如果方块被卸载，对该方块的引用将不再有效），则返回 true。
+     * 如果此方块引用仍然有效，则返回 true（例如，如果方块被卸载，对该方块的引用将不再有效）。
      *
      */
     readonly isValid: boolean;
@@ -92,7 +91,7 @@ export class Block {
     readonly permutation: BlockPermutation;
     /**
      * @remarks
-     * 获取方块类型。
+     * 获取方块的类型。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -103,7 +102,7 @@ export class Block {
     readonly 'type': BlockType;
     /**
      * @remarks
-     * 此方块的类型标识符。警告：原版方块名称可能在未来的版本中更改，请尝试使用 'Block.matches' 进行方块比较。
+     * 此方块类型的标识符。警告：原版方块名称在未来的版本中可能会更改，请尽量使用 'Block.matches' 进行方块比较。
      *
      * @throws 此属性在使用时可能抛出异常。
      *
@@ -132,13 +131,11 @@ export class Block {
     readonly z: number;
     /**
      * @remarks
-     * 返回此方块上方（Y 轴正方向）的 {@link Block}。
+     * 返回此方块上方的 {@link Block}（Y 轴正方向）。
      *
      * @param steps
-     * 向上移动的步数，然后返回该位置的方块。
+     * 向上移动的步数，然后返回。
      * 默认值：1
-     * @returns
-     * 返回此方块上方的 {@link Block}；如果该位置不存在方块，则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -148,13 +145,11 @@ export class Block {
     above(steps?: number): Block | undefined;
     /**
      * @remarks
-     * 返回此方块下方（Y 轴负方向）的 {@link Block}。
+     * 返回此方块下方的 {@link Block}（Y 轴负方向）。
      *
      * @param steps
-     * 向下移动的步数，然后返回该位置的方块。
+     * 向下移动的步数，然后返回。
      * 默认值：1
-     * @returns
-     * 返回此方块下方的 {@link Block}；如果该位置不存在方块，则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -164,20 +159,18 @@ export class Block {
     below(steps?: number): Block | undefined;
     /**
      * @remarks
-     * 返回此方块在 X 和 Z 轴上的中心点的 {@link Vector3}。
+     * 返回此方块在 X 和 Z 轴上的中心 {@link Vector3}。
      *
-     * @returns
-     * 此方块在 X 和 Z 轴上的中心点。
      */
     bottomCenter(): Vector3;
     /**
      * @remarks
-     * 返回此方块在与液体接触时是否会被移除。
+     * 返回此方块在被液体接触时是否会被移除。
      *
      * @param liquidType
-     * 调用此函数时应传入的液体类型。
+     * 调用此函数时应使用的液体类型。
      * @returns
-     * 此方块在与液体接触时是否会被移除。
+     * 此方块在被液体接触时是否会被移除。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -189,12 +182,12 @@ export class Block {
     canBeDestroyedByLiquidSpread(liquidType: LiquidType): boolean;
     /**
      * @remarks
-     * 返回此方块是否可以在其上放置液体，即是否可以被水淹没（waterlogged）。
+     * 返回此方块上方是否可以放置液体，即是否可以被水浸没。
      *
      * @param liquidType
-     * 调用此函数时应传入的液体类型。
+     * 调用此函数时应使用的液体类型。
      * @returns
-     * 此方块是否可以在其上放置液体。
+     * 此方块上方是否可以放置液体。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -207,12 +200,12 @@ export class Block {
     /**
      * @beta
      * @remarks
-     * 检查在此方块的指定面上放置指定的方块类型或方块排列是否有效。
+     * 检查将指定的方块类型或方块排列放置到此方块的指定面上是否有效。
      *
      * @param blockToPlace
      * 要检查放置的方块类型或方块排列。
      * @param faceToPlaceOn
-     * 可选参数，指定此方块的某个面以检查放置。
+     * 可选的，要检查放置于此方块的特定面。
      * @returns
      * 如果方块类型或排列可以放置在此方块上，则返回 `true`，否则返回 `false`。
      * @throws 此函数可能抛出错误。
@@ -226,21 +219,17 @@ export class Block {
     canPlace(blockToPlace: BlockPermutation | BlockType | string, faceToPlaceOn?: Direction): boolean;
     /**
      * @remarks
-     * 返回此方块在 X、Y 和 Z 轴上的中心点的 {@link Vector3}。
+     * 返回此方块在 X、Y 和 Z 轴上的中心 {@link Vector3}。
      *
-     * @returns
-     * 此方块在 X、Y 和 Z 轴上的中心点。
      */
     center(): Vector3;
     /**
      * @remarks
-     * 返回此方块东侧（X 轴正方向）的 {@link Block}。
+     * 返回此方块东侧的 {@link Block}（X 轴正方向）。
      *
      * @param steps
-     * 向东移动的步数，然后返回该位置的方块。
+     * 向东移动的步数，然后返回。
      * 默认值：1
-     * @returns
-     * 返回此方块东侧的 {@link Block}；如果该位置不存在方块，则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -250,12 +239,12 @@ export class Block {
     east(steps?: number): Block | undefined;
     /**
      * @remarks
-     * 获取方块的一个组件（表示附加功能）——例如，箱子方块的物品栏组件。
+     * 获取方块的组件（表示附加功能）——例如，箱子方块的物品栏组件。
      *
      * @param componentId
-     * 组件的标识符（例如 'minecraft:inventory'）。如果未指定命名空间前缀，则假定为 'minecraft:'。可用的组件 ID 是 {@link BlockComponentTypes} 枚举中的那些，以及在 {@link BlockComponentRegistry} 中注册的自定义组件 ID。
+     * 组件的标识符（例如 'minecraft:inventory'）。如果未指定命名空间前缀，则默认为 'minecraft:'。可用的组件 ID 为 {@link BlockComponentTypes} 枚举中的值，以及通过 {@link BlockComponentRegistry} 注册的自定义组件 ID。
      * @returns
-     * 如果方块上存在该组件，则返回该组件；否则返回 undefined。
+     * 如果组件存在于方块上，则返回该组件，否则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -267,8 +256,6 @@ export class Block {
      * @remarks
      * 返回此方块上存在的所有脚本组件。
      *
-     * @returns
-     * 此方块上存在的所有脚本组件。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -278,7 +265,7 @@ export class Block {
     getComponents(): BlockComponent[];
     /**
      * @remarks
-     * 基于此方块创建一个原型物品实例（ItemStack），可用于 Container/ContainerSlot API。
+     * 基于此方块创建可用于 Container/ContainerSlot API 的原型物品实例。
      *
      * @param amount
      * 要放入物品实例中的此方块实例数量。
@@ -288,7 +275,7 @@ export class Block {
      * 是否包含物品实例的附加数据面。
      * 默认值：false
      * @returns
-     * 一个包含指定数量物品和数据的物品实例。如果方块类型不兼容，则返回 undefined。
+     * 一个包含指定数量和数据的物品实例。如果方块类型不兼容，则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -298,12 +285,12 @@ export class Block {
     getItemStack(amount?: number, withData?: boolean): ItemStack | undefined;
     /**
      * @remarks
-     * 返回照射在某个方块上的光的总亮度等级。
+     * 返回照射在某个方块上的光的总亮度级别。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @returns
-     * 方块上的亮度等级。
+     * 方块上的亮度级别。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
@@ -314,7 +301,7 @@ export class Block {
     /**
      * @beta
      * @returns
-     * 方块的贴图颜色。
+     * 返回方块的贴图颜色。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -324,10 +311,8 @@ export class Block {
     getMapColor(): RGBA;
     /**
      * @remarks
-     * 如果此方块具有 'minecraft:multi_block' 特性，则返回所有已加载方块部件的数组。如果它不具有该特性，则返回 undefined。
+     * 如果此方块具有 'minecraft:multi_block' 特性，则返回所有已加载的方块部件数组。如果不具有该特性，则返回 undefined。
      *
-     * @returns
-     * 如果此方块具有 'minecraft:multi_block' 特性，则返回所有已加载方块部件的数组；否则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -350,12 +335,12 @@ export class Block {
     getRedstonePower(): number | undefined;
     /**
      * @remarks
-     * 返回从天空照射到某个方块上的光的亮度等级。
+     * 返回从天空照射到某个方块的光的亮度级别。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
      * @returns
-     * 方块上的亮度等级。
+     * 方块上的亮度级别。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
@@ -381,9 +366,7 @@ export class Block {
      * 如果此方块上存在指定组件，则返回 true。
      *
      * @param componentId
-     * 要检索的组件的标识符（例如 'minecraft:inventory'）。如果未指定命名空间前缀，则假定为 'minecraft:'。
-     * @returns
-     * 如果此方块上存在指定组件，则返回 true。
+     * 要检索的组件标识符（例如 'minecraft:inventory'）。如果未指定命名空间前缀，则默认为 'minecraft:'。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -443,14 +426,14 @@ export class Block {
     isLiquidBlocking(liquidType: LiquidType): boolean;
     /**
      * @remarks
-     * 返回液体是否可以从提供的方向流入方块，或者当使用水桶将液体放入时，是否可以从提供的方向流出。
+     * 返回液体是否可以从指定方向流入此方块，或者当使用水桶将液体放入时，是否可以从指定方向流出。
      *
      * @param liquidType
      * 此函数应针对的液体类型。
      * @param flowDirection
-     * 要检查液体流动的方向。
+     * 要检查的液体流动方向。
      * @returns
-     * 液体是否可以从提供的方向流入方块，或者当使用水桶将液体放入时，是否可以从提供的方向流出。
+     * 液体是否可以从指定方向流入此方块，或者当使用水桶将液体放入时，是否可以从指定方向流出。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -479,14 +462,14 @@ export class Block {
     liquidSpreadCausesSpawn(liquidType: LiquidType): boolean;
     /**
      * @remarks
-     * 测试此方块是否符合特定条件。
+     * 测试此方块是否匹配特定条件。
      *
      * @param blockName
-     * 用于与此 API 匹配的方块类型标识符。
+     * 用于匹配此 API 的方块类型标识符。
      * @param states
-     * 用于测试此方块的可选方块状态集合。
+     * 可选的方块状态集合，用于测试此方块。
      * @returns
-     * 如果方块符合指定条件，则返回 true。
+     * 如果方块匹配指定条件，则返回 true。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -496,12 +479,12 @@ export class Block {
     matches(blockName: string, states?: Record<string, boolean | number | string>): boolean;
     /**
      * @remarks
-     * 返回此方块北侧（Z 轴负方向）的 {@link Block}。
+     * 返回此方块北方的 {@link Block}（Z 轴负方向）。
      *
      * @param steps
-     * 返回前向北移动的步数。默认值：1
+     * 向北移动后再返回的步数。默认为：1。
      * @returns
-     * 北侧的方块，如果无法获取该方块（例如该方块及其所在区块尚未加载），则返回 undefined。
+     * 此方块北方的 {@link Block}，如果无法获取则为 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -511,12 +494,12 @@ export class Block {
     north(steps?: number): Block | undefined;
     /**
      * @remarks
-     * 返回相对于此方块偏移后的方块。
+     * 返回相对于此方块的偏移向量处的方块。
      *
      * @param offset
      * 偏移向量。例如，偏移 0, 1, 0 将返回当前方块上方的方块。
      * @returns
-     * 指定偏移处的方块，如果无法获取该方块（例如该方块及其相对区块尚未加载），则返回 undefined。
+     * 指定偏移处的方块，如果无法获取该方块（例如，该方块及其相对区块尚未加载），则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -526,12 +509,12 @@ export class Block {
     offset(offset: Vector3): Block | undefined;
     /**
      * @remarks
-     * 将维度中的方块设置为该置换所对应的状态。
+     * 将维度中的方块设置为该置换的状态。
      *
      * 此函数无法在受限执行模式下调用。
      *
      * @param permutation
-     * 包含方块一组属性状态的置换。
+     * 包含该方块一组属性状态的置换。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -546,7 +529,7 @@ export class Block {
      * 此函数无法在受限执行模式下调用。
      *
      * @param blockType
-     * 要应用的方块类型标识符 - 例如，minecraft:powered_repeater。
+     * 要应用的方块类型标识符 - 例如 minecraft:powered_repeater。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -563,7 +546,7 @@ export class Block {
      * 此函数无法在受限执行模式下调用。
      *
      * @param isWaterlogged
-     * 如果方块内应有水，则为 true。
+     * 如果方块内部应有水，则为 true。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -575,12 +558,12 @@ export class Block {
     setWaterlogged(isWaterlogged: boolean): void;
     /**
      * @remarks
-     * 返回此方块南侧（Z 轴正方向）的 {@link Block}。
+     * 返回此方块南方的 {@link Block}（Z 轴正方向）。
      *
      * @param steps
-     * 返回前向南移动的步数。默认值：1
+     * 向南移动后再返回的步数。默认为：1。
      * @returns
-     * 南侧的方块，如果无法获取该方块（例如该方块及其所在区块尚未加载），则返回 undefined。
+     * 此方块南方的 {@link Block}，如果无法获取则为 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -591,14 +574,14 @@ export class Block {
     /**
      * @beta
      * @remarks
-     * 尝试通过首先检查放置是否有效，将维度中的方块设置为该置换所对应的状态。
+     * 尝试通过首先检查放置是否有效，将维度中的方块设置为该置换的状态。
      *
      * 此函数无法在受限执行模式下调用。
      *
      * @param permutation
-     * 包含方块一组属性状态的置换。
+     * 包含该方块一组属性状态的置换。
      * @returns
-     * 如果方块置换数据设置成功，则返回 `true`，否则返回 `false`。
+     * 如果方块置换数据成功设置，则返回 `true`，否则返回 `false`。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
@@ -608,12 +591,12 @@ export class Block {
     trySetPermutation(permutation: BlockPermutation): boolean;
     /**
      * @remarks
-     * 返回此方块西侧（X 轴负方向）的 {@link Block}。
+     * 返回此方块西方的 {@link Block}（X 轴负方向）。
      *
      * @param steps
-     * 返回前向西移动的步数。默认值：1
+     * 向西移动后再返回的步数。默认为：1。
      * @returns
-     * 西侧的方块，如果无法获取该方块（例如该方块及其所在区块尚未加载），则返回 undefined。
+     * 此方块西方的 {@link Block}，如果无法获取则为 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}

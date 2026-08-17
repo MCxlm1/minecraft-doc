@@ -1,26 +1,23 @@
 /**
- * 作为Ageable组件的一部分，表示一组可以喂给实体的物品，
- * 以及喂食后实体成长的速度。
+ * 作为 Ageable 组件的一部分，表示一组可以喂给实体的物品以及它们导致实体成长的速度。
  */
 export class EntityDefinitionFeedItem {
     private constructor();
     /**
      * @remarks
-     * 喂食此物品后，实体年龄增加的量。数值通常介于0和1之间。
+     * 喂食此物品后，实体年龄增加的量。数值通常在 0 到 1 之间。
      *
      */
     readonly growth: number;
     /**
      * @remarks
-     * 可喂食物品的标识符。如果未指定命名空间，则默认为'minecraft:'。
-     * 示例值包括'wheat'或'golden_apple'。
+     * 可喂食物品类型的标识符。如果未指定命名空间，则默认为 'minecraft:'。示例值包括 'wheat' 或 'golden_apple'。
      *
      */
     readonly item: string;
     /**
      * @remarks
-     * 喂食发生后所得物品的类型ID。通常为空，但用于某些场景，
-     * 例如用一桶鱼喂食鹦鹉螺时，所得物品将是一个空桶。
+     * 喂食发生后所得物品的类型 ID。通常为空，但用于诸如用鱼桶喂食鹦鹉螺的场景，此时所得物品将是一个空桶。
      *
      */
     readonly resultItem?: string;

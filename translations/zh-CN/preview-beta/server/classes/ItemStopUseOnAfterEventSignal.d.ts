@@ -1,29 +1,29 @@
 /**
- * 管理连接到物品停止使用于方块事件的回调。
+ * 管理与物品停止在方块上使用事件相关的回调。
  */
 export class ItemStopUseOnAfterEventSignal {
     private constructor();
     /**
-     * @param callback - 要添加的回调函数。
-     * @returns 返回传入的回调函数。
      * @remarks
-     * 添加一个回调，当物品停止使用于方块时将被调用。
+     * 添加一个回调，当物品停止在方块上使用时将调用该回调。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
+     * @param callback - 要添加的回调函数。
+     * @returns 返回用于取消订阅的函数。
      */
     subscribe(callback: (arg0: ItemStopUseOnAfterEvent) => void): (arg0: ItemStopUseOnAfterEvent) => void;
     /**
-     * @param callback - 要移除的回调函数。
      * @remarks
-     * 移除一个当物品停止使用于方块时被调用的回调。
+     * 移除一个回调，当物品停止在方块上使用时不再调用该回调。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: ItemStopUseOnAfterEvent) => void): void;
 }

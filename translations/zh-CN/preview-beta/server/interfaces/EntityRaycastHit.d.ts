@@ -1,5 +1,5 @@
 /**
- * 包含实体射线命中结果的信息。
+ * 包含实体射线投射命中结果的信息。
  */
 export interface EntityRaycastHit {
     /**
