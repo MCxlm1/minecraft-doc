@@ -1,5 +1,5 @@
 /**
- * 当添加此组件时，表示该实体是一个幼体。
+ * 当添加此组件时，表示该实体是一个幼年实体。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsBabyComponent extends EntityComponent {

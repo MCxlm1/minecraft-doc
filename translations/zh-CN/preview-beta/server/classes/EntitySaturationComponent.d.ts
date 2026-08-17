@@ -1,5 +1,5 @@
 /**
- * 定义了此实体与饱和度相关的交互。
+ * 定义与此实体在饱和度方面的交互。
  * 包装了 `minecraft.player.saturation` 属性。
  */
 // @ts-ignore Class inheritance allowed for native defined classes

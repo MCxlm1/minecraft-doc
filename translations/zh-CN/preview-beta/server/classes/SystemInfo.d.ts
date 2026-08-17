@@ -1,5 +1,5 @@
 /**
- * 包含设备信息，例如内存等级。
+ * 包含设备信息，例如内存层级。
  */
 export class SystemInfo {
     private constructor();

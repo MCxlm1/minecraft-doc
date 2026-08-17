@@ -1,42 +1,45 @@
 /**
- * 定义玩家驯服实体的规则。
+ * 定义实体被玩家驯服的规则。
  */
-// @ts-ignore 类继承允许用于原生定义的类
+// @ts-ignore Class inheritance allowed for native defined classes
 export class EntityTameableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 返回一组可用于驯服此实体的物品。
+     * 返回可用于驯服此实体的一组物品。
      *
-     * @throws 使用此属性时可能会抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly getTameItems: ItemStack[];
     /**
      * @remarks
-     * 返回实体是否已被玩家驯服。
+     * 如果实体已被玩家驯服，则返回 true。
      *
-     * @throws 使用此属性时可能会抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly isTamed: boolean;
     /**
      * @remarks
-     * 每次使用物品驯服实体的概率，介于 0.0 和 1.0 之间，其中 1.0 表示 100%。
+     * 每次使用物品驯服实体的概率，在
+     * 0.0 到 1.0 之间，其中 1.0 表示 100%
      *
-     * @throws 使用此属性时可能会抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly probability: number;
     /**
      * @remarks
-     * 返回驯服该实体的玩家，如果实体未被驯服则返回 'undefined'。
+     * 返回已驯服该实体的玩家，或 'undefined'
+     * 如果实体未被驯服。
      *
-     * @throws 使用此属性时可能会抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly tamedToPlayer?: Player;
     /**
      * @remarks
-     * 返回驯服该实体的玩家 ID，如果实体未被驯服则返回 'undefined'。
+     * 返回已驯服该实体的玩家 ID，或
+     * 'undefined' 如果实体未被驯服。
      *
-     * @throws 使用此属性时可能会抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly tamedToPlayerId?: string;
     static readonly componentId = 'minecraft:tameable';
@@ -44,13 +47,13 @@ export class EntityTameableComponent extends EntityComponent {
      * @remarks
      * 将当前实体设置为由指定玩家驯服。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param player
-     * 该实体应由其驯服的玩家。
+     * 该实体应被其驯服的玩家。
      * @returns
-     * 如果实体被驯服，则返回 true。
-     * @throws 此函数可能会抛出错误。
+     * 如果实体被成功驯服则返回 true。
+     * @throws 此函数可能抛出错误。
      */
     tame(player: Player): boolean;
 }

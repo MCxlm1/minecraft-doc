@@ -1,5 +1,6 @@
 /**
- * 当添加此组件时，表示此实体可以在液体方块中漂浮。
+ * 当添加时，此组件表示该实体可以
+ * 在液体方块中漂浮。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityFloatsInLiquidComponent extends EntityComponent {

@@ -1,24 +1,24 @@
 /**
- * 控制航点是否根据玩家特定状态可见。扩展 {@link EntityVisibilityRules}，
- * 并添加了针对玩家专属状态的额外规则，例如隐藏模式和旁观者模式。
+ * 控制航点基于玩家特定状态何时可见。
+ * 通过附加仅适用于玩家的状态规则（如隐藏模式和旁观模式）扩展 {@link EntityVisibilityRules}。
  */
-// @ts-ignore 类继承允许用于原生定义的类
+// @ts-ignore Class inheritance allowed for native defined classes
 export interface PlayerVisibilityRules extends EntityVisibilityRules {
     /**
      * @remarks
-     * 控制当被追踪的玩家处于隐藏状态时是否显示航点。如果未定义，默认为 true。
+     * 控制当被追踪的玩家处于隐藏状态时是否显示航点。若未定义，默认为 true。
      *
      */
     showHidden?: boolean;
     /**
      * @remarks
-     * 控制当被追踪的玩家处于旁观者模式时是否显示航点。如果未定义，默认为 true。
+     * 控制当被追踪的玩家处于旁观模式时是否显示航点。若未定义，默认为 true。
      *
      */
     showSpectator?: boolean;
     /**
      * @remarks
-     * 控制当一名旁观者正在查看另一名旁观者玩家时是否显示航点。如果未定义，默认为 true。
+     * 控制当旁观者查看另一名旁观者玩家时是否显示航点。若未定义，默认为 true。
      *
      */
     showSpectatorToSpectator?: boolean;

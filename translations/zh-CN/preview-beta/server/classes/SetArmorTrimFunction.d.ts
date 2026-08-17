@@ -1,5 +1,6 @@
 /**
- * 修改掉落盔甲物品上的纹饰的战利品物品函数。
+ * 修改掉落盔甲物品上纹饰的
+ * 战利品物品函数。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class SetArmorTrimFunction extends LootItemFunction {

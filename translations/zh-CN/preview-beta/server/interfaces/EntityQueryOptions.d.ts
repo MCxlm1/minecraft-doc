@@ -1,5 +1,5 @@
 /**
- * 包含用于在区域内选择实体的选项。
+ * 包含用于选择区域内实体的选项。
  * @example blockConditional.ts
  * ```typescript
  * import { DimensionLocation } from '@minecraft/server';
@@ -171,37 +171,39 @@
 export interface EntityQueryOptions extends EntityFilter {
     /**
      * @remarks
-     * 限制返回实体的数量，选择由该属性指定的最近N个实体。还必须在查询选项对象上指定位置值。
+     * 限制返回的实体数量，选择此属性指定的最近 N 个实体。
+     * 查询选项对象中也必须指定 location 值。
      *
      */
     closest?: number;
     /**
      * @remarks
-     * 限制返回实体的数量，选择由该属性指定的最远N个实体。还必须在查询选项对象上指定位置值。
+     * 限制返回的实体数量，选择此属性指定的最远 N 个实体。
+     * 查询选项对象中也必须指定 location 值。
      *
      */
     farthest?: number;
     /**
      * @remarks
-     * 为查询添加一个种子位置，该位置与closest、farthest、limit、volume和distance属性一起使用。
+     * 为查询添加一个种子位置，该位置与 closest、farthest、limit、volume 和 distance 属性配合使用。
      *
      */
     location?: Vector3;
     /**
      * @remarks
-     * 如果指定，则包括距离location属性指定的位置小于此距离的实体。
+     * 如果指定，则包含与 location 属性中指定的位置距离小于此值的实体。
      *
      */
     maxDistance?: number;
     /**
      * @remarks
-     * 如果指定，则包括距离location属性指定的位置至少为此距离的实体。
+     * 如果指定，则包含与 location 属性中指定的位置距离至少为此值的实体。
      *
      */
     minDistance?: number;
     /**
      * @remarks
-     * 与location结合，指定一个包含实体的长方体体积。
+     * 与 location 结合，指定一个包含实体的长方体体积。
      *
      */
     volume?: Vector3;

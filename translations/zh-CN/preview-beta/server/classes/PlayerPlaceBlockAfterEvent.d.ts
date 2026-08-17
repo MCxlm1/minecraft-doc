@@ -6,7 +6,7 @@ export class PlayerPlaceBlockAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 放置此事件中方块的玩家。
+     * 此事件中放置方块的玩家。
      *
      */
     readonly player: Player;

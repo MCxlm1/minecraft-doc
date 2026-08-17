@@ -1,11 +1,11 @@
 /**
- * 包含玩家与实体交互之前的事件相关信息。
+ * 包含玩家与实体交互之前事件的相关信息。
  */
 export class PlayerGameModeChangeBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 如果设置为 true，游戏模式更改将被取消。
+     * 若设为 true，游戏模式变更将被取消。
      *
      */
     cancel: boolean;
@@ -23,7 +23,7 @@ export class PlayerGameModeChangeBeforeEvent {
     readonly player: Player;
     /**
      * @remarks
-     * 要更改到的游戏模式。
+     * 要变更成的游戏模式。
      *
      */
     toGameMode: GameMode;

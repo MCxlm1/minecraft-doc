@@ -1,5 +1,5 @@
 /**
- * 表示一个可以显示文本的方块。
+ * 表示一个可以在其上显示文本的方块。
  * @example addSign.ts
  * ```typescript
  * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from '@minecraft/server';
@@ -122,34 +122,34 @@ export class BlockSignComponent extends BlockComponent {
     private constructor();
     /**
      * @remarks
-     * 玩家是否可以编辑该告示牌。当告示牌上使用过蜜脾或对其调用了 `setWaxed` 时，此值为 true。
+     * 玩家是否可以编辑该告示牌。如果告示牌使用了蜜脾或调用了 `setWaxed`，则会发生此情况。
      *
-     * @throws 使用该属性时可能抛出异常。
+     * @throws 此属性在使用时可能会抛出错误。
      */
     readonly isWaxed: boolean;
     static readonly componentId = 'minecraft:sign';
     /**
      * @remarks
-     * 如果 `setText` 被调用时传入的是 RawMessage 或 RawText 对象，则返回告示牌的 RawText；否则返回 undefined。
+     * 如果 `setText` 被调用时使用的是 RawMessage 或 RawText 对象，则返回告示牌的 RawText；否则返回 undefined。
      *
      * @param side
-     * 要读取消息的告示牌侧面。如果未提供，则返回告示牌正面的消息。
-     * 默认值为：0
+     * 要读取的告示牌侧面。如果未提供，则返回告示牌正面的信息。
+     * 默认值：0
      * @returns
-     * 如果告示牌文本是通过 RawMessage 或 RawText 设置的，则返回对应的 RawText；否则返回 undefined。
-     * @throws 此函数可能抛出错误。
+     * 告示牌上的原始文本；如果未使用 RawMessage 或 RawText 设置文本，则返回 undefined。
+     * @throws 此函数可能会抛出错误。
      */
     getRawText(side?: SignSide): RawText | undefined;
     /**
      * @remarks
-     * 如果 `setText` 被调用时传入的是字符串，则返回告示牌的文本；否则返回 undefined。
+     * 如果 `setText` 被调用时使用的是字符串，则返回告示牌的文本；否则返回 undefined。
      *
      * @param side
-     * 要读取消息的告示牌侧面。如果未提供，则返回告示牌正面的消息。
-     * 默认值为：0
+     * 要读取的告示牌侧面。如果未提供，则返回告示牌正面的信息。
+     * 默认值：0
      * @returns
-     * 如果告示牌文本是通过字符串设置的，则返回对应字符串；否则返回 undefined。
-     * @throws 此函数可能抛出错误。
+     * 告示牌上的文本；如果未使用字符串设置文本，则返回 undefined。
+     * @throws 此函数可能会抛出错误。
      */
     getText(side?: SignSide): string | undefined;
     /**
@@ -158,51 +158,51 @@ export class BlockSignComponent extends BlockComponent {
      *
      * @param side
      * 要读取染料的告示牌侧面。如果未提供，则返回告示牌正面的染料。
-     * 默认值为：0
+     * 默认值：0
      * @returns
-     * 如果告示牌文本已染色，则返回对应的 DyeColor；否则返回 undefined。
-     * @throws 此函数可能抛出错误。
+     * 文本的染料颜色；如果告示牌未被染色，则返回 undefined。
+     * @throws 此函数可能会抛出错误。
      */
     getTextDyeColor(side?: SignSide): DyeColor | undefined;
     /**
      * @remarks
      * 设置告示牌组件的文本。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * @param message
-     * 要设置在告示牌上的消息。如果设置为字符串，则调用 `getText` 可读取该字符串；如果设置为 RawMessage，则调用 `getRawText` 将返回 RawText。
+     * 要设置在告示牌上的信息。如果设置为字符串，则调用 `getText` 读取该字符串。如果设置为 RawMessage，则调用 `getRawText` 将返回 RawText。
      * @param side
-     * 消息将设置在告示牌的哪一侧。如果未提供，则消息将设置在告示牌的正面。
-     * 默认值为：0
+     * 要设置信息的告示牌侧面。如果未提供，则信息将设置在告示牌的正面。
+     * 默认值：0
      * @throws
-     * 如果提供的消息长度超过 512 个字符，则抛出异常。
+     * 如果提供的信息长度超过 512 个字符，则抛出错误。
      */
     setText(message: RawMessage | string, side?: SignSide): void;
     /**
      * @remarks
      * 设置文本的染料颜色。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * @param color
-     * 要应用于告示牌的染料颜色；如果为 undefined 则清除告示牌上的染料。
-     * 默认值为：null
+     * 要应用于告示牌的染料颜色；如果为 undefined，则清除告示牌上的染料。
+     * 默认值：null
      * @param side
-     * 颜色将设置在告示牌的哪一侧。如果未提供，则颜色将设置在告示牌的正面。
-     * 默认值为：0
-     * @throws 此函数可能抛出错误。
+     * 要设置颜色的告示牌侧面。如果未提供，则颜色将设置在告示牌的正面。
+     * 默认值：0
+     * @throws 此函数可能会抛出错误。
      */
     setTextDyeColor(color?: DyeColor, side?: SignSide): void;
     /**
      * @remarks
      * 使玩家无法编辑此告示牌。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
      * @param waxed
-     * 是否使告示牌处于蜡封状态。
-     * @throws 此函数可能抛出错误。
+     * 是否对告示牌进行打蜡处理。如果为 true，则玩家无法编辑该告示牌。
+     * @throws 此函数可能会抛出错误。
      */
     setWaxed(waxed: boolean): void;
 }

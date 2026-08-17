@@ -1,11 +1,11 @@
 /**
- * 包含玩家与方块交互之前的事件相关信息。
+ * 包含关于玩家与方块交互之前的事件的信息。
  */
 export class PlayerInteractWithBlockBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * 将被交互的方块。
+     * 将要被交互的方块。
      *
      */
     readonly block: Block;
@@ -17,7 +17,7 @@ export class PlayerInteractWithBlockBeforeEvent {
     readonly blockFace: Direction;
     /**
      * @remarks
-     * 若设置为 true，交互将被取消。
+     * 如果设置为 true，交互将被取消。
      *
      */
     cancel: boolean;
@@ -29,13 +29,13 @@ export class PlayerInteractWithBlockBeforeEvent {
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * 若事件是由玩家首次按下交互按钮触发，则该值为 true；若事件是由按住交互按钮触发，则为 false。
+     * 如果事件是在玩家初始按下交互按钮时触发的，则该值为 true；如果是按住交互按钮触发的事件，则为 false。
      *
      */
     readonly isFirstEvent: boolean;
     /**
      * @remarks
-     * 交互中使用的物品实例，若为空手则为 undefined。
+     * 交互中使用的物品实例，如果手为空则为 undefined。
      *
      */
     readonly itemStack?: ItemStack;

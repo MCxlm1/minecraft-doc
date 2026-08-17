@@ -1,10 +1,10 @@
 /**
- * 用于过滤容器访问源时的选项。
+ * 用于筛选容器访问来源时使用的选项。
  */
 export interface ContainerAccessSourceFilter {
     /**
      * @remarks
-     * 用于访问容器的源实体的过滤选项。
+     * 筛选访问容器的来源实体的筛选选项。
      *
      */
     entityFilter?: EntityFilter;

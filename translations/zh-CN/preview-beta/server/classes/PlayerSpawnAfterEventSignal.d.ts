@@ -1,26 +1,29 @@
+/**
+ * 注册一个事件，当玩家在世界中生成（或死亡后重新生成）并完全就绪时触发。
+ */
 export class PlayerSpawnAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 注册一个针对此类型事件的新的事件接收器。
+     * 为该特定类型的事件注册一个新的事件接收器。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback - 当玩家生成事件触发时要调用的回调函数。
-     * @returns 用于取消订阅的回调函数。
+     * @param callback - 要订阅的回调函数，参数为 PlayerSpawnAfterEvent 事件对象。
+     * @returns 返回一个函数，调用该函数可取消订阅此事件接收器。
      */
     subscribe(callback: (arg0: PlayerSpawnAfterEvent) => void): (arg0: PlayerSpawnAfterEvent) => void;
     /**
      * @remarks
-     * 注销玩家生成事件的事件接收器。
+     * 取消注册该玩家生成事件的事件接收器。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback - 已注册的事件回调函数。
+     * @param callback - 要取消订阅的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerSpawnAfterEvent) => void): void;
 }

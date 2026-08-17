@@ -1,29 +1,30 @@
 /**
- * 管理与可充能物品充电释放相关的回调。
+ * Manages callbacks that are connected to the releasing of
+ * charging for a chargeable item.
  */
 export class ItemReleaseUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个在可充能物品停止充电时调用的回调。
+     * 添加一个回调，当可充能物品结束充能时触发调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback - 要添加的回调函数。
-     * @returns 传入的回调函数。
+     * @param callback 要添加的回调。
+     * @returns 用于取消订阅的函数。
      */
     subscribe(callback: (arg0: ItemReleaseUseAfterEvent) => void): (arg0: ItemReleaseUseAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在可充能物品停止充电时调用的回调。
+     * 移除一个回调，使其不再在可充能物品结束充能时被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * 此函数无法在受限执行模式下调用。
      *
-     * 此函数可以在早期执行模式下调用。
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback - 要移除的回调函数。
+     * @param callback 要移除的回调。
      */
     unsubscribe(callback: (arg0: ItemReleaseUseAfterEvent) => void): void;
 }

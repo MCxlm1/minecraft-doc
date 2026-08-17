@@ -1,33 +1,33 @@
 /**
- * 包含基于骑乘实体来驯服可骑乘实体的选项。
+ * 包含用于驯服可骑乘实体的选项，基于骑乘该实体的实体。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityTameMountComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 如果实体已被驯服，则返回true。
+     * 如果实体已被驯服，则返回 true。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly isTamed: boolean;
     /**
      * @remarks
-     * 如果实体已被玩家驯服，则返回true。
+     * 如果实体已被玩家驯服，则返回 true。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly isTamedToPlayer: boolean;
     /**
      * @remarks
-     * 返回驯服该实体的玩家，如果实体未被玩家驯服则返回'undefined'。
+     * 返回已驯服该实体的玩家；如果实体未被玩家驯服，则返回 'undefined'。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
     readonly tamedToPlayer?: Player;
     /**
      * @remarks
-     * 返回驯服该实体的玩家ID，如果实体未被驯服则返回'undefined'。
+     * 返回已驯服该实体的玩家 ID；如果实体未被驯服，则返回 'undefined'。
      *
      * @throws 此属性在使用时可能抛出异常。
      */
@@ -35,27 +35,27 @@ export class EntityTameMountComponent extends EntityComponent {
     static readonly componentId = 'minecraft:tamemount';
     /**
      * @remarks
-     * 设置此可骑乘实体为已驯服。
+     * 将该可骑乘实体设置为已驯服。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param showParticles
-     * 是否在驯服此实体时显示效果粒子。
+     * 是否在实体被驯服时显示效果粒子。
      * @throws 此函数可能抛出错误。
      */
     tame(showParticles: boolean): void;
     /**
      * @remarks
-     * 设置此可骑乘实体为由给定玩家驯服。
+     * 将该可骑乘实体设置为由指定玩家驯服。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
      * @param showParticles
-     * 是否在驯服此实体时显示效果粒子。
+     * 是否在实体被驯服时显示效果粒子。
      * @param player
-     * 驯服此实体的玩家。
+     * 该实体应被该玩家驯服。
      * @returns
-     * 如果实体被驯服则返回true。
+     * 如果实体已成功驯服，则返回 true。
      * @throws 此函数可能抛出错误。
      */
     tameToPlayer(showParticles: boolean, player: Player): boolean;

@@ -1,5 +1,5 @@
 /**
- * 包含与可充能物品完成充能相关的信息。
+ * 包含可充能物品完成充能的相关信息。
  */
 export class ItemCompleteUseAfterEvent {
     private constructor();
@@ -17,7 +17,7 @@ export class ItemCompleteUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回在充能完成其循环之前剩余的持续时间（以刻为单位）。
+     * 返回在充能完成其周期之前剩余的持续时间（以刻为单位）。
      *
      */
     readonly useDuration: number;

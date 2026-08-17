@@ -1,11 +1,12 @@
 /**
- * 包含有关影响特定方块的事件的信息。
+ * 包含关于影响一个特定方块的事件的
+ * 信息。
  */
 export class BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 当前世界中此事件位置处的方块。
+     * 此事件位置所在世界中的当前方块。
      *
      */
     readonly block: Block;

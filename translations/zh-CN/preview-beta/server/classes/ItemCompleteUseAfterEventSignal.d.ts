@@ -1,26 +1,29 @@
 /**
- * 管理与可充能物品充能完成相关的回调。
+ * 管理与可充电物品完成充电相关的回调。
  */
 export class ItemCompleteUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当可充能物品完成充能时会调用该回调。
+     * 添加一个回调，当可充电物品完成充电时将调用该回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
+     * @param callback - 要添加的回调函数。
+     * @returns 返回传入的回调函数。
      */
     subscribe(callback: (arg0: ItemCompleteUseAfterEvent) => void): (arg0: ItemCompleteUseAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在可充能物品完成充能时被调用。
+     * 移除一个回调，使其在可充电物品完成充电时不再被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: ItemCompleteUseAfterEvent) => void): void;
 }

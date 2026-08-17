@@ -1,16 +1,18 @@
 /**
- * 定义自定义命令，包括名称、权限和参数。
+ * 定义自定义命令，包括名称、权限和
+ * 参数。
  */
 export interface CustomCommand {
     /**
      * @remarks
-     * 运行此命令必须启用作弊。默认为true。
+     * 必须启用作弊才能运行此命令。默认为
+     * true。
      *
      */
     cheatsRequired?: boolean;
     /**
      * @remarks
-     * 命令行中显示的命令描述。
+     * 命令描述，在命令行中显示。
      *
      */
     description: string;

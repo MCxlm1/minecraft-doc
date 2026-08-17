@@ -1,11 +1,11 @@
 /**
- * 包含与指定玩家的活动相机相关的方法。
+ * 包含与指定玩家的活动摄像机相关的方法。
  */
 export class Camera {
     private constructor();
     /**
      * @remarks
-     * 返回该相机是否可以访问和使用。当相机的所属玩家已加载且有效时，该相机被视为有效。
+     * 返回摄像机是否可访问和使用。当摄像机的拥有者玩家已加载且有效时，摄像机被视为有效。
      *
      */
     readonly isValid: boolean;
@@ -15,7 +15,7 @@ export class Camera {
      * This function can't be called in restricted-execution mode.
      *
      * @param shakeCameraOptions
-     * 相机抖动选项。
+     * 摄像机抖动选项。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
@@ -25,18 +25,18 @@ export class Camera {
     addShake(shakeCameraOptions: CameraShakeOptions): void;
     /**
      * @remarks
-     * 将相机附加到非玩家实体上。
+     * 将摄像机附加到非玩家实体。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param attachCameraOptions
-     * 相机要附加到的实体的选项。包含实体标识符和可选的实体位置。
+     * 摄像机要附加到的实体的选项。包含实体标识符和可选的实体位置。
      * @throws 此函数可能抛出错误。
      */
     attachToEntity(attachCameraOptions?: CameraAttachOptions): void;
     /**
      * @remarks
-     * 清除指定玩家的活动相机。使指定玩家结束任何进行中的相机视角，包括任何缓动相机运动，并恢复到正常视角。
+     * 清除指定玩家的活动摄像机。使指定玩家结束任何进行中的摄像机视角，包括任何缓动摄像机运动，并返回其正常视角。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -45,12 +45,12 @@ export class Camera {
     clear(): void;
     /**
      * @remarks
-     * 开始相机淡入淡出过渡。淡入淡出过渡是一种全屏颜色，先淡入、保持、再淡出。
+     * 开始摄像机淡变过渡。淡变过渡是在全屏颜色上淡入、保持、再淡出的过程。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param fadeCameraOptions
-     * 关于相机淡入淡出操作的附加选项。
+     * 摄像机淡变操作的附加选项。
      * @throws 此函数可能抛出错误。
      */
     fade(fadeCameraOptions?: CameraFadeOptions): void;
@@ -59,22 +59,22 @@ export class Camera {
      * This function can't be called in restricted-execution mode.
      *
      * @param splineType
-     * 用于相机动画路径的样条类型。
+     * 动画使用的样条类型。
      * @param cameraAnimationOptions
-     * 相机动画的选项。
+     * 摄像机动画的选项。
      * @throws 此函数可能抛出错误。
      */
     playAnimation(splineType: CatmullRomSpline | LinearSpline, cameraAnimationOptions: AnimationOptions): void;
     /**
      * @remarks
-     * 为指定玩家设置当前活动相机。
+     * 为指定玩家设置当前活动摄像机。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param cameraPreset
-     * 在 JSON 中定义的相机预设文件的标识符。
+     * JSON 中定义的摄像机预设文件的标识符。
      * @param setOptions
-     * 相机的附加选项。
+     * 摄像机的附加选项。
      * @throws 此函数可能抛出错误。
      */
     setCamera(
@@ -90,28 +90,28 @@ export class Camera {
     /**
      * @beta
      * @remarks
-     * 使用缓动设置当前活动相机。
+     * 设置当前活动摄像机并带有缓动效果。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param cameraPreset
-     * 在 JSON 中定义的相机预设文件的标识符。
+     * JSON 中定义的摄像机预设文件的标识符。
      * @param easeOptions
-     * 用于将相机从上一个相机缓动到当前相机的选项。
+     * 用于将摄像机从上一个摄像机缓动到当前摄像机的选项。
      * @throws
-     * 在未启用实验性相机切换的情况下缓动到 minecraft:first_person 预设时抛出。
+     * 当未启用实验性摄像机开关而缓动到 minecraft:first_person 预设时抛出。
      */
     setCameraWithEase(cameraPreset: string, easeOptions: EaseOptions): void;
     /**
      * @remarks
-     * 为指定玩家设置当前活动相机，并将位置和旋转重置为 JSON 中定义的值。
+     * 为指定玩家设置当前活动摄像机，并将位置和旋转重置为 JSON 中定义的值。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param cameraPreset
-     * 在 JSON 中定义的相机预设文件的标识符。
+     * JSON 中定义的摄像机预设文件的标识符。
      * @param easeOptions
-     * 用于将相机缓动回其原始位置和旋转的选项。
+     * 用于将摄像机缓动回其原始位置和旋转的选项。
      * @throws 此函数可能抛出错误。
      */
     setDefaultCamera(cameraPreset: string, easeOptions?: EaseOptions): void;
@@ -120,7 +120,7 @@ export class Camera {
      * This function can't be called in restricted-execution mode.
      *
      * @param fovCameraOptions
-     * 设置视场角（FOV）的选项。
+     * 摄像机视场角选项。
      * @throws 此函数可能抛出错误。
      */
     setFov(fovCameraOptions?: CameraFovOptions): void;

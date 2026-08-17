@@ -1,5 +1,5 @@
 /**
- * 自定义命令所预期的每个参数的定义。
+ * 自定义命令所期望的每个参数的定义。
  */
 export interface CustomCommandParameter {
     /**

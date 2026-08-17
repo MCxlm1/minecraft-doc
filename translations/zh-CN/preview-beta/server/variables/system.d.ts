@@ -1,6 +1,6 @@
 /**
  * @remarks
- * 一个提供系统级事件和函数的类。
+ * 提供系统级别事件和功能的类。
  *
  */
 export const system: System;

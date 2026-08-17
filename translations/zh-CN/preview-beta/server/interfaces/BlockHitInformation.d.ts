@@ -10,7 +10,7 @@ export interface BlockHitInformation {
     block: Block;
     /**
      * @remarks
-     * 被击中的方块面。
+     * 被击中方块的朝向面。
      *
      */
     face: Direction;

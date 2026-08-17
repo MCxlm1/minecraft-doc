@@ -4,7 +4,7 @@
 export interface ScriptEventMessageFilterOptions {
     /**
      * @remarks
-     * 可选的命名空间列表，用于过滤传入的脚本事件消息。
+     * 用于过滤入站脚本事件消息的可选命名空间列表。
      *
      */
     namespaces: string[];

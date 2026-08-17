@@ -1,5 +1,5 @@
 /**
- * 描述物品如何在容器内移动。
+ * 描述一个物品如何在容器内移动。
  */
 export enum ItemLockMode {
     /**
@@ -16,7 +16,8 @@ export enum ItemLockMode {
     none = 'none',
     /**
      * @remarks
-     * 该物品不能从它的槽位移动、丢弃或用于合成。
+     * 该物品不能从所在槽位移走、被丢弃或用于
+     * 合成。
      *
      */
     slot = 'slot',

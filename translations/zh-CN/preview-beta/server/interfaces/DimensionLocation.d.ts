@@ -1,5 +1,5 @@
 /**
- * 世界中的一个精确坐标，包括其维度和位置。
+ * 世界中的精确坐标，包括其维度和位置。
  */
 export interface DimensionLocation {
     /**
@@ -10,19 +10,19 @@ export interface DimensionLocation {
     dimension: Dimension;
     /**
      * @remarks
-     * 该维度坐标的X分量。
+     * 此维度位置的X分量。
      *
      */
     x: number;
     /**
      * @remarks
-     * 该维度坐标的Y分量。
+     * 此维度位置的Y分量。
      *
      */
     y: number;
     /**
      * @remarks
-     * 该维度坐标的Z分量。
+     * 此维度位置的Z分量。
      *
      */
     z: number;

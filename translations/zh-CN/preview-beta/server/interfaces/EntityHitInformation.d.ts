@@ -1,10 +1,11 @@
 /**
- * 包含有关被命中实体的附加信息。
+ * 包含关于被击中的实体的
+ * 附加信息。
  */
 export interface EntityHitInformation {
     /**
      * @remarks
-     * 被命中的实体。
+     * 被击中的实体。
      *
      */
     entity?: Entity;

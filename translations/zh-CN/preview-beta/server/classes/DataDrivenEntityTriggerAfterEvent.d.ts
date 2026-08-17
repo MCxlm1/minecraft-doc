@@ -1,5 +1,5 @@
 /**
- * 包含关于触发数据驱动实体事件的信息——例如，鸡身上的 minecraft:ageable_grow_up 事件。
+ * 包含与数据驱动实体事件触发相关的信息，例如鸡身上的 minecraft:ageable_grow_up 事件。
  */
 export class DataDrivenEntityTriggerAfterEvent {
     private constructor();
@@ -11,7 +11,7 @@ export class DataDrivenEntityTriggerAfterEvent {
     readonly entity: Entity;
     /**
      * @remarks
-     * 所触发数据驱动事件的名称。
+     * 正在触发的数据驱动事件的名称。
      *
      */
     readonly eventId: string;

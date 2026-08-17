@@ -10,7 +10,7 @@ export interface CameraAttachOptions {
     entity: Entity;
     /**
      * @remarks
-     * 你希望瞄准的实体位置（例如头部、脚部、眼睛）。
+     * 你想要瞄准的实体的位置（例如头部、脚部、眼睛）。
      *
      */
     locator: EntityAttachPoint;

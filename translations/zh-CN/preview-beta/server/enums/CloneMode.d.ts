@@ -17,7 +17,8 @@ export enum CloneMode {
     ForceCopy = 1,
     /**
      * @remarks
-     * 将源区域的方块克隆到目标区域，并将源区域替换为空气。
+     * 将源区域的方块克隆到目标区域
+     * 并用空气替换源区域。
      *
      */
     Move = 2,

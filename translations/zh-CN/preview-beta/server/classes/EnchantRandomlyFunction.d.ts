@@ -1,12 +1,12 @@
 /**
- * 战利品物品函数，用于随机附魔掉落的物品。
+ * 随机附魔掉落物品的战利品物品函数。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EnchantRandomlyFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 确定随机选择的附魔中是否包含宝藏附魔。
+     * 确定是否在随机选择的附魔中包含宝藏附魔。
      *
      */
     readonly treasure: boolean;

@@ -1,5 +1,5 @@
 /**
- * 当添加此组件时，表示该实体想要成为骑手。
+ * 当添加此组件时，表示该实体想要成为一名骑手。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityWantsJockeyComponent extends EntityComponent {

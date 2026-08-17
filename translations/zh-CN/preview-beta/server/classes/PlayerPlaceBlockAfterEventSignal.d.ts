@@ -1,16 +1,19 @@
 /**
- * 管理与玩家放置方块相关的回调。
+ * 管理当玩家放置方块时关联的回调函数。
  */
 export class PlayerPlaceBlockAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当玩家放置方块时将被调用。
+     * 添加一个当玩家放置方块时会被调用的回调函数。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
+     * @param callback - 当事件触发时调用的回调函数。
+     * @param options - 可选的选项，用于过滤事件。
+     * @returns 用于取消订阅的函数。
      */
     subscribe(
         callback: (arg0: PlayerPlaceBlockAfterEvent) => void,
@@ -18,12 +21,13 @@ export class PlayerPlaceBlockAfterEventSignal {
     ): (arg0: PlayerPlaceBlockAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家放置方块时被调用的回调。
+     * 移除一个当玩家放置方块时会被调用的回调函数。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerPlaceBlockAfterEvent) => void): void;
 }

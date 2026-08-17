@@ -1,5 +1,5 @@
 /**
- * 包含用于传送实体的附加选项。
+ * 包含传送实体的附加选项。
  * @example teleport.ts
  * ```typescript
  * import { system, DimensionLocation } from '@minecraft/server';
@@ -52,13 +52,13 @@ export interface TeleportOptions {
     checkForBlocks?: boolean;
     /**
      * @remarks
-     * 实体可能被传送到的维度。如果未指定，实体将在其当前所在的维度内传送。
+     * 可能要将实体移动到的维度。如果未指定，则实体在其所在的维度内传送。
      *
      */
     dimension?: Dimension;
     /**
      * @remarks
-     * 传送后实体应面向的位置。
+     * 传送后实体应面对的位置。
      *
      */
     facingLocation?: Vector3;

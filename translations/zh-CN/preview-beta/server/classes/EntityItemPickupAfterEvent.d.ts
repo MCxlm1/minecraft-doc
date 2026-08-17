@@ -5,13 +5,13 @@ export class EntityItemPickupAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已拾取物品的实体。
+     * 拾取物品的实体。
      *
      */
     readonly entity: Entity;
     /**
      * @remarks
-     * 实体已拾取的物品列表。
+     * 实体拾取的物品列表。
      *
      */
     readonly items: ItemStack[];

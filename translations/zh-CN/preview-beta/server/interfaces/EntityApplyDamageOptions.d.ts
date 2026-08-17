@@ -1,5 +1,5 @@
 /**
- * 伤害事件的附加描述和元数据。
+ * 伤害事件的额外描述与元数据。
  */
 export interface EntityApplyDamageOptions {
     /**

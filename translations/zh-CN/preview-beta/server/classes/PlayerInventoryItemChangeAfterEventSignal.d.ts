@@ -1,20 +1,24 @@
 /**
- * 管理在玩家物品栏物品改变后连接的回调。
+ * 管理在玩家物品栏物品变更后
+ * 连接的回调函数。
  */
 export class PlayerInventoryItemChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家物品栏物品改变后被调用。
+     * 添加一个回调，该回调将在玩家的
+     * 物品栏物品发生改变后被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 触发此事件时调用的函数回调。
+     * 事件触发时调用的回调函数。
      * @param options
-     * 事件订阅的附加筛选选项。
+     * 事件订阅的其他筛选选项。
+     * @returns
+     * 返回订阅时所用的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void,
@@ -22,12 +26,15 @@ export class PlayerInventoryItemChangeAfterEventSignal {
     ): (arg0: PlayerInventoryItemChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在玩家物品栏物品改变后被调用。
+     * 移除一个在玩家的物品栏物品发生改变后
+     * 会被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
+     * @param callback
+     * 要移除的事件回调函数。
      */
     unsubscribe(callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void): void;
 }

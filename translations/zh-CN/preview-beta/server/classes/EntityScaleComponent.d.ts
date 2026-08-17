@@ -1,5 +1,5 @@
 /**
- * 设置实体的视觉尺寸。
+ * 设置实体的视觉大小。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityScaleComponent extends EntityComponent {
@@ -8,7 +8,7 @@ export class EntityScaleComponent extends EntityComponent {
      * @remarks
      * 实体上设置的缩放属性的当前值。
      *
-     * @throws 此属性在使用时可能抛出异常。
+     * @throws 使用此属性时可能抛出错误。
      */
     readonly value: number;
     static readonly componentId = 'minecraft:scale';

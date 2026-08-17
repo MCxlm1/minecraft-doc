@@ -17,7 +17,7 @@ export class ItemReleaseUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回剩余时长（以刻为单位），即完成充能循环前剩余的时间。
+     * 返回以刻为单位的剩余时间，在充能完成其周期之前。
      *
      */
     readonly useDuration: number;

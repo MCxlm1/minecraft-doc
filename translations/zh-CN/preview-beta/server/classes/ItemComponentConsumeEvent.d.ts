@@ -1,5 +1,5 @@
 /**
- * 包含有关消耗食物物品的信息。
+ * 包含有关正在被消耗的食物物品的信息。
  */
 export class ItemComponentConsumeEvent {
     private constructor();

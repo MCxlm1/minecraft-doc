@@ -1,5 +1,6 @@
 /**
- * 包含关于玩家物品栏物品变化后事件的信息。
+ * 包含关于事件的信息，在玩家
+ * 物品栏物品变化后。
  */
 export class PlayerInventoryItemChangeAfterEvent {
     private constructor();
@@ -17,19 +18,19 @@ export class PlayerInventoryItemChangeAfterEvent {
     readonly inventoryType: PlayerInventoryType;
     /**
      * @remarks
-     * 新的物品实例。
+     * 新物品实例。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * 此事件的来源玩家。
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * 发生变化的物品栏槽位索引。
+     * 变化的槽位索引。
      *
      */
     readonly slot: number;

@@ -1,18 +1,19 @@
 /**
- * 表示一种可以应用于实体的效果类型——例如中毒。
+ * 表示一种可以应用于实体的效果类型，如中毒。
  */
 export class EffectTypes {
     private constructor();
     /**
      * @remarks
-     * 给定标识符的效果类型。
+     * 给定标识符对应的效果类型。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param identifier
      * 效果的标识符。
      * @returns
-     * 给定标识符的效果类型，如果效果不存在则返回 undefined。
+     * 给定标识符对应的效果类型；如果效果不存在，
+     * 则返回 undefined。
      */
     static get(identifier: string): EffectType | undefined;
     /**

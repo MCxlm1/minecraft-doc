@@ -1,12 +1,13 @@
 /**
- * 包含与击中目标方块变化相关的信息。
+ * 包含与目标方块被击中时变化相关的信息。
+ *
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class TargetBlockHitAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 源击中方块的位置。
+     * 源实体击中方块的位置。
      *
      */
     readonly hitVector: Vector3;

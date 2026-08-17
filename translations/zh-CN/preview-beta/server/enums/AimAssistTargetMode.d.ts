@@ -1,5 +1,5 @@
 /**
- * 指定用于瞄准辅助的不同瞄准模式。
+ * 指定用于瞄准辅助的不同目标模式。
  */
 export enum AimAssistTargetMode {
     /**

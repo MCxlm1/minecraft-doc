@@ -1,5 +1,5 @@
 /**
- * 用于 EntityColorComponent 和 EntityColor2Component 的颜色枚举
+ * 包含用于 EntityColorComponent 和 EntityColor2Component 的颜色枚举
  */
 export enum PaletteColor {
     /**

@@ -10,13 +10,13 @@ export class EnchantmentType {
     readonly id: string;
     /**
      * @remarks
-     * 此类附魔可以达到的最大等级。
+     * 该附魔类型可拥有的最大等级。
      *
      */
     readonly maxLevel: number;
     /**
-     * @param enchantmentType - 附魔类型名称。
-     * @throws 此函数可能会抛出错误。
+     * @param enchantmentType - 附魔类型的字符串标识符。
+     * @throws 如果传入的附魔类型标识无效，将抛出错误。
      */
     constructor(enchantmentType: string);
 }

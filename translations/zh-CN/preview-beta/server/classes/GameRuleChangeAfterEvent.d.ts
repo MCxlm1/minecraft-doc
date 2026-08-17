@@ -11,7 +11,7 @@ export class GameRuleChangeAfterEvent {
     readonly rule: GameRule;
     /**
      * @remarks
-     * 更改后的 world.gameRules 属性的值。
+     * 已更改后的 world.gameRules 属性的值。
      *
      */
     readonly value: boolean | number;

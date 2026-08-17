@@ -1,5 +1,6 @@
 /**
- * 包含有关正在交互的特定方块的信息。
+ * 包含有关一个特定方块
+ * 被交互时的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentPlayerInteractEvent extends BlockEvent {
@@ -12,13 +13,14 @@ export class BlockComponentPlayerInteractEvent extends BlockEvent {
     readonly face: Direction;
     /**
      * @remarks
-     * 相对于玩家交互的方块底部西北角的位置。
+     * 相对于玩家交互的方块的底部
+     * 西北角的位置。
      *
      */
     readonly faceLocation?: Vector3;
     /**
      * @remarks
-     * 与此方块交互的玩家。
+     * 与该方块交互的玩家。
      *
      */
     readonly player?: Player;

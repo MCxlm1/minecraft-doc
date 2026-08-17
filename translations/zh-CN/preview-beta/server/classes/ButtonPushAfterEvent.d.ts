@@ -37,7 +37,7 @@ export class ButtonPushAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 可选的触发按钮按下的来源。
+     * 触发按钮按下的可选来源。
      *
      */
     readonly source: Entity;

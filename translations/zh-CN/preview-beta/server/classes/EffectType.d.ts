@@ -1,5 +1,5 @@
 /**
- * 表示一种效果类型 - 如毒药 - 可以应用到实体上。
+ * 表示一种效果类型（如中毒），可以应用于实体。
  */
 export class EffectType {
     private constructor();

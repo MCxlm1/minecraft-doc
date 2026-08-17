@@ -6,7 +6,7 @@ export class SetItemDataFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 函数随机选择要分配的数据值时使用的数值范围。包含最小值和最大值。
+     * 函数从中随机选择要分配的数据值的取值范围。包含最小值和最大值。
      *
      */
     readonly data: minecraftcommon.NumberRange;

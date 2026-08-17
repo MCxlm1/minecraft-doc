@@ -5,7 +5,7 @@ export class EntityHitBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 被击中方块的朝向。
+     * 被击中的方块面。
      *
      */
     readonly blockFace: Direction;

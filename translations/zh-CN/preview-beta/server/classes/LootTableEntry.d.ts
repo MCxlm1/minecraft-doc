@@ -1,5 +1,5 @@
 /**
- * 表示一个包含另一个独立的、嵌套的战利品表的战利品池条目。
+ * 表示一个战利品池条目，其中包含另一个独立的嵌套战利品表。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class LootTableEntry extends LootPoolEntry {

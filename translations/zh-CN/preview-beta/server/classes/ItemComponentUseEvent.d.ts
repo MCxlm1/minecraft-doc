@@ -1,5 +1,5 @@
 /**
- * 包含关于物品使用的信息。
+ * 包含有关物品使用情况的信息。
  */
 export class ItemComponentUseEvent {
     private constructor();

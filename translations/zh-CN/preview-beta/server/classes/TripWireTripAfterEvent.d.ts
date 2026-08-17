@@ -1,5 +1,5 @@
 /**
- * 包含与绊线被触发事件相关的信息。
+ * 包含与绊线触发变化相关的信息。
  * @example tripWireTripEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -41,13 +41,13 @@ export class TripWireTripAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 该方块是否具有红石信号。
+     * 方块是否具有红石信号。
      *
      */
     readonly isPowered: boolean;
     /**
      * @remarks
-     * 导致绊线被触发的来源实体。
+     * 导致绊线被触发的源实体。
      *
      */
     readonly sources: Entity[];

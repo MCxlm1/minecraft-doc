@@ -1,5 +1,5 @@
 /**
- * 当存在于实体上时，该实体正在着火。
+ * 当存在于实体上时，该实体处于着火状态。
  * @example setOnFire.ts
  * ```typescript
  * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
@@ -25,7 +25,7 @@ export class EntityOnFireComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 火熄灭前剩余的 tick 数。
+     * 火熄灭前剩余的刻数。
      *
      */
     readonly onFireTicksRemaining: number;

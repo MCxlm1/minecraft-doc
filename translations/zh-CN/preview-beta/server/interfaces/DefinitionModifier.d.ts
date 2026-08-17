@@ -4,7 +4,7 @@
 export interface DefinitionModifier {
     /**
      * @remarks
-     * 获取将通过此定义修改添加的组件组列表。
+     * 检索将通过此定义修改添加的组件组列表。
      *
      */
     addedComponentGroups: string[];

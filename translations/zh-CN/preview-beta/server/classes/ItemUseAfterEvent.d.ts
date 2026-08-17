@@ -1,11 +1,13 @@
 /**
- * 包含有关物品在方块上使用的信息。当玩家使用的物品成功触发实体交互时，会触发此事件。
+ * 包含与在方块上使用物品相关的信息。
+ * 此事件在玩家使用的物品
+ * 成功触发实体交互时触发。
  */
 export class ItemUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 正在使用的受影响物品实例。
+     * 正在使用的被影响的物品实例。
      *
      */
     itemStack: ItemStack;

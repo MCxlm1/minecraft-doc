@@ -1,29 +1,29 @@
 /**
- * 管理与玩家输入权限更改后相关的回调。
+ * 管理在玩家输入权限变更后连接的回调。
  */
 export class PlayerInputPermissionCategoryChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家输入权限更改后被调用。
+     * 添加一个回调，该回调将在玩家的输入权限变更后被调用。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 此函数不能在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 一个回调函数，接收一个 PlayerInputPermissionCategoryChangeAfterEvent 参数。
+     * 要添加的回调函数。
      * @returns
-     * 返回传入的回调函数，用于后续取消订阅。
+     * 返回一个可用于取消订阅的相同回调函数。
      */
     subscribe(
         callback: (arg0: PlayerInputPermissionCategoryChangeAfterEvent) => void,
     ): (arg0: PlayerInputPermissionCategoryChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家输入权限更改后会被调用的回调。
+     * 移除一个回调，使其不再在玩家的输入权限变更后被调用。
      *
-     * 此函数无法在受限执行模式下调用。
+     * 此函数不能在受限执行模式下调用。
      *
      * 此函数可以在早期执行模式下调用。
      *

@@ -10,7 +10,8 @@ export interface PlayAnimationOptions {
     blendOutTime?: number;
     /**
      * @remarks
-     * 指定一个已在实体上定义的控制器。
+     * 指定一个要使用的控制器，该控制器已在实体上
+     * 定义。
      *
      */
     controller?: string;
@@ -22,13 +23,14 @@ export interface PlayAnimationOptions {
     nextState?: string;
     /**
      * @remarks
-     * 动画可见的玩家列表。
+     * 动画将可见的玩家列表。
      *
      */
     players?: Player[];
     /**
      * @remarks
-     * 指定此动画何时完成的 Molang 表达式。
+     * 指定一个 Molang 表达式，用于此动画应
+     * 完成时。
      *
      */
     stopExpression?: string;

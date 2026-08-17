@@ -1,5 +1,5 @@
 /**
- * 当存在于物品上时，该物品在使用过程中可能会受到损坏。请注意，此组件仅适用于数据驱动的物品。
+ * 当物品上存在此组件时，该物品在使用过程中会受损。注意，此组件仅适用于数据驱动物品。
  * @example giveHurtDiamondSword.ts
  * ```typescript
  * import {
@@ -36,7 +36,7 @@ export class ItemDurabilityComponent extends ItemComponent {
     private constructor();
     /**
      * @remarks
-     * 返回此特定物品当前的损坏等级。
+     * 返回该特定物品的当前损伤值。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -44,14 +44,14 @@ export class ItemDurabilityComponent extends ItemComponent {
     damage: number;
     /**
      * @remarks
-     * 表示此物品在损坏之前可以承受的损坏量。
+     * 表示该物品在损坏前可以承受的损伤量。
      *
-     * @throws 此属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出错误。
      */
     readonly maxDurability: number;
     /**
      * @remarks
-     * 物品是否会损坏或损失耐久。设置为 true 会暂时移除物品的耐久度 HUD，并冻结物品的耐久度损失。
+     * 表示物品是否损坏或损失耐久度。设置为true会暂时移除物品的耐久度HUD，并冻结物品的耐久度损失。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -60,25 +60,23 @@ export class ItemDurabilityComponent extends ItemComponent {
     static readonly componentId = 'minecraft:durability';
     /**
      * @remarks
-     * 返回在给定耐久附魔等级的情况下，使用 damageRange 属性计算出的此物品受到损坏的最大概率。
+     * 返回根据damageRange属性，在给定一个耐久附魔等级时，该物品受损的最大概率。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param unbreakingEnchantmentLevel
-     * 计算损坏概率时要考虑的耐久附魔等级。传入的 unbreaking 参数必须在 [0, 3] 范围内。
+     * 考虑损伤概率时的耐久附魔因子。传入的unbreaking参数必须在[0, 3]范围内。
      * 默认值：0
      * 范围：[0, 3]
-     * @returns 返回此物品受到损坏的最大概率。
      * @throws 此函数可能抛出错误。
      */
     getDamageChance(unbreakingEnchantmentLevel?: number): number;
     /**
      * @remarks
-     * 用于计算物品损坏概率的数字范围。损坏概率将落在此范围内。
+     * 用于计算物品损伤概率的数字范围。损伤概率将落在这个范围内。
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @returns 返回用于计算损坏概率的数字范围。
      * @throws 此函数可能抛出错误。
      */
     getDamageChanceRange(): minecraftcommon.NumberRange;

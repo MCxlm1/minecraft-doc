@@ -1,22 +1,21 @@
 /**
- * 包含与触发数据驱动实体事件相关的事件注册 - 例如，鸡上的 minecraft:ageable_grow_up 事件。
+ * 包含与数据驱动实体事件触发相关的事件注册，
+ * 例如鸡的
+ * minecraft:ageable_grow_up 事件。
  */
 export class DataDrivenEntityTriggerAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在数据驱动实体事件被触发后调用。
+     * 添加一个回调，它将在数据驱动实体事件触发后调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback
-     * 事件触发时调用的回调函数。
-     * @param options
-     * (可选) 用于过滤事件的选项。
-     * @returns
-     * 返回传入的回调函数，可用于后续取消订阅。
+     * @param callback - 要添加的回调函数。
+     * @param options - （可选）用于过滤数据驱动实体事件的选项。
+     * @returns 返回传入的回调函数，可用于取消订阅。
      */
     subscribe(
         callback: (arg0: DataDrivenEntityTriggerAfterEvent) => void,
@@ -24,14 +23,13 @@ export class DataDrivenEntityTriggerAfterEventSignal {
     ): (arg0: DataDrivenEntityTriggerAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，该回调将在数据驱动实体事件被触发后调用。
+     * 移除一个将在数据驱动实体事件触发后调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可在早期执行模式下调用。
      *
-     * @param callback
-     * 要移除的回调函数。
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: DataDrivenEntityTriggerAfterEvent) => void): void;
 }

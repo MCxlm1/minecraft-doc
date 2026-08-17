@@ -10,7 +10,7 @@ export interface EntityDamageSource {
     cause: EntityDamageCause;
     /**
      * @remarks
-     * 造成伤害的可选实体。
+     * 可选的造成伤害的实体。
      *
      */
     damagingEntity?: Entity;

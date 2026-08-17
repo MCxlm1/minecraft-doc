@@ -1,6 +1,5 @@
 /**
- * 战利品物品条件，用于检查是否使用了合适的工具来触发战利品事件。
- * 可以描述物品类型、数量、耐久度、附魔或要比较的物品标签数组。
+ * 检查是否使用了合适的工具触发战利品事件的条件。可以描述物品类型、数量、耐久度、附魔或要比较的物品标签数组。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class MatchToolCondition extends LootItemCondition {
@@ -31,19 +30,19 @@ export class MatchToolCondition extends LootItemCondition {
     readonly itemName: string;
     /**
      * @remarks
-     * 物品标签数组，所有标签均需匹配此条件才能通过。
+     * 必须全部匹配此条件才能通过的物品标签数组。
      *
      */
     readonly itemTagsAll: string[];
     /**
      * @remarks
-     * 物品标签数组，其中至少 1 个标签需匹配此条件才能通过。
+     * 至少匹配其中一个即可通过此条件的物品标签数组。
      *
      */
     readonly itemTagsAny: string[];
     /**
      * @remarks
-     * 物品标签数组，其中恰好 0 个标签需匹配此条件才能通过。
+     * 零个匹配即可通过此条件的物品标签数组。
      *
      */
     readonly itemTagsNone: string[];

@@ -1,5 +1,6 @@
 /**
- * 包含关于特定方块随机刻的信息。
+ * 包含关于特定方块随机
+ * 刻的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentRandomTickEvent extends BlockEvent {

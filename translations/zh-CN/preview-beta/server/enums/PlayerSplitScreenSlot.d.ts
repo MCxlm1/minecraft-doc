@@ -4,7 +4,7 @@
 export enum PlayerSplitScreenSlot {
     /**
      * @remarks
-     * 分屏会话中的第一个玩家。这是主要玩家。
+     * 分屏会话中的第一个玩家。这是主玩家。
      *
      */
     First = 'First',

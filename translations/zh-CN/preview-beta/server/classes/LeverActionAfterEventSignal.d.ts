@@ -1,5 +1,6 @@
 /**
- * 管理连接到拉杆移动（激活或停用）的回调。
+ * 管理与拉杆移动相关的回调
+ * （激活或取消激活）。
  * @example leverActionEvent.ts
  * ```typescript
  * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from '@minecraft/server';
@@ -38,22 +39,25 @@ export class LeverActionAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当拉杆移动（激活或停用）时将被调用。
+     * 添加一个回调，当拉杆被移动（激活或取消激活）时将调用该回调。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
+     * @param callback - 要添加的回调函数。
+     * @returns - 返回传入的回调函数。
      */
     subscribe(callback: (arg0: LeverActionAfterEvent) => void): (arg0: LeverActionAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在拉杆移动（激活或停用）时被调用。
+     * 移除一个回调，使其在拉杆被移动（激活或取消激活）时不再被调用。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: LeverActionAfterEvent) => void): void;
 }

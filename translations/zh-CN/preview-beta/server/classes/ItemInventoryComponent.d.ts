@@ -1,12 +1,12 @@
 /**
- * 此组件用于添加了“储物物品”组件的物品。
- * 可以访问和修改该物品的库存容器。
+ * 该组件添加到带有 `Storage Item` 组件的物品上。
+ * 可以访问和修改此物品的库存容器。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemInventoryComponent extends ItemComponent {
     private constructor();
     /**
-     * @throws 使用时此属性可能抛出异常。
+     * @throws 使用此属性时可能抛出错误。
      *
      * {@link InvalidContainerError}
      */

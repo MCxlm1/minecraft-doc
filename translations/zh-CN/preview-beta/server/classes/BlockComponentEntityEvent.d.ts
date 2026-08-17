@@ -1,5 +1,5 @@
 /**
- * 包含世界中某个实体向此方块发送的事件相关信息。
+ * 包含由实体发送给世界中此方块的事件相关信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentEntityEvent extends BlockEvent {
@@ -18,7 +18,7 @@ export class BlockComponentEntityEvent extends BlockEvent {
     readonly entitySource: Entity;
     /**
      * @remarks
-     * 实体触发的该事件的名称。
+     * 实体触发的事件的名称。
      *
      */
     readonly name: string;

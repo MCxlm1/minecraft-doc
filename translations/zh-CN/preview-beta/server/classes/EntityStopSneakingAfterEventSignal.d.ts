@@ -6,18 +6,15 @@ export class EntityStopSneakingAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个当实体停止潜行时会被调用的回调函数。
+     * 添加一个回调，当实体停止潜行时将调用该回调。
      *
      * 此函数无法在受限执行模式下调用。
      *
      * 此函数可在早期执行模式下调用。
      *
-     * @param callback
-     * 当实体停止潜行时要调用的回调函数。
-     * @param options
-     * 可选的事件监听选项。
-     * @returns
-     * 返回传入的回调函数本身，可用于取消订阅。
+     * @param callback - 当实体停止潜行时要调用的回调函数。
+     * @param options - 可选的事件选项。
+     * @returns 返回一个可用于取消订阅的回调函数。
      */
     subscribe(
         callback: (arg0: EntityStopSneakingAfterEvent) => void,
@@ -25,14 +22,13 @@ export class EntityStopSneakingAfterEventSignal {
     ): (arg0: EntityStopSneakingAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个当实体停止潜行时会被调用的回调函数。
+     * 移除一个回调，使其不再在实体停止潜行时被调用。
      *
      * 此函数无法在受限执行模式下调用。
      *
      * 此函数可在早期执行模式下调用。
      *
-     * @param callback
-     * 需要移除的回调函数。
+     * @param callback - 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: EntityStopSneakingAfterEvent) => void): void;
 }

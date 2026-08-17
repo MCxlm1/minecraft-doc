@@ -17,7 +17,7 @@ export class ItemStartUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回在充能完成其周期之前剩余的时间（以刻为单位）。
+     * 返回充能完成其周期前剩余的时间（以刻为单位）。
      *
      */
     readonly useDuration: number;

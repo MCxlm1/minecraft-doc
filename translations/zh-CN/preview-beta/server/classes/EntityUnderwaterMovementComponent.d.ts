@@ -1,5 +1,5 @@
 /**
- * 定义该实体在水下的常规移动速度。
+ * 定义此实体在水下的通用移动速度。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityUnderwaterMovementComponent extends EntityAttributeComponent {

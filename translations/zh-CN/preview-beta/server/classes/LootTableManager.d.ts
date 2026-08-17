@@ -13,9 +13,9 @@ export class LootTableManager {
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组；如果提供的工具不足以挖掘该方块，则为 undefined。
+     * 如果没有掉落战利品，则可能为空；如果提供的工具不足以挖掘该方块，则为 undefined。
      * @throws
-     * 如果方块位于未加载的区块中，或方块的位置超出世界边界，则抛出错误。
+     * 如果方块位于未加载的区块中，或方块的位置超出世界边界，则抛出异常。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -26,20 +26,20 @@ export class LootTableManager {
     generateLootFromBlock(block: Block, tool?: ItemStack): ItemStack[] | undefined;
     /**
      * @remarks
-     * 从指定的方块置换生成战利品，如同该方块已被挖掘。
+     * 从给定的方块排列生成战利品，如同该方块排列已被挖掘。
      *
      * @param blockPermutation
-     * 要从中生成战利品的方块置换。
+     * 要从中生成战利品的方块排列。
      * @param tool
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组；如果提供的工具不足以挖掘该方块，则为 undefined。
+     * 如果没有掉落战利品，则可能为空；如果提供的工具不足以挖掘该方块，则为 undefined。
      */
     generateLootFromBlockPermutation(blockPermutation: BlockPermutation, tool?: ItemStack): ItemStack[] | undefined;
     /**
      * @remarks
-     * 从指定的方块类型生成战利品，如同该方块已被挖掘。
+     * 从给定的方块类型生成战利品，如同该方块类型已被挖掘。
      *
      * @param scriptBlockType
      * 要从中生成战利品的方块类型。
@@ -47,12 +47,12 @@ export class LootTableManager {
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组；如果提供的工具不足以挖掘该方块，则为 undefined。
+     * 如果没有掉落战利品，则可能为空；如果提供的工具不足以挖掘该方块，则为 undefined。
      */
     generateLootFromBlockType(scriptBlockType: BlockType, tool?: ItemStack): ItemStack[] | undefined;
     /**
      * @remarks
-     * 从指定实体生成战利品，如同该实体已被击杀。
+     * 从给定实体生成战利品，如同该实体已被击杀。
      *
      * @param entity
      * 要从中生成战利品的实体。
@@ -60,15 +60,16 @@ export class LootTableManager {
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组；如果实体无效，则为 undefined。
-     * @throws 如果实体无效，将抛出错误。
+     * 如果没有掉落战利品，则可能为空；如果实体无效，则为 undefined。
+     * @throws
+     * 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     generateLootFromEntity(entity: Entity, tool?: ItemStack): ItemStack[] | undefined;
     /**
      * @remarks
-     * 从指定的实体类型生成战利品，如同该实体已被击杀。
+     * 从给定的实体类型生成战利品，如同该实体类型已被击杀。
      *
      * @param entityType
      * 要从中生成战利品的实体类型。
@@ -76,12 +77,12 @@ export class LootTableManager {
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组。
+     * 如果没有掉落战利品，则可能为空。
      */
     generateLootFromEntityType(entityType: EntityType, tool?: ItemStack): ItemStack[] | undefined;
     /**
      * @remarks
-     * 从指定的战利品表生成战利品。
+     * 从给定的战利品表生成战利品。
      *
      * @param lootTable
      * 要从中生成战利品的战利品表。
@@ -89,7 +90,7 @@ export class LootTableManager {
      * 可选。用于掠夺操作的工具。
      * @returns
      * 从战利品掉落事件中掉落的物品实例数组。
-     * 如果没有掉落战利品则为空数组；如果提供的工具不足以挖掘该方块，则为 undefined。
+     * 如果没有掉落战利品，则可能为空；如果提供的工具不足以挖掘该方块，则为 undefined。
      */
     generateLootFromTable(lootTable: LootTable, tool?: ItemStack): ItemStack[] | undefined;
     /**
@@ -97,9 +98,10 @@ export class LootTableManager {
      * 从世界的当前注册表中检索单个战利品表。
      *
      * @param path
-     * 要检索的战利品表路径。不包含文件扩展名或 'loot_tables/' 文件夹前缀。示例：`entities/creeper`。
+     * 要检索的战利品表路径。不包含文件扩展名或 'loot_tables/' 文件夹前缀。示例：
+     * `entities/creeper`。
      * @returns
-     * 如果找到战利品表，则返回一个 LootTable；如果提供的路径不对应现有的战利品表，则返回 `undefined`。
+     * 如果找到对应战利品表，则返回 LootTable；如果提供的路径不对应任何现有战利品表，则返回 `undefined`。
      */
     getLootTable(path: string): LootTable | undefined;
 }

@@ -1,11 +1,11 @@
 /**
  * 为 {@link
- * StructureManager.placeJigsaw} 提供额外的选项。
+ * StructureManager.placeJigsaw} 提供额外选项。
  */
 export interface JigsawPlaceOptions {
     /**
      * @remarks
-     * 是否在结构中包含实体。
+     * 结构是否应包含实体。
      * 默认为 true。
      *
      */

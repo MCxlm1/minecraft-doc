@@ -1,5 +1,5 @@
 /**
- * 包含关于一个实体将要受到伤害的相关信息。
+ * 包含与将要受伤的实体相关的信息。
  */
 export class EntityHurtBeforeEvent {
     private constructor();
@@ -12,13 +12,13 @@ export class EntityHurtBeforeEvent {
     damage: number;
     /**
      * @remarks
-     * 可能施加了此伤害的实体来源信息。
+     * 可能造成此伤害的实体的来源信息。
      *
      */
     readonly damageSource: EntityDamageSource;
     /**
      * @remarks
-     * 将要受到伤害的实体。
+     * 将要受伤的实体。
      *
      */
     readonly hurtEntity: Entity;

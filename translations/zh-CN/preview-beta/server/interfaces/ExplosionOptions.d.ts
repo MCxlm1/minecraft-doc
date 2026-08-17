@@ -33,25 +33,25 @@
 export interface ExplosionOptions {
     /**
      * @remarks
-     * 爆炸的某些部分是否也会影响水下。
+     * 爆炸是否也会影响水下部分。
      *
      */
     allowUnderwater?: boolean;
     /**
      * @remarks
-     * 爆炸是否会破坏爆炸范围内的方块。
+     * 爆炸是否会破坏爆炸半径内的方块。
      *
      */
     breaksBlocks?: boolean;
     /**
      * @remarks
-     * 如果为 true，则爆炸会在爆炸范围内或附近引发火灾。
+     * 若为 true，爆炸会在爆炸半径内或附近引发火灾。
      *
      */
     causesFire?: boolean;
     /**
      * @remarks
-     * 可选的爆炸来源。
+     * 爆炸的可选来源。
      *
      */
     source?: Entity;

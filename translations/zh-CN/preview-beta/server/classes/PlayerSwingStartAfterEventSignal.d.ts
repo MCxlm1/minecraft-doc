@@ -1,19 +1,22 @@
 /**
- * 管理与玩家开始挥动其手臂（例如攻击、使用物品、交互）时连接的回调。
+ * 管理在玩家开始挥动手臂时（例如攻击、使用物品或交互）触发的回调。
  */
 export class PlayerSwingStartAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在玩家开始挥动其手臂（例如攻击、使用物品、交互）时被调用。
+     * 添加一个回调，当玩家开始挥动手臂时（例如攻击、使用物品或交互）将调用该回调。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 当玩家开始挥动其手臂时要执行的回调函数。
-     * @param options - （可选）用于配置事件监听的附加选项。
-     * @returns 传入的回调函数，可用于取消订阅。
+     * @param callback
+     * 当玩家开始挥动手臂时将调用的回调函数。
+     * @param options
+     * （可选）事件回调的选项。
+     * @returns
+     * 返回传入的回调函数。
      */
     subscribe(
         callback: (arg0: PlayerSwingStartAfterEvent) => void,
@@ -21,13 +24,14 @@ export class PlayerSwingStartAfterEventSignal {
     ): (arg0: PlayerSwingStartAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在玩家开始挥动其手臂（例如攻击、使用物品、交互）时被调用的回调。
+     * 移除一个回调，使其在玩家开始挥动手臂时（例如攻击、使用物品或交互）不再被调用。
      *
-     * 此函数无法在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调函数。
+     * @param callback
+     * 要移除的回调函数。
      */
     unsubscribe(callback: (arg0: PlayerSwingStartAfterEvent) => void): void;
 }

@@ -1,23 +1,23 @@
 /**
- * 管理与 world.gameRules 属性更改时连接的回调。
+ * 管理与世界 gameRules 属性变化时连接的回调。
  */
 export class GameRuleChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当 world.gameRules 属性更改时将被调用。
+     * 添加一个在世界 gameRules 属性发生变化时调用的回调函数。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
      * @param callback - 要添加的回调函数。
-     * @returns 返回传递给 subscribe 的回调函数本身。
+     * @returns 返回传入的回调函数。
      */
     subscribe(callback: (arg0: GameRuleChangeAfterEvent) => void): (arg0: GameRuleChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，使其不再在 world.gameRules 属性更改时被调用。
+     * 移除一个在世界 gameRules 属性发生变化时会调用的回调函数。
      *
      * This function can't be called in restricted-execution mode.
      *

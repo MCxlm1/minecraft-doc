@@ -10,7 +10,7 @@ export interface AnimationOptions {
     animation: SplineAnimation;
     /**
      * @remarks
-     * 相机动画的总时间（秒）。
+     * 相机动画的总时长（秒）。
      *
      */
     totalTimeSeconds: number;

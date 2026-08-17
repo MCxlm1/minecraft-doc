@@ -16,13 +16,13 @@ export enum Direction {
     East = 'East',
     /**
      * @remarks
-     * 返回此物品北侧（z + 1）的 {@link Block}。
+     * 返回此物品北侧（z - 1）的 {@link Block}。
      *
      */
     North = 'North',
     /**
      * @remarks
-     * 返回此物品南侧（z - 1）的 {@link Block}。
+     * 返回此物品南侧（z + 1）的 {@link Block}。
      *
      */
     South = 'South',

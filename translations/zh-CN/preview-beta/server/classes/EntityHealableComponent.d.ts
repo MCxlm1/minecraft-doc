@@ -1,5 +1,5 @@
 /**
- * 定义与此实体进行交互以治疗它的行为。
+ * 定义与此实体交互以治疗它的方式。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityHealableComponent extends EntityComponent {
@@ -14,10 +14,10 @@ export class EntityHealableComponent extends EntityComponent {
     static readonly componentId = 'minecraft:healable';
     /**
      * @remarks
-     * 一组可以专门治疗此实体的物品。
+     * 一组可以专门治疗该实体的物品。
      *
      * @returns
-     * 可用于治疗该实体的物品数组。
+     * 可用于治疗该实体的物品列表。
      * @throws 此函数可能抛出错误。
      */
     getFeedItems(): FeedItem[];

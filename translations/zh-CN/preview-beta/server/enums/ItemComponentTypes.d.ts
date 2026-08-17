@@ -1,5 +1,6 @@
 /**
- * 可通过 ItemStack.getComponent 函数访问的物品组件类型。
+ * 可通过函数 ItemStack.getComponent 访问的
+ * 物品组件类型。
  */
 export enum ItemComponentTypes {
     /**

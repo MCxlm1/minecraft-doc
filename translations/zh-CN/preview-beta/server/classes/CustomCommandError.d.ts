@@ -8,7 +8,7 @@ export class CustomCommandError extends Error {
      * @remarks
      * 错误原因。
      *
-     * 该属性可在早期执行模式下读取。
+     * 此属性可在早期执行模式下读取。
      *
      */
     readonly reason: CustomCommandErrorReason;

@@ -1,6 +1,7 @@
 /**
  * @beta
- * 管理与在聊天消息发送前触发的事件相关联的回调函数。
+ * 管理与聊天消息发送前触发的事件
+ * 相关的回调。
  * @example customCommand.ts
  * ```typescript
  * import { world, DimensionLocation } from '@minecraft/server';
@@ -33,28 +34,30 @@ export class ChatSendBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调函数，该函数将在新聊天消息发送前被调用。
+     * 添加一个回调，该回调将在新的聊天消息发送
+     * 之前被调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 该闭包在受限执行权限下被调用。
+     * 该闭包以受限执行权限调用。
      * @returns
-     * 返回一个在受限执行权限下被调用的闭包。
+     * 以受限执行权限调用的闭包。
      */
     subscribe(callback: (arg0: ChatSendBeforeEvent) => void): (arg0: ChatSendBeforeEvent) => void;
     /**
      * @remarks
-     * 移除一个回调函数，使其不再在新聊天消息发送前被调用。
+     * 移除一个在发送新的聊天消息之前
+     * 调用的回调。
      *
-     * 此函数不能在受限执行模式下调用。
+     * This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * This function can be called in early-execution mode.
      *
      * @param callback
-     * 该闭包在受限执行权限下被调用。
+     * 该闭包以受限执行权限调用。
      */
     unsubscribe(callback: (arg0: ChatSendBeforeEvent) => void): void;
 }

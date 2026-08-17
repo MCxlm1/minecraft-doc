@@ -1,5 +1,5 @@
 /**
- * 描述设备是什么类型的平台。
+ * 描述设备属于哪种平台。
  */
 export enum PlatformType {
     /**
@@ -16,7 +16,7 @@ export enum PlatformType {
     Desktop = 'Desktop',
     /**
      * @remarks
-     * 手持设备，如智能手机或平板电脑。
+     *  手持设备，如智能手机或平板电脑。
      *
      */
     Mobile = 'Mobile',

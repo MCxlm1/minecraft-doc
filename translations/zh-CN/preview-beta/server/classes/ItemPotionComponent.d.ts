@@ -1,14 +1,14 @@
 /**
- * 当存在于物品上时，此物品即为药水物品。
+ * 当此组件存在于物品上时，该物品即为药水物品。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemPotionComponent extends ItemComponent {
     private constructor();
     /**
      * @remarks
-     * 与药水物品关联的PotionDeliveryType。
+     * 与药水物品关联的 PotionDeliveryType。
      *
-     * @throws 该属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -17,9 +17,9 @@ export class ItemPotionComponent extends ItemComponent {
     readonly potionDeliveryType: PotionDeliveryType;
     /**
      * @remarks
-     * 与药水物品关联的PotionEffectType。
+     * 与药水物品关联的 PotionEffectType。
      *
-     * @throws 该属性在使用时可能抛出异常。
+     * @throws 此属性在使用时可能抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      *

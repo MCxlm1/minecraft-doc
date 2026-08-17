@@ -1,5 +1,5 @@
 /**
- * 包含与环境天气变化相关的信息。
+ * 包含与环境中天气变化相关的信息。
  */
 export class WeatherChangeAfterEvent {
     private constructor();

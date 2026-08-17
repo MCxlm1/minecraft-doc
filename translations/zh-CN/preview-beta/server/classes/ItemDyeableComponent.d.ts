@@ -1,5 +1,5 @@
 /**
- * 当存在于物品上时，该物品可以染色。
+ * 当此组件存在于物品上时，该物品可被染色。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemDyeableComponent extends ItemComponent {
@@ -16,7 +16,8 @@ export class ItemDyeableComponent extends ItemComponent {
      * @remarks
      * 返回物品的默认颜色。
      *
-     * @throws 此属性在使用时可能抛出错误。
+     * @throws
+     * 此属性在使用时可能抛出错误。
      */
     readonly defaultColor?: RGB;
     static readonly componentId = 'minecraft:dyeable';

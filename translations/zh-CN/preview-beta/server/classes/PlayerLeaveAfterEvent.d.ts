@@ -1,11 +1,11 @@
 /**
- * 包含有关已离开世界的玩家的信息。
+ * 包含关于已离开世界的玩家的信息。
  */
 export class PlayerLeaveAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 已离开世界的玩家的不透明字符串标识符。
+     * 离开世界的玩家的不透明字符串标识符。
      *
      */
     readonly playerId: string;

@@ -1,5 +1,6 @@
 /**
- * 支持注册一个在实体死亡后触发的事件。
+ * 支持注册一个在实体死亡后
+ * 触发的事件。
  */
 export class EntityDieAfterEventSignal {
     private constructor();
@@ -12,11 +13,13 @@ export class EntityDieAfterEventSignal {
      * This function can be called in early-execution mode.
      *
      * @param callback
-     * 实体死亡时要调用的函数。
+     * 当实体死亡时调用的函数。
      * @param options
-     * 用于订阅触发时的额外筛选选项。
+     * 用于订阅触发时的额外过滤选项，
+     * 当订阅触发时使用。
      * @returns
-     * 返回一个闭包，可用于后续调用以取消订阅。
+     * 返回一个闭包，可用于后续下游
+     * 取消订阅的调用。
      */
     subscribe(
         callback: (arg0: EntityDieAfterEvent) => void,
@@ -24,14 +27,12 @@ export class EntityDieAfterEventSignal {
     ): (arg0: EntityDieAfterEvent) => void;
     /**
      * @remarks
-     * 停止该事件在实体死亡时调用你的函数。
+     * 当实体死亡时，阻止此事件调用你的函数。
      *
      * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
-     * @param callback
-     * 需要取消订阅的函数。
      */
     unsubscribe(callback: (arg0: EntityDieAfterEvent) => void): void;
 }

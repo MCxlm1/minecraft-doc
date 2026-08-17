@@ -1,5 +1,5 @@
 /**
- * 按钮的状态，适用于键盘、控制器或触摸界面。
+ * 按钮在键盘、控制器或触摸界面上的状态。
  */
 export enum ButtonState {
     Pressed = 'Pressed',

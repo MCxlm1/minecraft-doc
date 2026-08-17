@@ -4,31 +4,31 @@
 export enum MemoryTier {
     /**
      * @remarks
-     * 超级低档的最大内存为1.5GB。
+     * 极低档的最大内存为 1.5GB。
      *
      */
     SuperLow = 0,
     /**
      * @remarks
-     * 低档的最大内存为2GB。
+     *  低档的最大内存为 2GB。
      *
      */
     Low = 1,
     /**
      * @remarks
-     * 中档的最大内存为4GB。
+     * 中档的最大内存为 4GB。
      *
      */
     Mid = 2,
     /**
      * @remarks
-     * 高档的最大内存为8GB。
+     * 高档的最大内存为 8GB。
      *
      */
     High = 3,
     /**
      * @remarks
-     * 超级高档的内存为8GB以上。
+     * 超高档的内存为 8GB 以上。
      *
      */
     SuperHigh = 4,

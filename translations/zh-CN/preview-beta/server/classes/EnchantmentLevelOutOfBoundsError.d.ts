@@ -1,3 +1,1 @@
-export class EnchantmentLevelOutOfBoundsError extends Error {
-    private constructor();
-}
+export class EnchantmentLevelOutOfBoundsError extends Error { private constructor(); }

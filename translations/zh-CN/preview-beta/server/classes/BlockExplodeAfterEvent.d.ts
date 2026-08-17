@@ -1,5 +1,6 @@
 /**
- * 包含有关特定方块发生爆炸的信息。
+ * 包含关于特定方块发生的爆炸
+ * 的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockExplodeAfterEvent extends BlockEvent {

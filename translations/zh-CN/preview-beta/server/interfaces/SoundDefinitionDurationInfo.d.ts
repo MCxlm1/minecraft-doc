@@ -5,7 +5,7 @@
 export interface SoundDefinitionDurationInfo {
     /**
      * @remarks
-     * 声音的总持续时间（秒），如声音定义中声明的那样。
+     * 声音的总持续时间（以秒为单位），如声音定义中所声明。
      *
      */
     duration: number;

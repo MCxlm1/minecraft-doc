@@ -1,22 +1,23 @@
 /**
- * 为 {@link StructureManager.createFromWorld} 提供额外的选项。
+ * 为{@link
+ * StructureManager.createFromWorld}提供额外选项。
  */
 export interface StructureCreateOptions {
     /**
      * @remarks
-     * 结构（Structure）中是否包含方块。默认为 true。
+     * 是否在结构中包含方块。默认为true。
      *
      */
     includeBlocks?: boolean;
     /**
      * @remarks
-     * 结构中是否包含实体。默认为 true。
+     * 是否在结构中包含实体。默认为true。
      *
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * 结构的保存方式。默认为 StructureSaveMode.World。
+     * 结构应如何保存。默认为StructureSaveMode.World。
      *
      */
     saveMode?: StructureSaveMode;

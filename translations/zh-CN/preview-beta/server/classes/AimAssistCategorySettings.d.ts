@@ -1,10 +1,12 @@
 /**
- * 与 AimAssistRegistry.addCategory 一起使用的设置，用于创建 AimAssistCategory。
+ * 与 AimAssistRegistry.addCategory 一起使用的设置，
+ * 用于创建 AimAssistCategory。
  */
 export class AimAssistCategorySettings {
     /**
      * @remarks
-     * 可选。未提供给 setBlockPriorities 的方块类型的默认目标优先级。
+     * 可选。未提供给 setBlockPriorities 的方块类型
+     * 所使用的默认目标优先级。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -12,7 +14,8 @@ export class AimAssistCategorySettings {
     defaultBlockPriority: number;
     /**
      * @remarks
-     * 可选。未提供给 setEntityPriorities 的实体类型的默认目标优先级。
+     * 可选。未提供给 setEntityPriorities 的实体类型
+     * 所使用的默认目标优先级。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -20,15 +23,18 @@ export class AimAssistCategorySettings {
     defaultEntityPriority: number;
     /**
      * @remarks
-     * 用于注册类别的唯一 ID。必须具有命名空间。
+     * 用于注册类别的唯一 ID。必须包含
+     * 命名空间。
      *
      */
     readonly identifier: string;
     /**
      * @remarks
-     * 构造函数，接受一个唯一 ID 以关联创建的 AimAssistCategory。必须具有命名空间。
+     * 构造函数，接受一个唯一 ID 以关联
+     * 所创建的 AimAssistCategory。必须包含命名空间。
      *
-     * @param identifier 用于创建 AimAssistCategory 的唯一 ID。必须具有命名空间。
+     * @param identifier
+     * 用于注册该类别的唯一 ID。
      */
     constructor(identifier: string);
     /**
@@ -36,7 +42,8 @@ export class AimAssistCategorySettings {
      * 获取用于方块目标选择的优先级设置。
      *
      * @returns
-     * 返回将方块 ID 映射到其优先级设置的记录。数值越大优先级越高。
+     * 将方块 ID 映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     getBlockPriorities(): Record<string, number>;
     /**
@@ -44,7 +51,8 @@ export class AimAssistCategorySettings {
      * 获取用于方块目标选择的优先级设置。
      *
      * @returns
-     * 返回将方块标签映射到其优先级设置的记录。数值越大优先级越高。
+     * 将方块标签映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     getBlockTagPriorities(): Record<string, number>;
     /**
@@ -52,7 +60,8 @@ export class AimAssistCategorySettings {
      * 获取用于实体目标选择的优先级设置。
      *
      * @returns
-     * 返回将实体 ID 映射到其优先级设置的记录。数值越大优先级越高。
+     * 将实体 ID 映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     getEntityPriorities(): Record<string, number>;
     /**
@@ -60,7 +69,8 @@ export class AimAssistCategorySettings {
      * 获取用于实体目标选择的优先级设置。
      *
      * @returns
-     * 返回将实体类型家族映射到其优先级设置的记录。数值越大优先级越高。
+     * 将实体类型家族映射到其优先级设置的 Record。
+     * 数值越大，优先级越高。
      */
     getEntityTypeFamilyPriorities(): Record<string, number>;
     /**
@@ -70,7 +80,8 @@ export class AimAssistCategorySettings {
      * This function can't be called in restricted-execution mode.
      *
      * @param blockPriorities
-     * 一个将方块 ID 映射到其优先级设置的记录。数值越大优先级越高。
+     * 将方块 ID 映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     setBlockPriorities(
         blockPriorities: Record<keyof typeof minecraftvanilladata.MinecraftBlockTypes | string, number>,
@@ -81,7 +92,9 @@ export class AimAssistCategorySettings {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param blockTagPriorities 一个将方块标签映射到其优先级设置的记录。数值越大优先级越高。
+     * @param blockTagPriorities
+     * 将方块标签映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     setBlockTagPriorities(blockTagPriorities: Record<string, number>): void;
     /**
@@ -91,7 +104,8 @@ export class AimAssistCategorySettings {
      * This function can't be called in restricted-execution mode.
      *
      * @param entityPriorities
-     * 一个将实体 ID 映射到其优先级设置的记录。数值越大优先级越高。
+     * 将实体 ID 映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     setEntityPriorities(
         entityPriorities: Record<keyof typeof minecraftvanilladata.MinecraftEntityTypes | string, number>,
@@ -102,7 +116,9 @@ export class AimAssistCategorySettings {
      *
      * This function can't be called in restricted-execution mode.
      *
-     * @param entityTypeFamilyPriorities 一个将实体类型家族映射到其优先级设置的记录。数值越大优先级越高。
+     * @param entityTypeFamilyPriorities
+     * 将实体类型家族映射到其优先级设置的记录。
+     * 数值越大，优先级越高。
      */
     setEntityTypeFamilyPriorities(entityTypeFamilyPriorities: Record<string, number>): void;
 }

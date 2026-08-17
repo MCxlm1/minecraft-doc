@@ -1,5 +1,5 @@
 /**
- * 与方块相关联的组件的基类型。
+ * 与方块关联的组件的基础类型。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponent extends Component {

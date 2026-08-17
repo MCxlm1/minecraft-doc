@@ -8,7 +8,8 @@ export class EntityNpcComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 当玩家首次与NPC交互时打开的对话场景。
+     * 当玩家首次与NPC交互时打开的
+     * DialogueScene。
      *
      * This property can't be edited in restricted-execution mode.
      *
@@ -16,7 +17,7 @@ export class EntityNpcComponent extends EntityComponent {
     defaultScene: string;
     /**
      * @remarks
-     * NPC向玩家显示的名称。
+     * NPC显示给玩家的名称。
      *
      * This property can't be edited in restricted-execution mode.
      *

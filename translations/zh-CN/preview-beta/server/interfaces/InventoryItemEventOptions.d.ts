@@ -1,10 +1,11 @@
 /**
- * 包含用于库存物品事件的附加过滤选项。
+ * 包含物品栏物品事件的额外过滤选项。
  */
 export interface InventoryItemEventOptions {
     /**
      * @remarks
-     * 要考虑的槽位索引。值应为正数。如果未指定，则考虑所有槽位。
+     * 要考虑的槽位索引。值应为正数。
+     * 如果未指定，则考虑所有槽位。
      *
      * 范围：[0, 1000]
      */
@@ -23,7 +24,7 @@ export interface InventoryItemEventOptions {
     excludeTags?: string[];
     /**
      * @remarks
-     * 指定是否仅忽略数量变化的标志。true 表示忽略数量变化，false 表示不忽略数量变化。
+     * 标志，用于指定仅忽略数量变化。为 true 时忽略数量变化，为 false 时不忽略数量变化。
      *
      */
     ignoreQuantityChange?: boolean;
@@ -41,7 +42,7 @@ export interface InventoryItemEventOptions {
     includeTags?: string[];
     /**
      * @remarks
-     * 要考虑的玩家库存类型。
+     * 要考虑的玩家物品栏类型。
      *
      */
     inventoryType?: PlayerInventoryType;

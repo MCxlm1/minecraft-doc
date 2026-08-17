@@ -1,12 +1,12 @@
 /**
- * 表示此实体的末影物品栏属性。该组件始终存在于玩家身上，当玩家访问末影箱时，其容器中的任何物品都会显示给玩家。
+ * 表示此实体的末影箱物品属性。该组件始终存在于玩家身上，其容器中的任何物品都会在玩家打开末影箱时显示。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityEnderInventoryComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 为此实体定义末影物品栏容器。如果实体已被移除，则该容器将未定义。
+     * 定义此实体的末影箱容器。如果实体已被移除，容器将为 undefined。
      *
      * @throws 此属性在使用时可能抛出错误。
      *

@@ -1,5 +1,6 @@
 /**
- * 当物品上存在此组件时，该物品可以应用附魔。
+ * 当物品上存在该组件时，
+ * 此物品可被附加魔咒。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ItemEnchantableComponent extends ItemComponent {
@@ -11,18 +12,18 @@ export class ItemEnchantableComponent extends ItemComponent {
     static readonly componentId = 'minecraft:enchantable';
     /**
      * @remarks
-     * 向物品堆叠添加一个附魔。
+     * 向物品实例添加一个魔咒。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param enchantment
-     * 要添加的附魔接口。
+     * 要添加的魔咒接口。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当魔咒类型不存在时抛出。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果附魔等级超出给定附魔类型的允许范围则抛出此异常。
+     * ScriptItemEnchantmentLevelOutOfBoundsError：当魔咒等级超出给定魔咒类型的允许范围时抛出。
      *
-     * ScriptItemEnchantmentTypeNotCompatibleError: 如果附魔与物品堆叠不兼容则抛出此异常。
+     * ScriptItemEnchantmentTypeNotCompatibleError：当魔咒与物品实例不兼容时抛出。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -36,18 +37,18 @@ export class ItemEnchantableComponent extends ItemComponent {
     addEnchantment(enchantment: Enchantment): void;
     /**
      * @remarks
-     * 向物品堆叠添加一个附魔列表。
+     * 向物品实例添加一组魔咒。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param enchantments
-     * 要添加的附魔列表。
+     * 要添加的魔咒列表。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果任何附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当任一魔咒类型不存在时抛出。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果任何附魔等级超出给定附魔类型的允许范围则抛出此异常。
+     * ScriptItemEnchantmentLevelOutOfBoundsError：当任一魔咒等级超出给定魔咒类型的允许范围时抛出。
      *
-     * ScriptItemEnchantmentTypeNotCompatibleError: 如果任何附魔与物品堆叠不兼容则抛出此异常。
+     * ScriptItemEnchantmentTypeNotCompatibleError：当任一魔咒与物品实例不兼容时抛出。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -61,16 +62,16 @@ export class ItemEnchantableComponent extends ItemComponent {
     addEnchantments(enchantments: Enchantment[]): void;
     /**
      * @remarks
-     * 检查附魔是否可以添加到物品堆叠。
+     * 检查是否可向物品实例添加魔咒。
      *
      * @param enchantment
-     * 要添加的附魔接口。
+     * 要添加的魔咒接口。
      * @returns
-     * 如果附魔可以添加到物品堆叠则返回 true。
+     * 如果魔咒可添加到物品实例，则返回 true。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当魔咒类型不存在时抛出。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果附魔等级超出给定附魔类型的允许范围则抛出此异常。
+     * ScriptItemEnchantmentLevelOutOfBoundsError：当魔咒等级超出给定魔咒类型的允许范围时抛出。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -80,14 +81,14 @@ export class ItemEnchantableComponent extends ItemComponent {
     canAddEnchantment(enchantment: Enchantment): boolean;
     /**
      * @remarks
-     * 从物品堆叠中获取给定类型的附魔。
+     * 从物品实例获取指定类型的魔咒。
      *
      * @param enchantmentType
-     * 要获取的附魔类型。
+     * 要获取的魔咒类型。
      * @returns
-     * 如果物品堆叠上存在该附魔则返回附魔。
+     * 如果物品实例上存在该魔咒，则返回该魔咒。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当魔咒类型不存在时抛出。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}
@@ -95,23 +96,23 @@ export class ItemEnchantableComponent extends ItemComponent {
     getEnchantment(enchantmentType: EnchantmentType | string): Enchantment | undefined;
     /**
      * @remarks
-     * 获取物品堆叠上的所有附魔。
+     * 获取物品实例上的所有魔咒。
      *
      * @returns
-     * 返回物品堆叠上的附魔列表。
+     * 返回物品实例上的魔咒列表。
      * @throws 此函数可能抛出错误。
      */
     getEnchantments(): Enchantment[];
     /**
      * @remarks
-     * 检查物品堆叠是否具有给定的附魔类型。
+     * 检查物品实例是否具有指定魔咒类型。
      *
      * @param enchantmentType
-     * 要检查的附魔类型。
+     * 要检查的魔咒类型。
      * @returns
-     * 如果物品堆叠具有该附魔类型则返回 true。
+     * 如果物品实例具有该魔咒类型，则返回 true。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当魔咒类型不存在时抛出。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}
@@ -119,7 +120,7 @@ export class ItemEnchantableComponent extends ItemComponent {
     hasEnchantment(enchantmentType: EnchantmentType | string): boolean;
     /**
      * @remarks
-     * 移除应用于此物品堆叠的所有附魔。
+     * 移除该物品实例上的所有魔咒。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -128,14 +129,14 @@ export class ItemEnchantableComponent extends ItemComponent {
     removeAllEnchantments(): void;
     /**
      * @remarks
-     * 移除给定类型的附魔。
+     * 移除指定类型的魔咒。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param enchantmentType
-     * 要移除的附魔类型。
+     * 要移除的魔咒类型。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出此异常。
+     * ScriptItemEnchantmentUnknownIdError：当魔咒类型不存在时抛出。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}

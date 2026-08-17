@@ -1,5 +1,5 @@
 /**
- * 用于更改当前相机的视野。
+ * 用于更改当前摄像机的视野。
  */
 export interface CameraFovOptions {
     easeOptions?: EaseOptions;

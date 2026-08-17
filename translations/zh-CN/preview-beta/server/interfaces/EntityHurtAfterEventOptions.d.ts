@@ -1,10 +1,10 @@
 /**
- * 包含注册实体受伤后事件的可选参数。
+ * 包含用于注册实体受伤后事件的可选参数。
  */
 export interface EntityHurtAfterEventOptions {
     /**
      * @remarks
-     * 如果设置了此值，则此事件将仅针对匹配的伤害原因触发。
+     * 如果设置了此值，则此事件将仅针对匹配的伤害来源触发。
      *
      */
     allowedDamageCauses?: EntityDamageCause[];
@@ -22,7 +22,7 @@ export interface EntityHurtAfterEventOptions {
     entityFilter?: EntityFilter;
     /**
      * @remarks
-     * 如果设置了此值，则此事件将仅在受影响实体的类型与此参数匹配时触发。
+     * 如果设置了此值，则此事件将仅当受影响实体的类型与此参数匹配时触发。
      *
      */
     entityTypes?: string[];

@@ -1,23 +1,23 @@
 /**
- * 一个用于存放与世界辅助瞄准设置相关的API的容器。
+ * 一个容器，包含与世界的瞄准辅助设置相关的 API。
  */
 export class AimAssistRegistry {
     private constructor();
     /**
      * @remarks
-     * 未另行指定时使用的默认辅助瞄准类别ID。
+     * 未另行指定时使用的默认瞄准辅助类别 ID。
      *
      */
     static readonly DefaultCategoryId = 'minecraft:default';
     /**
      * @remarks
-     * 未另行指定时使用的默认辅助瞄准预设ID。
+     * 未另行指定时使用的默认瞄准辅助预设 ID。
      *
      */
     static readonly DefaultPresetId = 'minecraft:aim_assist_default';
     /**
      * @remarks
-     * 向注册表中添加一个辅助瞄准类别。
+     * 向注册表添加一个瞄准辅助类别。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -38,7 +38,7 @@ export class AimAssistRegistry {
     addCategory(category: AimAssistCategorySettings): AimAssistCategory;
     /**
      * @remarks
-     * 向注册表中添加一个辅助瞄准预设。
+     * 向注册表添加一个瞄准辅助预设。
      *
      * This function can't be called in restricted-execution mode.
      *
@@ -67,26 +67,26 @@ export class AimAssistRegistry {
     getCategories(): AimAssistCategory[];
     /**
      * @remarks
-     * 获取与提供ID关联的类别。
+     * 获取与所提供 ID 关联的类别。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param categoryId
-     * 要获取的类别ID。
+     * 要获取的类别的 ID。
      * @returns
-     * 如果存在，则返回类别对象，否则返回 undefined。
+     * 如果存在，则为类别对象；否则返回 undefined。
      */
     getCategory(categoryId: string): AimAssistCategory | undefined;
     /**
      * @remarks
-     * 获取与提供ID关联的预设。
+     * 获取与所提供 ID 关联的预设。
      *
      * This function can't be called in restricted-execution mode.
      *
      * @param presetId
-     * 要获取的预设ID。必须具有命名空间。
+     * 要获取的预设的 ID。必须包含命名空间。
      * @returns
-     * 如果存在，则返回预设对象，否则返回 undefined。
+     * 如果存在，则为预设对象；否则返回 undefined。
      */
     getPreset(presetId: string): AimAssistPreset | undefined;
     /**

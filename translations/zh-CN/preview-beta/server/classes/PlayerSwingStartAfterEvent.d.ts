@@ -1,5 +1,5 @@
 /**
- * 包含关于玩家开始挥动其手臂的信息。
+ * 包含玩家开始挥动手臂的相关信息。
  */
 export class PlayerSwingStartAfterEvent {
     private constructor();
@@ -11,13 +11,13 @@ export class PlayerSwingStartAfterEvent {
     readonly heldItemStack?: ItemStack;
     /**
      * @remarks
-     * 此事件的源玩家。
+     * 此事件的来源玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * 玩家挥动的来源，参见 {@link EntitySwingSource}。
+     * 玩家挥动的来源，请参阅 {@link EntitySwingSource}。
      *
      */
     readonly swingSource: EntitySwingSource;

@@ -1,17 +1,17 @@
 /**
- * 包含玩家成功与方块交互后事件的相关信息。
+ * 包含玩家成功与方块交互后的事件相关信息。
  */
 export class PlayerInteractWithBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 交互成功前的物品实例，如果手中为空则为 undefined。
+     * 交互成功前的物品实例，若主手为空则为 undefined。
      *
      */
     readonly beforeItemStack?: ItemStack;
     /**
      * @remarks
-     * 将被交互的方块。
+     * 将要被交互的方块。
      *
      */
     readonly block: Block;
@@ -29,13 +29,13 @@ export class PlayerInteractWithBlockAfterEvent {
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * 如果事件是在玩家初次按下交互按钮时触发，则该值为 true；如果事件是由按住交互按钮触发，则为 false。
+     * 若事件是在玩家初次按下交互按钮时触发，则该值为 true；若事件是由长按交互按钮触发，则为 false。
      *
      */
     readonly isFirstEvent: boolean;
     /**
      * @remarks
-     * 交互成功后的物品实例，如果手中为空则为 undefined。
+     * 交互成功后的物品实例，若主手为空则为 undefined。
      *
      */
     readonly itemStack?: ItemStack;

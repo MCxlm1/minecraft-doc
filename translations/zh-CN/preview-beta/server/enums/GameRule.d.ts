@@ -1,54 +1,52 @@
 /**
- * 游戏规则。这些值也可以通过
- * /gamerule 命令进行控制。
+ * 游戏规则。这些值也可以通过 /gamerule 命令进行控制。
  */
 export enum GameRule {
     /**
      * @remarks
-     * 命令方块是否应在执行命令时通知管理员。
+     * 命令方块执行命令时是否应通知管理员。
      *
      */
     CommandBlockOutput = 'commandBlockOutput',
     /**
      * @remarks
-     * 控制命令方块是否能够执行命令。
+     * 控制命令方块是否能执行命令。
      *
      */
     CommandBlocksEnabled = 'commandBlocksEnabled',
     /**
      * @remarks
-     * 控制昼夜循环是否进行。
+     * 控制昼夜循环是否推进。
      *
      */
     DoDayLightCycle = 'doDayLightCycle',
     /**
      * @remarks
-     * 控制非生物实体是否掉落物品。例如：物品展示框
+     * 控制非生物实体是否掉落物品，例如物品展示框。
      *
      */
     DoEntityDrops = 'doEntityDrops',
     /**
      * @remarks
-     * 控制火焰是否蔓延。
+     * 控制火势是否蔓延。
      *
      */
     DoFireTick = 'doFireTick',
     /**
      * @remarks
-     * 控制玩家是否立即重生还是显示死亡画面。
+     * 控制玩家死亡后是立即重生还是显示死亡界面。
      *
      */
     DoImmediateRespawn = 'doImmediateRespawn',
     /**
      * @remarks
-     * 控制玩家是否要处理不睡觉的后果（例如幻翼生成）。
+     * 控制玩家是否承受不睡觉带来的影响（例如幻翼生成）。
      *
      */
     DoInsomnia = 'doInsomnia',
     /**
      * @remarks
-     * 决定玩家是否只能合成那些他们已经解锁的配方——当
-     * dolimitedcrafting 设置为 true 时。
+     * 当 dolimitedcrafting 设置为 true 时，决定玩家是否只能合成那些已解锁的配方。
      *
      */
     DoLimitedCrafting = 'doLimitedCrafting',
@@ -60,7 +58,7 @@ export enum GameRule {
     DoMobLoot = 'doMobLoot',
     /**
      * @remarks
-     * 控制生物是否自然生成在世界中。
+     * 控制生物是否在世界中自然生成。
      *
      */
     DoMobSpawning = 'doMobSpawning',
@@ -72,31 +70,31 @@ export enum GameRule {
     DoTileDrops = 'doTileDrops',
     /**
      * @remarks
-     * 控制天气是否能够自然变化。
+     * 控制天气是否能自然变化。
      *
      */
     DoWeatherCycle = 'doWeatherCycle',
     /**
      * @remarks
-     * 控制实体是否受到溺水伤害。
+     * 控制实体是否因溺水受到伤害。
      *
      */
     DrowningDamage = 'drowningDamage',
     /**
      * @remarks
-     * 控制实体是否受到坠落伤害。
+     * 控制实体是否因坠落受到伤害。
      *
      */
     FallDamage = 'fallDamage',
     /**
      * @remarks
-     * 控制实体是否受到火焰伤害。
+     * 控制实体是否因火焰受到伤害。
      *
      */
     FireDamage = 'fireDamage',
     /**
      * @remarks
-     * 控制是否有冰冻伤害。
+     * 控制是否因冰冻受到伤害。
      *
      */
     FreezeDamage = 'freezeDamage',
@@ -108,7 +106,7 @@ export enum GameRule {
     FunctionCommandLimit = 'functionCommandLimit',
     /**
      * @remarks
-     * 控制玩家死亡时是否保留他们的物品栏。
+     * 控制玩家死亡时是否保留物品栏。
      *
      */
     KeepInventory = 'keepInventory',
@@ -120,66 +118,62 @@ export enum GameRule {
     MaxCommandChainLength = 'maxCommandChainLength',
     /**
      * @remarks
-     * 控制世界中是否可能发生生物破坏。
-     * 例如：爬行者爆炸破坏方块。
+     * 控制世界中是否会发生生物破坏行为。例如：苦力怕爆炸摧毁方块。
      *
      */
     MobGriefing = 'mobGriefing',
     /**
      * @remarks
-     * 控制玩家是否能够自然恢复生命值。
+     * 控制玩家是否能自然回复生命值。
      *
      */
     NaturalRegeneration = 'naturalRegeneration',
     /**
      * @remarks
-     * 需要睡觉的玩家百分比，以便推进到第二天。
+     * 进入下一天所需的入睡玩家百分比。
      *
      */
     PlayersSleepingPercentage = 'playersSleepingPercentage',
     /**
      * @beta
      * @remarks
-     * 控制哪些玩家航点会自动添加到玩家定位器栏。
+     * 控制哪些玩家路径点会自动添加到玩家的定位器栏中。
      *
      */
     PlayerWaypoints = 'playerWaypoints',
     /**
      * @remarks
-     * 控制投射物（具有投射物组件的实体，如箭、投掷的三叉戟或烟花）能否破坏某些支持此交互的方块（如
-     * 紫颂果、滴水石锥或饰纹陶罐）。对哪些投射物可以破坏哪些方块有限制。
+     * 控制投射物（具有投射物组件的实体，如箭、投掷的三叉戟或烟花）是否能破坏支持该交互的特定方块（例如紫颂果、滴水石或饰纹陶罐）。同时适用哪些投射物可以破坏哪些方块的限制。
      *
      */
     ProjectilesCanBreakBlocks = 'projectilesCanBreakBlocks',
     /**
      * @remarks
-     * 控制玩家是否可以互相伤害。
+     * 控制玩家之间是否能互相造成伤害。
      *
      */
     Pvp = 'pvp',
     /**
      * @remarks
-     * 控制随机刻发生的频率。值为0或更小将禁用随机刻。默认值是1。
+     * 控制随机 tick 发生的频率。值为 0 或更小时将禁用随机 tick。默认值为 1。
      *
      */
     RandomTickSpeed = 'randomTickSpeed',
     /**
      * @remarks
-     * 控制内置（原版）配方是否随着玩家游戏进程自动解锁
-     * （另一种替代方案是根据自定义游戏逻辑使用 /recipe 命令。）
+     * 控制当玩家在游戏进程中推进时，内置（原版）配方是否自动解锁（另一种替代方案是基于自定义游戏逻辑使用 /recipe 命令）。
      *
      */
     RecipesUnlock = 'recipesUnlock',
     /**
      * @remarks
-     * 控制重生方块（例如床、重生锚）是否在其他维度爆炸。
+     * 控制重生方块（如床、重生锚）是否在其他维度中爆炸。
      *
      */
     RespawnBlocksExplode = 'respawnBlocksExplode',
     /**
      * @remarks
-     * 控制命令输出是否显示给玩家。
-     * 同时控制命令方块输出是否默认存储。
+     * 控制命令输出是否显示给玩家。也控制命令方块的输出是否默认存储。
      *
      */
     SendCommandFeedback = 'sendCommandFeedback',
@@ -209,20 +203,19 @@ export enum GameRule {
     ShowDeathMessages = 'showDeathMessages',
     /**
      * @remarks
-     * 控制是否显示配方的标准玩家通知。当设置为 false 时，'玩家解锁了配方' 将不再作为玩家通知发送。
+     * 控制配方的标准玩家通知是否显示。当设置为 false 时，不再发送“玩家已解锁配方”的玩家通知。
      *
      */
     ShowRecipeMessages = 'showRecipeMessages',
     /**
      * @remarks
-     * 控制物品标签是否显示。例如：“Can Place On”、
-     * “Can Destroy”、物品锁定图标等。
+     * 控制物品标签是否显示。例如“可放置于”“可破坏”、物品锁定图标等。
      *
      */
     ShowTags = 'showTags',
     /**
      * @remarks
-     * 从世界出生点开始的半径，玩家被允许出生在这个范围内。不影响冒险模式。默认值是10个方块。
+     * 玩家在世界出生点周围允许出生的方块半径。不影响冒险模式。默认值为 10 个方块。
      *
      */
     SpawnRadius = 'spawnRadius',
@@ -234,7 +227,7 @@ export enum GameRule {
     TntExplodes = 'tntExplodes',
     /**
      * @remarks
-     * 控制方块被爆炸破坏时是否随机掉落战利品，还是所有方块都掉落战利品。默认为 false。
+     * 控制被爆炸摧毁的方块是随机掉落战利品还是所有方块都掉落战利品。默认为 false。
      *
      */
     TntExplosionDropDecay = 'tntExplosionDropDecay',

@@ -1,5 +1,5 @@
 /**
- * 此组件用于突出实体的移动。
+ * 该组件用于调整实体的移动方式。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityMovementBasicComponent extends EntityBaseMovementComponent {

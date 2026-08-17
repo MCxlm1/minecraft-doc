@@ -1,5 +1,5 @@
 /**
- * 用于启动全屏颜色淡入淡出。
+ * 用于启动全屏颜色淡化。
  */
 export interface CameraFadeOptions {
     /**
@@ -10,7 +10,7 @@ export interface CameraFadeOptions {
     fadeColor?: RGB;
     /**
      * @remarks
-     * 淡入、保持和淡出所需的时间（以秒为单位）。
+     * 淡入、保持和淡出阶段的时间（秒）。
      *
      */
     fadeTime?: CameraFadeTimeOptions;

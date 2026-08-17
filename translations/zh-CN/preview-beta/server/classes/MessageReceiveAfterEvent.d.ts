@@ -1,7 +1,6 @@
 /**
  * @beta
- * 一个当前内部使用的特定事件，用于传递
- * 从客户端到服务器的消息。
+ * 一个特定的当前内部事件，用于从客户端向服务器传递消息。
  */
 export class MessageReceiveAfterEvent {
     private constructor();
@@ -19,7 +18,7 @@ export class MessageReceiveAfterEvent {
     readonly message: string;
     /**
      * @remarks
-     * 发送该消息的玩家。
+     * 发送消息的玩家。
      *
      */
     readonly player: Player;

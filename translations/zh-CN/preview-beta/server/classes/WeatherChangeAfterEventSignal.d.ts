@@ -1,25 +1,25 @@
 /**
- * 管理与天气变化相关的回调。
+ * 管理与天气变化相关联的回调。
  */
 export class WeatherChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个在天气变化时调用的回调。
+     * 添加一个当天气变化时会被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在被限制执行的模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      */
     subscribe(callback: (arg0: WeatherChangeAfterEvent) => void): (arg0: WeatherChangeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在天气变化时调用的回调。
+     * 移除一个在天气变化时会被调用的回调。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数不能在被限制执行的模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      */
     unsubscribe(callback: (arg0: WeatherChangeAfterEvent) => void): void;

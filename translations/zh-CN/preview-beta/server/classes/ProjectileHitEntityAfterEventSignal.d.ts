@@ -1,29 +1,31 @@
 /**
- * 管理当弹射物击中实体时触发的回调。
+ * 管理当投射物击中实体时所连接的回调。
  */
 export class ProjectileHitEntityAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个当弹射物击中实体时调用的回调函数。
+     * 添加一个回调，当投射物击中实体时将被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
-     * @param callback - 要添加的回调函数。
-     * @returns 返回可传递给 unsubscribe 以移除该回调的函数。
+     * @param callback - 当投射物击中实体事件发生时调用的回调函数。
+     * @returns 返回传入的回调函数。
+     * @throws 在受限执行模式下调用此函数时抛出错误。
      */
     subscribe(callback: (arg0: ProjectileHitEntityAfterEvent) => void): (arg0: ProjectileHitEntityAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个在弹射物击中实体时被调用的回调函数。
+     * 移除一个回调，使其在投射物击中实体时不再被调用。
      *
-     * This function can't be called in restricted-execution mode.
+     * 此函数无法在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * 此函数可以在早期执行模式下调用。
      *
      * @param callback - 要移除的回调函数。
+     * @throws 在受限执行模式下调用此函数时抛出错误。
      */
     unsubscribe(callback: (arg0: ProjectileHitEntityAfterEvent) => void): void;
 }

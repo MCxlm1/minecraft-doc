@@ -1,10 +1,10 @@
 /**
- * 执行自定义命令所需的权限级别。
+ * 执行自定义命令所需的权限等级。
  */
 export enum CommandPermissionLevel {
     /**
      * @remarks
-     * 任何东西都可以运行此级别。
+     * 任何对象都可以运行此等级。
      *
      */
     Any = 0,

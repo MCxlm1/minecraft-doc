@@ -1,5 +1,5 @@
 /**
- * 包含实体效果的其他选项。
+ * 包含实体效果的附加选项。
  */
 export interface EntityEffectOptions {
     /**
@@ -10,7 +10,7 @@ export interface EntityEffectOptions {
     amplifier?: number;
     /**
      * @remarks
-     * 如果为 true，则在实体上有效果时显示粒子。
+     * 如果为true，则在实体上有效果时显示粒子。
      *
      */
     showParticles?: boolean;

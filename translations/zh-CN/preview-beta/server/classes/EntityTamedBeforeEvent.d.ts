@@ -18,7 +18,7 @@ export class EntityTamedBeforeEvent {
     readonly entity: Entity;
     /**
      * @remarks
-     * 尝试驯服该实体的实体。
+     * 正在尝试驯服实体的实体。
      *
      */
     readonly tamingEntity: Entity;

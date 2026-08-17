@@ -6,19 +6,19 @@ export class SetBookContentsFunction extends LootItemFunction {
     private constructor();
     /**
      * @remarks
-     * 书的作者姓名。
+     * 这本书作者的姓名。
      *
      */
     readonly author: string;
     /**
      * @remarks
-     * 要放入书页中的文本数组。
+     * 一个文本数组，用于放置在书的页面中。
      *
      */
     readonly pages: string[];
     /**
      * @remarks
-     * 书的标题。
+     * 这本书的标题。
      *
      */
     readonly title: string;
