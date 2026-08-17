@@ -7,6 +7,13 @@
  */
 import { SyntaxKind } from 'ts-morph';
 import crypto from 'crypto';
+import ts from 'typescript';
+
+/** 检查片段是否为合法 TypeScript（parseDiagnostics 为空） */
+function hasSyntaxError(content) {
+  const sf = ts.createSourceFile('x.d.ts', content, ts.ScriptTarget.Latest, true);
+  return !!(sf.parseDiagnostics && sf.parseDiagnostics.length);
+}
 
 const SkippedKinds = new Set([
   SyntaxKind.EndOfFileToken,
@@ -28,8 +35,11 @@ const KindToCategory = new Map([
 function jsdocOf(node) {
   const jsdocs = typeof node.getJsDocs === 'function' ? node.getJsDocs() : [];
   const jsdoc = jsdocs[0];
-  if (!jsdoc) return { start: null };
-  return { start: jsdoc.getStart() };
+  if (!jsdoc) return { start: null, text: '' };
+  return {
+    start: jsdoc.getStart(),
+    text: jsdoc.getText().replace(/^\/\*\*/, '').replace(/\*\/\s*$/, '').trim(),
+  };
 }
 
 /**
@@ -57,6 +67,7 @@ export function splitSymbols(sourceFile, translationsRoot) {
       end,
       path: `${translationsRoot}/${category}/${symbolName}.d.ts`,
       symbolName,
+      jsdocText: jsdoc.text,
       text: sourceFile.getFullText().slice(start, end),
     });
   });
@@ -64,14 +75,16 @@ export function splitSymbols(sourceFile, translationsRoot) {
 }
 
 /**
- * 用翻译片段整体替换符号区间（哈希一致才替换）。
- * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}> }}
+ * 用翻译片段整体替换符号区间（哈希一致且片段完整才替换）。
+ * 片段完整性校验：源符号有顶层 JSDoc 时，片段必须以 `/**` 开头（防用户编辑时丢失 JSDoc 包裹导致 d.ts 损坏）。
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}>, invalid:Array<{symbol,path,text,reason}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
   const applied = [];
   const missing = [];
   const expired = [];
+  const invalid = [];
   const edits = [];
   let changed = false;
 
@@ -92,6 +105,22 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 空片段视为未翻译
       continue;
     }
+    // 片段完整性校验
+    // 1) 源有顶层 JSDoc 但片段开头丢了 /** 包裹 → 片段损坏，不应用
+    if (p.jsdocText && !/^\/\*\*/.test(trans)) {
+      invalid.push({
+        symbol: p.symbolName,
+        path: p.path,
+        text: p.text,
+        reason: '顶层 JSDoc 包裹缺失（片段应以 /** 开头）',
+      });
+      continue;
+    }
+    // 2) 片段本身语法错误 → 不应用（避免合并 d.ts 损坏）
+    if (hasSyntaxError(trans)) {
+      invalid.push({ symbol: p.symbolName, path: p.path, text: p.text, reason: '片段语法错误' });
+      continue;
+    }
     edits.push({ start: p.start, end: p.end, text: trans });
     manifest[key] = { sourceHash: srcHash, status: 'translated' };
     applied.push(p.symbolName);
@@ -104,7 +133,7 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
     }
     sourceFile.replaceWithText(text);
   }
-  return { applied, missing, expired };
+  return { applied, missing, expired, invalid };
 }
 
 function sha1(s) {

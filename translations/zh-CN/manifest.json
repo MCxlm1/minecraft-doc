@@ -1,3 +1,2683 @@
 {
-  "comment": "翻译片段（照搬 sapi-typedoc）：translations/zh-CN/<版本>-<口味>/<模块>/<类型>/<符号>.d.ts，完整符号整体替换。manifest 记录源符号哈希，源变化则翻译失效隐藏。"
+  "comment": "翻译片段（照搬 sapi-typedoc）：translations/zh-CN/<版本>-<口味>/<模块>/<类型>/<符号>.d.ts，完整符号整体替换。manifest 记录源符号哈希，源变化则翻译失效隐藏。",
+  "preview-beta/server/AimAssistTargetMode": {
+    "sourceHash": "6628cbc00acff82dd3c4512337d4a3461ea3f250",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentTypes": {
+    "sourceHash": "e5355317092d3feb3205dc9523ade51cf6adc97c",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockPistonState": {
+    "sourceHash": "3ed0a2e3551f5c92c661699cd3dbe960142e1a9a",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockVolumeIntersection": {
+    "sourceHash": "48fea31e449096a3f10bf98719d1f470601a227f",
+    "status": "translated"
+  },
+  "preview-beta/server/BookErrorReason": {
+    "sourceHash": "42964d35bfb9accb9c97ac229a37e29dbaa1f7c4",
+    "status": "translated"
+  },
+  "preview-beta/server/ButtonState": {
+    "sourceHash": "fc6d9b06fabc3aeb4a160316533e80b1e545c072",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraShakeType": {
+    "sourceHash": "14ad1dfcc0877affe9ec9f264d16955610a0b7dd",
+    "status": "translated"
+  },
+  "preview-beta/server/CloneMode": {
+    "sourceHash": "8708581fc639a22896923f3e41979d9151ced8eb",
+    "status": "translated"
+  },
+  "preview-beta/server/CommandPermissionLevel": {
+    "sourceHash": "c1cfdc8db55fe5f1b48abbd4816c8cf8dfcab9ff",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerRulesErrorReason": {
+    "sourceHash": "bfae7d8e96233dbfad3b9612c03fd110964d224f",
+    "status": "translated"
+  },
+  "preview-beta/server/ControlScheme": {
+    "sourceHash": "304b5fc978a018826871b971bfed69e1e1db0c16",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandErrorReason": {
+    "sourceHash": "b6c56b6bbce6d18e175707e8bf6f737ec3323bb3",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandParamType": {
+    "sourceHash": "4fc9df3ea75d4842d2cbfdddebac055fa37c4fa0",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandSource": {
+    "sourceHash": "106ba49fccf5a19e4fb34fd6a0c48137ce377959",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandStatus": {
+    "sourceHash": "bee64ed61e7f5611715bacbcb51729a3c8960025",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomComponentNameErrorReason": {
+    "sourceHash": "40a5127ffc313dbc08cbeef2c0656677ff39d8cc",
+    "status": "translated"
+  },
+  "preview-beta/server/Difficulty": {
+    "sourceHash": "e1313308f3e4cc881d02983f94959236c7c6b81a",
+    "status": "translated"
+  },
+  "preview-beta/server/Direction": {
+    "sourceHash": "a397a488b35df730121ebdc4ebf6cc168a5ada0a",
+    "status": "translated"
+  },
+  "preview-beta/server/DisplaySlotId": {
+    "sourceHash": "3fc4825ba2222dd22c76c3395d8d7240cd861494",
+    "status": "translated"
+  },
+  "preview-beta/server/DyeColor": {
+    "sourceHash": "293cb4d3fbb4f79f5d3f2936d6e839f5505a17e8",
+    "status": "translated"
+  },
+  "preview-beta/server/EasingType": {
+    "sourceHash": "81fbd77840ff0003ad446786df4b2d8ccb1eabb9",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentSlot": {
+    "sourceHash": "a2d4d1647441ecbd47a4104f099e16b65b58ba1f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityAttachPoint": {
+    "sourceHash": "cf36254fc0ad7980e2fe76ad0a410d0a947f43ec",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityComponentTypes": {
+    "sourceHash": "70a5a4f5fdc711afdc53a9ee1ab1f2aeeaabc496",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityDamageCause": {
+    "sourceHash": "03f9aec3bfcba00022b7f547bff85b47dd4a6547",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealCause": {
+    "sourceHash": "13ed5b16a12a44f8eb6c588c2053450c82ef5dc1",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityInitializationCause": {
+    "sourceHash": "3b185530885cca39b0eaea150a49794cedd7370e",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySwingSource": {
+    "sourceHash": "ca138fcc6fe81b0c9d852e17e5ed9e446585c69d",
+    "status": "translated"
+  },
+  "preview-beta/server/EquipmentSlot": {
+    "sourceHash": "020f65928f445eb17534fce0bd4ee3b9a667771a",
+    "status": "translated"
+  },
+  "preview-beta/server/FluidType": {
+    "sourceHash": "87d05a25c3096c13038e3ab4cf4d6d657097b71a",
+    "status": "translated"
+  },
+  "preview-beta/server/GameMode": {
+    "sourceHash": "d655a78e0571e8cd2d523662dba5974d19f7dc64",
+    "status": "translated"
+  },
+  "preview-beta/server/GameRule": {
+    "sourceHash": "371ea6fb988ab711a84d23a7dd05d90c2cff52ad",
+    "status": "translated"
+  },
+  "preview-beta/server/GraphicsMode": {
+    "sourceHash": "e60f9f53ed5b53db109cf72af5ae84ef48d9ed24",
+    "status": "translated"
+  },
+  "preview-beta/server/HeldItemOption": {
+    "sourceHash": "f8551367d2a51a4baa8d531578543495088ab473",
+    "status": "translated"
+  },
+  "preview-beta/server/HudElement": {
+    "sourceHash": "a00933f41e257c93caab030970f6a37b2d68ff2b",
+    "status": "translated"
+  },
+  "preview-beta/server/HudVisibility": {
+    "sourceHash": "c4f230db1be24b95632113cf677546a8d3a56975",
+    "status": "translated"
+  },
+  "preview-beta/server/InputButton": {
+    "sourceHash": "a8b9434af52ed8959ed8345c61d751fa85ca0739",
+    "status": "translated"
+  },
+  "preview-beta/server/InputMode": {
+    "sourceHash": "e9a6ebde3102c43622c9f39ae220974ca758c6a3",
+    "status": "translated"
+  },
+  "preview-beta/server/InputPermissionCategory": {
+    "sourceHash": "87193d1729983e8e94021ed98f9e83101c52797f",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentTypes": {
+    "sourceHash": "4f6d51af4cd64367925d0591743273ef8e0f4fdd",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemLockMode": {
+    "sourceHash": "5534e95ffbe045ac6a84698effa049c1570ac248",
+    "status": "translated"
+  },
+  "preview-beta/server/LiquidSettings": {
+    "sourceHash": "13ad2afddece7e2c696d95028864ede47618189f",
+    "status": "translated"
+  },
+  "preview-beta/server/LiquidType": {
+    "sourceHash": "d1e73092a00bf41fcad242107cf0dd174f356e7a",
+    "status": "translated"
+  },
+  "preview-beta/server/LocatorBarErrorReason": {
+    "sourceHash": "11ae0ab3f6a764744b6ae1d0b1a567f8c8945c9e",
+    "status": "translated"
+  },
+  "preview-beta/server/MemoryTier": {
+    "sourceHash": "4b99832a199721e28fce0d16813a57d0c19e5a2d",
+    "status": "translated"
+  },
+  "preview-beta/server/MoonPhase": {
+    "sourceHash": "5f55bea37e42b06df6aef5ee0627fc4e0eb38ef2",
+    "status": "translated"
+  },
+  "preview-beta/server/MovementType": {
+    "sourceHash": "7d79c87d9f4e240d8c344f365f31ae7dbfb03c3e",
+    "status": "translated"
+  },
+  "preview-beta/server/NamespaceNameErrorReason": {
+    "sourceHash": "2020f2dade6955fa200fac2619b0f51446db6569",
+    "status": "translated"
+  },
+  "preview-beta/server/ObjectiveSortOrder": {
+    "sourceHash": "0b0a08a0fed9b62fea179d0453b778422e6ff4cb",
+    "status": "translated"
+  },
+  "preview-beta/server/PaletteColor": {
+    "sourceHash": "a31a8adc8a5fa6d80d97ddaae3d8cda4cf57fe48",
+    "status": "translated"
+  },
+  "preview-beta/server/PlatformType": {
+    "sourceHash": "b4b6c5b450327c7b0e64f55d1b091c9ce4feccca",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInventoryType": {
+    "sourceHash": "1480baed183d4619dd138b2b0792adb2558cc6f4",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerPermissionLevel": {
+    "sourceHash": "634c7cd514c93a0c3370b3e98dcda0f82916b338",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSplitScreenSlot": {
+    "sourceHash": "23cdc7efe8dfa0c6fb3e74f4d62e27bdfd6d7149",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerWaypointsMode": {
+    "sourceHash": "a2f76c836722b83fc42045d8c79c3546946b0727",
+    "status": "translated"
+  },
+  "preview-beta/server/ScoreboardIdentityType": {
+    "sourceHash": "ed60d5048ec36d7141fbf03bdbbe12e2cef23958",
+    "status": "translated"
+  },
+  "preview-beta/server/ScriptEventSource": {
+    "sourceHash": "0c5a07294768d999d3e70b55fc35429add7bcd9f",
+    "status": "translated"
+  },
+  "preview-beta/server/SignSide": {
+    "sourceHash": "69ebb267eccad00dd1587bc8f5a040d44b0f19ca",
+    "status": "translated"
+  },
+  "preview-beta/server/StickyType": {
+    "sourceHash": "6820cce5562d9001e327eb9c674f1625f2160c93",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureAnimationMode": {
+    "sourceHash": "009dc1647bacfbd15a32347470f5d890f95569e8",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureMirrorAxis": {
+    "sourceHash": "d8818f527512006053295bffee4ef650bbfa65aa",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureRotation": {
+    "sourceHash": "90d1827b62c69a56c927757a339d67383cacf430",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureSaveMode": {
+    "sourceHash": "629ebc63e1a45ec0e4447cbc057f50c78439a5ef",
+    "status": "translated"
+  },
+  "preview-beta/server/TickingAreaErrorReason": {
+    "sourceHash": "b59a1518a1b1ffa614040d19ddd6b3701309daf0",
+    "status": "translated"
+  },
+  "preview-beta/server/TimeOfDay": {
+    "sourceHash": "f22d855ddb6644be2d384910b21bbe15cff366a2",
+    "status": "translated"
+  },
+  "preview-beta/server/TintMethod": {
+    "sourceHash": "93a9aa9f2367cc8b7e5867c2e034f6e45b096204",
+    "status": "translated"
+  },
+  "preview-beta/server/WatchdogTerminateReason": {
+    "sourceHash": "b47efcb89bc51f73df508f796659cf6a2a226dcb",
+    "status": "translated"
+  },
+  "preview-beta/server/WaypointTexture": {
+    "sourceHash": "b55b354dff3c2c10e87fea13a60d0d4334078a1b",
+    "status": "translated"
+  },
+  "preview-beta/server/WeatherType": {
+    "sourceHash": "80dc402c1af399db5c664354cfac495dab131edb",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentReturnType": {
+    "sourceHash": "265ceecf005553d834d9249c6131b76686c5d158",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentTypeMap": {
+    "sourceHash": "5486a5cdfcd8b22008943e3cf754fac2c317dbc7",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockStateArg": {
+    "sourceHash": "f20a9addac107ddf4647c26ff42f80900df42ae0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityComponentReturnType": {
+    "sourceHash": "5b86024ac7f960294e74e98a0df0b8a1ce14437a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityComponentTypeMap": {
+    "sourceHash": "ab9a602efd8a414f83a18d1f0e62fef76972ef4e",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIdentifierType": {
+    "sourceHash": "f9cb12cbc03c6f3e348107b20e51e88e12f1df82",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentReturnType": {
+    "sourceHash": "645f48b4541aa2ff05cefa218c107550923bab66",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentTypeMap": {
+    "sourceHash": "76fd044ff5f3da45d4a93d33c3eb55aedc2fee7a",
+    "status": "translated"
+  },
+  "preview-beta/server/VanillaEntityIdentifier": {
+    "sourceHash": "88bb5dd8c1d696ef0ae869e27346c7595d675513",
+    "status": "translated"
+  },
+  "preview-beta/server/AimAssistCategory": {
+    "sourceHash": "735e374f53d0b115184b39a3b5f139672ca4407b",
+    "status": "translated"
+  },
+  "preview-beta/server/AimAssistCategorySettings": {
+    "sourceHash": "5120ca1133d57465e5abbf15eb9ea69e99c4475c",
+    "status": "translated"
+  },
+  "preview-beta/server/AimAssistPreset": {
+    "sourceHash": "c468efb5dbe08ebbea86485ba418219b93ed54cb",
+    "status": "translated"
+  },
+  "preview-beta/server/AimAssistPresetSettings": {
+    "sourceHash": "a3282c9cb70a7c21a7fb0c6f8d383ce97108a305",
+    "status": "translated"
+  },
+  "preview-beta/server/AimAssistRegistry": {
+    "sourceHash": "733f15d01c662a9d2e5887b0b8b2e8d7d60c0db6",
+    "status": "translated"
+  },
+  "preview-beta/server/BannerPattern": {
+    "sourceHash": "9ba2173a13b10c868a3f5c7e270eee683bdd6b26",
+    "status": "translated"
+  },
+  "preview-beta/server/BiomeType": {
+    "sourceHash": "27e90e96231a7df7c526c22a35aa476671f4316f",
+    "status": "translated"
+  },
+  "preview-beta/server/BiomeTypes": {
+    "sourceHash": "62897da2dbc01c3906716aabfa721654b29217a7",
+    "status": "translated"
+  },
+  "preview-beta/server/Block": {
+    "sourceHash": "1ad9b62bc7f5de22f4b955ee2df102e30b873d50",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockBoundingBoxUtils": {
+    "sourceHash": "1080b822fc4b947f5964f5f95267551c7fe818b4",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponent": {
+    "sourceHash": "f124d6373eb5370b9a15f209254e951e02d1c675",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentBlockBreakEvent": {
+    "sourceHash": "df3033b4e4786344726824d1f2b284834404ca33",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentBlockStateChangeEvent": {
+    "sourceHash": "7b4f53656147110c793b54256b1d4c465515783a",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentEntityEvent": {
+    "sourceHash": "366fb8f664623fa3f2a5171846cfbe05ec7daef4",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentEntityFallOnEvent": {
+    "sourceHash": "594ada3106b8767e028d9602712a81a7a4c97699",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentOnPlaceEvent": {
+    "sourceHash": "9daf28cae2a1f8c78eb4999a36954cc0ffecd139",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentPlayerBreakEvent": {
+    "sourceHash": "d34542604c4480c38e910ba9ad74c8c8bb583f14",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentPlayerInteractEvent": {
+    "sourceHash": "7f11d6364a499580c391bb757febcabf896ac74a",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentPlayerPlaceBeforeEvent": {
+    "sourceHash": "b086e7cce9d64bbea68cd871bdc4ab29262a6416",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentRandomTickEvent": {
+    "sourceHash": "32686e8e67176e576a7279198f03da70d90deedd",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentRedstoneUpdateEvent": {
+    "sourceHash": "6fe367e1634a530eb2e9126e1a487b63011bad4c",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentRegistry": {
+    "sourceHash": "04187510df5c74080f5f2e1142a6edc7c6f0497a",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentStepOffEvent": {
+    "sourceHash": "a58fafa90d81b4408e96c057096f7aeb8cda50d0",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentStepOnEvent": {
+    "sourceHash": "c210f08a2332a6d86823836a3d5f2a63ca8927c2",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockComponentTickEvent": {
+    "sourceHash": "ffb23c851d04c06a382554f879e7327900afc055",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockContainerClosedAfterEvent": {
+    "sourceHash": "0ea73f2588711f1df508de6d88f2f61b97274ba2",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockContainerClosedAfterEventSignal": {
+    "sourceHash": "46d51b790841bee4e9fcdd97b0ad5fa89669ab42",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockContainerOpenedAfterEvent": {
+    "sourceHash": "12586bae628ee52fc6df5722d7a95795c4e6fd17",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockContainerOpenedAfterEventSignal": {
+    "sourceHash": "0d7ad124fcce0dad9cf208a97f8dbe436c45d2d0",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponentInstance": {
+    "sourceHash": "2380c71f57e18f0741f672d96d621152ee5bee89",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockDynamicPropertiesComponent": {
+    "sourceHash": "035ab225762c626c0976fea47cb4af1ff5e53983",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockEvent": {
+    "sourceHash": "c1c54dd17c1e444c8fbbbfed38577380010881bc",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockExplodeAfterEvent": {
+    "sourceHash": "631ebf662334e986560f23aefd4ed03974fbe757",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockExplodeAfterEventSignal": {
+    "sourceHash": "4efc4ca45c0eb71009ad212811f4f7700125b21e",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockFluidContainerComponent": {
+    "sourceHash": "173aecb53ae2ceb9be5579178159b6f849d9c971",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockInstrumentComponent": {
+    "sourceHash": "f10bed90f9ce897f954decb19312160e50415cda",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockInventoryComponent": {
+    "sourceHash": "dfae40012922c5fcfa99e22e2a9ca02663939cbf",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockLocationIterator": {
+    "sourceHash": "303eb30e6ec3247074c4038cba46c005df524e59",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockMapColorComponent": {
+    "sourceHash": "6f54d094325bcca4634f28437b453d193b4c0fa1",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockMovableComponent": {
+    "sourceHash": "78851f55e67261e6a318703b17e8ac882da76186",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockPermutation": {
+    "sourceHash": "3137f0396ee36a8366ca8ee8fc4af699772a8893",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockPistonComponent": {
+    "sourceHash": "b6bc2b0158aa7a942ea6016e7fa7ab766c3e1777",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockPrecipitationInteractionsComponent": {
+    "sourceHash": "dcdae744a82058e5be0d82007f9a69888b97fa73",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockRecordPlayerComponent": {
+    "sourceHash": "08daa690ab641e0d7c430ae574c4042f8dcadf58",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockRedstoneProducerComponent": {
+    "sourceHash": "409d038a57310114d776c22508615b75dc6cb04e",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockSignComponent": {
+    "sourceHash": "ec4f969efea3d2f77d897f08246af99db6966b29",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockStates": {
+    "sourceHash": "40d20394d04096cd3b82b6d0f85c12a345627ad8",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockStateType": {
+    "sourceHash": "e7fd1142cccfbe04fbdc48fd517b9c0813f3dd10",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockType": {
+    "sourceHash": "4177c2401f583fa42a801dbc0f0ccebad753d3ac",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockTypes": {
+    "sourceHash": "b47039cf996b3f4e919cbc99b116ec70d1b5ee3b",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockVolume": {
+    "sourceHash": "1ec6cf9b7f7904a300960786ea9149d020f17ba6",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockVolumeBase": {
+    "sourceHash": "80a4caff6566f8079ec5ffc5271db3a326dfaf78",
+    "status": "translated"
+  },
+  "preview-beta/server/ButtonPushAfterEvent": {
+    "sourceHash": "f5237130f5ea56b6edb8829dd9bec3e34493a811",
+    "status": "translated"
+  },
+  "preview-beta/server/ButtonPushAfterEventSignal": {
+    "sourceHash": "a30c0763b58b656b9497eca030d078d40c548da6",
+    "status": "translated"
+  },
+  "preview-beta/server/Camera": {
+    "sourceHash": "42bb56a4d798b0ad9d2d0cea4fb4aef0facbbe83",
+    "status": "translated"
+  },
+  "preview-beta/server/CarryOverBlockEntityDataFunction": {
+    "sourceHash": "87267c941d548cc96752745cdd1377c8b1a32aba",
+    "status": "translated"
+  },
+  "preview-beta/server/CatmullRomSpline": {
+    "sourceHash": "30d5dee88effca93cbb12cb4d07fef0db37b5845",
+    "status": "translated"
+  },
+  "preview-beta/server/ChatSendAfterEvent": {
+    "sourceHash": "1d097f91b4f5e2f3cd2ab3160331f9d5ec09ace9",
+    "status": "translated"
+  },
+  "preview-beta/server/ChatSendAfterEventSignal": {
+    "sourceHash": "84f38e0e45de7d6e529729a9ce68432e0be86809",
+    "status": "translated"
+  },
+  "preview-beta/server/ChatSendBeforeEvent": {
+    "sourceHash": "931ad011ff95687b06a73f06d4113f2b164c7c30",
+    "status": "translated"
+  },
+  "preview-beta/server/ChatSendBeforeEventSignal": {
+    "sourceHash": "13b58a171abbc1fa1d5bdfdd2fe676236477a6c3",
+    "status": "translated"
+  },
+  "preview-beta/server/ClientSystemInfo": {
+    "sourceHash": "d6118b06fc097676d5b9aa37dff14fe1dba21cad",
+    "status": "translated"
+  },
+  "preview-beta/server/CommandResult": {
+    "sourceHash": "60ec014a6676fff19d3f672de22e0064394c0095",
+    "status": "translated"
+  },
+  "preview-beta/server/Component": {
+    "sourceHash": "1ff91cbcc5914452734599319adf12372e38c8d0",
+    "status": "translated"
+  },
+  "preview-beta/server/Container": {
+    "sourceHash": "98f31dde4986e77d2c3c48d01d63362ae92f4ba9",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerSlot": {
+    "sourceHash": "cfc12d2ba3173079edb2550eb27c7f4e3e40ee2a",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandOrigin": {
+    "sourceHash": "2568f7cf38710e94305e585e56440e49dbc30592",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandRegistry": {
+    "sourceHash": "2a3b30eb40f13b2c32d4ff5616181e31d6e3a3c9",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomComponentParameters": {
+    "sourceHash": "aee29122f25f9fef960c1b5e2ddcfdda333014d4",
+    "status": "translated"
+  },
+  "preview-beta/server/DamagedByEntityCondition": {
+    "sourceHash": "2262d4c78646e1eebf603e921df952adf3ae5f82",
+    "status": "translated"
+  },
+  "preview-beta/server/DataDrivenEntityTriggerAfterEvent": {
+    "sourceHash": "ef43bb95f4f78ac52d5dd6b190b76f2cb5a073d9",
+    "status": "translated"
+  },
+  "preview-beta/server/DataDrivenEntityTriggerAfterEventSignal": {
+    "sourceHash": "c2f81dfcd81d6ebbeb31775c7bf0a9331ac377ed",
+    "status": "translated"
+  },
+  "preview-beta/server/Dimension": {
+    "sourceHash": "1a8a637e0e5eacc943d1adca4aa76a2937fc64f3",
+    "status": "translated"
+  },
+  "preview-beta/server/DimensionRegistry": {
+    "sourceHash": "9b2af9ccf7339e4451c9599c88f448b950e9f93b",
+    "status": "translated"
+  },
+  "preview-beta/server/DimensionType": {
+    "sourceHash": "3ea354d1aba9d8096e70bd71f7a086b4219f506b",
+    "status": "translated"
+  },
+  "preview-beta/server/DimensionTypes": {
+    "sourceHash": "9fd3c7e50f0365269d64073fdfd621fe1205556e",
+    "status": "translated"
+  },
+  "preview-beta/server/Effect": {
+    "sourceHash": "3c47e80e19f8079cc1e384be090ca614f9c47cf1",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectAddAfterEvent": {
+    "sourceHash": "e51494af819e4f58fc3221cb805224b8b8117689",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectAddAfterEventSignal": {
+    "sourceHash": "7e37053f0906576865db833297d73e3bbfdea133",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectAddBeforeEvent": {
+    "sourceHash": "d79b61cb5fc2915327aed9b552c9178a76d1074b",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectAddBeforeEventSignal": {
+    "sourceHash": "eeb89ed4cc1b94761ae13d30d0318a0941e44756",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectType": {
+    "sourceHash": "e8ca23a9f796c7ee6bd317e4e45e84b9577c964b",
+    "status": "translated"
+  },
+  "preview-beta/server/EffectTypes": {
+    "sourceHash": "b89642a64dee35ca0b0dfe010f364c791ef1bce6",
+    "status": "translated"
+  },
+  "preview-beta/server/EmptyLootItem": {
+    "sourceHash": "e849cd217ea9a85769882d7bfeacbd2c2829c2e9",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantInfo": {
+    "sourceHash": "61f68f4d6a41602cbf58b3bc2925c94482672835",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentType": {
+    "sourceHash": "fd8620edbe35c3057c9e15a155c72b3e313cc694",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentTypes": {
+    "sourceHash": "27243e8b8a798f404d9c340217e69cadd07cec72",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantRandomEquipmentFunction": {
+    "sourceHash": "8f6901b11a1987cb8990196e48cfeb2a51f90a1e",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantRandomlyFunction": {
+    "sourceHash": "3a5c757082bc3881383c2fa4324913ebb55543f4",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantWithLevelsFunction": {
+    "sourceHash": "53f7eb40128951223f039a50f0c545ad79b20f22",
+    "status": "translated"
+  },
+  "preview-beta/server/Entity": {
+    "sourceHash": "b35acb248c62007e9044595e03960ceebe869424",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityAgeableComponent": {
+    "sourceHash": "bea1511ad9c3a8a0d18d424a696b884c8a3fe3ab",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityAttributeComponent": {
+    "sourceHash": "618419d0202f6b0b4cdd637d20d52f8fcc7bcfb2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityBaseMovementComponent": {
+    "sourceHash": "a2ec5aefe67b962ec1cbdbe9c2793e38c3d51351",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityBreathableComponent": {
+    "sourceHash": "f06b35ed2d59e4d78b36386c0078a44e3217dcb8",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityCanClimbComponent": {
+    "sourceHash": "ba6d31182826b62c7dad002cd01596b34a45371a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityCanFlyComponent": {
+    "sourceHash": "e4686c2efa31496b42fb6dea11bb5934b81d5e7b",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityCanPowerJumpComponent": {
+    "sourceHash": "eaf2bb2c96955b7524d0da20b1e06e280fb36de2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityColor2Component": {
+    "sourceHash": "7ef1ecb291b405978a08308e370b425faa5b2e4d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityColorComponent": {
+    "sourceHash": "c3fdc8306f465b2d8b94f6d0340db91a86102e46",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityComponent": {
+    "sourceHash": "2309bfbcfc1a3cab220379616a48a4f3c9fd8409",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityContainerClosedAfterEvent": {
+    "sourceHash": "27ac56de6bd274445279f7c8911cda4dbeb835f7",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityContainerClosedAfterEventSignal": {
+    "sourceHash": "e7edcbf341860a1eab23005f28c64535ceac394c",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityContainerOpenedAfterEvent": {
+    "sourceHash": "58ea6bb43dcb20f0a6334669e48f273a24e72294",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityContainerOpenedAfterEventSignal": {
+    "sourceHash": "8417681999a8b163a7d6757dbabdc8d6fcb520b8",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityDieAfterEvent": {
+    "sourceHash": "511c36610588cdddad0c29aa587ace46af1dd803",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityDieAfterEventSignal": {
+    "sourceHash": "2f482979f35239b833e826fa39ffcbe8cf5827c1",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityEnderInventoryComponent": {
+    "sourceHash": "473efed02d6b0dcc1d5d8b08acc070bd353ccfdb",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityEquippableComponent": {
+    "sourceHash": "a28fd8cd227d9c63578bd4fb0aff93b6f2dfc348",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityExhaustionComponent": {
+    "sourceHash": "2d5f2795daa4f6a02077c757140eff6962124302",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityFireImmuneComponent": {
+    "sourceHash": "e4e1d9de3c2e12bd2a93d0d7f78da7c92c96c2fa",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityFloatsInLiquidComponent": {
+    "sourceHash": "bb6086c505d64b5a4ee1ce162dab7b84b34c3c8f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityFlyingSpeedComponent": {
+    "sourceHash": "3149e2fe14ae67841388618bd5750e726e41433e",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityFrictionModifierComponent": {
+    "sourceHash": "d99fd1597213b41c5582100dff0373cafafd464a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHasMarkVariantCondition": {
+    "sourceHash": "7b09d4117067dec617cfc69d428fb00399b910e0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHasVariantCondition": {
+    "sourceHash": "23b51a82f998a109b5974201b8bc85260d790cb4",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealableComponent": {
+    "sourceHash": "a3f216a1f89ec9f5d00c8d18dd4849b5d4acbf0f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealAfterEvent": {
+    "sourceHash": "14bada45a7a3686300d63a4d95a36785d0db9554",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealAfterEventSignal": {
+    "sourceHash": "1f92cec51d28f549bb5fddc8d114f44f93682ba0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealBeforeEvent": {
+    "sourceHash": "da4e737d327a3b552ddbc74fb0689f752ff2e7a5",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealBeforeEventSignal": {
+    "sourceHash": "253ec9162d7711f3abd4640805bec2e66ed1a903",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealSource": {
+    "sourceHash": "f9d560d6fc6de1a164e33c13c677908f2b5114df",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealthChangedAfterEvent": {
+    "sourceHash": "224277ebbec7990ae47ba3b988d529291f8caad9",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealthChangedAfterEventSignal": {
+    "sourceHash": "a4d40077cb03d3d51ede4490338ce51ba17d7bde",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealthComponent": {
+    "sourceHash": "55df8323eea8c2df65b92e27bc4d6f084d7cfba2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHitBlockAfterEvent": {
+    "sourceHash": "0820852ef58acfd67a7dd9275cd075aaed5b3885",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHitBlockAfterEventSignal": {
+    "sourceHash": "b8c472475f70709d63ac92461280175647564ec8",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHitEntityAfterEvent": {
+    "sourceHash": "40b88ca77f54ee43986d993fcd7e93b804eeb742",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHitEntityAfterEventSignal": {
+    "sourceHash": "20fe489c57bcb129d813ba80fb9350024e8aaf35",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHungerComponent": {
+    "sourceHash": "aea668be6eb7c5789b9fd1ff33b6b258417ee353",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtAfterEvent": {
+    "sourceHash": "371e8107ac870fc5fe3feb0bfd5d323a9e5cb005",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtAfterEventSignal": {
+    "sourceHash": "b8e0e6808bff6f729ed27b44381899cba4d5c0df",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtBeforeEvent": {
+    "sourceHash": "d49dc0f5ff4a854a0f65c8ce3a25bbfcaba60b30",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtBeforeEventSignal": {
+    "sourceHash": "4babe620347439907bc33141c05f1c107fffafcd",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityInventoryComponent": {
+    "sourceHash": "62173fd5b30a82283b4e6443fdf1b685d779770e",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsBabyComponent": {
+    "sourceHash": "cd5f8319b89248ce0424c5628f1db617a7c5df18",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsChargedComponent": {
+    "sourceHash": "56335c8942d4d59328bff96fb58ac86dd9e76068",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsChestedComponent": {
+    "sourceHash": "63decbc9badf1ccefdb11b55c72a4045829ccbf9",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsDyeableComponent": {
+    "sourceHash": "f6b22be451cf6638396974e1e0302f34e4b55132",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsHiddenWhenInvisibleComponent": {
+    "sourceHash": "f548da23cbc2b3fba7f6423685b3bbb2adca31c7",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsIgnitedComponent": {
+    "sourceHash": "e6984ac08c9765447ff0a40757f0a6be946bc1a1",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsIllagerCaptainComponent": {
+    "sourceHash": "86daaa4cca50fe5b251fdc63d33bf96ec846df27",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsSaddledComponent": {
+    "sourceHash": "bf10d35fae236bebf669a4ece0dd0086ec3dd69d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsShakingComponent": {
+    "sourceHash": "b543149594a8ac86a77be21e857089bc6f17ee10",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsShearedComponent": {
+    "sourceHash": "ba55fb8187802a7aed925cc3be8c5c1ad2824ff1",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsStackableComponent": {
+    "sourceHash": "8552fa418fde90584d99c246498f82a4948c9ce4",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsStunnedComponent": {
+    "sourceHash": "480ec280766235ad202d56a106c649c438c3e0e8",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityIsTamedComponent": {
+    "sourceHash": "14e7a266926d5ca001486f6ad158756dffe3df9d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemComponent": {
+    "sourceHash": "a7d7fb133af709ac10813f4238a676716fd77e90",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemDropAfterEvent": {
+    "sourceHash": "d4ad753a9894313ffdea73f726449cdde4d55e27",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemDropAfterEventSignal": {
+    "sourceHash": "84ea06e7f14bf40633203d840a7350616b90b59e",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemPickupAfterEvent": {
+    "sourceHash": "1daed55edd25343a7a685180c5a564efd018e97d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemPickupAfterEventSignal": {
+    "sourceHash": "11e8df154e41e91afe6721844bb8b0458849244a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemPickupBeforeEvent": {
+    "sourceHash": "541106256192c0db9874ef7d5fd1d549e3ce32ae",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemPickupBeforeEventSignal": {
+    "sourceHash": "5154ffdc4d4cc54a27a137d0a27a06e3c164972b",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityKilledCondition": {
+    "sourceHash": "ac51cf119022694d7435fc1854a765a13ec5f1c9",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityLavaMovementComponent": {
+    "sourceHash": "13cf1462b10d2dfe229b8136f4551ff11bfa2a16",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityLeashableComponent": {
+    "sourceHash": "9b93b7e58307b3e2e5c12ca708921f40ae215d00",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityLoadAfterEvent": {
+    "sourceHash": "713070b5eb83cba178798d789ab49838cf59f352",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityLoadAfterEventSignal": {
+    "sourceHash": "dbbfa467b648888436eef551ac6e5a318989d9f2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMarkVariantComponent": {
+    "sourceHash": "b6c0f4392916ce902f93dbb83715c2e09c970522",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementAmphibiousComponent": {
+    "sourceHash": "10e203e086738a6ace349816a413875d8f31b59b",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementBasicComponent": {
+    "sourceHash": "cf297131c06b354b6cd8c34b00405a887eefebec",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementComponent": {
+    "sourceHash": "350a15c77b5068f22a99383397cd728dffa3ffef",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementFlyComponent": {
+    "sourceHash": "c579227176c04acf5a45e1fef7bc3f5c5fb13c3d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementGenericComponent": {
+    "sourceHash": "23cb4c0b2bd7aacb1654090975dfbdd21c78939f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementGlideComponent": {
+    "sourceHash": "1ce36b43efbe5056d1aa40ee62dcb17a9e290503",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementHoverComponent": {
+    "sourceHash": "d510105b844dcd77fdaa993fb17cdadfd5145137",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementJumpComponent": {
+    "sourceHash": "0676e1fc166d80e363eb816358b9f66afc2c0273",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementSkipComponent": {
+    "sourceHash": "4cac0aac0ded322c310624b3ffd56d1f68c8d66c",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityMovementSwayComponent": {
+    "sourceHash": "c315b913551fb635726179346787f4de398113f6",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationClimbComponent": {
+    "sourceHash": "92c03cae59dc2aef3d0da75360b6c8ed2ac917f6",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationComponent": {
+    "sourceHash": "df348516f4aaaef8896e4bd955d0e40277bc536b",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationFloatComponent": {
+    "sourceHash": "763ced6afc86cc92273fcd2d3cca607071a8a923",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationFlyComponent": {
+    "sourceHash": "d9e00ec46d3b4cd0c34a6eefdc1e613f02073220",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationGenericComponent": {
+    "sourceHash": "5eb0abb884e24fcddc178330da880d590d382d5d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationHoverComponent": {
+    "sourceHash": "069f37586d72105c505bc164c55b06566fdd9975",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNavigationWalkComponent": {
+    "sourceHash": "40d7b872538bd2d1748c194de2bef0ae87f945e3",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityNpcComponent": {
+    "sourceHash": "a3d499b3b98364333ab32cd8cf2a93eba34d38f1",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityOnFireComponent": {
+    "sourceHash": "4bd956978196aeed5872513bc951ea4738aed728",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityProjectileComponent": {
+    "sourceHash": "b7f8fec49393174aa11e2f685b26d68cdcdc90a0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityPushThroughComponent": {
+    "sourceHash": "3dd8e3411461d6adafedcbf297321dcbb6944d3f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRemoveAfterEvent": {
+    "sourceHash": "2360645f9e74a028b8ad93215d7bc40a7a8592d0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRemoveAfterEventSignal": {
+    "sourceHash": "d7073482a9d6f5e04d82d9cea09bbeb001ad8fc7",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRemoveBeforeEvent": {
+    "sourceHash": "2cb895ba04c189879f30c324599a71ab0a9c1275",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRemoveBeforeEventSignal": {
+    "sourceHash": "21b81eab896ac0fa306b2cd63d71c78f7442406f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRideableComponent": {
+    "sourceHash": "f8dbd2755f150d922b5d86110ce1919c3b497043",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRidingComponent": {
+    "sourceHash": "7b323a2549066c34ed0192a5ce36944b35b9a183",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySaturationComponent": {
+    "sourceHash": "40e7ccccc89b5ab01671d8f1d5a37d47c997e963",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityScaleComponent": {
+    "sourceHash": "b270a11cf48dd7c1faa3db7e9c43f5469b574b47",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySkinIdComponent": {
+    "sourceHash": "cb7078b56718e340ec5d46be549fcf7cdd5ff1d4",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySpawnAfterEvent": {
+    "sourceHash": "b6645b691906ddb8f88c6338f298d04902b720ab",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySpawnAfterEventSignal": {
+    "sourceHash": "b37e14a4f221f1b441fecc7aad617c9d3a1b6656",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityStartSneakingAfterEvent": {
+    "sourceHash": "51002ebe871042d6e06b46edb53317cab69ed794",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityStartSneakingAfterEventSignal": {
+    "sourceHash": "3d750c373d97885d003fed91f61fe6480b579a10",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityStopSneakingAfterEvent": {
+    "sourceHash": "01d91f1c22e75408c813b57a45c933f18be86bdb",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityStopSneakingAfterEventSignal": {
+    "sourceHash": "7c5fe16739482de89caa1d149093ea265c664d18",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityStrengthComponent": {
+    "sourceHash": "4442894e6a271ab50266bff5563b43ab030d1240",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTameableComponent": {
+    "sourceHash": "86b7bccd20fb1c9eb8e038437f956662a0d2a5ca",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTamedAfterEvent": {
+    "sourceHash": "7d45676bff760afa1c291124c1392e1c97d32947",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTamedAfterEventSignal": {
+    "sourceHash": "4fe38a879d4e7d4533bab5cf4bd1c4e9bef1905a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTamedBeforeEvent": {
+    "sourceHash": "4bc4aee7e14e236ecf9c8133747647e4b04bde37",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTamedBeforeEventSignal": {
+    "sourceHash": "13d9d654b58d9a1ea8b50e247ffdf693cc131ff3",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTameMountComponent": {
+    "sourceHash": "0038cdb876b274711b9447512b5ed8f3b55f45c0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityType": {
+    "sourceHash": "13fcb110a275ca356ecbece24f0bd1cb449a7484",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTypeFamilyComponent": {
+    "sourceHash": "8e970712b15675516b0624f4ab9418fa138c8005",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTypes": {
+    "sourceHash": "3468739afdc860411485017ee809198a57a1e149",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityUnderwaterMovementComponent": {
+    "sourceHash": "526f39c4c206a33ae81359f4d875f0ae90d77f51",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityUpgradeAfterEvent": {
+    "sourceHash": "dc3330f6756de5c1b80e282ca49317439fc17d1a",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityUpgradeAfterEventSignal": {
+    "sourceHash": "ad1de477ce69253d5d0adcae793285fc2af739ca",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityVariantComponent": {
+    "sourceHash": "211f9b9b6db8eab86edc516390447517336d80a2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityWantsJockeyComponent": {
+    "sourceHash": "5b494259ab54d325b012a41fdfe3ceee2bacc72c",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityWaypoint": {
+    "sourceHash": "e2125e5d8866763c7bf5689718807bec866c3499",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplorationMapFunction": {
+    "sourceHash": "78e6bde5c9da3fcac266ccca2729e9fefca283b8",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionAfterEvent": {
+    "sourceHash": "f145601ab558e2dbe01604f5f2d389f159565d93",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionAfterEventSignal": {
+    "sourceHash": "53cf93229999641583432328eab57e64b33d7d96",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionBeforeEvent": {
+    "sourceHash": "885b9465316756a48e8f20f3672fac5943766783",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionBeforeEventSignal": {
+    "sourceHash": "2f4f6cb84ee3596b80f4e9157bd79eb68fee1bee",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionDecayFunction": {
+    "sourceHash": "fa08d596fe8f5172736cf8aee35f7ca04ce1bb01",
+    "status": "translated"
+  },
+  "preview-beta/server/FeedItem": {
+    "sourceHash": "57a396cf2b9eeff966390480f4aab20d036ae6a8",
+    "status": "translated"
+  },
+  "preview-beta/server/FeedItemEffect": {
+    "sourceHash": "f409195594d8e689257e6b76443095ba6cfeb087",
+    "status": "translated"
+  },
+  "preview-beta/server/FillContainerFunction": {
+    "sourceHash": "949cc306868690a9a8500b9709f7752105d98628",
+    "status": "translated"
+  },
+  "preview-beta/server/FluidContainer": {
+    "sourceHash": "2d79a057a1a9085ce2cb53fb27beb6187fb743cf",
+    "status": "translated"
+  },
+  "preview-beta/server/FogSettings": {
+    "sourceHash": "b0db423a1b40a9965139b3c34637bcd7f30dbf2c",
+    "status": "translated"
+  },
+  "preview-beta/server/GameRuleChangeAfterEvent": {
+    "sourceHash": "9b1ca540798246b83b61350e22c00db326a8402e",
+    "status": "translated"
+  },
+  "preview-beta/server/GameRuleChangeAfterEventSignal": {
+    "sourceHash": "3772ee05db568eb8fe543988035c5a7fbe094c89",
+    "status": "translated"
+  },
+  "preview-beta/server/GameRules": {
+    "sourceHash": "db639ef9f7d8296a262efafcccc4aa42f82be809",
+    "status": "translated"
+  },
+  "preview-beta/server/InputInfo": {
+    "sourceHash": "60f04fc5a7fddfd61b058e725c8fc6a72714c27c",
+    "status": "translated"
+  },
+  "preview-beta/server/IsBabyCondition": {
+    "sourceHash": "bd1d4a0b9637dffab85359121e3e8754fe49ea97",
+    "status": "translated"
+  },
+  "preview-beta/server/ISerializable": {
+    "sourceHash": "022c813e26f785f25d55858d2f13271138abbaf2",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemBlockDynamicPropertiesComponent": {
+    "sourceHash": "32207f07df98cc78bde37f3a33775832c0584a27",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemBookComponent": {
+    "sourceHash": "f25905b2d7bdb1a1ead1d1f1c1fc29e76a116dbf",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCompleteUseAfterEvent": {
+    "sourceHash": "b939fa18457e2f29e5943334eced47e106338605",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCompleteUseAfterEventSignal": {
+    "sourceHash": "47a99e5ef5c21917b7dcfeb389339f47baeb31db",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCompleteUseEvent": {
+    "sourceHash": "63fb38d3d8996191b2f2640635ebc7b2df34413f",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponent": {
+    "sourceHash": "85085d4a0cffda0c46a328b5e674bb951999c4b2",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentBeforeDurabilityDamageEvent": {
+    "sourceHash": "595e8fcc65be3c09780b9ba51b0d0cb0b66ad574",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentCompleteUseEvent": {
+    "sourceHash": "768be39c59fbb8cf91207059051c43a4375d4ca0",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentConsumeEvent": {
+    "sourceHash": "a30197cb26f10377b25edfd95bc186767c888291",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentHitEntityEvent": {
+    "sourceHash": "32518c74e40e8dcff88ab2e96e1a7c374dc4e9b3",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentMineBlockEvent": {
+    "sourceHash": "0e2a8d85c74d5c60d9024077628d11ade6b764ea",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentRegistry": {
+    "sourceHash": "be802095ad2f1baa1ba2d3f210ab6b9a62af7e39",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentUseEvent": {
+    "sourceHash": "fbe3b116a8ea8250cd4281f0579f5a6367495c14",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemComponentUseOnEvent": {
+    "sourceHash": "375a6db37cf71b6d04ab37fdd49c432e280470d7",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCompostableComponent": {
+    "sourceHash": "f32471197276fa9c0b57d66396fac71652a0e5c1",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCooldownComponent": {
+    "sourceHash": "5e80a87faa69815abd10610b154ed3a45b52481a",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponentInstance": {
+    "sourceHash": "edfe230e80429f64fec6436002172c936b5ab60c",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemDurabilityComponent": {
+    "sourceHash": "beb2810baf9382cab3981377223c3d20668c939e",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemDyeableComponent": {
+    "sourceHash": "7c7c3013e3359e004190d002d53b74278a62f09e",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemEnchantableComponent": {
+    "sourceHash": "08b5447edfd2762ecabb2efbc9f30435267438b0",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemFoodComponent": {
+    "sourceHash": "fb6d15e94487da66410889c373be0fb1977d150e",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemInventoryComponent": {
+    "sourceHash": "efd0b714ff5e77e2f5c59c7d1e0063a24a41267c",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemPotionComponent": {
+    "sourceHash": "389647da582c38d479a55bc2752f5235653370d5",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemReleaseUseAfterEvent": {
+    "sourceHash": "6b43c6c4fb391d551b4f8bb82cbbed19c8b4e72d",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemReleaseUseAfterEventSignal": {
+    "sourceHash": "7fab0332fb4c4b52cd131a9968092d04eb1027ba",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStack": {
+    "sourceHash": "45581e13ad5b0151af32efe28ac66aafcc70a958",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStartUseAfterEvent": {
+    "sourceHash": "7c6249e04043edfb92bc73344359b5f11ee07af0",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStartUseAfterEventSignal": {
+    "sourceHash": "a658a70b2e79f5da01fd6531577fb26a67af23ee",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStartUseOnAfterEvent": {
+    "sourceHash": "92e2e2f691a999aba352d64490116ec31c19a810",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStartUseOnAfterEventSignal": {
+    "sourceHash": "a8309e7b6c6b1bcf38c1006e947c64e772e54c1a",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStopUseAfterEvent": {
+    "sourceHash": "9c0f22b8df4408e7f563cb4a966aa326597a6f5d",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStopUseAfterEventSignal": {
+    "sourceHash": "5099dd1442a43c7ef7fe999237e9594a21ae2ed8",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStopUseOnAfterEvent": {
+    "sourceHash": "fb816f19427bdaf1d8a226907be366f2f530034d",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemStopUseOnAfterEventSignal": {
+    "sourceHash": "4d57247e0241e30a44128b1eccf6e37b8771076e",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemType": {
+    "sourceHash": "a5f35b0aade8fd6eab0798555a32f2ab746e4b3c",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemTypes": {
+    "sourceHash": "f644c9485b908c5e9532e62c8eb2e53092c6d45d",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemUseAfterEvent": {
+    "sourceHash": "6aa0c4abce6a016438cb4eb9d761ea68640d672b",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemUseAfterEventSignal": {
+    "sourceHash": "97d5e89dbba5a54913331362e5ab2fdbb8893c8b",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemUseBeforeEvent": {
+    "sourceHash": "b0e1d67b3d3919608a0bcd0e1efa1c9b9dc6e440",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemUseBeforeEventSignal": {
+    "sourceHash": "77b45026e738cab620801c18038f9826ba365be5",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemUseOnEvent": {
+    "sourceHash": "b277ae41290f5c345252339bf03985e94525fec1",
+    "status": "translated"
+  },
+  "preview-beta/server/KilledByEntityCondition": {
+    "sourceHash": "a01556cd45e733c519c5449a8fa4649fac41a140",
+    "status": "translated"
+  },
+  "preview-beta/server/KilledByPlayerCondition": {
+    "sourceHash": "e6b599369dd368640339fcfe6eb2982e0fba01de",
+    "status": "translated"
+  },
+  "preview-beta/server/KilledByPlayerOrPetsCondition": {
+    "sourceHash": "e690e4eebee79333b8f8aa16b3a48f2df6614e28",
+    "status": "translated"
+  },
+  "preview-beta/server/LeverActionAfterEvent": {
+    "sourceHash": "dde88805330dfd0c29a826264180432c73dc7145",
+    "status": "translated"
+  },
+  "preview-beta/server/LeverActionAfterEventSignal": {
+    "sourceHash": "95911df5fa0b0791f5afa117b55b1bfe176cb281",
+    "status": "translated"
+  },
+  "preview-beta/server/LinearSpline": {
+    "sourceHash": "830874b06ee2360005d395ebf7344f0ebfc0bffd",
+    "status": "translated"
+  },
+  "preview-beta/server/ListBlockVolume": {
+    "sourceHash": "9c75103b236df9837c0d6af3b6e75645b7f300e0",
+    "status": "translated"
+  },
+  "preview-beta/server/LocationWaypoint": {
+    "sourceHash": "afbcb06f14359fd73675eb2415930e625abe1b0c",
+    "status": "translated"
+  },
+  "preview-beta/server/LocatorBar": {
+    "sourceHash": "3ed70c3a3e68b1c95f16971946111e9c3b5e1256",
+    "status": "translated"
+  },
+  "preview-beta/server/LootingEnchantFunction": {
+    "sourceHash": "49166828be3c5c44d09d583fe809d55b85ebbd29",
+    "status": "translated"
+  },
+  "preview-beta/server/LootItem": {
+    "sourceHash": "c33e2a220de8245c031b8404949bd038e34b2f98",
+    "status": "translated"
+  },
+  "preview-beta/server/LootItemCondition": {
+    "sourceHash": "da660693e6667de2280f2ec389751128d2304b36",
+    "status": "translated"
+  },
+  "preview-beta/server/LootItemFunction": {
+    "sourceHash": "9f0621d48cee92f2983313d6094ec39e74f55718",
+    "status": "translated"
+  },
+  "preview-beta/server/LootPool": {
+    "sourceHash": "0827b64593d03f1312181ef029046f7f7913b4f7",
+    "status": "translated"
+  },
+  "preview-beta/server/LootPoolEntry": {
+    "sourceHash": "406fe0372dd248befb3a786f9075efdc667c3a8f",
+    "status": "translated"
+  },
+  "preview-beta/server/LootPoolTiers": {
+    "sourceHash": "f0ef4dc0742ee777322c0ca3aad1fb1408d8c7ef",
+    "status": "translated"
+  },
+  "preview-beta/server/LootTable": {
+    "sourceHash": "ae19eabc4fb15e5f1d7248548657665b52aa0d6f",
+    "status": "translated"
+  },
+  "preview-beta/server/LootTableEntry": {
+    "sourceHash": "547b2dd45fdc2ac34725b748f79ab1969ec0d91f",
+    "status": "translated"
+  },
+  "preview-beta/server/LootTableManager": {
+    "sourceHash": "6e90c413a64eb753191a7a8721e84187bf70bf0c",
+    "status": "translated"
+  },
+  "preview-beta/server/LootTableReference": {
+    "sourceHash": "bdd27a0116c96e9e20d84e0a6d7039840e1122ce",
+    "status": "translated"
+  },
+  "preview-beta/server/MatchToolCondition": {
+    "sourceHash": "b049e49316a4b20c3cae304b3fe5351cb01f535b",
+    "status": "translated"
+  },
+  "preview-beta/server/MessageReceiveAfterEvent": {
+    "sourceHash": "a736852ebf013e41fa37fe5638611036bf13dffb",
+    "status": "translated"
+  },
+  "preview-beta/server/MolangVariableMap": {
+    "sourceHash": "4799e9f600d88223c1b97b53544d5198851164ac",
+    "status": "translated"
+  },
+  "preview-beta/server/PackSettingChangeAfterEvent": {
+    "sourceHash": "7bb5e03700e08baaa2c6fdd880bcad0410451843",
+    "status": "translated"
+  },
+  "preview-beta/server/PackSettingChangeAfterEventSignal": {
+    "sourceHash": "de32c580c89812ddb72a7a0a7a162c6dc0f046d2",
+    "status": "translated"
+  },
+  "preview-beta/server/PassengerOfEntityCondition": {
+    "sourceHash": "b468c7e4514d5587a92799636000691f4fa7589d",
+    "status": "translated"
+  },
+  "preview-beta/server/PistonActivateAfterEvent": {
+    "sourceHash": "4ede14ff3ac215bab7f4c065de442f44bf7597ce",
+    "status": "translated"
+  },
+  "preview-beta/server/PistonActivateAfterEventSignal": {
+    "sourceHash": "dba7eddb0c9ab4c5e98d2cc950822313a295f58e",
+    "status": "translated"
+  },
+  "preview-beta/server/Player": {
+    "sourceHash": "4cafb0d8b85c0de9f1df7974594470e5b9744a4c",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerAimAssist": {
+    "sourceHash": "d11e93cd8e815b6a9625a429be4d98dd889f2273",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerBreakBlockAfterEvent": {
+    "sourceHash": "38da7c22acae37097e08f2eafd500de5b69d13d7",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerBreakBlockAfterEventSignal": {
+    "sourceHash": "dda15d0d1477357ffeb264c39e263e9ddff166da",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerBreakBlockBeforeEvent": {
+    "sourceHash": "9e74762e97dad2d242d7d1849ea2f33080a4ea21",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerBreakBlockBeforeEventSignal": {
+    "sourceHash": "f81a015ca95851751779b7f1af6b60edad0b2876",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerButtonInputAfterEvent": {
+    "sourceHash": "2fa6ed518ae4478835053634b8fae4e262388558",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerButtonInputAfterEventSignal": {
+    "sourceHash": "77555eb6182c32921640a9e6bcfcbc469dd052c8",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerCancelBreakingBlockAfterEvent": {
+    "sourceHash": "343efab7fa51db9ebe1fc8f3d72f5fe2d53868b1",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerCancelBreakingBlockAfterEventSignal": {
+    "sourceHash": "253e7ade1f245a1e07a1394a3dc219e796d76d78",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerCursorInventoryComponent": {
+    "sourceHash": "8ec51d6f32b8d89242e2e980c9a9fc5f982638dc",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerDimensionChangeAfterEvent": {
+    "sourceHash": "5dcf6450619c2a292013f6ecab7e7ad1f50082f3",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerDimensionChangeAfterEventSignal": {
+    "sourceHash": "444bf31ca519927c934006b29bfe620a338474ed",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerEmoteAfterEvent": {
+    "sourceHash": "894fb231dac61eb8740c470275276dfb12b48b34",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerEmoteAfterEventSignal": {
+    "sourceHash": "5cbc3d46adf397360ba6f86b5e86cd25678a1a33",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerGameModeChangeAfterEvent": {
+    "sourceHash": "6b581e49a9f386e59c43bf16691281989725bdc5",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerGameModeChangeAfterEventSignal": {
+    "sourceHash": "8366d543474e0d4718091239aa4b25719b13e15c",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerGameModeChangeBeforeEvent": {
+    "sourceHash": "fad85aeecc5614474f4dd1adde79a7cc7cd5c672",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerGameModeChangeBeforeEventSignal": {
+    "sourceHash": "07122f644b12aaee61ca831cdfabe4221f604a56",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerHotbarSelectedSlotChangeAfterEvent": {
+    "sourceHash": "de118b8f11401e780dd17e12f674718473ab1847",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerHotbarSelectedSlotChangeAfterEventSignal": {
+    "sourceHash": "0b6cad67b0fc76b590baa0abbf9f23a2a3d26b23",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInputModeChangeAfterEvent": {
+    "sourceHash": "5f84605fdfef2f383d80d0ed2b3314dd4d4700a9",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInputModeChangeAfterEventSignal": {
+    "sourceHash": "456e74071fcaecde9329e35f87eb561f68ab1e1f",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInputPermissionCategoryChangeAfterEvent": {
+    "sourceHash": "7d8dafd548789e53d6aa2c38c394a3dcf9523b8e",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInputPermissionCategoryChangeAfterEventSignal": {
+    "sourceHash": "261dc3176df858e12efbb7ada595e5215e505090",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInputPermissions": {
+    "sourceHash": "117e464ec41424872536002f3a6ddef5c976f711",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithBlockAfterEvent": {
+    "sourceHash": "7a78ea226081af284411e149903a9adae908f22d",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithBlockAfterEventSignal": {
+    "sourceHash": "6150df96032fef4f70f3e8686ac28e5c501b5851",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithBlockBeforeEvent": {
+    "sourceHash": "7700b95475a544e30391b160eaf63d23e4b44fb2",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithBlockBeforeEventSignal": {
+    "sourceHash": "fd1fb8f2fd543daa56b4e251f07898dbc8b2472c",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithEntityAfterEvent": {
+    "sourceHash": "9f22d82283a6edc79bce93cea4ccb22504b8c49e",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithEntityAfterEventSignal": {
+    "sourceHash": "4d23f4f505bf0aed286540e8800cb3156c4d14ea",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithEntityBeforeEvent": {
+    "sourceHash": "ac6468a3a8fed8a7734b0a522590c1daece83b82",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInteractWithEntityBeforeEventSignal": {
+    "sourceHash": "2913019d00bfce7e44334fced0442cd1f744a3a6",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInventoryItemChangeAfterEvent": {
+    "sourceHash": "540f798bc3966e826caa06677cecbfde3316958e",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerInventoryItemChangeAfterEventSignal": {
+    "sourceHash": "57fcbc4c1e106ee50d42d6230a0307127f3c2375",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerJoinAfterEvent": {
+    "sourceHash": "df527ca41e7868be64b8faef9210c71c7548fe43",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerJoinAfterEventSignal": {
+    "sourceHash": "27ad8414505de459bf3c31f398abb064d36974a2",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerLeaveAfterEvent": {
+    "sourceHash": "e217d5f99cb35eb8ff359f6f2cde36dd6494a939",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerLeaveAfterEventSignal": {
+    "sourceHash": "c7588525efad9e4609a8f8794971dc964cf62074",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerLeaveBeforeEvent": {
+    "sourceHash": "8031590804b6cd9752ca978cfc3e96d7e048b084",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerLeaveBeforeEventSignal": {
+    "sourceHash": "d6baa047e377feee3274378562a9d8c84429ca7b",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerPlaceBlockAfterEvent": {
+    "sourceHash": "8471b765b05823dc4a807ffb03423744e0dc1277",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerPlaceBlockAfterEventSignal": {
+    "sourceHash": "9d974c74629a821f1b507d258efb318f8010ed08",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerPlaceBlockBeforeEvent": {
+    "sourceHash": "31d24f67a89fcd09f90138bc3a63d3b85e2898ba",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerPlaceBlockBeforeEventSignal": {
+    "sourceHash": "5e9b482d8db65031be9b485040a20911cc030425",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSpawnAfterEvent": {
+    "sourceHash": "f8df725c164c941bafe4225faa093aa84068c502",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSpawnAfterEventSignal": {
+    "sourceHash": "10272c97fb5b67bdf30d4238f932b2a1c56411a3",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerStartBreakingBlockAfterEvent": {
+    "sourceHash": "09f87fa07fe941e5379341ec025fd68286d38433",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerStartBreakingBlockAfterEventSignal": {
+    "sourceHash": "5cedda8883175f591ffa461393ae1d53c075fea8",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSwingStartAfterEvent": {
+    "sourceHash": "d2edf4886b8a0839f238857f9257c87dff803bf9",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSwingStartAfterEventSignal": {
+    "sourceHash": "cd696196593ee2a1522abc84ee1cf484d7d14039",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerUseNameTagAfterEvent": {
+    "sourceHash": "b7bd39d4dd71c936f87dc0b21a2a3c67431c31fd",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerUseNameTagAfterEventSignal": {
+    "sourceHash": "20150c661fdbfcf6804f2c0071508ecb08b05825",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerWaypoint": {
+    "sourceHash": "83725d0b6e36a4e9df61db82b694665d1f7b8881",
+    "status": "translated"
+  },
+  "preview-beta/server/PotionDeliveryType": {
+    "sourceHash": "ed31db3272a2001aaf711e188d1f4d5b012154d9",
+    "status": "translated"
+  },
+  "preview-beta/server/PotionEffectType": {
+    "sourceHash": "0474af898aea36a4e2708de82c13dcb55914cbeb",
+    "status": "translated"
+  },
+  "preview-beta/server/Potions": {
+    "sourceHash": "3f40211b52c6e1fa30fc6c6a5dc32045edb4a544",
+    "status": "translated"
+  },
+  "preview-beta/server/PressurePlatePopAfterEvent": {
+    "sourceHash": "7299a4a31c556f4422a8cf033e8050d9560cc588",
+    "status": "translated"
+  },
+  "preview-beta/server/PressurePlatePopAfterEventSignal": {
+    "sourceHash": "9d3349b965ed896ac00306282554c6f4841211dc",
+    "status": "translated"
+  },
+  "preview-beta/server/PressurePlatePushAfterEvent": {
+    "sourceHash": "dbb787eb4dc9355a6328f73b3e35df29cfd842a4",
+    "status": "translated"
+  },
+  "preview-beta/server/PressurePlatePushAfterEventSignal": {
+    "sourceHash": "694a289faee57ea0958e10e4648d4c53bef7e21b",
+    "status": "translated"
+  },
+  "preview-beta/server/PrimitiveShape": {
+    "sourceHash": "2c8f7b0fa91ce3d7580d772b67c61e6cc272ce87",
+    "status": "translated"
+  },
+  "preview-beta/server/PrimitiveShapesManager": {
+    "sourceHash": "f6aa2c14659e915197131c23f82698b6befc59da",
+    "status": "translated"
+  },
+  "preview-beta/server/ProjectileHitBlockAfterEvent": {
+    "sourceHash": "feac52de6a9b04cdd615d757374b669f313525d2",
+    "status": "translated"
+  },
+  "preview-beta/server/ProjectileHitBlockAfterEventSignal": {
+    "sourceHash": "13a4698b450e6002e21343f092bced6ad0b642de",
+    "status": "translated"
+  },
+  "preview-beta/server/ProjectileHitEntityAfterEvent": {
+    "sourceHash": "6504284f316b5b6ace16fc5be6ddcd6ff5ec4329",
+    "status": "translated"
+  },
+  "preview-beta/server/ProjectileHitEntityAfterEventSignal": {
+    "sourceHash": "25a54d53d89a37f434bb0acf37c29eda9b318019",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomAuxValueFunction": {
+    "sourceHash": "ff946d179edef367bb3799b8fc724567668e1d9d",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomBlockStateFunction": {
+    "sourceHash": "6a95808b3322db353eb80df2c67af7e3cd844465",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomChanceCondition": {
+    "sourceHash": "d4a4712f248d255c522c6480346c50035d073164",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomChanceWithLootingCondition": {
+    "sourceHash": "b45da92d66091aca272e220d840c1c4b98e3b5d3",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomDifficultyChanceCondition": {
+    "sourceHash": "2e0cab6f2ca6c23d6ac1dd979ce8af0de11a7dd7",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomDyeFunction": {
+    "sourceHash": "a20026150454411d2fb30567b043eec084f64c01",
+    "status": "translated"
+  },
+  "preview-beta/server/RandomRegionalDifficultyChanceCondition": {
+    "sourceHash": "8f821c03abca332456b354029dba74bb3627067c",
+    "status": "translated"
+  },
+  "preview-beta/server/Scoreboard": {
+    "sourceHash": "e906d1cf3d40dca16f98bdc2ecf56feed807d2d1",
+    "status": "translated"
+  },
+  "preview-beta/server/ScoreboardIdentity": {
+    "sourceHash": "9d454a8ecca9661cd4dd43a66e7770ec406d01db",
+    "status": "translated"
+  },
+  "preview-beta/server/ScoreboardObjective": {
+    "sourceHash": "028a928ef2df5d90d5165b8690c09b80a5c267d4",
+    "status": "translated"
+  },
+  "preview-beta/server/ScoreboardScoreInfo": {
+    "sourceHash": "ef07ef17501a542173a1929b77ae82c2dfe69985",
+    "status": "translated"
+  },
+  "preview-beta/server/ScreenDisplay": {
+    "sourceHash": "06067fcf87ad9f2d3c406fcab5472c28d0728474",
+    "status": "translated"
+  },
+  "preview-beta/server/ScriptEventCommandMessageAfterEvent": {
+    "sourceHash": "fe0149df04a447c7c979200b2ea3330352d192ec",
+    "status": "translated"
+  },
+  "preview-beta/server/ScriptEventCommandMessageAfterEventSignal": {
+    "sourceHash": "b656f7dcb8fccf736c9b0c95eb272e36c96f5d09",
+    "status": "translated"
+  },
+  "preview-beta/server/Seat": {
+    "sourceHash": "f140ac70fd1d5334b3285af41da911a1e3d6fb08",
+    "status": "translated"
+  },
+  "preview-beta/server/ServerMessageAfterEventSignal": {
+    "sourceHash": "fc40639ac884fc1b99c8baef73a63037c754a36d",
+    "status": "translated"
+  },
+  "preview-beta/server/SetArmorTrimFunction": {
+    "sourceHash": "b170629f75cb15b5f5dd4e13f36ea5a033d75a92",
+    "status": "translated"
+  },
+  "preview-beta/server/SetBannerDetailsFunction": {
+    "sourceHash": "f3ac5c827da70cc4c9614746d6a97e179ef3da6a",
+    "status": "translated"
+  },
+  "preview-beta/server/SetBookContentsFunction": {
+    "sourceHash": "9e48e563c83646eb58e5048c9cd03c597980d74b",
+    "status": "translated"
+  },
+  "preview-beta/server/SetDataFromColorIndexFunction": {
+    "sourceHash": "e7ff8c3ab73f302bb9c388e3c3ed56043cdd8604",
+    "status": "translated"
+  },
+  "preview-beta/server/SetItemCountFunction": {
+    "sourceHash": "2e9c6663921af22fc34e9cdbeb986028cdb2aff7",
+    "status": "translated"
+  },
+  "preview-beta/server/SetItemDamageFunction": {
+    "sourceHash": "247de408bf1acbc4ac940425d3a2ace0170a76dd",
+    "status": "translated"
+  },
+  "preview-beta/server/SetItemDataFunction": {
+    "sourceHash": "9233f982081493244fbaec464e54dee1cf758a90",
+    "status": "translated"
+  },
+  "preview-beta/server/SetItemLoreFunction": {
+    "sourceHash": "a6ee79be02ea7a32da87de38be711b33811ed888",
+    "status": "translated"
+  },
+  "preview-beta/server/SetItemNameFunction": {
+    "sourceHash": "ef98b0b79423c35058e34187312871d8fb1257a1",
+    "status": "translated"
+  },
+  "preview-beta/server/SetOminousBottleFunction": {
+    "sourceHash": "1595c8b6eb2f93f19bbf1ff9f54acf7d56e629a6",
+    "status": "translated"
+  },
+  "preview-beta/server/SetPotionFunction": {
+    "sourceHash": "73232ba98fb70a63212f3493fefe7d3d1ef14858",
+    "status": "translated"
+  },
+  "preview-beta/server/SetSpawnEggFunction": {
+    "sourceHash": "ee5aa825738d865d382e81cea8cb534de16d11ab",
+    "status": "translated"
+  },
+  "preview-beta/server/SetStewEffectFunction": {
+    "sourceHash": "112f766162aae6ea168f579731b1a425c65e7292",
+    "status": "translated"
+  },
+  "preview-beta/server/ShutdownBeforeEventSignal": {
+    "sourceHash": "1f079a43bfea9dd61763b212d53f1d161cda40ab",
+    "status": "translated"
+  },
+  "preview-beta/server/ShutdownEvent": {
+    "sourceHash": "7d2371d8834c5377f566b2ab7350477007193bff",
+    "status": "translated"
+  },
+  "preview-beta/server/SmeltItemFunction": {
+    "sourceHash": "047891f833d2e041233d73d7729fd53af352b975",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundCompletedAfterEvent": {
+    "sourceHash": "05834ccb295efe18d709a7f38fa76457b1a30637",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundCompletedAfterEventSignal": {
+    "sourceHash": "b83e9da8295d672d74d18930ce0edcf995ecbda8",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDefinition": {
+    "sourceHash": "780090ffe7872bc534ab8aceee37a9252a42c291",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDefinitionRegistry": {
+    "sourceHash": "7953f3ffd3b8cb4a31395d81f7407213d6e9b795",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDurationInfo": {
+    "sourceHash": "0a2952969f3f910d2c1776086348cc604f923624",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundInstance": {
+    "sourceHash": "a1ea360666993df65d6ef9d742df10a3bd03f010",
+    "status": "translated"
+  },
+  "preview-beta/server/SpecificEnchantFunction": {
+    "sourceHash": "644739d163585fea7851df6689c52122af475c0b",
+    "status": "translated"
+  },
+  "preview-beta/server/StartupBeforeEventSignal": {
+    "sourceHash": "341602aa20db5acdd0903e949de1ed0fe33db097",
+    "status": "translated"
+  },
+  "preview-beta/server/StartupEvent": {
+    "sourceHash": "fa126fd64005f52c830897b1fc26ea291569124f",
+    "status": "translated"
+  },
+  "preview-beta/server/Structure": {
+    "sourceHash": "a751e9301c90e2d36bb750d624e40336c21cc4b8",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureManager": {
+    "sourceHash": "a357f7def7e89eb6aa9f35fbe50cba2169b32a1c",
+    "status": "translated"
+  },
+  "preview-beta/server/System": {
+    "sourceHash": "61d1c01c44956e655496e1b089bb524baa865bed",
+    "status": "translated"
+  },
+  "preview-beta/server/SystemAfterEvents": {
+    "sourceHash": "cfea6b60d9d483eaef002165ead399cc5853b001",
+    "status": "translated"
+  },
+  "preview-beta/server/SystemBeforeEvents": {
+    "sourceHash": "1ccdb5fd505bf0110e7df766effd328b54149ae6",
+    "status": "translated"
+  },
+  "preview-beta/server/SystemInfo": {
+    "sourceHash": "575f6297db10a7f91b1fc29e2697df9adab3ee0f",
+    "status": "translated"
+  },
+  "preview-beta/server/TargetBlockHitAfterEvent": {
+    "sourceHash": "c0877d866b1c27a17322bae6495a3d8fd8f9670e",
+    "status": "translated"
+  },
+  "preview-beta/server/TargetBlockHitAfterEventSignal": {
+    "sourceHash": "a6af4084ea31e95a17e8d0050dfc0e105ca1ce66",
+    "status": "translated"
+  },
+  "preview-beta/server/TextPrimitive": {
+    "sourceHash": "dc3d31cb5cbba22efe16bd7dd553b1d2f02fce54",
+    "status": "translated"
+  },
+  "preview-beta/server/TickingAreaManager": {
+    "sourceHash": "ce9ef48bf3d2424f20675c149551f9a3c4764600",
+    "status": "translated"
+  },
+  "preview-beta/server/Trigger": {
+    "sourceHash": "27cc06ba51bfa971a32b79746a705386003dde28",
+    "status": "translated"
+  },
+  "preview-beta/server/TripWireTripAfterEvent": {
+    "sourceHash": "115791748de2f4c90ee3491dd9309363bcab96b8",
+    "status": "translated"
+  },
+  "preview-beta/server/TripWireTripAfterEventSignal": {
+    "sourceHash": "83c92d445d9d00e844c18b0cd39f2893d0122028",
+    "status": "translated"
+  },
+  "preview-beta/server/WatchdogTerminateBeforeEvent": {
+    "sourceHash": "df89ca28591c43b466fe62c5e0c4cd8e69523d06",
+    "status": "translated"
+  },
+  "preview-beta/server/WatchdogTerminateBeforeEventSignal": {
+    "sourceHash": "f5a47731255a62214d4b3a93a8855cc2c6519e16",
+    "status": "translated"
+  },
+  "preview-beta/server/Waypoint": {
+    "sourceHash": "544e70c5918c9447a600e54b70e73e08379f9844",
+    "status": "translated"
+  },
+  "preview-beta/server/WeatherChangeAfterEvent": {
+    "sourceHash": "405ef059c6ae586cd5c9dd6e4f293f9f558af491",
+    "status": "translated"
+  },
+  "preview-beta/server/WeatherChangeAfterEventSignal": {
+    "sourceHash": "51806efa859c9e77ec1b096b032d8b961ad48ddb",
+    "status": "translated"
+  },
+  "preview-beta/server/WeatherChangeBeforeEvent": {
+    "sourceHash": "3e1ecff635d9819c49c444ab2fbfb83f867a09cc",
+    "status": "translated"
+  },
+  "preview-beta/server/WeatherChangeBeforeEventSignal": {
+    "sourceHash": "d1b70613678daf92d555f161de2ebf282754d368",
+    "status": "translated"
+  },
+  "preview-beta/server/World": {
+    "sourceHash": "f977147db304d7f2622b28e10e0fa853097bc709",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldAfterEvents": {
+    "sourceHash": "151a850d859b75fd3d1e491458c5db0d964ae746",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldBeforeEvents": {
+    "sourceHash": "c2b1d9af6aed4f5b53c3797895a3156f88536c87",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldLoadAfterEvent": {
+    "sourceHash": "6e87d88eb94f426bda57589b3d8ed7f40a295332",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldLoadAfterEventSignal": {
+    "sourceHash": "fe6fad336bbd241bfe8a4a862509e1358e9d5f33",
+    "status": "translated"
+  },
+  "preview-beta/server/AABB": {
+    "sourceHash": "6001379c0c8b1a4d781c37b5134361a780953e2a",
+    "status": "translated"
+  },
+  "preview-beta/server/AnimationOptions": {
+    "sourceHash": "5528882c583b538a0768aff9a881eb52f36cd4bd",
+    "status": "translated"
+  },
+  "preview-beta/server/BiomeFilter": {
+    "sourceHash": "558d2e4bd23fbf9497ddd8020fa5de6c513799f8",
+    "status": "translated"
+  },
+  "preview-beta/server/BiomeSearchOptions": {
+    "sourceHash": "631eed42c917ea215e09e97e268da6bb520d8943",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockBoundingBox": {
+    "sourceHash": "740df30eae34420e139c08d4e8d2067a9248f5fc",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockContainerAccessEventOptions": {
+    "sourceHash": "888f94b041b76f2d6c2a7d211e249b0fb61e7dfd",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponent": {
+    "sourceHash": "fba7cb619d9ae9925bd171784900892691461b82",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockEventOptions": {
+    "sourceHash": "97c6836bdfb96a8d88f6e9ef08db75e2eeb9331e",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockFillOptions": {
+    "sourceHash": "b9f388f476bc523f9173d259f426d0b8f338a0ed",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockFilter": {
+    "sourceHash": "9071a120eccb76c487b59622d00a93b756651b48",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockHitInformation": {
+    "sourceHash": "3f1213053be6a19c4a9ef620964f926366dadf98",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockQueryOptions": {
+    "sourceHash": "80e6bf5a95ca1376d069672fac2145e33a2af499",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockRaycastHit": {
+    "sourceHash": "ab7c2276ee5b30e18795bc3a45ee20782629322a",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockRaycastOptions": {
+    "sourceHash": "a64b9e0160ddf3ed14a8b3c3edb6c2cb8c8080b0",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraAttachOptions": {
+    "sourceHash": "d6aa359333f894d1745c080a69e727f5c55a7a9c",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraFadeOptions": {
+    "sourceHash": "2243987ed5229e16ec57c241aadd680e28bc4817",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraFadeTimeOptions": {
+    "sourceHash": "a1302325d1003a6a303a29c977943788dc338410",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraFixedBoomOptions": {
+    "sourceHash": "c7460d6b9920e08f62abde095648ca7760294a6d",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraFovOptions": {
+    "sourceHash": "3983fd0431d7c5d01044312e4c424dcafad65ed2",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraSetFacingOptions": {
+    "sourceHash": "efbf2a067f5a696351f01e83457c0a410ad6313d",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraSetLocationOptions": {
+    "sourceHash": "5c4dbdcb5af475bacea440784d5c6df8e99ec34c",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraSetPosOptions": {
+    "sourceHash": "1f2fa1b1fc662482b7fdaa040b2426d423eb07e8",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraSetRotOptions": {
+    "sourceHash": "fe782a9720b241778804ed906bd3d07eb9e3e7fe",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraShakeOptions": {
+    "sourceHash": "0a20016eea5ffbc64ea258b683bcd7005cbf429d",
+    "status": "translated"
+  },
+  "preview-beta/server/CameraTargetOptions": {
+    "sourceHash": "febca473ebd92e6b6ad30bdb4f4188e2a51c07b9",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerAccessSource": {
+    "sourceHash": "342393edc082ef3c7bc6c24a33ba79142db1a9a5",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerAccessSourceFilter": {
+    "sourceHash": "5307154cac7c7ef342e9f249ea33707f8bef9c7f",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerRules": {
+    "sourceHash": "c89c9e829ed76d5a06941b538c7385969bebd142",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommand": {
+    "sourceHash": "d7e94ae4385d6eb9d44a4996d53210f23a867c60",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandParameter": {
+    "sourceHash": "d8ec3c5b9f891ed594c5413477a3206aa2322b1f",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandResult": {
+    "sourceHash": "7b6692c0783352da57c7fe94e16cf8454e7ae001",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomTexture": {
+    "sourceHash": "c6f227445dc1ebc3f6d4531b69dea1227e218325",
+    "status": "translated"
+  },
+  "preview-beta/server/DefinitionModifier": {
+    "sourceHash": "6727a173f590ecf4dec020a44d1ae10b5f76316e",
+    "status": "translated"
+  },
+  "preview-beta/server/DimensionLocation": {
+    "sourceHash": "e70d26e61e8e8500b3ca31ba8763ca793c1af6f9",
+    "status": "translated"
+  },
+  "preview-beta/server/EaseOptions": {
+    "sourceHash": "ef77a6193ee34e3dfb5a6dfd6a7c825972a884c8",
+    "status": "translated"
+  },
+  "preview-beta/server/Enchantment": {
+    "sourceHash": "a48c148d6cc42ce720f2d853849ec4c66e2221e0",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityApplyDamageByProjectileOptions": {
+    "sourceHash": "47439f831acf907edb19213ebff2966107473da2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityApplyDamageOptions": {
+    "sourceHash": "3c4d704c511229e745bd0e62f478b7ab512c6ece",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityContainerAccessEventOptions": {
+    "sourceHash": "72479a4ff66d540ae42aebd95b21aee3a33b3584",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityDamageSource": {
+    "sourceHash": "eb0d45485c8033fa9bc118d77a79311f0b29e6dc",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityDataDrivenTriggerEventOptions": {
+    "sourceHash": "8f40c15392a50377cc97cf4073da70c505866347",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityEffectOptions": {
+    "sourceHash": "5176b615a4231dc13c660435c2d1291f7abc6115",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityEventOptions": {
+    "sourceHash": "f9020df53dba95f8cb8e4846ac19862e4fbbad39",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityFilter": {
+    "sourceHash": "0a62881931fc8d1fd04bea519ecc5dae4962dc42",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHealEventOptions": {
+    "sourceHash": "af67a2dcc0f1ed706440f8a8899d6b7de6946cbd",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHitInformation": {
+    "sourceHash": "be546abf5ecf862a0f39879d4336488a5f5f9f3c",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtAfterEventOptions": {
+    "sourceHash": "2e73182c107cf9feb1fb6a560b222f318fe4d360",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityHurtBeforeEventOptions": {
+    "sourceHash": "2820a1fe14ebbcb45164e64488dcbebb6bf0825d",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemDropEventOptions": {
+    "sourceHash": "7288f020a53b8ad81bce86aac209f596f804f9aa",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityItemPickupEventOptions": {
+    "sourceHash": "8737cd2380e705540f97d38ef1314c92449f932f",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityQueryOptions": {
+    "sourceHash": "2c7af5f2b01f3a138e6e7afb254441bd3b117afe",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityQueryPropertyOptions": {
+    "sourceHash": "099c188f17b31b5958aa4ab699e1692de2224b03",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityQueryScoreOptions": {
+    "sourceHash": "7d80a2d319fe3dd2ca7a209a7e4585464f481a60",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRaycastHit": {
+    "sourceHash": "3e61927cf4dae43ce9870b06cdeb9452d1a88093",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityRaycastOptions": {
+    "sourceHash": "47a3c6f7072a678344d0f5abec1bd60a532fc9fb",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySneakingChangedEventOptions": {
+    "sourceHash": "328698c5fcd775dd342c4fb8e32dc686fb7283d2",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityVisibilityRules": {
+    "sourceHash": "f69ce4f32bc638613f1e1941d0930e68388dc759",
+    "status": "translated"
+  },
+  "preview-beta/server/EqualsComparison": {
+    "sourceHash": "31be052c6f004ef5b9a765b6d4a6861d36419826",
+    "status": "translated"
+  },
+  "preview-beta/server/ExplosionOptions": {
+    "sourceHash": "d0524672551870b85df03315e7dd9c40d9b2edfc",
+    "status": "translated"
+  },
+  "preview-beta/server/GetBlocksStandingOnOptions": {
+    "sourceHash": "86dd0c46f60ec54d924c223efe601587e8f6ad39",
+    "status": "translated"
+  },
+  "preview-beta/server/GreaterThanComparison": {
+    "sourceHash": "e0298274329422628c55b3dd7f40007ccda6ddd2",
+    "status": "translated"
+  },
+  "preview-beta/server/GreaterThanOrEqualsComparison": {
+    "sourceHash": "4382364767cf6c4d80c07c081e1b9d2da457af6a",
+    "status": "translated"
+  },
+  "preview-beta/server/HotbarEventOptions": {
+    "sourceHash": "8c83194f583c601b038e62cc9bad381d3aa84443",
+    "status": "translated"
+  },
+  "preview-beta/server/InputEventOptions": {
+    "sourceHash": "c3f7f9a1dc860a6117406272be870e126c9d5ded",
+    "status": "translated"
+  },
+  "preview-beta/server/InventoryItemEventOptions": {
+    "sourceHash": "8ff56571e9ba6df4393c968b4f9270d5bf7e7b58",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponent": {
+    "sourceHash": "3a5b1c21725d676676a70f6e0dbb12146cc3b315",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemFilter": {
+    "sourceHash": "34bbe905eb465a927a579cb82243676677d5a529",
+    "status": "translated"
+  },
+  "preview-beta/server/JigsawPlaceOptions": {
+    "sourceHash": "fd2d22b932360d0fecbea63f3cc4b8367233c565",
+    "status": "translated"
+  },
+  "preview-beta/server/JigsawStructurePlaceOptions": {
+    "sourceHash": "49b86ac20805a83855169110d4428953fd4f1bef",
+    "status": "translated"
+  },
+  "preview-beta/server/LessThanComparison": {
+    "sourceHash": "a8ddadb687c449a8f56c0f98c37adbcff32939ed",
+    "status": "translated"
+  },
+  "preview-beta/server/LessThanOrEqualsComparison": {
+    "sourceHash": "d6c8d74c93378e6a48b3c05455cc37be4a3e2265",
+    "status": "translated"
+  },
+  "preview-beta/server/MusicOptions": {
+    "sourceHash": "82d62a310c5a4d91f276dc413c287d0821782ac8",
+    "status": "translated"
+  },
+  "preview-beta/server/NotEqualsComparison": {
+    "sourceHash": "eb9d1ca2880bb779cd76340d8208f36c16337519",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayAnimationOptions": {
+    "sourceHash": "9f29da6a110c6a5262dd3656e013cc9ed84a7644",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerAimAssistSettings": {
+    "sourceHash": "b73226769a68226550d709d97280bbab80e1cc49",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerBreakingBlockEventOptions": {
+    "sourceHash": "54c7c3ee61df66a52d62f22ef6a5e4802660dd7e",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSoundOptions": {
+    "sourceHash": "bb4092538aa7edc68126a41765ce2adfb9f0dfbe",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerSwingEventOptions": {
+    "sourceHash": "dc691207e44c210a9d0967e00f51f842bd1f0f8c",
+    "status": "translated"
+  },
+  "preview-beta/server/PlayerVisibilityRules": {
+    "sourceHash": "a631057f4add56e1196fb939234cf425121ca0bf",
+    "status": "translated"
+  },
+  "preview-beta/server/PrimitiveShapeQueryOptions": {
+    "sourceHash": "a182d2f2540be82b858357d8e0f918da2fd5b52d",
+    "status": "translated"
+  },
+  "preview-beta/server/ProgressKeyFrame": {
+    "sourceHash": "949fb0b6ca9da2a7855cbd167085094aa824e390",
+    "status": "translated"
+  },
+  "preview-beta/server/ProjectileShootOptions": {
+    "sourceHash": "4d9a0e44a1ee7ad1673ba575c982f1eb19bbeb9b",
+    "status": "translated"
+  },
+  "preview-beta/server/RangeComparison": {
+    "sourceHash": "dc4a009a14fa0409678b32875131c184728933fe",
+    "status": "translated"
+  },
+  "preview-beta/server/RawMessage": {
+    "sourceHash": "74125f7d27adf172d8c3dfadddbe6f2ce829859d",
+    "status": "translated"
+  },
+  "preview-beta/server/RawMessageScore": {
+    "sourceHash": "db61f7c853bc6dd01527bc49118bfc00330f90bd",
+    "status": "translated"
+  },
+  "preview-beta/server/RawText": {
+    "sourceHash": "57c494131e2b39ce22ec0243cc50428893fff719",
+    "status": "translated"
+  },
+  "preview-beta/server/RGB": {
+    "sourceHash": "e91374993d4e983e52b74864e72b8c96f8498f7d",
+    "status": "translated"
+  },
+  "preview-beta/server/RGBA": {
+    "sourceHash": "ba045d0b7d4c3ab39f916b6af968d28592b97a8c",
+    "status": "translated"
+  },
+  "preview-beta/server/RotationKeyFrame": {
+    "sourceHash": "285e22146386b7ba75c70be73ce5eb7f549a3cd9",
+    "status": "translated"
+  },
+  "preview-beta/server/ScoreboardObjectiveDisplayOptions": {
+    "sourceHash": "660e3f6987bf7b457d64a92b3f6de641d2dd41c7",
+    "status": "translated"
+  },
+  "preview-beta/server/ScriptEventMessageFilterOptions": {
+    "sourceHash": "3487970226a6e93ee1bbb531b37484cc70e2e907",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDefinitionDurationInfo": {
+    "sourceHash": "b1abbc171742e83811978c4ca6298a0aa2ed6f01",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDefinitionFilter": {
+    "sourceHash": "ce15311d55b7a6254282eae9711202d8e873d0d1",
+    "status": "translated"
+  },
+  "preview-beta/server/SoundDefinitionMusicInfo": {
+    "sourceHash": "2cca960cfe3105f389f4587aa34dd28677616197",
+    "status": "translated"
+  },
+  "preview-beta/server/SpawnEntityOptions": {
+    "sourceHash": "a6a65543c18f8d37477b9314711060f3836ea6b6",
+    "status": "translated"
+  },
+  "preview-beta/server/SplineAnimation": {
+    "sourceHash": "992081b6e6d5d1050c8414829983bc002a1bd8c1",
+    "status": "translated"
+  },
+  "preview-beta/server/StructureCreateOptions": {
+    "sourceHash": "4dccabbfc3080f9514adc5894bc8ff3cc972d998",
+    "status": "translated"
+  },
+  "preview-beta/server/StructurePlaceOptions": {
+    "sourceHash": "7e78a01b1f1e15a3b1d3fc8684a4d541d9bff151",
+    "status": "translated"
+  },
+  "preview-beta/server/TeleportOptions": {
+    "sourceHash": "dc2dcf716dad5a94e0485fb99989eb0600055f91",
+    "status": "translated"
+  },
+  "preview-beta/server/TickingArea": {
+    "sourceHash": "978a1c59b32d19d066b01f99665b4422080b3404",
+    "status": "translated"
+  },
+  "preview-beta/server/TitleDisplayOptions": {
+    "sourceHash": "ee60e813bc49dce9f10eb2afc0af89eec63c3423",
+    "status": "translated"
+  },
+  "preview-beta/server/Vector2": {
+    "sourceHash": "a65b605e8216b24d6eb615e04071ebb1b080f16e",
+    "status": "translated"
+  },
+  "preview-beta/server/Vector3": {
+    "sourceHash": "dca4eff72e07b95e6e3632c3dc5975dbad1f27fa",
+    "status": "translated"
+  },
+  "preview-beta/server/VectorXZ": {
+    "sourceHash": "e9705dbc9848f098f17f194db76e1ecadf652454",
+    "status": "translated"
+  },
+  "preview-beta/server/WaypointTextureBounds": {
+    "sourceHash": "6123c5cc125684939bed35447f9e18486540fad4",
+    "status": "translated"
+  },
+  "preview-beta/server/WaypointTextureSelector": {
+    "sourceHash": "c8e6221ab562a3d60db5eb31de46915fc82fdce0",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldSoundOptions": {
+    "sourceHash": "0ddedb663951ea8f9c2d5a3391e4b74d089c6ac1",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponentAlreadyRegisteredError": {
+    "sourceHash": "3fb10c6348b26e436f2866316f62257992302cce",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponentReloadNewComponentError": {
+    "sourceHash": "9590e37d3f35eb192b3ffa55ef8b61ac472b345f",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponentReloadNewEventError": {
+    "sourceHash": "036ffbc2a32009e7a8017df62d3263f762e460b1",
+    "status": "translated"
+  },
+  "preview-beta/server/BlockCustomComponentReloadVersionError": {
+    "sourceHash": "fcce6d4c44a79b27d24fe6622d57ec5ebdf4139a",
+    "status": "translated"
+  },
+  "preview-beta/server/BookError": {
+    "sourceHash": "d0e051905c81448d2966e5f59efbde21e363ff8a",
+    "status": "translated"
+  },
+  "preview-beta/server/BookPageContentError": {
+    "sourceHash": "384dcd835e90db6a208a636a6f4576ab24f9b518",
+    "status": "translated"
+  },
+  "preview-beta/server/CommandError": {
+    "sourceHash": "9fa1c3392b79e10f8d36b8af88bbf9f27e20e693",
+    "status": "translated"
+  },
+  "preview-beta/server/ContainerRulesError": {
+    "sourceHash": "f555eac7de0711e3cddbaeb2efbde91ce5313af7",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomCommandError": {
+    "sourceHash": "8d434f94efc6b88694254d3d44e6246d4dfde5e0",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomComponentInvalidRegistryError": {
+    "sourceHash": "02349b0b242e618acff04547f02fb22add857143",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomComponentNameError": {
+    "sourceHash": "9198e13cb23125b0adf2bf67a35048041b6e2187",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomDimensionAlreadyRegisteredError": {
+    "sourceHash": "8cf84da113540282c2694d73cc37f46b79df06dc",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomDimensionInvalidRegistryError": {
+    "sourceHash": "4b82afd02743782455117eb92001737e0ea7cdac",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomDimensionNameError": {
+    "sourceHash": "14a0e83e772dad75f265e35d9953b808d0b0be28",
+    "status": "translated"
+  },
+  "preview-beta/server/CustomDimensionReloadNewDimensionError": {
+    "sourceHash": "5a5b34ba8c4b792b8ce793e26a6bf966740f8461",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentLevelOutOfBoundsError": {
+    "sourceHash": "e57aff33d46e0f20befe131e50e3536d6a515adf",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentTypeNotCompatibleError": {
+    "sourceHash": "604141fb60755fab0fcfd9820d4eb95d0640ad27",
+    "status": "translated"
+  },
+  "preview-beta/server/EnchantmentTypeUnknownIdError": {
+    "sourceHash": "33698a3ca403510066f50b9c4616ccc3db8bfc46",
+    "status": "translated"
+  },
+  "preview-beta/server/EntitySpawnError": {
+    "sourceHash": "daae2620a0d0646c073740b83db7c69ae8843edf",
+    "status": "translated"
+  },
+  "preview-beta/server/FogSettingsError": {
+    "sourceHash": "597629c8d5066a0e34f617d04543f4affaf2a5c3",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidBlockComponentError": {
+    "sourceHash": "42e2e7d8fb5a7260bd8256f5bc71d0f423e421ca",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidContainerError": {
+    "sourceHash": "308bf7673d1afe8320d71432469889dafda3812d",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidContainerSlotError": {
+    "sourceHash": "4a4e61937745070b19363d4957b1bda69fbfd0da",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidEntityComponentError": {
+    "sourceHash": "36208e96dfb4af98358a6879c199396867b71327",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidEntityError": {
+    "sourceHash": "7d66e2b2e2a19981bac60af4752d7e2e44e185fe",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidItemStackError": {
+    "sourceHash": "071becf0a289bcd89f9b47b346034458a0f3d667",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidIteratorError": {
+    "sourceHash": "dade94501ffd9f0f2472e05b3d1e6ced10cfcdd3",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidPotionDeliveryTypeError": {
+    "sourceHash": "f94b821378da64434ebb0a015d7191701cf242e4",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidPotionEffectTypeError": {
+    "sourceHash": "3b287c5637f681efff9176207beb0e2142b04d4e",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidStructureError": {
+    "sourceHash": "cd06e8ca86a45104e0633f5f0ab360eb82466112",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidWaypointError": {
+    "sourceHash": "9a346bc8bc00055e6432be4e44e3651a870d0e28",
+    "status": "translated"
+  },
+  "preview-beta/server/InvalidWaypointTextureSelectorError": {
+    "sourceHash": "3e2b5de6c6aaf39baa1ed9a479d68206ad9d3eda",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponentAlreadyRegisteredError": {
+    "sourceHash": "994c0de1150c2007d19b075a0a45b3448929fe41",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponentReloadNewComponentError": {
+    "sourceHash": "27e43fe8f29e8af4715a602dce92b92cfaa18a39",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponentReloadNewEventError": {
+    "sourceHash": "f11c8d831d10764290b713dd04e1f3ec67792245",
+    "status": "translated"
+  },
+  "preview-beta/server/ItemCustomComponentReloadVersionError": {
+    "sourceHash": "b6cc719a40d2b38c905cda4a310f010835079801",
+    "status": "translated"
+  },
+  "preview-beta/server/LocationInUnloadedChunkError": {
+    "sourceHash": "92ed196fd95b32face4741dacb8404139d89f577",
+    "status": "translated"
+  },
+  "preview-beta/server/LocationOutOfWorldBoundariesError": {
+    "sourceHash": "7bbbea81cd79daa16e9d5c9080cddb6aeed5a1e2",
+    "status": "translated"
+  },
+  "preview-beta/server/LocatorBarError": {
+    "sourceHash": "2248f0df5b03a1c927ada889f7c75c3663b13c68",
+    "status": "translated"
+  },
+  "preview-beta/server/NamespaceNameError": {
+    "sourceHash": "ee36154483877697810f6d011a8938a16628af13",
+    "status": "translated"
+  },
+  "preview-beta/server/PlaceJigsawError": {
+    "sourceHash": "ba71a0a136afea1c629ecfeeec4396e441f6f451",
+    "status": "translated"
+  },
+  "preview-beta/server/PrimitiveShapeError": {
+    "sourceHash": "94c560e7fe0d0c894d124fe9824184a6245b0052",
+    "status": "translated"
+  },
+  "preview-beta/server/RawMessageError": {
+    "sourceHash": "a218c624e3d6ec4792957ad0ce35a39ed7fb4448",
+    "status": "translated"
+  },
+  "preview-beta/server/TickingAreaError": {
+    "sourceHash": "52147dddf55d970506e5b8969a379094e86af5fe",
+    "status": "translated"
+  },
+  "preview-beta/server/UnloadedChunksError": {
+    "sourceHash": "64609e80032fad4881a1ae833cad301ab204fdf7",
+    "status": "translated"
+  },
+  "preview-beta/server/HudElementsCount": {
+    "sourceHash": "2ed91385580170c90859e6d98c0b188e69a6a726",
+    "status": "translated"
+  },
+  "preview-beta/server/HudVisibilityCount": {
+    "sourceHash": "fad80d2ea99d864ac8dd586a20edd73723b93f1f",
+    "status": "translated"
+  },
+  "preview-beta/server/MoonPhaseCount": {
+    "sourceHash": "9a267489c894267b71481992d702a149928ab33b",
+    "status": "translated"
+  },
+  "preview-beta/server/TicksPerDay": {
+    "sourceHash": "a292839cb7357cff695b69fa3586429b853d68cd",
+    "status": "translated"
+  },
+  "preview-beta/server/TicksPerSecond": {
+    "sourceHash": "7167bd44c9b408e8d387c79ac21592bffae7cfb4",
+    "status": "translated"
+  },
+  "preview-beta/server/system": {
+    "sourceHash": "f9ea1d3d0cc1495145aa24727401125bd5c8f658",
+    "status": "translated"
+  },
+  "preview-beta/server/world": {
+    "sourceHash": "91ff5acb302d12b78b70740789eb93a2e28e7343",
+    "status": "translated"
+  }
 }

@@ -133,6 +133,11 @@ function buildUntranslated(groups) {
       for (const s of g.expired) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
       lines.push('</ul></div>');
     }
+    if (g.invalid && g.invalid.length > 0) {
+      lines.push('<div class="expired"><b>⚠️ 翻译片段损坏（未应用，请修复后重新上传）</b><ul>');
+      for (const s of g.invalid) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
+      lines.push('</ul></div>');
+    }
     if (g.missing.length > 0) {
       lines.push('<b>未翻译（显示英文源）</b><ul>');
       for (const s of g.missing) lines.push(`<li>${typeof s === 'string' ? s : s.symbol}</li>`);
@@ -235,6 +240,7 @@ async function main() {
           moduleTitle: mod.title,
           missing: toSrcItems(res.missing),
           expired: toSrcItems(res.expired),
+          invalid: toSrcItems(res.invalid || []),
         });
         if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
       }
@@ -262,6 +268,30 @@ async function main() {
     writeTsConfig(genTDir, shortMc(e.mcVersion), './extra.css');
     console.log(`  → typedoc 生成 _out/${ver.id}/…`);
     await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
+
+    // 模块主页：复制翻译版 d.ts 到 _out/<版本>/dts/ + 注入「下载翻译后的 index.d.ts」按钮
+    for (const mod of modules) {
+      for (const flavor of ['rc', 'beta']) {
+        const genId = flavor === 'rc' ? mod.dir : `${mod.dir}@beta`;
+        const dtsFile = `${genId}.d.ts`;
+        const srcDts = path.join(genTDir, '@minecraft', dtsFile);
+        if (!fs.existsSync(srcDts)) continue;
+        writeFile(path.join(OUT_DIR, ver.id, 'dts', dtsFile), fs.readFileSync(srcDts, 'utf8'));
+        const modPage = path.join(OUT_DIR, ver.id, 'modules', `@minecraft/${genId}`.replace(/[^\w]+/g, '_') + '.html');
+        if (fs.existsSync(modPage)) {
+          let html = fs.readFileSync(modPage, 'utf8');
+          const btn =
+            '<div style="margin:.6rem 0">' +
+            `<a href="../dts/${dtsFile}" download="index.d.ts" style="display:inline-block;padding:.45rem 1rem;border:1px solid var(--color-accent,#4f46e5);color:var(--color-accent,#4f46e5);border-radius:6px;text-decoration:none;font-size:.85rem">⬇ 下载翻译后的 index.d.ts</a>` +
+            '</div>';
+          const idx = html.indexOf('</h1>');
+          if (idx >= 0) {
+            html = html.slice(0, idx + 5) + btn + html.slice(idx + 5);
+            fs.writeFileSync(modPage, html);
+          }
+        }
+      }
+    }
   }
 
   // 主页（typedoc 生成）——已在 main 开头先生成（见上方），此处避免再次生成覆盖
@@ -273,6 +303,7 @@ async function main() {
     total: {
       missing: untranslatedGroups.reduce((s, g) => s + g.missing.length, 0),
       expired: untranslatedGroups.reduce((s, g) => s + g.expired.length, 0),
+      invalid: untranslatedGroups.reduce((s, g) => s + (g.invalid || []).length, 0),
     },
     versions: untranslatedGroups,
   };
