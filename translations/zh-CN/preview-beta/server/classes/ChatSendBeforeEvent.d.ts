@@ -1,0 +1,31 @@
+/**
+ * @beta
+ * 当玩家发送聊天消息时触发的事件。
+ */
+export class ChatSendBeforeEvent {
+    private constructor();
+    /**
+     * @remarks
+     * 如果在 beforeChat 事件处理程序中将此值设为 true，则此消息将不会广播出去。
+     *
+     */
+    cancel: boolean;
+    /**
+     * @remarks
+     * 正在广播的消息。
+     *
+     */
+    readonly message: string;
+    /**
+     * @remarks
+     * 发送聊天消息的玩家。
+     *
+     */
+    readonly sender: Player;
+    /**
+     * @remarks
+     * 可选：将接收此消息的玩家列表。如果已定义，则此消息将直接定向给一个或多个玩家（即不广播）。
+     *
+     */
+    readonly targets?: Player[];
+}

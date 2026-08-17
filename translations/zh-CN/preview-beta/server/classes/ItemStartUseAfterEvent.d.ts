@@ -1,0 +1,24 @@
+/**
+ * 包含有关可蓄力物品开始蓄力的信息。
+ */
+export class ItemStartUseAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * 正在开始蓄力的受影响的物品实例。
+     *
+     */
+    readonly itemStack: ItemStack;
+    /**
+     * @remarks
+     * 返回触发此物品事件的源实体。
+     *
+     */
+    readonly source: Player;
+    /**
+     * @remarks
+     * 返回此蓄力过程完成其周期前剩余的时间（以刻为单位）。
+     *
+     */
+    readonly useDuration: number;
+}
