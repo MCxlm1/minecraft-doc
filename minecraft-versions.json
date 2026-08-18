@@ -1,6 +1,6 @@
 {
   "comment": "版本来源。正式版条目(1.26.44)：rc 用 npm view latest（vanilla-data 等），beta 同 preview 最新；preview 条目(1.26.50-preview.25)。正式版条目由用户另一台设备维护更新。",
-  "1.26.50-preview.25": {
+  "1.26.50-preview.26": {
     "type": "preview",
     "key": "preview",
     "title": "Preview",
