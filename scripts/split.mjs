@@ -95,6 +95,12 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
+    // 哈希校验：源符号已变化（与 manifest 记录的翻译基准不一致）→ 翻译失效（隐藏，等重新翻译）
+    const recorded = manifest[key];
+    if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
+      expired.push({ symbol: p.symbolName, path: p.path, text: p.text });
+      continue;
+    }
     const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();
     if (!trans) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 空片段视为未翻译
