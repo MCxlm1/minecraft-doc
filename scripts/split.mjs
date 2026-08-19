@@ -95,15 +95,25 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
-    // 哈希校验：源符号已变化（与 manifest 记录的翻译基准不一致）→ 翻译失效（隐藏，等重新翻译）
-    const recorded = manifest[key];
-    if (recorded && recorded.sourceHash !== undefined && recorded.sourceHash !== srcHash) {
-      expired.push({ symbol: p.symbolName, path: p.path, text: p.text });
-      continue;
-    }
     const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();
     if (!trans) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 空片段视为未翻译
+      continue;
+    }
+    // 哈希校验（双哈希）：
+    //  - sourceHash：翻译基于的源符号哈希
+    //  - fragmentHash：翻译片段内容哈希（用于检测用户是否更新了翻译）
+    //  失效条件：源已变化 且 片段未更新（用户没重翻）→ 翻译失效（隐藏，等重新翻译）
+    //  若片段更新过（用户重翻）→ 视为主动更新，重新应用并记录新基准
+    const recorded = manifest[key];
+    const fragmentHash = sha1(trans);
+    if (
+      recorded &&
+      recorded.sourceHash !== undefined &&
+      recorded.sourceHash !== srcHash &&
+      recorded.fragmentHash === fragmentHash
+    ) {
+      expired.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
     // 片段完整性校验
@@ -123,7 +133,7 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
       continue;
     }
     edits.push({ start: p.start, end: p.end, text: trans });
-    manifest[key] = { sourceHash: srcHash, status: 'translated' };
+    manifest[key] = { sourceHash: srcHash, fragmentHash, status: 'translated' };
     applied.push(p.symbolName);
     changed = true;
   }
