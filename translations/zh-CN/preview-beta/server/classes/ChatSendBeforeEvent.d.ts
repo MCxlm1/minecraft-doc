@@ -24,8 +24,8 @@ export class ChatSendBeforeEvent {
     readonly sender: Player;
     /**
      * @remarks
-     * 可选，将接收此消息的玩家列表。如果定义了，则此消息直接定向到一个或多个玩家（即不广播）。
+     * 可选的接收此消息的玩家列表。如果定义，此消息将直接针对一个或多个玩家（即不广播）。可以修改此列表以更改消息接收者。
      *
      */
-    readonly targets?: Player[];
+    targets?: Player[];
 }

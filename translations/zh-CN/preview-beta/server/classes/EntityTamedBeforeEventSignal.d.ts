@@ -1,34 +1,34 @@
 /**
- * @beta
- * 管理与实体被驯服前相关的回调。
+ * @rc
+ * 管理与实体被驯服之前触发的回调。
  */
 export class EntityTamedBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * @privilege early-execution-allowed - 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在受限执行特权下被调用。
+     * 此闭包会在受限执行权限下被调用。
      * @param options
-     * 可选的事件筛选器。
+     * 可选的事件监听选项。
      * @returns
-     * 在受限执行特权下被调用的闭包。
+     * 返回一个在受限执行权限下被调用的闭包。
      */
     subscribe(
         callback: (arg0: EntityTamedBeforeEvent) => void,
-        options?: EntityTamedEventFilter,
+        options?: EntityTamedEventOptions,
     ): (arg0: EntityTamedBeforeEvent) => void;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
-     * This function can be called in early-execution mode.
+     * @privilege early-execution-allowed - 此函数可以在早期执行模式下调用。
      *
      * @param callback
-     * 此闭包在受限执行特权下被调用。
+     * 此闭包会在受限执行权限下被调用。
      */
     unsubscribe(callback: (arg0: EntityTamedBeforeEvent) => void): void;
 }

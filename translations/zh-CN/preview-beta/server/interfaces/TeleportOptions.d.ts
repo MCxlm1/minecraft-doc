@@ -1,5 +1,5 @@
 /**
- * 包含用于传送实体的附加选项。
+ * 包含传送实体时的附加选项。
  * @example teleport.ts
  * ```typescript
  * import { system, DimensionLocation } from '@minecraft/server';
@@ -46,34 +46,32 @@
 export interface TeleportOptions {
     /**
      * @remarks
-     * 是否检查方块是否会阻挡传送后的
-     * 实体。
+     * 是否检查方块是否会在传送后阻挡实体。
      *
      */
     checkForBlocks?: boolean;
     /**
      * @remarks
-     * 要传送到的维度。如果未
-     * 指定，则实体将在其所在的维度
-     * 内传送。
+     * 可能要将实体移动到的维度。若未指定，实体将在其当前所处的维度内进行传送。
      *
      */
     dimension?: Dimension;
     /**
      * @remarks
-     * 传送后实体应面对的位置。
+     * 传送后实体应面向的位置。
      *
      */
     facingLocation?: Vector3;
+    forceProvidedPositionOnDimensionChange?: boolean;
     /**
      * @remarks
-     * 是否保留传送后实体的速度。
+     * 是否在传送后保留实体的速度。
      *
      */
     keepVelocity?: boolean;
     /**
      * @remarks
-     * 传送后实体的旋转。
+     * 传送后实体的旋转角度。
      *
      */
     rotation?: Vector2;

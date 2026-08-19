@@ -1,6 +1,6 @@
 /**
  * @beta
- * 发生更改的包设置名称与值。
+ * 发生更改的包设置的名称和值。
  */
 export class PackSettingChangeAfterEvent {
     private constructor();
@@ -15,5 +15,5 @@ export class PackSettingChangeAfterEvent {
      * 设置的值。
      *
      */
-    readonly settingValue: boolean | number | string;
+    readonly settingValue: string[] | boolean | number | string;
 }

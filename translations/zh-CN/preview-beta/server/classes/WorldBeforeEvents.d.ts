@@ -1,15 +1,16 @@
 /**
- * 一组在实际动作发生前触发的事件。在大多数情况下，你可以取消或修改即将发生的事件。
- * 请注意，在 before 事件中，任何修改游戏状态的 API 将不会生效并会抛出错误（例如 dimension.spawnEntity）。
+ * 一组在实际动作发生之前触发的事件。在大多数情况下，你可以取消或修改即将发生的事件。
+ * 请注意，在 before 事件中，任何修改游戏状态的 API 将无法生效并会抛出错误。
+ * （例如，dimension.spawnEntity）
  */
 export class WorldBeforeEvents {
     private constructor();
     /**
      * @beta
      * @remarks
-     * 此事件在聊天消息已广播或发送给玩家后触发。
+     * 当聊天消息被广播或发送给玩家后触发此事件。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      * @example customCommand.ts
      * ```typescript
@@ -42,92 +43,92 @@ export class WorldBeforeEvents {
     readonly chatSend: ChatSendBeforeEventSignal;
     /**
      * @remarks
-     * 此事件在一个效果被添加到实体后触发。
+     * 此事件在向实体添加效果后触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly effectAdd: EffectAddBeforeEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHeal: EntityHealBeforeEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHurt: EntityHurtBeforeEventSignal;
     /**
      * @remarks
-     * 此事件在实体拾取物品前触发。
+     * 此事件在实体拾取物品之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityItemPickup: EntityItemPickupBeforeEventSignal;
     /**
      * @remarks
-     * 在实体从世界中被移除前触发（例如，卸载或在被杀死后被移除）。
+     * 在实体从世界中移除之前触发（例如，实体被卸载或在被击杀后移除）。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityRemove: EntityRemoveBeforeEventSignal;
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 在实体被驯服前触发。
+     * 在实体被驯服之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityTamed: EntityTamedBeforeEventSignal;
     /**
      * @remarks
-     * 此事件在爆炸发生后触发。
+     * 此事件在爆炸发生前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly explosion: ExplosionBeforeEventSignal;
     /**
      * @remarks
-     * 此事件在物品被玩家成功使用时触发。
+     * 此事件在玩家成功使用物品时触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemUse: ItemUseBeforeEventSignal;
     /**
      * @remarks
-     * 此事件在玩家破坏方块前触发。
+     * 此事件在玩家破坏方块之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerBreakBlock: PlayerBreakBlockBeforeEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerGameModeChange: PlayerGameModeChangeBeforeEventSignal;
     /**
      * @remarks
-     * 在玩家与方块交互前触发。
+     * 在玩家与方块交互之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInteractWithBlock: PlayerInteractWithBlockBeforeEventSignal;
     /**
      * @remarks
-     * 在玩家与实体交互前触发。
+     * 在玩家与实体交互之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInteractWithEntity: PlayerInteractWithEntityBeforeEventSignal;
@@ -135,23 +136,32 @@ export class WorldBeforeEvents {
      * @remarks
      * 在玩家离开游戏时触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerLeave: PlayerLeaveBeforeEventSignal;
     /**
      * @beta
      * @remarks
-     * 此事件在玩家放置方块前触发。
+     * 此事件在玩家放置方块之前触发。
      *
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerPlaceBlock: PlayerPlaceBlockBeforeEventSignal;
     /**
      * @remarks
-     * 此属性可在早期执行模式下读取。
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly weatherChange: WeatherChangeBeforeEventSignal;
+    /**
+     * @beta
+     * @remarks
+     * 此事件在 {@link WorldClock} 达到其最大时间并即将重启时触发。
+     *
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
+     *
+     */
+    readonly worldClockOnRestart: WorldClockOnRestartBeforeEventSignal;
 }

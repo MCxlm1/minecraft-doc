@@ -1,15 +1,14 @@
 /**
- * 一个封装世界状态的类——包含一组维度以及 Minecraft 的环境。
+ * 封装世界状态的类——包含一组维度以及 Minecraft 的环境。
  */
 export class World {
     private constructor();
 
     /**
      * @remarks
-     * 包含适用于整个世界的一组事件。事件回调以延迟方式调用。
-     * 事件回调以读写模式执行。
+     * 包含一组适用于整个世界的事件。事件回调以延迟方式调用。事件回调在读写模式下执行。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - This property can be read in early-execution mode.
      *
      */
     readonly afterEvents: WorldAfterEvents;
@@ -19,17 +18,16 @@ export class World {
      * @remarks
      * 启用或禁用作弊。
      *
-     * This property can't be edited in restricted-execution mode.
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
      *
      */
     allowCheats: boolean;
 
     /**
      * @remarks
-     * 包含适用于整个世界的一组事件。事件回调会立即调用。
-     * 事件回调以只读模式执行。
+     * 包含一组适用于整个世界的事件。事件回调立即调用。事件回调在只读模式下执行。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - This property can be read in early-execution mode.
      *
      * @example customCommand.ts
      * ```typescript
@@ -63,7 +61,7 @@ export class World {
 
     /**
      * @remarks
-     * 应用于世界的游戏规则。
+     * 适用于该世界的游戏规则。
      *
      */
     readonly gameRules: GameRules;
@@ -72,14 +70,14 @@ export class World {
 
     /**
      * @remarks
-     * 用于在世界中添加和移除原始文本对象的管理器。
+     * 用于在世界中添加和移除基本文本对象的管理器。
      *
      */
     readonly primitiveShapesManager: PrimitiveShapesManager;
 
     /**
      * @remarks
-     * 返回适用于世界的通用全局记分板。
+     * 返回适用于该世界的全局记分板。
      *
      */
     readonly scoreboard: Scoreboard;
@@ -92,23 +90,23 @@ export class World {
     readonly seed: string;
 
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 提供对此世界加载的声音定义的只读访问。
+     * 提供对为该世界加载的声音定义的只读访问。
      *
      */
     readonly soundDefinitionRegistry: SoundDefinitionRegistry;
 
     /**
      * @remarks
-     * 返回用于 {@link Structure} 相关 API 的管理器。
+     * 返回与 {@link Structure} 相关 API 的管理器。
      *
      */
     readonly structureManager: StructureManager;
 
     /**
      * @remarks
-     * 用于添加、移除和查询特定于包的常加载区域的管理器。
+     * 用于添加、移除和查询包专属常加载区域的管理器。
      *
      */
     readonly tickingAreaManager: TickingAreaManager;
@@ -116,9 +114,9 @@ export class World {
     /**
      * @beta
      * @remarks
-     * 一个仅限内部使用的方法，用于在客户端与服务器之间广播特定消息。
+     * 一个仅供内部使用的方法，用于在客户端与服务器之间广播特定消息。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param id
      * 消息标识符。
@@ -129,7 +127,7 @@ export class World {
 
     /**
      * @remarks
-     * 清除此世界内为当前行为包声明的一组动态属性。
+     * 清除此行为包在该世界中声明的所有动态属性。
      *
      */
     clearDynamicProperties(): void;
@@ -145,7 +143,7 @@ export class World {
 
     /**
      * @remarks
-     * 可在世界中使用的瞄准辅助预设与类别。
+     * 返回可在世界中使用的瞄准辅助预设与类别。
      *
      * @returns
      * 瞄准辅助注册表。
@@ -154,10 +152,10 @@ export class World {
 
     /**
      * @remarks
-     * 返回世界中所有活跃玩家组成的数组。
+     * 返回世界中所有活动玩家组成的数组。
      *
      * @returns
-     * 玩家数组。
+     * 包含所有活动玩家的数组。
      * @throws
      * 此函数可能抛出错误。
      *
@@ -168,20 +166,36 @@ export class World {
     getAllPlayers(): Player[];
 
     /**
+     * @beta
      * @remarks
-     * 返回当前天数。
+     * 根据名称获取世界时钟。
+     *
+     * @param name
+     * 要获取的世界时钟的名称。
+     * @returns
+     * 具有给定名称的 {@link WorldClock}。
+     * @throws
+     * WorldClockNotFoundError：如果给定名称的世界时钟不存在。
+     *
+     * {@link WorldClockNotFoundError}
+     */
+    getClock(name: string): WorldClock;
+
+    /**
+     * @remarks
+     * 返回当前的天数。
      *
      * @returns
-     * 当前天数，由世界时间除以每天的游戏刻数得出。新世界从第 0 天开始。
+     * 当前天数，由世界时间除以每天的刻数得出。新世界从第 0 天开始。
      */
     getDay(): number;
 
     /**
      * @remarks
-     * 返回默认的主世界出生位置。
+     * 返回默认的主世界出生点位置。
      *
      * @returns
-     * 默认的主世界出生位置。默认情况下，Y 坐标为 32767，表示玩家的出生高度不固定，将由周围方块决定。
+     * 默认的主世界出生点位置。默认情况下，Y 坐标为 32767，表示玩家的出生高度不固定，将由周围方块决定。
      */
     getDefaultSpawnLocation(): Vector3;
 
@@ -199,11 +213,11 @@ export class World {
      * 返回一个维度对象。
      *
      * @param dimensionId
-     * 维度的名称。例如：“overworld”、“nether”或“the_end”。
+     * 维度的名称。例如 "overworld"、"nether" 或 "the_end"。
      * @returns
-     * 请求的维度。
+     * 所请求的维度。
      * @throws
-     * 如果给定的维度名称无效，则抛出错误。
+     * 如果给定的维度名称无效则抛出错误。
      */
     getDimension(dimensionId: string): Dimension;
 
@@ -214,9 +228,9 @@ export class World {
      * @param identifier
      * 属性标识符。
      * @returns
-     * 返回该属性的值；如果属性尚未设置，则返回 undefined。
+     * 返回该属性的值，如果该属性尚未设置则返回 undefined。
      * @throws
-     * 如果给定的动态属性标识符未定义，则抛出错误。
+     * 如果给定的动态属性标识符未定义则抛出错误。
      * @example incrementDynamicProperty.ts
      * ```typescript
      * import { world, DimensionLocation } from '@minecraft/server';
@@ -285,16 +299,16 @@ export class World {
 
     /**
      * @remarks
-     * 获取此世界中已设置的一组动态属性标识符。
+     * 获取已在该世界中设置的一组动态属性标识符。
      *
      * @returns
-     * 一个字符串数组，包含当前已设置的动态属性标识符。
+     * 由活动动态属性标识符组成的字符串数组。
      */
     getDynamicPropertyIds(): string[];
 
     /**
      * @remarks
-     * 获取动态属性的总字节数。这可用于你自己的分析，以确保不会存储过大的动态属性集合。
+     * 获取动态属性的总字节数。这可用于你自己的分析，以确保你没有存储体量过大的动态属性集合。
      *
      * @returns
      * 动态属性的总字节数。
@@ -308,9 +322,9 @@ export class World {
      * @param id
      * 实体的 id。
      * @returns
-     * 请求的实体对象。
+     * 所请求的实体对象。
      * @throws
-     * 如果给定的实体 id 无效，则抛出错误。
+     * 如果给定的实体 id 无效则抛出错误。
      */
     getEntity(id: string): Entity | undefined;
 
@@ -319,40 +333,40 @@ export class World {
      * 返回一个能够从多种来源生成战利品的管理器。
      *
      * @returns
-     * 一个战利品表管理器，包含多种战利品生成方法。
+     * 具有多种战利品生成方法的战利品表管理器。
      */
     getLootTableManager(): LootTableManager;
 
     /**
      * @remarks
-     * 返回当前时间的月相。
+     * 返回当前时间对应的月相。
      *
      * @returns
-     * 当前的月相。
+     * 当前时间的月相。
      */
     getMoonPhase(): MoonPhase;
 
     /**
      * @remarks
-     * 返回包含包设置名称与值对的映射。
+     * 返回由包设置名称与值组成的映射。
      *
-     * This function can be called in early-execution mode.
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
      *
      * @returns
-     * 包含包设置名称与值对的映射。
+     * 包设置名称与值的键值对映射。
      */
-    getPackSettings(): Record<string, boolean | number | string>;
+    getPackSettings(): Record<string, string[] | boolean | number | string>;
 
     /**
      * @remarks
-     * 根据通过 EntityQueryOptions 过滤条件集合定义的一组条件，返回一组玩家。
+     * 根据通过 EntityQueryOptions 筛选条件集定义的一组条件，返回一组玩家。
      *
      * @param options
-     * 可用于过滤返回玩家集合的附加选项。
+     * 可用于筛选返回的玩家集合的附加选项。
      * @returns
      * 玩家数组。
      * @throws
-     * 如果提供的 EntityQueryOptions 无效，则抛出错误。
+     * 如果提供的 EntityQueryOptions 无效则抛出错误。
      *
      * {@link CommandError}
      *
@@ -365,23 +379,23 @@ export class World {
      * 返回一天中的时间。
      *
      * @returns
-     * 一天中的时间，以游戏刻为单位，介于 0 和 24000 之间。
+     * 一天中的时间，以刻为单位，介于 0 到 24000 之间。
      */
     getTimeOfDay(): number;
 
     /**
      * @remarks
-     * 为所有玩家播放特定的音乐曲目。
+     * 为所有玩家播放指定的音乐曲目。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param trackId
      * 要播放的音乐曲目标识符。
      * @param musicOptions
      * 音乐曲目的附加选项。
      * @throws
-     * 如果音量小于 0.0，会抛出错误。
-     * 如果淡入淡出时间小于 0.0，会抛出错误。
+     * 当 volume 小于 0.0 时抛出错误。
+     * 当 fade 小于 0.0 时抛出错误。
      *
      * {@link minecraftcommon.PropertyOutOfBoundsError}
      * @example playMusicAndSound.ts
@@ -417,17 +431,17 @@ export class World {
 
     /**
      * @remarks
-     * 为玩家排队一首附加音乐曲目。如果当前没有曲目在播放，则会播放一首音乐曲目。
+     * 为玩家额外排队一首音乐曲目。如果当前没有曲目正在播放，则会播放一首音乐曲目。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param trackId
      * 要播放的音乐曲目标识符。
      * @param musicOptions
      * 音乐曲目的附加选项。
      * @throws
-     * 如果音量小于 0.0，会抛出错误。
-     * 如果淡入淡出时间小于 0.0，会抛出错误。
+     * 当 volume 小于 0.0 时抛出错误。
+     * 当 fade 小于 0.0 时抛出错误。
      *
      *
      * {@link minecraftcommon.PropertyOutOfBoundsError}
@@ -436,12 +450,12 @@ export class World {
 
     /**
      * @remarks
-     * 向所有玩家发送一条消息。
+     * 向所有玩家发送消息。
      *
      * @param message
      * 要显示的消息。
      * @throws
-     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出异常。例如，如果向 `score` 提供了空的 `name` 字符串。
+     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出错误。例如，为 `score` 提供了空的 `name` 字符串时。
      */
     sendMessage(message: (RawMessage | string)[] | RawMessage | string): void;
 
@@ -449,23 +463,23 @@ export class World {
      * @remarks
      * 设置世界时间。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param absoluteTime
-     * 世界时间，以游戏刻为单位。
+     * 世界时间，以刻为单位。
      */
     setAbsoluteTime(absoluteTime: number): void;
 
     /**
      * @remarks
-     * 为所有玩家设置默认出生位置。
+     * 为所有玩家设置默认出生点位置。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param spawnLocation
-     * 出生点的位置。注意，此位置被假定位于主世界维度内。
+     * 出生点的位置。注意，该位置默认应位于主世界维度内。
      * @throws
-     * 如果提供的出生位置超出边界，则抛出异常。
+     * 当提供的出生点位置超出边界时抛出错误。
      *
      * {@link Error}
      *
@@ -475,23 +489,23 @@ export class World {
 
     /**
      * @remarks
-     * 设置世界的难度。
+     * 设置世界难度。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param difficulty
-     * 我们要将世界设置到的难度。
+     * 要将世界设置为的难度。
      */
     setDifficulty(difficulty: Difficulty): void;
 
     /**
      * @remarks
-     * 设置多个动态属性为特定值。
+     * 将多个动态属性设置为指定值。
      *
      * @param values
-     * 要设置的动态属性的键值对记录。如果数据值为 null，则会移除该属性。
+     * 要设置的动态属性键值对 Record。如果数据值为 null，则会改为移除该属性。
      * @throws
-     * 此函数可能抛出错误。
+     * 当键或值超出允许范围时抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      */
@@ -504,9 +518,9 @@ export class World {
      * @param identifier
      * 属性标识符。
      * @param value
-     * 要设置的属性的数据值。如果值为 null，则会移除该属性。
+     * 要设置的属性数据值。如果该值为 null，则会改为移除该属性。
      * @throws
-     * 如果给定的动态属性标识符未定义，则抛出异常。
+     * 当给定的动态属性标识符未定义时抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      * @example incrementDynamicProperty.ts
@@ -579,12 +593,12 @@ export class World {
      * @remarks
      * 设置一天中的时间。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      * @param timeOfDay
-     * 一天中的时间，以游戏刻为单位，介于 0 和 24000 之间。
+     * 一天中的时间，以刻为单位，范围为 0 到 24000。
      * @throws
-     * 如果提供的时间不在有效范围内，则抛出异常。
+     * 当提供的一天中的时间不在有效范围内时抛出错误。
      */
     setTimeOfDay(timeOfDay: number | TimeOfDay): void;
 
@@ -592,7 +606,7 @@ export class World {
      * @remarks
      * 停止播放任何音乐曲目。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - 此函数不能在受限执行模式下调用。
      *
      */
     stopMusic(): void;

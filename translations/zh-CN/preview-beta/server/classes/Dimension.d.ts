@@ -1,5 +1,5 @@
 /**
- * 表示世界内特定维度（例如末地）的类。
+ * 表示世界中某个特定维度（例如末地）的类。
  */
 export class Dimension {
     private constructor();
@@ -8,7 +8,7 @@ export class Dimension {
      * @remarks
      * 维度的高度范围。
      *
-     * @throws 使用此属性时可能抛出错误。
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly heightRange: minecraftcommon.NumberRange;
 
@@ -27,21 +27,25 @@ export class Dimension {
     readonly localizationKey: string;
 
     /**
+     * @beta
      * @remarks
-     * 根据世界种子计算特定类型最近生物群系的位置。请注意，
-     * calculateClosestBiomeFromSeed 可能是一项开销较大的操作，
-     * 因此请避免在单个 tick 内多次调用。结果完全由世界生成
-     * 算法和世界种子决定，因此若生物群系在生成后已被修改，
-     * 返回的位置可能无法反映实际当前地形。
+     * 提供对此维度的兴趣点（POI）管理器的访问。此属性仅在启用 POI 实验玩法时可用。
+     *
+     */
+    readonly poiManager: PoiManager;
+
+    /**
+     * @remarks
+     * 根据世界种子计算指定类型生物群系的最近位置。请注意，calculateClosestBiomeFromSeed 是一项开销较大的操作，因此请避免在单个游戏刻内进行多次调用。结果纯粹来源于世界生成算法和世界种子，因此如果生物群系在生成后被修改过，返回的位置可能无法反映实际当前地形。
      *
      * @param pos
-     * 开始搜索生物群系的起始位置。
+     * 开始查找生物群系的起始位置。
      * @param biomeToFind
-     * 要查找的生物群系标识符。
+     * 要查找的生物群系的标识符。
      * @param options
      * 生物群系搜索的附加筛选条件。
      * @returns
-     * 返回生物群系的位置；若未找到，则返回 undefined。
+     * 返回生物群系的位置；如果找不到生物群系则返回 undefined。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -55,20 +59,20 @@ export class Dimension {
     ): Vector3 | undefined;
 
     /**
-     * @beta
+     * @rc
      * @remarks
      * 将维度中一个区域的方块克隆到另一个区域。
      *
-     * 此函数无法在受限执行模式下调用。
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param beginLocation
-     * 待克隆区域的西北下起始角。
+     * 要克隆的源区域的西北下角起始位置。
      * @param endLocation
-     * 待克隆区域的东南上结束角。
+     * 要克隆的源区域的东南上角结束位置。
      * @param destination
-     * 目标区域的西北下起始角。
+     * 克隆目标区域的西北下角起始位置。
      * @param cloneMode
-     * 指定克隆方块在目标位置的放置方式。
+     * 指定克隆的方块在目标位置的放置方式。
      * @param filter
      * 可选的方块过滤器，用于仅包含源区域中匹配的方块。
      * @throws 此函数可能抛出错误。
@@ -87,27 +91,19 @@ export class Dimension {
 
     /**
      * @remarks
-     * 检查某个区域是否包含指定的生物群系。如果该区域部分位于
-     * 世界边界内，则仅搜索边界内的部分。此操作的耗时与体积的
-     * 面积及要检查的生物群系数量成正比。
+     * 检查某区域是否包含指定的生物群系。如果区域部分位于世界边界内，则仅搜索边界内的部分。此操作的耗时与区域体积和要检查的生物群系数量成正比。
      *
      * @param volume
      * 要检查生物群系的区域。
      * @param biomeFilter
-     * 要包含和排除的生物群系列表，以及要包含和排除的标签列表。
-     * 如果在区域内找到位于排除列表中的生物群系，或包含任何排除
-     * 标签的生物群系，则返回 false。
+     * 要包含和排除的生物群系列表，以及要包含和排除的标签列表。如果在区域中发现了排除列表中的生物群系，或包含任何排除标签的生物群系，则返回 false。
      * @param isSuperset
-     * Superset 用于确定过滤的严格程度。若 superset 为 true，
-     * 则区域必须包含包含列表中的一个或多个生物群系，或包含所有
-     * 包含标签的生物群系。若 superset 为 false，则区域必须仅包含
-     * 包含列表中的生物群系，且这些生物群系包含所有包含标签。
+     * isSuperset 用于确定过滤的严格程度。如果设置为 true，则区域必须包含包含列表中的一个或多个生物群系，或包含所有包含标签的生物群系。如果设置为 false，则区域必须仅包含包含列表中的生物群系，且这些生物群系必须包含所有包含标签。
      * @returns
-     * 如果区域内的生物群系符合传入的过滤设置，则返回 true；
-     * 否则返回 false。
+     * 如果区域中的生物群系与传入的过滤设置匹配，则返回 true；否则返回 false。
      * @throws
      * 如果提供的区域包含未加载的区块，将抛出错误。
-     * 如果提供的区域完全超出世界边界，将抛出错误。
+     * 如果提供的区域完全位于世界边界之外，将抛出错误。
      * 如果提供了未知的生物群系名称，将抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -125,17 +121,14 @@ export class Dimension {
      * 在方块体积中搜索满足方块过滤器的方块。
      *
      * @param volume
-     * 将被检查的方块体积。
+     * 要检查的方块体积。
      * @param filter
-     * 将针对体积中每个方块进行匹配的方块过滤器。
+     * 用于对体积中每个方块进行检查的方块过滤器。
      * @param allowUnloadedChunks
-     * 如果设置为 true，则在部分或全部方块体积位于已加载区块
-     * 之外时，抑制 UnloadedChunksError。仅检查体积内位于已加载
-     * 区块中的方块位置。
+     * 如果设置为 true，当方块体积部分或全部位于已加载区块之外时，将抑制 UnloadedChunksError 错误。此时仅检查体积中位于已加载区块内的方块位置。
      * 默认值：false
      * @returns
-     * 如果体积中至少有一个方块满足过滤器，则返回 true，
-     * 否则返回 false。
+     * 如果体积中至少有一个方块满足过滤器，则返回 true；否则返回 false。
      * @throws 此函数可能抛出错误。
      *
      * {@link Error}
@@ -146,14 +139,14 @@ export class Dimension {
 
     /**
      * @remarks
-     * 在指定位置创建一次爆炸。
+     * 在指定位置创建爆炸。
      *
-     * 此函数无法在受限执行模式下调用。
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param location
      * 爆炸的位置。
      * @param radius
-     * 要创建的爆炸半径，以方块为单位。
+     * 要创建的爆炸半径（以方块为单位）。
      * 范围：[0, 1000]
      * @param explosionOptions
      * 爆炸的附加可配置选项。
@@ -205,19 +198,18 @@ export class Dimension {
 
     /**
      * @remarks
-     * 使用特定的方块类型填充一个方块区域。
+     * 用指定的方块类型填充一个方块区域。
      *
-     * 此函数无法在受限执行模式下调用。
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param volume
      * 要填充的方块体积。
      * @param block
-     * 用于填充体积的方块类型。
+     * 用于填充该体积的方块类型。
      * @param options
-     * 一组附加选项，例如可用于在填充中包含/排除特定方块的
-     * 方块过滤器。
+     * 一组附加选项，例如可用于在填充中包含/排除特定方块的方块过滤器。
      * @returns
-     * 返回一个 ListBlockVolume，其中包含所有已放置的方块。
+     * 返回一个 ListBlockVolume，其中包含所有被放置的方块。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -238,6 +230,8 @@ export class Dimension {
      *
      * @param location
      * 要检查生物群系的位置。
+     * @returns
+     * 指定位置的生物群系类型。
      * @throws
      * 如果位置超出世界边界，将抛出错误。
      * 如果位置位于未加载的区块中，将抛出错误。
@@ -253,16 +247,13 @@ export class Dimension {
      * 返回给定位置的方块实例。
      *
      * @param location
-     * 要获取方块的位置。
+     * 要返回方块的位置。
      * @returns
-     * 指定位置的方块；如果请求的是未加载区块中的方块，
-     * 则返回 'undefined'。
+     * 指定位置的方块；如果查询的位置位于未加载的区块中，则返回 undefined。
      * @throws
-     * PositionInUnloadedChunkError：当尝试与不再位于已加载且
-     * 正在 tick 的区块中的 Block 对象交互时抛出的异常。
+     * PositionInUnloadedChunkError：尝试与不再处于已加载且正在运行的区块中的方块对象交互时抛出的异常
      *
-     * PositionOutOfWorldBoundariesError：当尝试与维度高度范围
-     * 之外的位置交互时抛出的异常。
+     * PositionOutOfWorldBoundariesError：尝试与维度高度范围之外的位置交互时抛出的异常
      *
      *
      * {@link LocationInUnloadedChunkError}
@@ -273,58 +264,62 @@ export class Dimension {
 
     /**
      * @remarks
-     * 根据给定的选项，获取给定方块位置上方找到的第一个方块
-     * （默认将找到上方第一个实心方块）。
+     * 根据给定选项获取给定方块位置上方找到的第一个方块（默认查找上方的第一个实心方块）。
      *
      * @param location
-     * 要获取上方方块的位置。
+     * 用于检索其上方方块的位置。
      * @param options
-     * 用于判断方块是否为有效结果的选项。
+     * 用于判定方块是否为有效结果的选项。
+     * @returns
+     * 上方找到的第一个符合条件的方块；如果未找到则返回 undefined。
      * @throws 此函数可能抛出错误。
      */
     getBlockAbove(location: Vector3, options?: BlockRaycastOptions): Block | undefined;
 
     /**
      * @remarks
-     * 根据给定的选项，获取给定方块位置下方找到的第一个方块
-     * （默认将找到下方第一个实心方块）。
+     * 根据给定选项获取给定方块位置下方找到的第一个方块（默认查找下方的第一个实心方块）。
      *
      * @param location
-     * 要获取下方方块的位置。
+     * 用于检索其下方方块的位置。
      * @param options
-     * 用于判断方块是否为有效结果的选项。
+     * 用于判定方块是否为有效结果的选项。
+     * @returns
+     * 下方找到的第一个符合条件的方块；如果未找到则返回 undefined。
      * @throws 此函数可能抛出错误。
      */
     getBlockBelow(location: Vector3, options?: BlockRaycastOptions): Block | undefined;
 
     /**
      * @remarks
-     * 获取从某个位置发出的向量所相交的第一个方块。
+     * 获取从某个位置沿向量发出的射线所命中的第一个方块。
      *
      * @param location
-     * 发起射线检查的位置。
+     * 发起射线检测的起始位置。
      * @param direction
-     * 投射射线的向量方向。
+     * 射线投射的方向向量。
      * @param options
-     * 用于处理此射线投射查询的附加选项。
+     * 处理此射线查询的附加选项。
+     * @returns
+     * 射线命中的方块结果，若未命中任何方块则返回 undefined。
      * @throws 此函数可能抛出错误。
      */
     getBlockFromRay(location: Vector3, direction: Vector3, options?: BlockRaycastOptions): BlockRaycastHit | undefined;
 
     /**
+     * @rc
      * @remarks
-     * 获取满足方块查询条件的一个体积内的所有方块。
+     * 获取一个体积范围内所有满足方块查询条件的方块。
      *
      * @param volume
-     * 将检查的方块体积。
+     * 将要检查的方块体积范围。
      * @param options
-     * 方块查询选项，包含筛选条件，以及可选的按与某一位置的距离进行最近/最远排序。
+     * 方块查询选项，包括筛选条件，以及可选的按某位置距离进行最近/最远排序。
      * @param allowUnloadedChunks
-     * 若设为 true，当部分或全部方块体积位于已加载区块之外时，将抑制 UnloadedChunksError。
-     * 只会检查体积内位于已加载区块中的方块位置。
+     * 若设置为 true，当部分或全部方块体积位于已加载区块之外时，将抑制 UnloadedChunksError。此时只会检查体积范围内位于已加载区块中的方块位置。
      * 默认值：false
      * @returns
-     * 返回一个 ListBlockVolume，其中包含满足方块查询条件的所有方块位置。
+     * 返回一个 ListBlockVolume，其中包含所有满足方块查询条件的方块位置。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
@@ -339,10 +334,10 @@ export class Dimension {
 
     /**
      * @remarks
-     * 根据 EntityQueryOptions 筛选条件定义的一组条件，返回一组实体。
+     * 根据 EntityQueryOptions 中定义的一组筛选条件返回一组实体。
      *
      * @param options
-     * 可用于过滤返回实体集合的附加选项。
+     * 可用于筛选返回实体集合的附加选项。
      * @returns
      * 一个实体数组。
      * @throws 此函数可能抛出错误。
@@ -423,27 +418,27 @@ export class Dimension {
 
     /**
      * @remarks
-     * 返回指定位置的一组实体。
+     * 返回位于特定位置的一组实体。
      *
      * @param location
      * 要返回实体的位置。
      * @returns
-     * 指定位置的零个或多个实体。
+     * 指定位置处的零个或多个实体。
      */
     getEntitiesAtBlockLocation(location: Vector3): Entity[];
 
     /**
      * @remarks
-     * 获取从某一位置发出的指定向量所穿过的实体。
+     * 获取与从某个位置发出的指定向量射线相交的实体。
      *
      * @param location
-     * 射线起点的位置。
+     * 发起射线检测的起始位置。
      * @param direction
-     * 射线的方向向量。
+     * 射线投射的方向向量。
      * @param options
-     * 用于处理此射线检测查询的附加选项。
+     * 处理此射线查询的附加选项。
      * @returns
-     * 返回射线命中的实体列表。
+     * 射线命中的实体结果数组。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
@@ -459,16 +454,15 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * 返回包含指定位置的已生成结构（例如：掠夺者前哨站、废弃矿井等）的数组。
-     * 如果没有找到任何结构，数组将为空。
+     * 返回包含指定位置的已生成结构的数组（例如：掠夺者前哨站、废弃矿井等）。如果未找到任何结构，该数组为空。
      *
      * @param location
      * 要检查结构的位置。
      * @returns
-     * 返回一个包含指定位置所在已生成结构的数组；如果未找到任何结构，则为空数组。
+     * 包含该位置的结构类型数组。
      * @throws
      * 如果位置超出世界边界，将抛出错误。
-     * 如果位置位于未加载区块中，将抛出错误。
+     * 如果位置位于未加载的区块中，将抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -478,12 +472,12 @@ export class Dimension {
 
     /**
      * @remarks
-     * 返回照射到某个方块位置的光的总亮度等级。
+     * 返回照射在特定方块位置上的光照总亮度等级。
      *
      * @param location
      * 要检查亮度的方块位置。
      * @returns
-     * 方块上的亮度等级。
+     * 该方块上的亮度等级。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
@@ -494,10 +488,10 @@ export class Dimension {
 
     /**
      * @remarks
-     * 根据 EntityQueryOptions 筛选条件定义的一组条件，返回一组玩家。
+     * 根据 EntityQueryOptions 中定义的一组筛选条件返回一组玩家。
      *
      * @param options
-     * 可用于过滤返回的玩家集合的附加选项。
+     * 可用于筛选返回玩家集合的附加选项。
      * @returns
      * 一个玩家数组。
      * @throws 此函数可能抛出错误。
@@ -510,12 +504,12 @@ export class Dimension {
 
     /**
      * @remarks
-     * 返回天空照射到某个方块位置的光的亮度等级。
+     * 返回天空光照射在特定方块位置上的亮度等级。
      *
      * @param location
      * 要检查亮度的方块位置。
      * @returns
-     * 方块上的亮度等级。
+     * 该方块上的亮度等级。
      * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
@@ -526,14 +520,14 @@ export class Dimension {
 
     /**
      * @remarks
-     * 返回给定 XZ 位置处的最高方块。
+     * 返回给定 XZ 坐标位置处的最高方块。
      *
      * @param locationXZ
-     * 要获取最高方块的位置。
+     * 要获取最顶端方块的 XZ 坐标位置。
      * @param minHeight
-     * 开始搜索的 Y 高度。默认为维度最大高度。
+     * 开始搜索的 Y 高度。默认为维度的最大高度。
      * @returns
-     * 该位置的最高方块；如果不存在则为 undefined。
+     * 该位置最顶端的方块，若未找到则返回 undefined。
      * @throws 此函数可能抛出错误。
      */
     getTopmostBlock(locationXZ: VectorXZ, minHeight?: number): Block | undefined;
@@ -544,7 +538,7 @@ export class Dimension {
      * 返回当前天气。
      *
      * @returns
-     * 返回一个 WeatherType，用于说明当前天气的总体类别。
+     * 返回一个 WeatherType，用于说明当前正在进行的天气的大致类别。
      */
     getWeather(): WeatherType;
 
@@ -555,29 +549,29 @@ export class Dimension {
      * @param location
      * 要检查区块是否已加载的位置。
      * @returns
-     * 如果区块已加载则返回 true，否则返回 false。
+     * 若该位置处的区块已加载则返回 true，否则返回 false。
      */
     isChunkLoaded(location: Vector3): boolean;
 
     /**
      * @remarks
-     * 在维度中的指定位置放置给定地物。
+     * 将指定的地物放置到维度的指定位置。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param featureName
      * 地物的字符串标识符。
      * @param location
      * 放置地物的位置。
      * @param shouldThrow
-     * 指定当无法放置地物时函数调用是否抛出错误。
-     * 注意：如果使用未知地物名称，或尝试在未加载区块中放置，函数调用将始终抛出错误。
+     * 指定如果地物无法放置时，函数调用是否会抛出错误。
+     * 注意：如果使用未知的地物名称或尝试在未加载的区块中放置，函数调用将始终抛出错误。
      * 默认值：false
      * @returns
-     * 如果地物放置成功则返回 true，否则返回 false。
+     * 若地物成功放置则返回 true，否则返回 false。
      * @throws
      * 如果地物名称无效，将抛出错误。
-     * 如果位置位于未加载区块中，将抛出错误。
+     * 如果位置位于未加载的区块中，将抛出错误。
      *
      * {@link Error}
      *
@@ -589,19 +583,19 @@ export class Dimension {
 
     /**
      * @remarks
-     * 在维度中的指定位置放置给定地物规则。
+     * 将指定的地物规则放置到维度的指定位置。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param featureRuleName
      * 地物规则的字符串标识符。
      * @param location
      * 放置地物规则的位置。
      * @returns
-     * 如果地物规则放置成功则返回 true，否则返回 false。
+     * 若地物规则成功放置则返回 true，否则返回 false。
      * @throws
      * 如果地物规则名称无效，将抛出错误。
-     * 如果位置位于未加载区块中，将抛出错误。
+     * 如果位置位于未加载的区块中，将抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -613,7 +607,7 @@ export class Dimension {
      * @remarks
      * 为所有玩家播放一个声音。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param soundId
      * 声音的标识符。
@@ -622,11 +616,12 @@ export class Dimension {
      * @param soundOptions
      * 用于配置声音附加效果的附加选项。
      * @returns
-     * 返回一个可用于控制该声音的 SoundInstance。
+     * 表示该声音播放的 SoundInstance。
      * @throws
-     * 如果 volume 小于 0.0，将抛出错误。
-     * 如果 fade 小于 0.0，将抛出错误。
-     * 如果 pitch 小于 0.01，将抛出错误。
+     * 如果音量小于 0.0，将抛出错误。
+     * 如果淡入时间小于 0.0，将抛出错误。
+     * 如果音调小于 0.01，将抛出错误。
+     * 如果音量小于 0.0，将抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -638,14 +633,14 @@ export class Dimension {
      * @remarks
      * 使用更广泛维度的上下文同步运行一条命令。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param commandString
-     * 要运行的命令。注意：命令字符串不应以斜杠开头。
+     * 要运行的命令。注意命令字符串不应以斜杠开头。
      * @returns
-     * 返回一个命令结果，其中包含命令成功执行的结果数量。
+     * 返回一个命令结果，其中包含命令成功执行的数值计数。
      * @throws
-     * 如果命令因参数或命令语法不正确而失败，或在命令的错误情况下，将抛出异常。注意，在很多情况下，如果命令未生效（例如目标选择器未找到匹配项），此方法不会抛出异常。
+     * 当命令因参数不正确或命令语法错误而失败，或命令出现错误情况时抛出异常。请注意，在许多情况下，如果命令未生效（例如目标选择器没有匹配到任何目标），此方法不会抛出异常。
      *
      * {@link CommandError}
      */
@@ -653,17 +648,17 @@ export class Dimension {
 
     /**
      * @remarks
-     * 使用 BlockPermutation（方块置换）在世界中设置一个方块。
-     * BlockPermutation 是带有特定状态的方块。
+     * 使用 BlockPermutation 在世界中设置一个方块。
+     * BlockPermutation 是具有特定状态的方块。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param location
      * 维度内要设置方块的位置。
      * @param permutation
-     * 要设置的方块置换。
+     * 要设置的方块排列。
      * @throws
-     * 如果位置位于未加载的区块内或超出世界边界，则抛出异常。
+     * 如果该位置位于未加载的区块内或超出世界边界，则抛出异常。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -673,16 +668,16 @@ export class Dimension {
 
     /**
      * @remarks
-     * 在维度内的指定位置设置一个方块。
+     * 在维度内的给定位置设置一个方块。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param location
      * 维度内要设置方块的位置。
      * @param blockType
-     * 要设置的方块类型。可以是字符串标识符或 BlockType。将使用默认方块置换。
+     * 要设置的方块类型。可以是字符串标识符或 BlockType。将使用默认的方块排列。
      * @throws
-     * 如果位置位于未加载的区块内或超出世界边界，则抛出异常。
+     * 如果该位置位于未加载的区块内或超出世界边界，则抛出异常。
      *
      * {@link Error}
      *
@@ -696,31 +691,30 @@ export class Dimension {
      * @remarks
      * 设置维度内的当前天气。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param weatherType
      * 设置要应用的天气类型。
      * @param duration
-     * 设置天气的持续时间（以刻为单位）。如果未提供持续时间，则会将持续时间设置为 300 到 900 秒之间的随机值。范围：[1, 1000000]
-     * @throws
-     * 此函数可能抛出错误。
+     * 设置天气的持续时间（以刻为单位）。如果未提供持续时间，则持续时间将被设置为 300 到 900 秒之间的随机时长。
+     * 取值范围：[1, 1000000]
+     * @throws 此函数可能抛出错误。
      */
     setWeather(weatherType: WeatherType, duration?: number): void;
 
     /**
      * @remarks
-     * 在指定位置创建一个新实体（例如，一个生物）。
+     * 在指定位置创建一个新实体（例如生物）。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param identifier
-     * 要生成的实体类型标识符。如果未指定命名空间，则默认为 'minecraft:'。
+     * 要生成的实体类型的标识符。如果未指定命名空间，则假定为 'minecraft:'。
      * @param location
-     * 创建实体所在的位置。
+     * 创建实体的位置。
      * @returns
-     * 在指定位置创建的新实体。
-     * @throws
-     * 此函数可能抛出错误。
+     * 在指定位置新创建的实体。
+     * @throws 此函数可能抛出错误。
      *
      * {@link EntitySpawnError}
      *
@@ -793,16 +787,15 @@ export class Dimension {
 
     /**
      * @remarks
-     * 在指定位置创建一个新的物品实例作为实体。
+     * 在指定位置创建一个新的物品实例实体。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param location
-     * 创建物品实例所在的位置。
+     * 创建物品实例的位置。
      * @returns
-     * 在指定位置创建的新物品实例实体。
-     * @throws
-     * 此函数可能抛出错误。
+     * 在指定位置新创建的物品实例实体。
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -850,16 +843,15 @@ export class Dimension {
      * @remarks
      * 在世界中的指定位置创建一个新的粒子发射器。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param effectName
-     * 要创建的粒子标识符。
+     * 要创建的粒子的标识符。
      * @param location
-     * 创建粒子发射器所在的位置。
+     * 创建粒子发射器的位置。
      * @param molangVariables
-     * 一组可选的、可自定义的变量，可用于调整此粒子。
-     * @throws
-     * 此函数可能抛出错误。
+     * 一组可选的、可针对此粒子进行调整的自定义变量。
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -889,16 +881,16 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * 在维度内的指定位置生成一个经验球。
+     * 在维度中的指定位置生成一个经验球。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param location
-     * 生成经验球所在的位置。
+     * 生成经验球的位置。
      * @param amount
-     * 给经验球的经验值数量。范围：[1, 12000]
-     * @throws
-     * 此函数可能抛出错误。
+     * 赋予经验球的经验值数量。
+     * 取值范围：[1, 12000]
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -909,9 +901,9 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * 停止所有玩家播放所有声音。
+     * 停止为所有玩家播放的所有声音。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     stopAllSounds(): void;
@@ -919,9 +911,9 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * 停止所有玩家播放某个声音。
+     * 停止为所有玩家播放的某个声音。
      *
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param soundId
      * 声音的标识符。

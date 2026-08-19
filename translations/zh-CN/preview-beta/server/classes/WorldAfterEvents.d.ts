@@ -1,43 +1,43 @@
 /**
- * 包含一组事件，
- * 这些事件在世界范围内可用。
+ * 包含一组在世界范围内可用的事件。
+ * 涵盖整个世界的作用域。
  */
 export class WorldAfterEvents {
     private constructor();
 
     /**
      * @remarks
-     * 方块容器关闭时触发此事件。
+     * 当方块容器关闭时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly blockContainerClosed: BlockContainerClosedAfterEventSignal;
 
     /**
      * @remarks
-     * 方块容器打开时触发此事件。
+     * 当方块容器打开时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly blockContainerOpened: BlockContainerOpenedAfterEventSignal;
 
     /**
      * @remarks
-     * 爆炸摧毁每个方块位置时触发此事件。
-     * 此事件在方块已被摧毁后触发。
+     * 爆炸摧毁的每个方块位置都会触发此事件。
+     * 该事件在方块已被摧毁后触发。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly blockExplode: BlockExplodeAfterEventSignal;
 
     /**
      * @remarks
-     * 按下按钮时触发此事件。
+     * 当按钮被按下时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly buttonPush: ButtonPushAfterEventSignal;
@@ -45,179 +45,180 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 聊天消息广播或发送给玩家后触发此事件。
+     * 聊天消息已广播或发送给玩家后触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly chatSend: ChatSendAfterEventSignal;
 
     /**
      * @remarks
-     * 当实体的某个事件被触发，且该事件将更新实体的组件定义状态时，触发此事件。
+     * 当实体事件被触发并会更新实体的组件定义状态时，
+     * 触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly dataDrivenEntityTrigger: DataDrivenEntityTriggerAfterEventSignal;
 
     /**
      * @remarks
-     * 当效果（如中毒）添加到实体上时触发此事件。
+     * 当效果（如中毒）被添加到实体上时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly effectAdd: EffectAddAfterEventSignal;
 
     /**
      * @remarks
-     * 实体容器关闭时触发此事件。
+     * 当实体容器关闭时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityContainerClosed: EntityContainerClosedAfterEventSignal;
 
     /**
      * @remarks
-     * 实体容器打开时触发此事件。
+     * 当实体容器打开时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityContainerOpened: EntityContainerOpenedAfterEventSignal;
 
     /**
      * @remarks
-     * 实体死亡时触发此事件。
+     * 当实体死亡时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityDie: EntityDieAfterEventSignal;
 
     /**
      * @remarks
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHeal: EntityHealAfterEventSignal;
 
     /**
      * @remarks
-     * 实体生命值发生任何程度变化时触发此事件。
+     * 当实体生命值发生任何程度的变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHealthChanged: EntityHealthChangedAfterEventSignal;
 
     /**
      * @remarks
-     * 实体击中（即近战攻击）方块时触发此事件。
+     * 当实体击中方块（即近战攻击方块）时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHitBlock: EntityHitBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 实体击中（即近战攻击）另一个实体时触发此事件。
+     * 当实体击中另一个实体（即近战攻击实体）时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHitEntity: EntityHitEntityAfterEventSignal;
 
     /**
      * @remarks
-     * 实体受伤（受到伤害）时触发此事件。
+     * 当实体受伤（受到伤害）时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityHurt: EntityHurtAfterEventSignal;
 
     /**
      * @remarks
-     * 实体掉落物品时触发此事件。
+     * 当实体掉落物品时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityItemDrop: EntityItemDropAfterEventSignal;
 
     /**
      * @remarks
-     * 实体拾取物品时触发此事件。
+     * 当实体拾取物品时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityItemPickup: EntityItemPickupAfterEventSignal;
 
     /**
      * @remarks
-     * 实体加载时触发。
+     * 当实体被加载时触发。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityLoad: EntityLoadAfterEventSignal;
 
     /**
      * @remarks
-     * 实体被移除时触发（例如，可能被卸载，或在被杀死后移除）。
+     * 当实体被移除时触发（例如，可能被卸载，或在被击杀后被移除）。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityRemove: EntityRemoveAfterEventSignal;
 
     /**
      * @remarks
-     * 实体生成时触发此事件。
+     * 当实体生成时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entitySpawn: EntitySpawnAfterEventSignal;
 
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 实体开始潜行时触发此事件。
+     * 当实体开始潜行时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityStartSneaking: EntityStartSneakingAfterEventSignal;
 
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 实体停止潜行时触发此事件。
+     * 当实体停止潜行时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityStopSneaking: EntityStopSneakingAfterEventSignal;
 
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 实体被驯服时触发此事件。
+     * 当实体被驯服时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityTamed: EntityTamedAfterEventSignal;
 
     /**
      * @remarks
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly entityUpgrade: EntityUpgradeAfterEventSignal;
@@ -226,7 +227,7 @@ export class WorldAfterEvents {
      * @remarks
      * 爆炸发生后触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly explosion: ExplosionAfterEventSignal;
@@ -235,64 +236,64 @@ export class WorldAfterEvents {
      * @remarks
      * 当 world.gameRules 属性发生变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly gameRuleChange: GameRuleChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 可充能物品完成充能时触发此事件。
+     * 当可充能物品完成充能时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemCompleteUse: ItemCompleteUseAfterEventSignal;
 
     /**
      * @remarks
-     * 可充能物品停止充能（释放）时触发此事件。
+     * 当可充能物品停止充能时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemReleaseUse: ItemReleaseUseAfterEventSignal;
 
     /**
      * @remarks
-     * 可充能物品开始充能时触发此事件。
+     * 当可充能物品开始充能时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemStartUse: ItemStartUseAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家按下“使用物品/放置方块”按钮成功使用物品或放置方块时触发此事件。
-     * 如果放置了多个方块，此事件仅在方块放置开始时触发一次。
+     * 当玩家按下“使用物品 / 放置方块”按钮并成功使用物品或放置方块时触发此事件。
+     * 如果放置了多个方块，此事件只会在方块放置开始时触发一次。
      * 注意：此事件不适用于锄头或斧头物品。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemStartUseOn: ItemStartUseOnAfterEventSignal;
 
     /**
      * @remarks
-     * 可充能物品停止充能时触发此事件。
+     * 当可充能物品停止充能时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemStopUse: ItemStopUseAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家成功使用物品后松开“使用物品/放置方块”按钮时触发此事件。
+     * 当玩家成功使用物品后松开“使用物品 / 放置方块”按钮时触发此事件。
      * 注意：此事件不适用于锄头或斧头物品。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemStopUseOn: ItemStopUseOnAfterEventSignal;
@@ -301,16 +302,16 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家成功使用物品时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly itemUse: ItemUseAfterEventSignal;
 
     /**
      * @remarks
-     * 拉动了拉杆。
+     * 拉杆被拉动。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly leverAction: LeverActionAfterEventSignal;
@@ -318,9 +319,9 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 此事件为内部实现细节，目前不具有实际功能。
+     * 此事件是内部实现细节，目前不具备实际功能。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly messageReceive: ServerMessageAfterEventSignal;
@@ -328,131 +329,131 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * 当某个附加包设置被更改时触发此事件。
+     * 当某个包（pack）设置被更改时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly packSettingChange: PackSettingChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 活塞伸展或收缩时触发此事件。
+     * 当活塞伸展或收缩时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly pistonActivate: PistonActivateAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家破坏方块时触发此事件。
+     * 当玩家破坏方块时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerBreakBlock: PlayerBreakBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 当 {@link InputButton} 状态改变时触发此事件。
+     * 当 {@link InputButton} 状态发生变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerButtonInput: PlayerButtonInputAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家取消破坏方块时触发此事件。
+     * 当玩家取消破坏方块时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerCancelBreakingBlock: PlayerCancelBreakingBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家移动到不同维度时触发。
+     * 当玩家移动到不同维度时触发。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerDimensionChange: PlayerDimensionChangeAfterEventSignal;
 
     /**
      * @remarks
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerEmote: PlayerEmoteAfterEventSignal;
 
     /**
      * @remarks
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerGameModeChange: PlayerGameModeChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家选中的快捷栏槽位改变时触发此事件。
+     * 当玩家选择的槽位发生变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerHotbarSelectedSlotChange: PlayerHotbarSelectedSlotChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家的 {@link InputMode} 改变时触发此事件。
+     * 当玩家的 {@link InputMode} 发生变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInputModeChange: PlayerInputModeChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家的输入权限改变时触发此事件。
+     * 当玩家的输入权限发生变化时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInputPermissionCategoryChange: PlayerInputPermissionCategoryChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家与方块交互时的事件。
+     * 当玩家与方块交互时触发的事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInteractWithBlock: PlayerInteractWithBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 玩家与实体交互时触发此事件。
+     * 当玩家与实体交互时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInteractWithEntity: PlayerInteractWithEntityAfterEventSignal;
 
-/**
+    /**
      * @remarks
      * 当物品被添加或移除到玩家物品栏时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerInventoryItemChange: PlayerInventoryItemChangeAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家加入世界时触发此事件。另请参阅 playerSpawn，以捕获玩家首次在世界中生成的另一个相关事件。
+     * 当玩家加入世界时触发此事件。另请参阅 playerSpawn，这是另一个相关事件，可用于捕获玩家在世界中首次生成的情况。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerJoin: PlayerJoinAfterEventSignal;
@@ -461,7 +462,7 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家离开世界时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerLeave: PlayerLeaveAfterEventSignal;
@@ -470,16 +471,16 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家放置方块时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerPlaceBlock: PlayerPlaceBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 当玩家生成或重生时触发此事件。注意，此事件内的一个额外标志会告诉你玩家是刚加入后生成还是重生。
+     * 当玩家生成或重生时触发此事件。请注意，此事件中的一个附加标志会告诉你玩家是在加入后立即生成还是重生。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerSpawn: PlayerSpawnAfterEventSignal;
@@ -488,14 +489,14 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家开始破坏方块时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerStartBreakingBlock: PlayerStartBreakingBlockAfterEventSignal;
 
     /**
      * @remarks
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerSwingStart: PlayerSwingStartAfterEventSignal;
@@ -505,53 +506,53 @@ export class WorldAfterEvents {
      * @remarks
      * 当玩家对实体使用命名牌时触发的事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly playerUseNameTag: PlayerUseNameTagAfterEventSignal;
 
     /**
      * @remarks
-     * 压力板弹回（即压力板上没有实体）。
+     * 压力板已弹起（即压力板上没有实体）。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly pressurePlatePop: PressurePlatePopAfterEventSignal;
 
     /**
      * @remarks
-     * 压力板被压下（至少有一个实体移动到压力板上）。
+     * 压力板已被按下（至少有一个实体移动到压力板上）。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly pressurePlatePush: PressurePlatePushAfterEventSignal;
 
     /**
      * @remarks
-     * 当抛射物击中方块时触发此事件。
+     * 当投射物击中方块时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly projectileHitBlock: ProjectileHitBlockAfterEventSignal;
 
     /**
      * @remarks
-     * 当抛射物击中实体时触发此事件。
+     * 当投射物击中实体时触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly projectileHitEntity: ProjectileHitEntityAfterEventSignal;
 
     /**
-     * @beta
+     * @rc
      * @remarks
-     * 跟踪的声音的声明持续时间已结束。
+     * 跟踪的声音的声明时长已结束。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly soundCompleted: SoundCompletedAfterEventSignal;
@@ -560,7 +561,7 @@ export class WorldAfterEvents {
      * @remarks
      * 目标方块被击中。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly targetBlockHit: TargetBlockHitAfterEventSignal;
@@ -569,7 +570,7 @@ export class WorldAfterEvents {
      * @remarks
      * 绊线被触发。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly tripWireTrip: TripWireTripAfterEventSignal;
@@ -578,14 +579,54 @@ export class WorldAfterEvents {
      * @remarks
      * 当 Minecraft 中的天气发生变化时，将触发此事件。
      *
-     * This property can be read in early-execution mode.
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly weatherChange: WeatherChangeAfterEventSignal;
 
     /**
+     * @beta
      * @remarks
-     * This property can be read in early-execution mode.
+     * 当 {@link WorldClock} 被暂停时触发此事件。
+     *
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
+     *
+     */
+    readonly worldClockOnPaused: WorldClockOnPausedAfterEventSignal;
+
+    /**
+     * @beta
+     * @remarks
+     * 当 {@link WorldClock} 被恢复时触发此事件。
+     *
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
+     *
+     */
+    readonly worldClockOnResumed: WorldClockOnResumedAfterEventSignal;
+
+    /**
+     * @beta
+     * @remarks
+     * 当 {@link WorldClock} 的时间到达时钟上的 {@link TimeMarker} 时触发此事件。这可能发生在常规游戏 tick 期间或设置时间时。
+     *
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
+     *
+     */
+    readonly worldClockOnTimeMarker: WorldClockOnTimeMarkerAfterEventSignal;
+
+    /**
+     * @beta
+     * @remarks
+     * 当 {@link WorldClock} 的时间被更改时触发此事件。当通过脚本或命令直接设置时间，或时钟达到最大时间并重新开始时，可能会发生这种情况。
+     *
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
+     *
+     */
+    readonly worldClockOnTimeModified: WorldClockOnTimeModifiedAfterEventSignal;
+
+    /**
+     * @remarks
+     * @privilege early-execution-readable - 此属性可在早期执行模式下读取。
      *
      */
     readonly worldLoad: WorldLoadAfterEventSignal;
