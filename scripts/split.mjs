@@ -15,6 +15,18 @@ export function hasSyntaxError(content) {
   return !!(sf.parseDiagnostics && sf.parseDiagnostics.length);
 }
 
+/** 提取「声明签名」：去掉所有注释（JSDoc/块/行）并规范化空白。用于签名一致性判断（结构变化检测） */
+export function stripJsdoc(text) {
+  return text
+    .replace(/\/\*\*[\s\S]*?\*\//g, '') // /** */ JSDoc
+    .replace(/\/\*[\s\S]*?\*\//g, '') // /* */ 块注释
+    .replace(/\/\/[^\n]*/g, '') // // 行注释（含 @ts-ignore）
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\s*\n\s*/g, '\n')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
 const SkippedKinds = new Set([
   SyntaxKind.EndOfFileToken,
   SyntaxKind.ImportDeclaration,
@@ -75,9 +87,13 @@ export function splitSymbols(sourceFile, translationsRoot) {
 }
 
 /**
- * 用翻译片段整体替换符号区间（片段完整即应用，源变化不阻断——以当前片段为准）。
- * 片段完整性校验：顶层 JSDoc 包裹缺失 / 语法错误 → invalid（不应用，用原文）。
- * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, invalid:Array<{symbol,path,text,reason}> }}
+ * 用翻译片段整体替换符号区间（「签名一致性」校验）。
+ *  主判断：源符号签名（去注释）与片段签名比较——
+ *    签名一致 → 应用片段（片段存在就用，用户更新片段下次构建自然生效，无需历史记录）
+ *    签名不一致 → 源结构已变化 → 翻译失效（expired，显示英文，等重新翻译）
+ *  manifest 仅辅助记录 sourceCommentHash（翻译基于的源注释哈希），不参与失效判断。
+ *  invalid：片段 JSDoc 包裹缺失 / 语法错误 → 不应用。
+ * @returns {{ applied:Array<string>, missing:Array<{symbol,path,text}>, expired:Array<{symbol,path,text}>, invalid:Array<{symbol,path,text,reason}> }}
  */
 export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
   let text = sourceFile.getFullText();
@@ -90,7 +106,8 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
 
   for (const p of pieces) {
     const key = `${keyPrefix}${p.symbolName}`;
-    const srcHash = sha1(p.text);
+    // 源符号签名（去注释）——每次现算，不依赖历史
+    const srcSignature = stripJsdoc(p.text);
     if (!fs.existsSync(p.path)) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
@@ -98,22 +115,6 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
     const trans = fs.readFileSync(p.path, 'utf-8').replace(/\r\n/g, '\n').trim();
     if (!trans) {
       missing.push({ symbol: p.symbolName, path: p.path, text: p.text }); // 空片段视为未翻译
-      continue;
-    }
-    // 哈希校验（双哈希）：
-    //  - sourceHash：翻译基于的源符号哈希
-    //  - fragmentHash：翻译片段内容哈希（用于检测用户是否更新了翻译）
-    //  失效条件：源已变化 且 片段未更新（用户没重翻）→ 翻译失效（隐藏，等重新翻译）
-    //  若片段更新过（用户重翻）→ 视为主动更新，重新应用并记录新基准
-    const recorded = manifest[key];
-    const fragmentHash = sha1(trans);
-    if (
-      recorded &&
-      recorded.sourceHash !== undefined &&
-      recorded.sourceHash !== srcHash &&
-      recorded.fragmentHash === fragmentHash
-    ) {
-      expired.push({ symbol: p.symbolName, path: p.path, text: p.text });
       continue;
     }
     // 片段完整性校验
@@ -132,8 +133,13 @@ export function replacePieces(sourceFile, pieces, { fs, manifest, keyPrefix }) {
       invalid.push({ symbol: p.symbolName, path: p.path, text: p.text, reason: '片段语法错误' });
       continue;
     }
+    // 签名一致性：源结构变化（签名不同）→ 翻译失效；一致 → 应用（片段存在即用当前内容）
+    if (stripJsdoc(trans) !== srcSignature) {
+      expired.push({ symbol: p.symbolName, path: p.path, text: p.text });
+      continue;
+    }
     edits.push({ start: p.start, end: p.end, text: trans });
-    manifest[key] = { sourceHash: srcHash, fragmentHash, status: 'translated' };
+    manifest[key] = { sourceCommentHash: sha1(p.jsdocText), status: 'translated' };
     applied.push(p.symbolName);
     changed = true;
   }

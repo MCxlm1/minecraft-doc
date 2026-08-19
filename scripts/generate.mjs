@@ -245,6 +245,7 @@ async function main() {
           title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
           moduleTitle: mod.title,
           missing: toSrcItems(res.missing),
+          expired: toSrcItems(res.expired || []),
           invalid: toSrcItems(res.invalid || []),
         });
         if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
