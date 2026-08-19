@@ -1,16 +1,25 @@
+/**
+ * 包含与数据驱动实体版本升级触发相关的事件注册。
+ */
 export class EntityUpgradeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，该回调将在数据驱动的实体版本升级触发后被调用。
+     * 添加一个回调，该回调将在数据驱动实体版本升级被触发后调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
      *
-     * @param callback - 要添加的回调，在版本升级触发后调用。
-     * @param options - 可选的实体数据驱动触发事件选项。
-     * @returns 返回一个订阅函数，可用于取消订阅。
+     * @param callback
+     * 在数据驱动实体版本升级触发后调用的回调函数。
+     *
+     * @param options
+     * 可选的事件过滤选项。
+     *
+     * @returns
+     * 传入的回调函数，可用于之后取消订阅。
+     *
      */
     subscribe(
         callback: (arg0: EntityUpgradeAfterEvent) => void,
@@ -18,13 +27,15 @@ export class EntityUpgradeAfterEventSignal {
     ): (arg0: EntityUpgradeAfterEvent) => void;
     /**
      * @remarks
-     * 移除一个回调，该回调将在数据驱动的实体版本升级触发后被调用。
+     * 移除一个回调，该回调会在数据驱动实体版本升级被触发后调用。
      *
-     * 此函数不能在受限执行模式下调用。
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
-     * 此函数可以在早期执行模式下调用。
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
      *
-     * @param callback - 要移除的回调。
+     * @param callback
+     * 要移除的回调函数。
+     *
      */
     unsubscribe(callback: (arg0: EntityUpgradeAfterEvent) => void): void;
 }

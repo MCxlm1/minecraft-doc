@@ -1,18 +1,21 @@
+/**
+ * 添加此组件后，该实体在生成时会附带一个指定实体类型的乘骑者。
+ */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityAddRiderComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 当在某些条件下生成时，作为骑乘者添加到该实体的实体类型。
+     * 在特定条件下生成时，作为该实体乘骑者添加的实体类型。
      *
-     * @throws 此属性在使用时可能会抛出错误。
+     * @throws 使用此属性时可能抛出错误。
      */
     readonly entityType: string;
     /**
      * @remarks
-     * 当骑乘者为该实体生成时，可选触发的生成事件。
+     * 当乘骑者为该实体生成时，在其上触发的可选生成事件。
      *
-     * @throws 此属性在使用时可能会抛出错误。
+     * @throws 使用此属性时可能抛出错误。
      */
     readonly spawnEvent: string;
     static readonly componentId = 'minecraft:addrider';
