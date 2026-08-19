@@ -1,551 +1,551 @@
 {
   "comment": "翻译片段（照搬 sapi-typedoc）：translations/zh-CN/<版本>-<口味>/<模块>/<类型>/<符号>.d.ts，完整符号整体替换。manifest 记录源符号哈希，源变化则翻译失效隐藏。",
   "preview-beta/server/AimAssistTargetMode": {
-    "sourceHash": "6628cbc00acff82dd3c4512337d4a3461ea3f250",
+    "sourceCommentHash": "ac9c634ca0713b34b76f41562e7f2f90bfa8715e",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentTypes": {
-    "sourceHash": "e5355317092d3feb3205dc9523ade51cf6adc97c",
+    "sourceCommentHash": "6f6b6d5d611596fa702c78c23642629e92773042",
     "status": "translated"
   },
   "preview-beta/server/BlockPistonState": {
-    "sourceHash": "3ed0a2e3551f5c92c661699cd3dbe960142e1a9a",
+    "sourceCommentHash": "cd231ba8d2a30c28760442f06dc39480af4d1e3e",
     "status": "translated"
   },
   "preview-beta/server/BlockVolumeIntersection": {
-    "sourceHash": "48fea31e449096a3f10bf98719d1f470601a227f",
+    "sourceCommentHash": "ee1016656993bfed8c42f7f66543089855791197",
     "status": "translated"
   },
   "preview-beta/server/BookErrorReason": {
-    "sourceHash": "42964d35bfb9accb9c97ac229a37e29dbaa1f7c4",
+    "sourceCommentHash": "e7682baa7e541001993b572eaf6a464af00b0ef6",
     "status": "translated"
   },
   "preview-beta/server/ButtonState": {
-    "sourceHash": "fc6d9b06fabc3aeb4a160316533e80b1e545c072",
+    "sourceCommentHash": "28afd2ab00441a687c7965e504f2f430f56d20db",
     "status": "translated"
   },
   "preview-beta/server/CameraShakeType": {
-    "sourceHash": "14ad1dfcc0877affe9ec9f264d16955610a0b7dd",
+    "sourceCommentHash": "c79abc33a539dbaa327041ad09ebcc194db15a7d",
     "status": "translated"
   },
   "preview-beta/server/CloneMode": {
-    "sourceHash": "8708581fc639a22896923f3e41979d9151ced8eb",
+    "sourceCommentHash": "65b367d7525dd4905332d7f2c0e94151de9f009c",
     "status": "translated"
   },
   "preview-beta/server/CommandPermissionLevel": {
-    "sourceHash": "c1cfdc8db55fe5f1b48abbd4816c8cf8dfcab9ff",
+    "sourceCommentHash": "b9945551340f15fc880833444be663ffdfcb3452",
     "status": "translated"
   },
   "preview-beta/server/ContainerRulesErrorReason": {
-    "sourceHash": "bfae7d8e96233dbfad3b9612c03fd110964d224f",
+    "sourceCommentHash": "85e5042b2b0fad9677a446803a042d560312d876",
     "status": "translated"
   },
   "preview-beta/server/ControlScheme": {
-    "sourceHash": "304b5fc978a018826871b971bfed69e1e1db0c16",
+    "sourceCommentHash": "ce367e70c300c238493dcf04d6ec6ad7dc5943fd",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandErrorReason": {
-    "sourceHash": "b6c56b6bbce6d18e175707e8bf6f737ec3323bb3",
+    "sourceCommentHash": "87f44c44b84e535175f427a982e0c632f39928ae",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandParamType": {
-    "sourceHash": "4fc9df3ea75d4842d2cbfdddebac055fa37c4fa0",
+    "sourceCommentHash": "a3839f3ee7b7c86766745d00babcc1d184328f92",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandSource": {
-    "sourceHash": "106ba49fccf5a19e4fb34fd6a0c48137ce377959",
+    "sourceCommentHash": "c2c7f075d2f6610597c62b3b103b7e10a76987df",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandStatus": {
-    "sourceHash": "bee64ed61e7f5611715bacbcb51729a3c8960025",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CustomComponentNameErrorReason": {
-    "sourceHash": "40a5127ffc313dbc08cbeef2c0656677ff39d8cc",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/Difficulty": {
-    "sourceHash": "e1313308f3e4cc881d02983f94959236c7c6b81a",
+    "sourceCommentHash": "c38d96881b3a4d4a3819b9d0f5c66350dbe721a1",
     "status": "translated"
   },
   "preview-beta/server/Direction": {
-    "sourceHash": "a397a488b35df730121ebdc4ebf6cc168a5ada0a",
+    "sourceCommentHash": "74180fe59a1e2dfef3d9c1d09570d2394974d345",
     "status": "translated"
   },
   "preview-beta/server/DisplaySlotId": {
-    "sourceHash": "3fc4825ba2222dd22c76c3395d8d7240cd861494",
+    "sourceCommentHash": "742259f20cb7cf7ea27ea7cd1e889c5536611577",
     "status": "translated"
   },
   "preview-beta/server/DyeColor": {
-    "sourceHash": "293cb4d3fbb4f79f5d3f2936d6e839f5505a17e8",
+    "sourceCommentHash": "b3ad643a03a69e0629883337a6e277bbb8ce51eb",
     "status": "translated"
   },
   "preview-beta/server/EasingType": {
-    "sourceHash": "81fbd77840ff0003ad446786df4b2d8ccb1eabb9",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EnchantmentSlot": {
-    "sourceHash": "a2d4d1647441ecbd47a4104f099e16b65b58ba1f",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntityAttachPoint": {
-    "sourceHash": "cf36254fc0ad7980e2fe76ad0a410d0a947f43ec",
+    "sourceCommentHash": "1bdc5acedee17e4cb9f17adf244e1151215d9d5e",
     "status": "translated"
   },
   "preview-beta/server/EntityComponentTypes": {
-    "sourceHash": "70a5a4f5fdc711afdc53a9ee1ab1f2aeeaabc496",
+    "sourceCommentHash": "923b2c2114de7e28ffcead7e1154aaf4c8b938cb",
     "status": "translated"
   },
   "preview-beta/server/EntityDamageCause": {
-    "sourceHash": "03f9aec3bfcba00022b7f547bff85b47dd4a6547",
+    "sourceCommentHash": "fbaacb953d42fb10fc6cfdbd8cd04f8d099e55ef",
     "status": "translated"
   },
   "preview-beta/server/EntityHealCause": {
-    "sourceHash": "13ed5b16a12a44f8eb6c588c2053450c82ef5dc1",
+    "sourceCommentHash": "95ec322cd781fc7160938ed713072e9f813c09c8",
     "status": "translated"
   },
   "preview-beta/server/EntityInitializationCause": {
-    "sourceHash": "3b185530885cca39b0eaea150a49794cedd7370e",
+    "sourceCommentHash": "d633d4616072e0e2845a3615d3d8ad5b01d0ed0f",
     "status": "translated"
   },
   "preview-beta/server/EntitySwingSource": {
-    "sourceHash": "ca138fcc6fe81b0c9d852e17e5ed9e446585c69d",
+    "sourceCommentHash": "3f82bf80e263bf4450199b896ad49e79c332c9ac",
     "status": "translated"
   },
   "preview-beta/server/EquipmentSlot": {
-    "sourceHash": "020f65928f445eb17534fce0bd4ee3b9a667771a",
+    "sourceCommentHash": "332ebf8bce92705d4ccfa46fd44249863196e4e4",
     "status": "translated"
   },
   "preview-beta/server/FluidType": {
-    "sourceHash": "87d05a25c3096c13038e3ab4cf4d6d657097b71a",
+    "sourceCommentHash": "134a7d5da8e830b739a23187b07c5a7f603cd398",
     "status": "translated"
   },
   "preview-beta/server/GameMode": {
-    "sourceHash": "d655a78e0571e8cd2d523662dba5974d19f7dc64",
+    "sourceCommentHash": "fa84316a100be35bfc6388a16034ec0b45edbdfa",
     "status": "translated"
   },
   "preview-beta/server/GameRule": {
-    "sourceHash": "371ea6fb988ab711a84d23a7dd05d90c2cff52ad",
+    "sourceCommentHash": "d81770ba895230dccc6b43e310f6f2765f4f6d58",
     "status": "translated"
   },
   "preview-beta/server/GraphicsMode": {
-    "sourceHash": "e60f9f53ed5b53db109cf72af5ae84ef48d9ed24",
+    "sourceCommentHash": "1be473f8b5c43faa6e61b22fcf61b6a14f020f6e",
     "status": "translated"
   },
   "preview-beta/server/HeldItemOption": {
-    "sourceHash": "f8551367d2a51a4baa8d531578543495088ab473",
+    "sourceCommentHash": "a6cfc046455e70ab59e363a403bbece048c6c393",
     "status": "translated"
   },
   "preview-beta/server/HudElement": {
-    "sourceHash": "a00933f41e257c93caab030970f6a37b2d68ff2b",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/HudVisibility": {
-    "sourceHash": "c4f230db1be24b95632113cf677546a8d3a56975",
+    "sourceCommentHash": "1f0b6ea78c75c510dd041589d9bb15f70037ee33",
     "status": "translated"
   },
   "preview-beta/server/InputButton": {
-    "sourceHash": "a8b9434af52ed8959ed8345c61d751fa85ca0739",
+    "sourceCommentHash": "c617961dea5a3d5c33dce9f8e8c5a8ca08158621",
     "status": "translated"
   },
   "preview-beta/server/InputMode": {
-    "sourceHash": "e9a6ebde3102c43622c9f39ae220974ca758c6a3",
+    "sourceCommentHash": "b02ddfacf44bdfb1cd9ea252d9d9d01a9a0bf202",
     "status": "translated"
   },
   "preview-beta/server/InputPermissionCategory": {
-    "sourceHash": "87193d1729983e8e94021ed98f9e83101c52797f",
+    "sourceCommentHash": "43095c940921ad5c9d2ce0620fd7011d166886f4",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentTypes": {
-    "sourceHash": "4f6d51af4cd64367925d0591743273ef8e0f4fdd",
+    "sourceCommentHash": "bf4a1b6bc442460d0b3dc6afc87d5e0af76b9e35",
     "status": "translated"
   },
   "preview-beta/server/ItemLockMode": {
-    "sourceHash": "5534e95ffbe045ac6a84698effa049c1570ac248",
+    "sourceCommentHash": "ecb7d1c4f78217871007492f5bb75bd38f6528b6",
     "status": "translated"
   },
   "preview-beta/server/LiquidSettings": {
-    "sourceHash": "13ad2afddece7e2c696d95028864ede47618189f",
+    "sourceCommentHash": "fd9943190e6ab4843d42a247a637e63aad047510",
     "status": "translated"
   },
   "preview-beta/server/LiquidType": {
-    "sourceHash": "d1e73092a00bf41fcad242107cf0dd174f356e7a",
+    "sourceCommentHash": "7cb027de91b5f2cb2bf127a6f28c8788b7a32287",
     "status": "translated"
   },
   "preview-beta/server/LocatorBarErrorReason": {
-    "sourceHash": "11ae0ab3f6a764744b6ae1d0b1a567f8c8945c9e",
+    "sourceCommentHash": "f63264e0285b4dacb9305c49b4ff09dedcdd942d",
     "status": "translated"
   },
   "preview-beta/server/MemoryTier": {
-    "sourceHash": "4b99832a199721e28fce0d16813a57d0c19e5a2d",
+    "sourceCommentHash": "a98c2294d41ecd3424ac4f71fec8b11f6f96420e",
     "status": "translated"
   },
   "preview-beta/server/MoonPhase": {
-    "sourceHash": "5f55bea37e42b06df6aef5ee0627fc4e0eb38ef2",
+    "sourceCommentHash": "2df94859fddfc56b51379dfbd4173c2b8ded55bd",
     "status": "translated"
   },
   "preview-beta/server/MovementType": {
-    "sourceHash": "7d79c87d9f4e240d8c344f365f31ae7dbfb03c3e",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/NamespaceNameErrorReason": {
-    "sourceHash": "2020f2dade6955fa200fac2619b0f51446db6569",
+    "sourceCommentHash": "1391d92aafe382d8900eb8d3cdb310cd32d80a82",
     "status": "translated"
   },
   "preview-beta/server/ObjectiveSortOrder": {
-    "sourceHash": "0b0a08a0fed9b62fea179d0453b778422e6ff4cb",
+    "sourceCommentHash": "f7d9baa5ca342e2cde125bba6e7360ed9be1a360",
     "status": "translated"
   },
   "preview-beta/server/PaletteColor": {
-    "sourceHash": "a31a8adc8a5fa6d80d97ddaae3d8cda4cf57fe48",
+    "sourceCommentHash": "5e504f9de8e0ad818ce25729a5f8f84faecde277",
     "status": "translated"
   },
   "preview-beta/server/PlatformType": {
-    "sourceHash": "b4b6c5b450327c7b0e64f55d1b091c9ce4feccca",
+    "sourceCommentHash": "1112b1fb8c62bb62796a341e7dd12b42bb83f9df",
     "status": "translated"
   },
   "preview-beta/server/PlayerInventoryType": {
-    "sourceHash": "1480baed183d4619dd138b2b0792adb2558cc6f4",
+    "sourceCommentHash": "c85660fb4ddf8c0761ed9d7a4101e7acb4ff0078",
     "status": "translated"
   },
   "preview-beta/server/PlayerPermissionLevel": {
-    "sourceHash": "634c7cd514c93a0c3370b3e98dcda0f82916b338",
+    "sourceCommentHash": "3a338abd417a25f690f029eea5d060371da57b37",
     "status": "translated"
   },
   "preview-beta/server/PlayerSplitScreenSlot": {
-    "sourceHash": "23cdc7efe8dfa0c6fb3e74f4d62e27bdfd6d7149",
+    "sourceCommentHash": "e7fafbcaa0b14c97737be77e5b4b7f3fe22c5c4a",
     "status": "translated"
   },
   "preview-beta/server/PlayerWaypointsMode": {
-    "sourceHash": "a2f76c836722b83fc42045d8c79c3546946b0727",
+    "sourceCommentHash": "92ccbce3d86dc9b8b5f5322c6cc53bae7c765bc2",
     "status": "translated"
   },
   "preview-beta/server/ScoreboardIdentityType": {
-    "sourceHash": "ed60d5048ec36d7141fbf03bdbbe12e2cef23958",
+    "sourceCommentHash": "dd4191fbb3d34cd6aab0cf8b84155ea033231b02",
     "status": "translated"
   },
   "preview-beta/server/ScriptEventSource": {
-    "sourceHash": "0c5a07294768d999d3e70b55fc35429add7bcd9f",
+    "sourceCommentHash": "22cf9a0064007f3f6facf8da95c38fb8f74dcc09",
     "status": "translated"
   },
   "preview-beta/server/SignSide": {
-    "sourceHash": "69ebb267eccad00dd1587bc8f5a040d44b0f19ca",
+    "sourceCommentHash": "52a0c78533417c41aa1d40e3e9c9d9277b233a7f",
     "status": "translated"
   },
   "preview-beta/server/StickyType": {
-    "sourceHash": "6820cce5562d9001e327eb9c674f1625f2160c93",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/StructureAnimationMode": {
-    "sourceHash": "009dc1647bacfbd15a32347470f5d890f95569e8",
+    "sourceCommentHash": "bb6d8b24dc48811551caa9a26fc2a829272532a9",
     "status": "translated"
   },
   "preview-beta/server/StructureMirrorAxis": {
-    "sourceHash": "d8818f527512006053295bffee4ef650bbfa65aa",
+    "sourceCommentHash": "ecada43652d73162eb71bebbd6833b9c6bac070c",
     "status": "translated"
   },
   "preview-beta/server/StructureRotation": {
-    "sourceHash": "90d1827b62c69a56c927757a339d67383cacf430",
+    "sourceCommentHash": "288ecefc074d4ff034fd04062864fcd0ddef03ef",
     "status": "translated"
   },
   "preview-beta/server/StructureSaveMode": {
-    "sourceHash": "629ebc63e1a45ec0e4447cbc057f50c78439a5ef",
+    "sourceCommentHash": "da07d21271f5615078ffb1d0ea9b4821c01c5a21",
     "status": "translated"
   },
   "preview-beta/server/TickingAreaErrorReason": {
-    "sourceHash": "b59a1518a1b1ffa614040d19ddd6b3701309daf0",
+    "sourceCommentHash": "be0a495b7d83a81608afb6ca154b6ac1b9041b9f",
     "status": "translated"
   },
   "preview-beta/server/TimeOfDay": {
-    "sourceHash": "f22d855ddb6644be2d384910b21bbe15cff366a2",
+    "sourceCommentHash": "04186070dc685ceed8bbf0aa573c240f19189af4",
     "status": "translated"
   },
   "preview-beta/server/TintMethod": {
-    "sourceHash": "93a9aa9f2367cc8b7e5867c2e034f6e45b096204",
+    "sourceCommentHash": "f2df0c52c57d6c9e9e07e2107b69ea5e6a86c772",
     "status": "translated"
   },
   "preview-beta/server/WatchdogTerminateReason": {
-    "sourceHash": "b47efcb89bc51f73df508f796659cf6a2a226dcb",
+    "sourceCommentHash": "1cf4a64716ba1a5204a49f0eb297f54046b851d2",
     "status": "translated"
   },
   "preview-beta/server/WaypointTexture": {
-    "sourceHash": "b55b354dff3c2c10e87fea13a60d0d4334078a1b",
+    "sourceCommentHash": "a79e00a686a2fb8b753a8cd0f8276b0fd705c482",
     "status": "translated"
   },
   "preview-beta/server/WeatherType": {
-    "sourceHash": "80dc402c1af399db5c664354cfac495dab131edb",
+    "sourceCommentHash": "bcd80f9a287b632f949a99f0535c64035bb4848c",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentReturnType": {
-    "sourceHash": "265ceecf005553d834d9249c6131b76686c5d158",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentTypeMap": {
-    "sourceHash": "5486a5cdfcd8b22008943e3cf754fac2c317dbc7",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockStateArg": {
-    "sourceHash": "f20a9addac107ddf4647c26ff42f80900df42ae0",
+    "sourceCommentHash": "cf8bd909dcfee06b98903cc6c6978b09aaebabc1",
     "status": "translated"
   },
   "preview-beta/server/EntityComponentReturnType": {
-    "sourceHash": "5b86024ac7f960294e74e98a0df0b8a1ce14437a",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntityComponentTypeMap": {
-    "sourceHash": "ab9a602efd8a414f83a18d1f0e62fef76972ef4e",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntityIdentifierType": {
-    "sourceHash": "f9cb12cbc03c6f3e348107b20e51e88e12f1df82",
+    "sourceCommentHash": "92ccbce3d86dc9b8b5f5322c6cc53bae7c765bc2",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentReturnType": {
-    "sourceHash": "645f48b4541aa2ff05cefa218c107550923bab66",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentTypeMap": {
-    "sourceHash": "76fd044ff5f3da45d4a93d33c3eb55aedc2fee7a",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/VanillaEntityIdentifier": {
-    "sourceHash": "88bb5dd8c1d696ef0ae869e27346c7595d675513",
+    "sourceCommentHash": "92ccbce3d86dc9b8b5f5322c6cc53bae7c765bc2",
     "status": "translated"
   },
   "preview-beta/server/AimAssistCategory": {
-    "sourceHash": "735e374f53d0b115184b39a3b5f139672ca4407b",
+    "sourceCommentHash": "51e608806dec7ea101b7c45957365df0490b2ac0",
     "status": "translated"
   },
   "preview-beta/server/AimAssistCategorySettings": {
-    "sourceHash": "5120ca1133d57465e5abbf15eb9ea69e99c4475c",
+    "sourceCommentHash": "714266cac15076a88110e972f21565f92022fb96",
     "status": "translated"
   },
   "preview-beta/server/AimAssistPreset": {
-    "sourceHash": "c468efb5dbe08ebbea86485ba418219b93ed54cb",
+    "sourceCommentHash": "2ccde45ee9045ed0bce02d5a68f2e3d9782d5887",
     "status": "translated"
   },
   "preview-beta/server/AimAssistPresetSettings": {
-    "sourceHash": "a3282c9cb70a7c21a7fb0c6f8d383ce97108a305",
+    "sourceCommentHash": "31fbe1ea44d8b4fa3b4d02c2f2f35d9f84804902",
     "status": "translated"
   },
   "preview-beta/server/AimAssistRegistry": {
-    "sourceHash": "733f15d01c662a9d2e5887b0b8b2e8d7d60c0db6",
+    "sourceCommentHash": "f1270ef31267e238622f153403e6fa484b21934e",
     "status": "translated"
   },
   "preview-beta/server/BannerPattern": {
-    "sourceHash": "9ba2173a13b10c868a3f5c7e270eee683bdd6b26",
+    "sourceCommentHash": "cad1cd847c1bd4802ed61dde4c1f9bc1c5575c8d",
     "status": "translated"
   },
   "preview-beta/server/BiomeType": {
-    "sourceHash": "27e90e96231a7df7c526c22a35aa476671f4316f",
+    "sourceCommentHash": "4ce6717e77645ee79c89cd87fd60c99aad1ce520",
     "status": "translated"
   },
   "preview-beta/server/BiomeTypes": {
-    "sourceHash": "62897da2dbc01c3906716aabfa721654b29217a7",
+    "sourceCommentHash": "db5d266cc621fc548b6c16633f05fa431f5e0b44",
     "status": "translated"
   },
   "preview-beta/server/Block": {
-    "sourceHash": "1ad9b62bc7f5de22f4b955ee2df102e30b873d50",
+    "sourceCommentHash": "dca8ef59713afd2647634d6f0dbf42260d993cf8",
     "status": "translated"
   },
   "preview-beta/server/BlockBoundingBoxUtils": {
-    "sourceHash": "1080b822fc4b947f5964f5f95267551c7fe818b4",
+    "sourceCommentHash": "1e96a5aba0bedb9cb3f87515b9527c174e76169a",
     "status": "translated"
   },
   "preview-beta/server/BlockComponent": {
-    "sourceHash": "f124d6373eb5370b9a15f209254e951e02d1c675",
+    "sourceCommentHash": "6694e869537495e56d8a79cee432c495d5578dce",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentBlockBreakEvent": {
-    "sourceHash": "df3033b4e4786344726824d1f2b284834404ca33",
+    "sourceCommentHash": "c11886dba9e2af5db972dafe6db3eb4337252dd1",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentBlockStateChangeEvent": {
-    "sourceHash": "7b4f53656147110c793b54256b1d4c465515783a",
+    "sourceCommentHash": "0f39e89533f799817e7a8d98fa03045d0fc46e43",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentEntityEvent": {
-    "sourceHash": "366fb8f664623fa3f2a5171846cfbe05ec7daef4",
+    "sourceCommentHash": "60bf3e712df3f5f36a2de891bc1d5c4bf1b6e8cb",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentEntityFallOnEvent": {
-    "sourceHash": "594ada3106b8767e028d9602712a81a7a4c97699",
+    "sourceCommentHash": "7019da740d468c3e3120bc9c7df2b74b7590621e",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentOnPlaceEvent": {
-    "sourceHash": "9daf28cae2a1f8c78eb4999a36954cc0ffecd139",
+    "sourceCommentHash": "8fcc117dc8c64fdf9365f8a28a80d8a9b8e4828d",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentPlayerBreakEvent": {
-    "sourceHash": "d34542604c4480c38e910ba9ad74c8c8bb583f14",
+    "sourceCommentHash": "054fd798cd117bc3d737d5324239e0942ea030b3",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentPlayerInteractEvent": {
-    "sourceHash": "7f11d6364a499580c391bb757febcabf896ac74a",
+    "sourceCommentHash": "3fd354791108a4166fb1f3b4d1550c9acfde4be9",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentPlayerPlaceBeforeEvent": {
-    "sourceHash": "b086e7cce9d64bbea68cd871bdc4ab29262a6416",
+    "sourceCommentHash": "9e6e15273d70ae6b62afae93510d69db1d69ce9a",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentRandomTickEvent": {
-    "sourceHash": "32686e8e67176e576a7279198f03da70d90deedd",
+    "sourceCommentHash": "c6bc10e54819f75d606f0bfe7a7d8c10801d45a7",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentRedstoneUpdateEvent": {
-    "sourceHash": "6fe367e1634a530eb2e9126e1a487b63011bad4c",
+    "sourceCommentHash": "accb408e1418234192cbeabb0562909873e12e0e",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentRegistry": {
-    "sourceHash": "04187510df5c74080f5f2e1142a6edc7c6f0497a",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentStepOffEvent": {
-    "sourceHash": "a58fafa90d81b4408e96c057096f7aeb8cda50d0",
+    "sourceCommentHash": "8281f1cdd2176e5c32d58ced407882b597f213a2",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentStepOnEvent": {
-    "sourceHash": "c210f08a2332a6d86823836a3d5f2a63ca8927c2",
+    "sourceCommentHash": "fa2bad3b6ccf000c2939a22fc569b32b6242695d",
     "status": "translated"
   },
   "preview-beta/server/BlockComponentTickEvent": {
-    "sourceHash": "ffb23c851d04c06a382554f879e7327900afc055",
+    "sourceCommentHash": "d70cd2bd43093d73c32f48caf8a2f73053b373a9",
     "status": "translated"
   },
   "preview-beta/server/BlockContainerClosedAfterEvent": {
-    "sourceHash": "0ea73f2588711f1df508de6d88f2f61b97274ba2",
+    "sourceCommentHash": "36efe25d282c9c91ccc64054cf26b980d2b36ede",
     "status": "translated"
   },
   "preview-beta/server/BlockContainerClosedAfterEventSignal": {
-    "sourceHash": "46d51b790841bee4e9fcdd97b0ad5fa89669ab42",
+    "sourceCommentHash": "3c7c882cf5b25d5bab6b96a37e5a129328e34a31",
     "status": "translated"
   },
   "preview-beta/server/BlockContainerOpenedAfterEvent": {
-    "sourceHash": "12586bae628ee52fc6df5722d7a95795c4e6fd17",
+    "sourceCommentHash": "62b6eb4b5f207021a8937e013ec60a14a1abcd49",
     "status": "translated"
   },
   "preview-beta/server/BlockContainerOpenedAfterEventSignal": {
-    "sourceHash": "0d7ad124fcce0dad9cf208a97f8dbe436c45d2d0",
+    "sourceCommentHash": "4e475408d7d4acfe54e42f18463eba8ae672545f",
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponentInstance": {
-    "sourceHash": "2380c71f57e18f0741f672d96d621152ee5bee89",
+    "sourceCommentHash": "54d74172681477bb550bea60d1cc6115f407c92e",
     "status": "translated"
   },
   "preview-beta/server/BlockDynamicPropertiesComponent": {
-    "sourceHash": "035ab225762c626c0976fea47cb4af1ff5e53983",
+    "sourceCommentHash": "015a1e8e50c729dd391bc059494ed4b1a4efe0ed",
     "status": "translated"
   },
   "preview-beta/server/BlockEvent": {
-    "sourceHash": "c1c54dd17c1e444c8fbbbfed38577380010881bc",
+    "sourceCommentHash": "5b2632dabcb5ae188e91c81f13c3530957b4900b",
     "status": "translated"
   },
   "preview-beta/server/BlockExplodeAfterEvent": {
-    "sourceHash": "631ebf662334e986560f23aefd4ed03974fbe757",
+    "sourceCommentHash": "b134265cd7fc27263fa3ced289c21b2be44935bd",
     "status": "translated"
   },
   "preview-beta/server/BlockExplodeAfterEventSignal": {
-    "sourceHash": "4efc4ca45c0eb71009ad212811f4f7700125b21e",
+    "sourceCommentHash": "10887457e16c806f506d5cfafde7bfba74791867",
     "status": "translated"
   },
   "preview-beta/server/BlockFluidContainerComponent": {
-    "sourceHash": "173aecb53ae2ceb9be5579178159b6f849d9c971",
+    "sourceCommentHash": "9959aecc3eaa93c12de1b985177cea13d0c7bff1",
     "status": "translated"
   },
   "preview-beta/server/BlockInstrumentComponent": {
-    "sourceHash": "f10bed90f9ce897f954decb19312160e50415cda",
+    "sourceCommentHash": "fecb6b4135ff1e92beabe1e2f0c0f9b1e2d8530c",
     "status": "translated"
   },
   "preview-beta/server/BlockInventoryComponent": {
-    "sourceHash": "dfae40012922c5fcfa99e22e2a9ca02663939cbf",
+    "sourceCommentHash": "806d5704c9e21d3ef2efee3a09a136a5346887ba",
     "status": "translated"
   },
   "preview-beta/server/BlockLocationIterator": {
-    "sourceHash": "303eb30e6ec3247074c4038cba46c005df524e59",
+    "sourceCommentHash": "f08dbbf2dc96fd826aca6b68ebbf390ef686fef7",
     "status": "translated"
   },
   "preview-beta/server/BlockMapColorComponent": {
-    "sourceHash": "6f54d094325bcca4634f28437b453d193b4c0fa1",
+    "sourceCommentHash": "b2d54935b80be83f7946e198fa7f1d4a3f8f2f88",
     "status": "translated"
   },
   "preview-beta/server/BlockMovableComponent": {
-    "sourceHash": "78851f55e67261e6a318703b17e8ac882da76186",
+    "sourceCommentHash": "e8f685c8e2da3cdb0f3bf799224e9c9ebf59435a",
     "status": "translated"
   },
   "preview-beta/server/BlockPermutation": {
-    "sourceHash": "3137f0396ee36a8366ca8ee8fc4af699772a8893",
+    "sourceCommentHash": "1f21bdb86cb6754d52a821ec6196f7b1ccd73096",
     "status": "translated"
   },
   "preview-beta/server/BlockPistonComponent": {
-    "sourceHash": "b6bc2b0158aa7a942ea6016e7fa7ab766c3e1777",
+    "sourceCommentHash": "88172ea904aa87ef51b280f0f31a584fcfb3134e",
     "status": "translated"
   },
   "preview-beta/server/BlockPrecipitationInteractionsComponent": {
-    "sourceHash": "dcdae744a82058e5be0d82007f9a69888b97fa73",
+    "sourceCommentHash": "449045412ea35e9bfa1a0b3c63cc7079a163bad4",
     "status": "translated"
   },
   "preview-beta/server/BlockRecordPlayerComponent": {
-    "sourceHash": "08daa690ab641e0d7c430ae574c4042f8dcadf58",
+    "sourceCommentHash": "a8bf2280a5a7525fa7095189b402e350cd85cbfd",
     "status": "translated"
   },
   "preview-beta/server/BlockRedstoneProducerComponent": {
-    "sourceHash": "409d038a57310114d776c22508615b75dc6cb04e",
+    "sourceCommentHash": "f97560fa01486eb9af0ec3d1f3606ac0ff44148d",
     "status": "translated"
   },
   "preview-beta/server/BlockSignComponent": {
-    "sourceHash": "ec4f969efea3d2f77d897f08246af99db6966b29",
+    "sourceCommentHash": "25dde0c3ce16a39b3db9dd0dcef6a1d04b3fb71e",
     "status": "translated"
   },
   "preview-beta/server/BlockStates": {
-    "sourceHash": "40d20394d04096cd3b82b6d0f85c12a345627ad8",
+    "sourceCommentHash": "91ba929982a63a0884767f0a5cc7ca7bea8cbff6",
     "status": "translated"
   },
   "preview-beta/server/BlockStateType": {
-    "sourceHash": "e7fd1142cccfbe04fbdc48fd517b9c0813f3dd10",
+    "sourceCommentHash": "5f377bca88b7a0fdc5be55d08d1b5acdf252dea4",
     "status": "translated"
   },
   "preview-beta/server/BlockType": {
-    "sourceHash": "4177c2401f583fa42a801dbc0f0ccebad753d3ac",
+    "sourceCommentHash": "b1287f44ae56bc957f2374c809191eb058cbb2cc",
     "status": "translated"
   },
   "preview-beta/server/BlockTypes": {
-    "sourceHash": "b47039cf996b3f4e919cbc99b116ec70d1b5ee3b",
+    "sourceCommentHash": "990c1a4a5f9d671c484d59346dff06a79578db09",
     "status": "translated"
   },
   "preview-beta/server/BlockVolume": {
-    "sourceHash": "1ec6cf9b7f7904a300960786ea9149d020f17ba6",
+    "sourceCommentHash": "ee5fa9c6f83bb03591c7323131121865074d9c09",
     "status": "translated"
   },
   "preview-beta/server/BlockVolumeBase": {
-    "sourceHash": "80a4caff6566f8079ec5ffc5271db3a326dfaf78",
+    "sourceCommentHash": "5f82a9db9add1db7eadd0680e4b8f22d08bd92a0",
     "status": "translated"
   },
   "preview-beta/server/ButtonPushAfterEvent": {
-    "sourceHash": "f5237130f5ea56b6edb8829dd9bec3e34493a811",
+    "sourceCommentHash": "4403bef500f67427d57c50dc463f4418991aea14",
     "status": "translated"
   },
   "preview-beta/server/ButtonPushAfterEventSignal": {
-    "sourceHash": "a30c0763b58b656b9497eca030d078d40c548da6",
+    "sourceCommentHash": "43d24998a1270916019fc3415eeec8b11dca28ce",
     "status": "translated"
   },
   "preview-beta/server/Camera": {
-    "sourceHash": "42bb56a4d798b0ad9d2d0cea4fb4aef0facbbe83",
+    "sourceCommentHash": "3060b2c6718d87585ad2ea78e7698ffa411ce8b8",
     "status": "translated"
   },
   "preview-beta/server/CarryOverBlockEntityDataFunction": {
-    "sourceHash": "87267c941d548cc96752745cdd1377c8b1a32aba",
+    "sourceCommentHash": "3da26bd085ff4ec5106f9638a17927fbb038ce95",
     "status": "translated"
   },
   "preview-beta/server/CatmullRomSpline": {
-    "sourceHash": "30d5dee88effca93cbb12cb4d07fef0db37b5845",
+    "sourceCommentHash": "27d51edbf690f5dfe40fc3cb781752934f13e29b",
     "status": "translated"
   },
   "preview-beta/server/ChatSendAfterEvent": {
-    "sourceHash": "1d097f91b4f5e2f3cd2ab3160331f9d5ec09ace9",
+    "sourceCommentHash": "4c4658b4dada8f9f51311fb8158890c5f93dd79d",
     "status": "translated"
   },
   "preview-beta/server/ChatSendAfterEventSignal": {
-    "sourceHash": "84f38e0e45de7d6e529729a9ce68432e0be86809",
+    "sourceCommentHash": "3d5d4c3bddd594b5a3cd68d7bd8f856b12ffeee3",
     "status": "translated"
   },
   "preview-beta/server/ChatSendBeforeEvent": {
@@ -553,51 +553,51 @@
     "status": "translated"
   },
   "preview-beta/server/ChatSendBeforeEventSignal": {
-    "sourceHash": "13b58a171abbc1fa1d5bdfdd2fe676236477a6c3",
+    "sourceCommentHash": "725f4fb3d5eeaf66ff87d2f1eee0b62ed4ed833e",
     "status": "translated"
   },
   "preview-beta/server/ClientSystemInfo": {
-    "sourceHash": "d6118b06fc097676d5b9aa37dff14fe1dba21cad",
+    "sourceCommentHash": "a116d6f695a0db9a46cc38ee40f063e49cc6ce04",
     "status": "translated"
   },
   "preview-beta/server/CommandResult": {
-    "sourceHash": "60ec014a6676fff19d3f672de22e0064394c0095",
+    "sourceCommentHash": "f6a8e7d025d654c57d7a66d4c822dd6c86fda801",
     "status": "translated"
   },
   "preview-beta/server/Component": {
-    "sourceHash": "1ff91cbcc5914452734599319adf12372e38c8d0",
+    "sourceCommentHash": "6ceea4fa60b5e496a7f2e3a62983c4e98f9af474",
     "status": "translated"
   },
   "preview-beta/server/Container": {
-    "sourceHash": "98f31dde4986e77d2c3c48d01d63362ae92f4ba9",
+    "sourceCommentHash": "9fdd89747bf781f1ebd8635b5c8fd505c984e0e2",
     "status": "translated"
   },
   "preview-beta/server/ContainerSlot": {
-    "sourceHash": "cfc12d2ba3173079edb2550eb27c7f4e3e40ee2a",
+    "sourceCommentHash": "9da61af9c154b3a1c21d81094c628b749022e309",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandOrigin": {
-    "sourceHash": "2568f7cf38710e94305e585e56440e49dbc30592",
+    "sourceCommentHash": "821b3c1415a1e73d598fc2aeb3d2e939660dd92d",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandRegistry": {
-    "sourceHash": "2a3b30eb40f13b2c32d4ff5616181e31d6e3a3c9",
+    "sourceCommentHash": "1d5b6d8cba59fbf163c1509f4dcec1bb198667af",
     "status": "translated"
   },
   "preview-beta/server/CustomComponentParameters": {
-    "sourceHash": "aee29122f25f9fef960c1b5e2ddcfdda333014d4",
+    "sourceCommentHash": "a9744cd5d1d8881804490efd6dbc9f22f8bfe078",
     "status": "translated"
   },
   "preview-beta/server/DamagedByEntityCondition": {
-    "sourceHash": "2262d4c78646e1eebf603e921df952adf3ae5f82",
+    "sourceCommentHash": "1e11fa50943ebc3043a595fb0223a978dabb2209",
     "status": "translated"
   },
   "preview-beta/server/DataDrivenEntityTriggerAfterEvent": {
-    "sourceHash": "ef43bb95f4f78ac52d5dd6b190b76f2cb5a073d9",
+    "sourceCommentHash": "268111fd546e4321331f14424d2b7155555affa6",
     "status": "translated"
   },
   "preview-beta/server/DataDrivenEntityTriggerAfterEventSignal": {
-    "sourceHash": "c2f81dfcd81d6ebbeb31775c7bf0a9331ac377ed",
+    "sourceCommentHash": "11dc95d42a2c19c1ac774a38580cdc002dfc48f4",
     "status": "translated"
   },
   "preview-beta/server/Dimension": {
@@ -605,71 +605,71 @@
     "status": "translated"
   },
   "preview-beta/server/DimensionRegistry": {
-    "sourceHash": "9b2af9ccf7339e4451c9599c88f448b950e9f93b",
+    "sourceCommentHash": "2deb3c69888e3c54d5b0752e71e4673f2b59b739",
     "status": "translated"
   },
   "preview-beta/server/DimensionType": {
-    "sourceHash": "3ea354d1aba9d8096e70bd71f7a086b4219f506b",
+    "sourceCommentHash": "5ab7e3c2ce55c6408d89d7aea9ec23f849b2e751",
     "status": "translated"
   },
   "preview-beta/server/DimensionTypes": {
-    "sourceHash": "9fd3c7e50f0365269d64073fdfd621fe1205556e",
+    "sourceCommentHash": "d86bceaa3c88d3e245cce6258999a77ea0b1d54c",
     "status": "translated"
   },
   "preview-beta/server/Effect": {
-    "sourceHash": "3c47e80e19f8079cc1e384be090ca614f9c47cf1",
+    "sourceCommentHash": "d520bc65f83d5c6ebfc3e2d376d0b048b1e856ff",
     "status": "translated"
   },
   "preview-beta/server/EffectAddAfterEvent": {
-    "sourceHash": "e51494af819e4f58fc3221cb805224b8b8117689",
+    "sourceCommentHash": "0952286e5342a1cc63880429b739bc03ab12d4fc",
     "status": "translated"
   },
   "preview-beta/server/EffectAddAfterEventSignal": {
-    "sourceHash": "7e37053f0906576865db833297d73e3bbfdea133",
+    "sourceCommentHash": "b54760bfeb812b20685d63e0ad97e3747fc3fbeb",
     "status": "translated"
   },
   "preview-beta/server/EffectAddBeforeEvent": {
-    "sourceHash": "d79b61cb5fc2915327aed9b552c9178a76d1074b",
+    "sourceCommentHash": "0952286e5342a1cc63880429b739bc03ab12d4fc",
     "status": "translated"
   },
   "preview-beta/server/EffectAddBeforeEventSignal": {
-    "sourceHash": "eeb89ed4cc1b94761ae13d30d0318a0941e44756",
+    "sourceCommentHash": "b54760bfeb812b20685d63e0ad97e3747fc3fbeb",
     "status": "translated"
   },
   "preview-beta/server/EffectType": {
-    "sourceHash": "e8ca23a9f796c7ee6bd317e4e45e84b9577c964b",
+    "sourceCommentHash": "fa37f29f28216bef5e99302f1fc3a146c2ae89bc",
     "status": "translated"
   },
   "preview-beta/server/EffectTypes": {
-    "sourceHash": "b89642a64dee35ca0b0dfe010f364c791ef1bce6",
+    "sourceCommentHash": "fa37f29f28216bef5e99302f1fc3a146c2ae89bc",
     "status": "translated"
   },
   "preview-beta/server/EmptyLootItem": {
-    "sourceHash": "e849cd217ea9a85769882d7bfeacbd2c2829c2e9",
+    "sourceCommentHash": "db7015f93d37662660ebe10e6fc303bf9c7c0314",
     "status": "translated"
   },
   "preview-beta/server/EnchantInfo": {
-    "sourceHash": "61f68f4d6a41602cbf58b3bc2925c94482672835",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EnchantmentType": {
-    "sourceHash": "fd8620edbe35c3057c9e15a155c72b3e313cc694",
+    "sourceCommentHash": "06f395f3778c998cadfe127dd27b8f9d0f894697",
     "status": "translated"
   },
   "preview-beta/server/EnchantmentTypes": {
-    "sourceHash": "27243e8b8a798f404d9c340217e69cadd07cec72",
+    "sourceCommentHash": "c1bf909d2374fada71a7023f80e8df6db70b373d",
     "status": "translated"
   },
   "preview-beta/server/EnchantRandomEquipmentFunction": {
-    "sourceHash": "8f6901b11a1987cb8990196e48cfeb2a51f90a1e",
+    "sourceCommentHash": "80ab1303bd63625b3629306a538160fc2728dbf5",
     "status": "translated"
   },
   "preview-beta/server/EnchantRandomlyFunction": {
-    "sourceHash": "3a5c757082bc3881383c2fa4324913ebb55543f4",
+    "sourceCommentHash": "64c86af928600b5655db75d36035541a74432270",
     "status": "translated"
   },
   "preview-beta/server/EnchantWithLevelsFunction": {
-    "sourceHash": "53f7eb40128951223f039a50f0c545ad79b20f22",
+    "sourceCommentHash": "4b7a16eaf9e068408f22bd4985da68b5b65d462b",
     "status": "translated"
   },
   "preview-beta/server/Entity": {
@@ -677,439 +677,439 @@
     "status": "translated"
   },
   "preview-beta/server/EntityAgeableComponent": {
-    "sourceHash": "bea1511ad9c3a8a0d18d424a696b884c8a3fe3ab",
+    "sourceCommentHash": "b4ce7f214446ff13c9d810cadde27d1ae9437e2b",
     "status": "translated"
   },
   "preview-beta/server/EntityAttributeComponent": {
-    "sourceHash": "618419d0202f6b0b4cdd637d20d52f8fcc7bcfb2",
+    "sourceCommentHash": "1d5d3527f668812fd87476695a06bab469383eac",
     "status": "translated"
   },
   "preview-beta/server/EntityBaseMovementComponent": {
-    "sourceHash": "a2ec5aefe67b962ec1cbdbe9c2793e38c3d51351",
+    "sourceCommentHash": "a091504f689138a6919e6ab265022cd9d1f30070",
     "status": "translated"
   },
   "preview-beta/server/EntityBreathableComponent": {
-    "sourceHash": "f06b35ed2d59e4d78b36386c0078a44e3217dcb8",
+    "sourceCommentHash": "385a68e19b3b73979266ea429916f2ec616126da",
     "status": "translated"
   },
   "preview-beta/server/EntityCanClimbComponent": {
-    "sourceHash": "ba6d31182826b62c7dad002cd01596b34a45371a",
+    "sourceCommentHash": "92458079998ac68187f3d96478ffbf5d341d3bdd",
     "status": "translated"
   },
   "preview-beta/server/EntityCanFlyComponent": {
-    "sourceHash": "e4686c2efa31496b42fb6dea11bb5934b81d5e7b",
+    "sourceCommentHash": "57c001070ec338a40252e7daec8c83699e0675ab",
     "status": "translated"
   },
   "preview-beta/server/EntityCanPowerJumpComponent": {
-    "sourceHash": "eaf2bb2c96955b7524d0da20b1e06e280fb36de2",
+    "sourceCommentHash": "4b45200b2afcd6a3e9d9fa141151c0a10f06c79a",
     "status": "translated"
   },
   "preview-beta/server/EntityColor2Component": {
-    "sourceHash": "7ef1ecb291b405978a08308e370b425faa5b2e4d",
+    "sourceCommentHash": "2e4f51d531c0c2ddcad709f3de6a2220cdcbe28d",
     "status": "translated"
   },
   "preview-beta/server/EntityColorComponent": {
-    "sourceHash": "c3fdc8306f465b2d8b94f6d0340db91a86102e46",
+    "sourceCommentHash": "eebcd707105c68ce2f595e9bd6f454736381222f",
     "status": "translated"
   },
   "preview-beta/server/EntityComponent": {
-    "sourceHash": "2309bfbcfc1a3cab220379616a48a4f3c9fd8409",
+    "sourceCommentHash": "c064adac391799248b51ad97f78398f273ecd1cd",
     "status": "translated"
   },
   "preview-beta/server/EntityContainerClosedAfterEvent": {
-    "sourceHash": "27ac56de6bd274445279f7c8911cda4dbeb835f7",
+    "sourceCommentHash": "306e308e06b287e861d0c61e64aebd04c73c0247",
     "status": "translated"
   },
   "preview-beta/server/EntityContainerClosedAfterEventSignal": {
-    "sourceHash": "e7edcbf341860a1eab23005f28c64535ceac394c",
+    "sourceCommentHash": "a1bb569b88e7445be4341bc8a66e627cb4b30e77",
     "status": "translated"
   },
   "preview-beta/server/EntityContainerOpenedAfterEvent": {
-    "sourceHash": "58ea6bb43dcb20f0a6334669e48f273a24e72294",
+    "sourceCommentHash": "ed251dab1dfd6eff40d4b0b481645f13a2b00485",
     "status": "translated"
   },
   "preview-beta/server/EntityContainerOpenedAfterEventSignal": {
-    "sourceHash": "8417681999a8b163a7d6757dbabdc8d6fcb520b8",
+    "sourceCommentHash": "00da4de05256fc0e77ace39db7d6fe8ce9c13335",
     "status": "translated"
   },
   "preview-beta/server/EntityDieAfterEvent": {
-    "sourceHash": "511c36610588cdddad0c29aa587ace46af1dd803",
+    "sourceCommentHash": "4990d8014697e39b4d8d1b9568ed846e246f2b5e",
     "status": "translated"
   },
   "preview-beta/server/EntityDieAfterEventSignal": {
-    "sourceHash": "2f482979f35239b833e826fa39ffcbe8cf5827c1",
+    "sourceCommentHash": "6b30671ab5513a328fff689ee25d52d2525a3c7d",
     "status": "translated"
   },
   "preview-beta/server/EntityEnderInventoryComponent": {
-    "sourceHash": "473efed02d6b0dcc1d5d8b08acc070bd353ccfdb",
+    "sourceCommentHash": "ae40e7da071684f4fb6a1b0ef0f8d6dea6a1319c",
     "status": "translated"
   },
   "preview-beta/server/EntityEquippableComponent": {
-    "sourceHash": "a28fd8cd227d9c63578bd4fb0aff93b6f2dfc348",
+    "sourceCommentHash": "23ab318488a1624524ece621f8ab1b9678847b92",
     "status": "translated"
   },
   "preview-beta/server/EntityExhaustionComponent": {
-    "sourceHash": "2d5f2795daa4f6a02077c757140eff6962124302",
+    "sourceCommentHash": "85b86db04e87a88d75612a0efd13f3a5ff5552ad",
     "status": "translated"
   },
   "preview-beta/server/EntityFireImmuneComponent": {
-    "sourceHash": "e4e1d9de3c2e12bd2a93d0d7f78da7c92c96c2fa",
+    "sourceCommentHash": "5569e26e864d7b8bcaeb673c033ac6ff6585b8af",
     "status": "translated"
   },
   "preview-beta/server/EntityFloatsInLiquidComponent": {
-    "sourceHash": "bb6086c505d64b5a4ee1ce162dab7b84b34c3c8f",
+    "sourceCommentHash": "35de61bdf7454345427c53b0bba743a56887f87d",
     "status": "translated"
   },
   "preview-beta/server/EntityFlyingSpeedComponent": {
-    "sourceHash": "3149e2fe14ae67841388618bd5750e726e41433e",
+    "sourceCommentHash": "9482435b1a64d2c20e5a99662f40571cf880e566",
     "status": "translated"
   },
   "preview-beta/server/EntityFrictionModifierComponent": {
-    "sourceHash": "d99fd1597213b41c5582100dff0373cafafd464a",
+    "sourceCommentHash": "03aba6e5b0b1b46568b0891f14e017c6e7716329",
     "status": "translated"
   },
   "preview-beta/server/EntityHasMarkVariantCondition": {
-    "sourceHash": "7b09d4117067dec617cfc69d428fb00399b910e0",
+    "sourceCommentHash": "56c6a2309f875587156e704aa0a8ca5ee57b3d2c",
     "status": "translated"
   },
   "preview-beta/server/EntityHasVariantCondition": {
-    "sourceHash": "23b51a82f998a109b5974201b8bc85260d790cb4",
+    "sourceCommentHash": "073a3ee41795b051889dc2498eaf3b18da4302f5",
     "status": "translated"
   },
   "preview-beta/server/EntityHealableComponent": {
-    "sourceHash": "a3f216a1f89ec9f5d00c8d18dd4849b5d4acbf0f",
+    "sourceCommentHash": "e2be42570c1b540ff64c07bb1971954d685267c8",
     "status": "translated"
   },
   "preview-beta/server/EntityHealAfterEvent": {
-    "sourceHash": "14bada45a7a3686300d63a4d95a36785d0db9554",
+    "sourceCommentHash": "a8c11c0eafe10a37336a40b787f01de321d034e9",
     "status": "translated"
   },
   "preview-beta/server/EntityHealAfterEventSignal": {
-    "sourceHash": "1f92cec51d28f549bb5fddc8d114f44f93682ba0",
+    "sourceCommentHash": "c62d1d451e392ecc593fe20eddd6cd128a0d9b13",
     "status": "translated"
   },
   "preview-beta/server/EntityHealBeforeEvent": {
-    "sourceHash": "da4e737d327a3b552ddbc74fb0689f752ff2e7a5",
+    "sourceCommentHash": "9d89c55f4375e4116ba8856a183e5638a09f0c11",
     "status": "translated"
   },
   "preview-beta/server/EntityHealBeforeEventSignal": {
-    "sourceHash": "253ec9162d7711f3abd4640805bec2e66ed1a903",
+    "sourceCommentHash": "645a9ceff15c4317f4db1fed56317b94d72f270a",
     "status": "translated"
   },
   "preview-beta/server/EntityHealSource": {
-    "sourceHash": "f9d560d6fc6de1a164e33c13c677908f2b5114df",
+    "sourceCommentHash": "9e116ec08d542a1767974d3fbfeec5f2af8b7bcc",
     "status": "translated"
   },
   "preview-beta/server/EntityHealthChangedAfterEvent": {
-    "sourceHash": "224277ebbec7990ae47ba3b988d529291f8caad9",
+    "sourceCommentHash": "138bc2472fe3812adcbaae205615352df197e2a4",
     "status": "translated"
   },
   "preview-beta/server/EntityHealthChangedAfterEventSignal": {
-    "sourceHash": "a4d40077cb03d3d51ede4490338ce51ba17d7bde",
+    "sourceCommentHash": "e9bc22821750a74ba5bdb1ded0979f1f65cd4409",
     "status": "translated"
   },
   "preview-beta/server/EntityHealthComponent": {
-    "sourceHash": "55df8323eea8c2df65b92e27bc4d6f084d7cfba2",
+    "sourceCommentHash": "840cded49ec98d9b4ddcbb459530e99a1dea9307",
     "status": "translated"
   },
   "preview-beta/server/EntityHitBlockAfterEvent": {
-    "sourceHash": "0820852ef58acfd67a7dd9275cd075aaed5b3885",
+    "sourceCommentHash": "f5f83bc60aa3f36da816d47ea137fc0803ca496a",
     "status": "translated"
   },
   "preview-beta/server/EntityHitBlockAfterEventSignal": {
-    "sourceHash": "b8c472475f70709d63ac92461280175647564ec8",
+    "sourceCommentHash": "4ec41077660f03313338f3bd72e0f99f3f6cdf6d",
     "status": "translated"
   },
   "preview-beta/server/EntityHitEntityAfterEvent": {
-    "sourceHash": "40b88ca77f54ee43986d993fcd7e93b804eeb742",
+    "sourceCommentHash": "610760bd0d44706f9ea247fc251a626c3143c82d",
     "status": "translated"
   },
   "preview-beta/server/EntityHitEntityAfterEventSignal": {
-    "sourceHash": "20fe489c57bcb129d813ba80fb9350024e8aaf35",
+    "sourceCommentHash": "040d6f105c3761325b2092bebed0357972abe246",
     "status": "translated"
   },
   "preview-beta/server/EntityHungerComponent": {
-    "sourceHash": "aea668be6eb7c5789b9fd1ff33b6b258417ee353",
+    "sourceCommentHash": "4d9c20e739d4dd8e18c83292d7112a2e6c023871",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtAfterEvent": {
-    "sourceHash": "371e8107ac870fc5fe3feb0bfd5d323a9e5cb005",
+    "sourceCommentHash": "9f4648ff8c212f84cd69e6f09f95767882687c96",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtAfterEventSignal": {
-    "sourceHash": "b8e0e6808bff6f729ed27b44381899cba4d5c0df",
+    "sourceCommentHash": "df0d0b3d07baa5082464e36942d4da149dcfa0b7",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtBeforeEvent": {
-    "sourceHash": "d49dc0f5ff4a854a0f65c8ce3a25bbfcaba60b30",
+    "sourceCommentHash": "926f8e7c299f64ab1233cacfbb2fd08b709e34f5",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtBeforeEventSignal": {
-    "sourceHash": "4babe620347439907bc33141c05f1c107fffafcd",
+    "sourceCommentHash": "f1700937f222b81c2619a3fa5e619631dd233b69",
     "status": "translated"
   },
   "preview-beta/server/EntityInventoryComponent": {
-    "sourceHash": "62173fd5b30a82283b4e6443fdf1b685d779770e",
+    "sourceCommentHash": "6852816e3373599f248d03a315b9aeb9dbbdaf02",
     "status": "translated"
   },
   "preview-beta/server/EntityIsBabyComponent": {
-    "sourceHash": "cd5f8319b89248ce0424c5628f1db617a7c5df18",
+    "sourceCommentHash": "9812100eb9e46b744a24733f0e22a268d61b58f6",
     "status": "translated"
   },
   "preview-beta/server/EntityIsChargedComponent": {
-    "sourceHash": "56335c8942d4d59328bff96fb58ac86dd9e76068",
+    "sourceCommentHash": "f12df6c81bb06abcd86f9d63945b5b0b3369a362",
     "status": "translated"
   },
   "preview-beta/server/EntityIsChestedComponent": {
-    "sourceHash": "63decbc9badf1ccefdb11b55c72a4045829ccbf9",
+    "sourceCommentHash": "3a8db5863d3cd51e8b9a24ea97a88a637eba0732",
     "status": "translated"
   },
   "preview-beta/server/EntityIsDyeableComponent": {
-    "sourceHash": "f6b22be451cf6638396974e1e0302f34e4b55132",
+    "sourceCommentHash": "8cf4ce5f6e6cf930b890323681e66a361ea4b9a1",
     "status": "translated"
   },
   "preview-beta/server/EntityIsHiddenWhenInvisibleComponent": {
-    "sourceHash": "f548da23cbc2b3fba7f6423685b3bbb2adca31c7",
+    "sourceCommentHash": "76c2aaab041862c9eb0fa18c2ff99ad58ee1c695",
     "status": "translated"
   },
   "preview-beta/server/EntityIsIgnitedComponent": {
-    "sourceHash": "e6984ac08c9765447ff0a40757f0a6be946bc1a1",
+    "sourceCommentHash": "661bd627c79fa576c2a569359d4b8da1f9c45e74",
     "status": "translated"
   },
   "preview-beta/server/EntityIsIllagerCaptainComponent": {
-    "sourceHash": "86daaa4cca50fe5b251fdc63d33bf96ec846df27",
+    "sourceCommentHash": "378a8d4aa9c7e11dc0a02c6fc3a2580ce5a4f2ba",
     "status": "translated"
   },
   "preview-beta/server/EntityIsSaddledComponent": {
-    "sourceHash": "bf10d35fae236bebf669a4ece0dd0086ec3dd69d",
+    "sourceCommentHash": "1be3315b538908e6ef9bebed0a54ec076969b8c7",
     "status": "translated"
   },
   "preview-beta/server/EntityIsShakingComponent": {
-    "sourceHash": "b543149594a8ac86a77be21e857089bc6f17ee10",
+    "sourceCommentHash": "4219d051cf987072af8353e1b181e0f1061f5b08",
     "status": "translated"
   },
   "preview-beta/server/EntityIsShearedComponent": {
-    "sourceHash": "ba55fb8187802a7aed925cc3be8c5c1ad2824ff1",
+    "sourceCommentHash": "228dff5aba1ef6912d4fe3505cbc70ec02892238",
     "status": "translated"
   },
   "preview-beta/server/EntityIsStackableComponent": {
-    "sourceHash": "8552fa418fde90584d99c246498f82a4948c9ce4",
+    "sourceCommentHash": "3b2ea1f2a7404aa857f3bed7900e9bbbc160460a",
     "status": "translated"
   },
   "preview-beta/server/EntityIsStunnedComponent": {
-    "sourceHash": "480ec280766235ad202d56a106c649c438c3e0e8",
+    "sourceCommentHash": "a0a4e6402e0cd9f6f8b71562cf0430fb79b0c099",
     "status": "translated"
   },
   "preview-beta/server/EntityIsTamedComponent": {
-    "sourceHash": "14e7a266926d5ca001486f6ad158756dffe3df9d",
+    "sourceCommentHash": "2469859c134c2ae44d371edd0dc2a870572f1597",
     "status": "translated"
   },
   "preview-beta/server/EntityItemComponent": {
-    "sourceHash": "a7d7fb133af709ac10813f4238a676716fd77e90",
+    "sourceCommentHash": "9e01696aa355275c5910ea8f0f9128163fd4e816",
     "status": "translated"
   },
   "preview-beta/server/EntityItemDropAfterEvent": {
-    "sourceHash": "d4ad753a9894313ffdea73f726449cdde4d55e27",
+    "sourceCommentHash": "dc96b4eb3628f0644886bf03df38124fcfb8cad4",
     "status": "translated"
   },
   "preview-beta/server/EntityItemDropAfterEventSignal": {
-    "sourceHash": "84ea06e7f14bf40633203d840a7350616b90b59e",
+    "sourceCommentHash": "ec27fc399a1bc648cdd629c77c42cafa9974bb53",
     "status": "translated"
   },
   "preview-beta/server/EntityItemPickupAfterEvent": {
-    "sourceHash": "1daed55edd25343a7a685180c5a564efd018e97d",
+    "sourceCommentHash": "8c3d58cfb6601a71c842c8be30d15e597d15db07",
     "status": "translated"
   },
   "preview-beta/server/EntityItemPickupAfterEventSignal": {
-    "sourceHash": "11e8df154e41e91afe6721844bb8b0458849244a",
+    "sourceCommentHash": "af6cb0b046f35eef4640380e06630516b4acbbc7",
     "status": "translated"
   },
   "preview-beta/server/EntityItemPickupBeforeEvent": {
-    "sourceHash": "541106256192c0db9874ef7d5fd1d549e3ce32ae",
+    "sourceCommentHash": "fd53bc5b34128dc8367b84d4352c657b01bc75c6",
     "status": "translated"
   },
   "preview-beta/server/EntityItemPickupBeforeEventSignal": {
-    "sourceHash": "5154ffdc4d4cc54a27a137d0a27a06e3c164972b",
+    "sourceCommentHash": "674988925ff6ffb3981e6e13078f10685d9ee1b2",
     "status": "translated"
   },
   "preview-beta/server/EntityKilledCondition": {
-    "sourceHash": "ac51cf119022694d7435fc1854a765a13ec5f1c9",
+    "sourceCommentHash": "063b00a82ee3d136d023b2011a316e8e522ac7c1",
     "status": "translated"
   },
   "preview-beta/server/EntityLavaMovementComponent": {
-    "sourceHash": "13cf1462b10d2dfe229b8136f4551ff11bfa2a16",
+    "sourceCommentHash": "1c3c9f7973bee1a8129e1c8dd72770de3a7f7c57",
     "status": "translated"
   },
   "preview-beta/server/EntityLeashableComponent": {
-    "sourceHash": "9b93b7e58307b3e2e5c12ca708921f40ae215d00",
+    "sourceCommentHash": "fc7d4547bd90b3cca68a0a1379d44684436c2fa9",
     "status": "translated"
   },
   "preview-beta/server/EntityLoadAfterEvent": {
-    "sourceHash": "713070b5eb83cba178798d789ab49838cf59f352",
+    "sourceCommentHash": "4229869b13b4c1a534539262c225f5c55d560202",
     "status": "translated"
   },
   "preview-beta/server/EntityLoadAfterEventSignal": {
-    "sourceHash": "dbbfa467b648888436eef551ac6e5a318989d9f2",
+    "sourceCommentHash": "949aaaf95ae5dc3159de4eeb44332912aea69f59",
     "status": "translated"
   },
   "preview-beta/server/EntityMarkVariantComponent": {
-    "sourceHash": "b6c0f4392916ce902f93dbb83715c2e09c970522",
+    "sourceCommentHash": "a883a42d25d6e2d3b1c41b07c1bb284b8b01d47a",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementAmphibiousComponent": {
-    "sourceHash": "10e203e086738a6ace349816a413875d8f31b59b",
+    "sourceCommentHash": "0db0d68eef1fa2d025fc6e06243adb0b68f8bab8",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementBasicComponent": {
-    "sourceHash": "cf297131c06b354b6cd8c34b00405a887eefebec",
+    "sourceCommentHash": "f242917de5c8c6329893729dade8621bfdcbba77",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementComponent": {
-    "sourceHash": "350a15c77b5068f22a99383397cd728dffa3ffef",
+    "sourceCommentHash": "a1a9823bc991b003f3db033d581425dd86758028",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementFlyComponent": {
-    "sourceHash": "c579227176c04acf5a45e1fef7bc3f5c5fb13c3d",
+    "sourceCommentHash": "9dacfe63dc7c5a8e1ec1613ce521285400532f4d",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementGenericComponent": {
-    "sourceHash": "23cb4c0b2bd7aacb1654090975dfbdd21c78939f",
+    "sourceCommentHash": "879fa9239f7906dc99c497c021898b088b9b4ea6",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementGlideComponent": {
-    "sourceHash": "1ce36b43efbe5056d1aa40ee62dcb17a9e290503",
+    "sourceCommentHash": "1ee09459644828e7b14d78216263b8e08968fae0",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementHoverComponent": {
-    "sourceHash": "d510105b844dcd77fdaa993fb17cdadfd5145137",
+    "sourceCommentHash": "d77cc0e20fcaaa8b12fb3124c0778ee9f221e59d",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementJumpComponent": {
-    "sourceHash": "0676e1fc166d80e363eb816358b9f66afc2c0273",
+    "sourceCommentHash": "4dff91a24dfeb17bf56fd7371ae8967738176256",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementSkipComponent": {
-    "sourceHash": "4cac0aac0ded322c310624b3ffd56d1f68c8d66c",
+    "sourceCommentHash": "b243d3062e9ba3718524740b391295861f5a5beb",
     "status": "translated"
   },
   "preview-beta/server/EntityMovementSwayComponent": {
-    "sourceHash": "c315b913551fb635726179346787f4de398113f6",
+    "sourceCommentHash": "49c548aba2d51848d04440f039e034a61800e9bd",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationClimbComponent": {
-    "sourceHash": "92c03cae59dc2aef3d0da75360b6c8ed2ac917f6",
+    "sourceCommentHash": "c2a95469786c09fbe68e7224b630d2dc5f794a47",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationComponent": {
-    "sourceHash": "df348516f4aaaef8896e4bd955d0e40277bc536b",
+    "sourceCommentHash": "c2a95469786c09fbe68e7224b630d2dc5f794a47",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationFloatComponent": {
-    "sourceHash": "763ced6afc86cc92273fcd2d3cca607071a8a923",
+    "sourceCommentHash": "aa9537456af214c4d126bd84bf51e4de64654075",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationFlyComponent": {
-    "sourceHash": "d9e00ec46d3b4cd0c34a6eefdc1e613f02073220",
+    "sourceCommentHash": "688c1f7349fe86c33562c006e8200f75c438de5a",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationGenericComponent": {
-    "sourceHash": "5eb0abb884e24fcddc178330da880d590d382d5d",
+    "sourceCommentHash": "e404fdc64c694c490e477d231b8beb5bac63cdcc",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationHoverComponent": {
-    "sourceHash": "069f37586d72105c505bc164c55b06566fdd9975",
+    "sourceCommentHash": "b88cd2c9ea335fa444153c3f2f1862ec027425f2",
     "status": "translated"
   },
   "preview-beta/server/EntityNavigationWalkComponent": {
-    "sourceHash": "40d7b872538bd2d1748c194de2bef0ae87f945e3",
+    "sourceCommentHash": "438222427858d7323671cbcdb7c2e9a3d02828da",
     "status": "translated"
   },
   "preview-beta/server/EntityNpcComponent": {
-    "sourceHash": "a3d499b3b98364333ab32cd8cf2a93eba34d38f1",
+    "sourceCommentHash": "8e5f025ca6c6f26efc7b97b44caa72b3991a6836",
     "status": "translated"
   },
   "preview-beta/server/EntityOnFireComponent": {
-    "sourceHash": "4bd956978196aeed5872513bc951ea4738aed728",
+    "sourceCommentHash": "285d77b0e92115761e7c0124a27cc7636bd020f5",
     "status": "translated"
   },
   "preview-beta/server/EntityProjectileComponent": {
-    "sourceHash": "b7f8fec49393174aa11e2f685b26d68cdcdc90a0",
+    "sourceCommentHash": "f2fb2ef553cdb21ddb5da903c35e965787c87397",
     "status": "translated"
   },
   "preview-beta/server/EntityPushThroughComponent": {
-    "sourceHash": "3dd8e3411461d6adafedcbf297321dcbb6944d3f",
+    "sourceCommentHash": "d3d3007b36edd2a8832f47973b5443d15b08c1b5",
     "status": "translated"
   },
   "preview-beta/server/EntityRemoveAfterEvent": {
-    "sourceHash": "2360645f9e74a028b8ad93215d7bc40a7a8592d0",
+    "sourceCommentHash": "555758ec2375b8909f0a281e738b4000ce0eb6fa",
     "status": "translated"
   },
   "preview-beta/server/EntityRemoveAfterEventSignal": {
-    "sourceHash": "d7073482a9d6f5e04d82d9cea09bbeb001ad8fc7",
+    "sourceCommentHash": "8ee1655184992c8df41bdaeb12cd92769d2f340c",
     "status": "translated"
   },
   "preview-beta/server/EntityRemoveBeforeEvent": {
-    "sourceHash": "2cb895ba04c189879f30c324599a71ab0a9c1275",
+    "sourceCommentHash": "3639957e79d7b3fee1b70fbe2c2a6148d16a8964",
     "status": "translated"
   },
   "preview-beta/server/EntityRemoveBeforeEventSignal": {
-    "sourceHash": "21b81eab896ac0fa306b2cd63d71c78f7442406f",
+    "sourceCommentHash": "e40a899b9ff42184b4346a3bad0fc30d7b621c52",
     "status": "translated"
   },
   "preview-beta/server/EntityRideableComponent": {
-    "sourceHash": "f8dbd2755f150d922b5d86110ce1919c3b497043",
+    "sourceCommentHash": "9187d74b2e7c576c50ea06691f9d404f1d367e1b",
     "status": "translated"
   },
   "preview-beta/server/EntityRidingComponent": {
-    "sourceHash": "7b323a2549066c34ed0192a5ce36944b35b9a183",
+    "sourceCommentHash": "6a5111775f1e16b053df6343b67073f4a8e8ab5c",
     "status": "translated"
   },
   "preview-beta/server/EntitySaturationComponent": {
-    "sourceHash": "40e7ccccc89b5ab01671d8f1d5a37d47c997e963",
+    "sourceCommentHash": "5a81db45b7c7bdc22bde7439287970ec66230e98",
     "status": "translated"
   },
   "preview-beta/server/EntityScaleComponent": {
-    "sourceHash": "b270a11cf48dd7c1faa3db7e9c43f5469b574b47",
+    "sourceCommentHash": "c244f1b97499a36b1e07e57a38d049b7ec117645",
     "status": "translated"
   },
   "preview-beta/server/EntitySkinIdComponent": {
-    "sourceHash": "cb7078b56718e340ec5d46be549fcf7cdd5ff1d4",
+    "sourceCommentHash": "d35ee6ddd544c9c986d568218f0f514fdb7bed4d",
     "status": "translated"
   },
   "preview-beta/server/EntitySpawnAfterEvent": {
-    "sourceHash": "b6645b691906ddb8f88c6338f298d04902b720ab",
+    "sourceCommentHash": "9f625f1b9ee60f3b7140faf54c08d86cb8cc5e72",
     "status": "translated"
   },
   "preview-beta/server/EntitySpawnAfterEventSignal": {
-    "sourceHash": "b37e14a4f221f1b441fecc7aad617c9d3a1b6656",
+    "sourceCommentHash": "cfc2d1c568ddc42015906f1865b3b0cabcedb0c4",
     "status": "translated"
   },
   "preview-beta/server/EntityStartSneakingAfterEvent": {
-    "sourceHash": "51002ebe871042d6e06b46edb53317cab69ed794",
+    "sourceCommentHash": "cdb1ea214394fdf2efea7e7abef9c1cc3b9b7d44",
     "status": "translated"
   },
   "preview-beta/server/EntityStartSneakingAfterEventSignal": {
-    "sourceHash": "3d750c373d97885d003fed91f61fe6480b579a10",
+    "sourceCommentHash": "4df9e1e90921464b7f3d2d139587c30852b6dd26",
     "status": "translated"
   },
   "preview-beta/server/EntityStopSneakingAfterEvent": {
-    "sourceHash": "01d91f1c22e75408c813b57a45c933f18be86bdb",
+    "sourceCommentHash": "6872731f5d009671ea1b503dc7e07c4e8d193ad2",
     "status": "translated"
   },
   "preview-beta/server/EntityStopSneakingAfterEventSignal": {
-    "sourceHash": "7c5fe16739482de89caa1d149093ea265c664d18",
+    "sourceCommentHash": "79ca4463fcbc9de129eb147db39bea03908d665c",
     "status": "translated"
   },
   "preview-beta/server/EntityStrengthComponent": {
-    "sourceHash": "4442894e6a271ab50266bff5563b43ab030d1240",
+    "sourceCommentHash": "ba794d55e05c205c145c039fdb99af26e11ee100",
     "status": "translated"
   },
   "preview-beta/server/EntityTameableComponent": {
-    "sourceHash": "86b7bccd20fb1c9eb8e038437f956662a0d2a5ca",
+    "sourceCommentHash": "1f71205e286ba125c032e51fdf7d9fa68926cd45",
     "status": "translated"
   },
   "preview-beta/server/EntityTamedAfterEvent": {
-    "sourceHash": "7d45676bff760afa1c291124c1392e1c97d32947",
+    "sourceCommentHash": "61749774166d362cdf9aa2d34886769215519042",
     "status": "translated"
   },
   "preview-beta/server/EntityTamedAfterEventSignal": {
@@ -1117,7 +1117,7 @@
     "status": "translated"
   },
   "preview-beta/server/EntityTamedBeforeEvent": {
-    "sourceHash": "4bc4aee7e14e236ecf9c8133747647e4b04bde37",
+    "sourceCommentHash": "6e71600f1c96c7708e54dd3cd469b2ac0b488e00",
     "status": "translated"
   },
   "preview-beta/server/EntityTamedBeforeEventSignal": {
@@ -1125,27 +1125,27 @@
     "status": "translated"
   },
   "preview-beta/server/EntityTameMountComponent": {
-    "sourceHash": "0038cdb876b274711b9447512b5ed8f3b55f45c0",
+    "sourceCommentHash": "fd0b3a22249af4d44b968438550153b0fc588dff",
     "status": "translated"
   },
   "preview-beta/server/EntityType": {
-    "sourceHash": "13fcb110a275ca356ecbece24f0bd1cb449a7484",
+    "sourceCommentHash": "4caf1c0ee95ca591269880704f4adea95eb50983",
     "status": "translated"
   },
   "preview-beta/server/EntityTypeFamilyComponent": {
-    "sourceHash": "8e970712b15675516b0624f4ab9418fa138c8005",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntityTypes": {
-    "sourceHash": "3468739afdc860411485017ee809198a57a1e149",
+    "sourceCommentHash": "c284a480799fdf8bdefda1238430190039a428fc",
     "status": "translated"
   },
   "preview-beta/server/EntityUnderwaterMovementComponent": {
-    "sourceHash": "526f39c4c206a33ae81359f4d875f0ae90d77f51",
+    "sourceCommentHash": "1f3a889660cb9312a5cedef76653b4e4f24be2c9",
     "status": "translated"
   },
   "preview-beta/server/EntityUpgradeAfterEvent": {
-    "sourceHash": "dc3330f6756de5c1b80e282ca49317439fc17d1a",
+    "sourceCommentHash": "05638e6489b931decdee5e609aa167c539a9ada3",
     "status": "translated"
   },
   "preview-beta/server/EntityUpgradeAfterEventSignal": {
@@ -1153,339 +1153,339 @@
     "status": "translated"
   },
   "preview-beta/server/EntityVariantComponent": {
-    "sourceHash": "211f9b9b6db8eab86edc516390447517336d80a2",
+    "sourceCommentHash": "fbf7d2c2c191638738cd47957025e999e69251ab",
     "status": "translated"
   },
   "preview-beta/server/EntityWantsJockeyComponent": {
-    "sourceHash": "5b494259ab54d325b012a41fdfe3ceee2bacc72c",
+    "sourceCommentHash": "0da05da94e11237466ff4ce4ad999c94580eecc2",
     "status": "translated"
   },
   "preview-beta/server/EntityWaypoint": {
-    "sourceHash": "e2125e5d8866763c7bf5689718807bec866c3499",
+    "sourceCommentHash": "7a55637a0a36b67fd54aa121290702d345f1458c",
     "status": "translated"
   },
   "preview-beta/server/ExplorationMapFunction": {
-    "sourceHash": "78e6bde5c9da3fcac266ccca2729e9fefca283b8",
+    "sourceCommentHash": "1a15d6deee4d6ab11ba3c1dc86f616c4dfdbaa53",
     "status": "translated"
   },
   "preview-beta/server/ExplosionAfterEvent": {
-    "sourceHash": "f145601ab558e2dbe01604f5f2d389f159565d93",
+    "sourceCommentHash": "3748870e85c5d64f78dbd61372a6112bb29d2f3f",
     "status": "translated"
   },
   "preview-beta/server/ExplosionAfterEventSignal": {
-    "sourceHash": "53cf93229999641583432328eab57e64b33d7d96",
+    "sourceCommentHash": "926ae8f10e41dd2c0f2747ee3d65cad0b8b120f1",
     "status": "translated"
   },
   "preview-beta/server/ExplosionBeforeEvent": {
-    "sourceHash": "885b9465316756a48e8f20f3672fac5943766783",
+    "sourceCommentHash": "3748870e85c5d64f78dbd61372a6112bb29d2f3f",
     "status": "translated"
   },
   "preview-beta/server/ExplosionBeforeEventSignal": {
-    "sourceHash": "2f4f6cb84ee3596b80f4e9157bd79eb68fee1bee",
+    "sourceCommentHash": "20104d98aaa4eaf8c1119ffe9457652d4ee6bc46",
     "status": "translated"
   },
   "preview-beta/server/ExplosionDecayFunction": {
-    "sourceHash": "fa08d596fe8f5172736cf8aee35f7ca04ce1bb01",
+    "sourceCommentHash": "6a3f077e1d97bc86175e8ee059cbdea0ffcd6211",
     "status": "translated"
   },
   "preview-beta/server/FeedItem": {
-    "sourceHash": "57a396cf2b9eeff966390480f4aab20d036ae6a8",
+    "sourceCommentHash": "d659cb41eff8ce33a6cd4bbd830fd0cf9ab39988",
     "status": "translated"
   },
   "preview-beta/server/FeedItemEffect": {
-    "sourceHash": "f409195594d8e689257e6b76443095ba6cfeb087",
+    "sourceCommentHash": "e193ddada533cd6303dce35b93027e71015f8858",
     "status": "translated"
   },
   "preview-beta/server/FillContainerFunction": {
-    "sourceHash": "949cc306868690a9a8500b9709f7752105d98628",
+    "sourceCommentHash": "c82875cac5ca3d4d6cdb78a51bd0657f6a38fa7a",
     "status": "translated"
   },
   "preview-beta/server/FluidContainer": {
-    "sourceHash": "2d79a057a1a9085ce2cb53fb27beb6187fb743cf",
+    "sourceCommentHash": "0894374f2c95da7b739be05372b0021d4d33ee19",
     "status": "translated"
   },
   "preview-beta/server/FogSettings": {
-    "sourceHash": "b0db423a1b40a9965139b3c34637bcd7f30dbf2c",
+    "sourceCommentHash": "3fb8c77e5a85df2ec211242bcdaace7ae530c67a",
     "status": "translated"
   },
   "preview-beta/server/GameRuleChangeAfterEvent": {
-    "sourceHash": "9b1ca540798246b83b61350e22c00db326a8402e",
+    "sourceCommentHash": "66f59283541b036790aeecd64179dbb4bcb0ad5d",
     "status": "translated"
   },
   "preview-beta/server/GameRuleChangeAfterEventSignal": {
-    "sourceHash": "3772ee05db568eb8fe543988035c5a7fbe094c89",
+    "sourceCommentHash": "502fda8e2190491cd5287cb19d10c6e3a84b1579",
     "status": "translated"
   },
   "preview-beta/server/GameRules": {
-    "sourceHash": "db639ef9f7d8296a262efafcccc4aa42f82be809",
+    "sourceCommentHash": "ce47744951a6a9df7b40c2f6283e1f4421d318c4",
     "status": "translated"
   },
   "preview-beta/server/InputInfo": {
-    "sourceHash": "60f04fc5a7fddfd61b058e725c8fc6a72714c27c",
+    "sourceCommentHash": "af3c314f42df7be0b10121cf1d8e0cefb97ac50f",
     "status": "translated"
   },
   "preview-beta/server/IsBabyCondition": {
-    "sourceHash": "bd1d4a0b9637dffab85359121e3e8754fe49ea97",
+    "sourceCommentHash": "a8cbc4434158bcb39a9aed5c0fa54673b6b21434",
     "status": "translated"
   },
   "preview-beta/server/ISerializable": {
-    "sourceHash": "022c813e26f785f25d55858d2f13271138abbaf2",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/ItemBlockDynamicPropertiesComponent": {
-    "sourceHash": "32207f07df98cc78bde37f3a33775832c0584a27",
+    "sourceCommentHash": "f40727215bdf4904e45b9299c521aeb60f2081a5",
     "status": "translated"
   },
   "preview-beta/server/ItemBookComponent": {
-    "sourceHash": "f25905b2d7bdb1a1ead1d1f1c1fc29e76a116dbf",
+    "sourceCommentHash": "8acc97d0a2f78b31719b6d31c7c4c385009bdb13",
     "status": "translated"
   },
   "preview-beta/server/ItemCompleteUseAfterEvent": {
-    "sourceHash": "b939fa18457e2f29e5943334eced47e106338605",
+    "sourceCommentHash": "4a275143b1490c1a8dc28dca11307a2faa772a3a",
     "status": "translated"
   },
   "preview-beta/server/ItemCompleteUseAfterEventSignal": {
-    "sourceHash": "47a99e5ef5c21917b7dcfeb389339f47baeb31db",
+    "sourceCommentHash": "5c20e6e2c0d7e1469c6092c4ec52b6edab779f5a",
     "status": "translated"
   },
   "preview-beta/server/ItemCompleteUseEvent": {
-    "sourceHash": "63fb38d3d8996191b2f2640635ebc7b2df34413f",
+    "sourceCommentHash": "4a275143b1490c1a8dc28dca11307a2faa772a3a",
     "status": "translated"
   },
   "preview-beta/server/ItemComponent": {
-    "sourceHash": "85085d4a0cffda0c46a328b5e674bb951999c4b2",
+    "sourceCommentHash": "e988191c0a164b555db5e75980b9cac818b10d5e",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentBeforeDurabilityDamageEvent": {
-    "sourceHash": "595e8fcc65be3c09780b9ba51b0d0cb0b66ad574",
+    "sourceCommentHash": "c4c6856b09b2ad3be6dd5e0d511619b8b618f8d7",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentCompleteUseEvent": {
-    "sourceHash": "768be39c59fbb8cf91207059051c43a4375d4ca0",
+    "sourceCommentHash": "1c85d10e06d9d8f2cb46fedb3d65c94ca4aa02f6",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentConsumeEvent": {
-    "sourceHash": "a30197cb26f10377b25edfd95bc186767c888291",
+    "sourceCommentHash": "13da71ba9d9285b17ca63a7dcf0b208f8b1d4e60",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentHitEntityEvent": {
-    "sourceHash": "32518c74e40e8dcff88ab2e96e1a7c374dc4e9b3",
+    "sourceCommentHash": "68677e2fa9f8f32c56d8aaf55a13371e0ea3ec8a",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentMineBlockEvent": {
-    "sourceHash": "0e2a8d85c74d5c60d9024077628d11ade6b764ea",
+    "sourceCommentHash": "54ddc5b4bc8032438fccc7adcf8b82d7591bdfb9",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentRegistry": {
-    "sourceHash": "be802095ad2f1baa1ba2d3f210ab6b9a62af7e39",
+    "sourceCommentHash": "b8c3988a26d2b74f090b2b3cf6cf04fcca3360ab",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentUseEvent": {
-    "sourceHash": "fbe3b116a8ea8250cd4281f0579f5a6367495c14",
+    "sourceCommentHash": "a48bf0c2e398014f33c2271664a6f030817abdd2",
     "status": "translated"
   },
   "preview-beta/server/ItemComponentUseOnEvent": {
-    "sourceHash": "375a6db37cf71b6d04ab37fdd49c432e280470d7",
+    "sourceCommentHash": "7f0ab9b98b26ead34d85d1d8909aa70a81d228c1",
     "status": "translated"
   },
   "preview-beta/server/ItemCompostableComponent": {
-    "sourceHash": "f32471197276fa9c0b57d66396fac71652a0e5c1",
+    "sourceCommentHash": "24718e37e9688dbfe15fd844373e5c5fe01a2644",
     "status": "translated"
   },
   "preview-beta/server/ItemCooldownComponent": {
-    "sourceHash": "5e80a87faa69815abd10610b154ed3a45b52481a",
+    "sourceCommentHash": "501babe5057481022b1cfaf8a93c15d47a1aa16c",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponentInstance": {
-    "sourceHash": "edfe230e80429f64fec6436002172c936b5ab60c",
+    "sourceCommentHash": "26f1e10964ede5111c959b50bb29738f30282dd7",
     "status": "translated"
   },
   "preview-beta/server/ItemDurabilityComponent": {
-    "sourceHash": "beb2810baf9382cab3981377223c3d20668c939e",
+    "sourceCommentHash": "edbae28fe7048ebcff95a47958aca65c2e236ecb",
     "status": "translated"
   },
   "preview-beta/server/ItemDyeableComponent": {
-    "sourceHash": "7c7c3013e3359e004190d002d53b74278a62f09e",
+    "sourceCommentHash": "d25fa2296215489d4c541741fcecab26a8066969",
     "status": "translated"
   },
   "preview-beta/server/ItemEnchantableComponent": {
-    "sourceHash": "08b5447edfd2762ecabb2efbc9f30435267438b0",
+    "sourceCommentHash": "bf4097ed261f30b9340335a79b21fbe46514f796",
     "status": "translated"
   },
   "preview-beta/server/ItemFoodComponent": {
-    "sourceHash": "fb6d15e94487da66410889c373be0fb1977d150e",
+    "sourceCommentHash": "7a409d75f7735b4b011ea3383854758bbdb1d5c1",
     "status": "translated"
   },
   "preview-beta/server/ItemInventoryComponent": {
-    "sourceHash": "efd0b714ff5e77e2f5c59c7d1e0063a24a41267c",
+    "sourceCommentHash": "12c23fe88f8ac29b06e7284e108b34a1a53a380c",
     "status": "translated"
   },
   "preview-beta/server/ItemPotionComponent": {
-    "sourceHash": "389647da582c38d479a55bc2752f5235653370d5",
+    "sourceCommentHash": "b7aa99fdbbe6846b2a77628dd7897a01b64983d0",
     "status": "translated"
   },
   "preview-beta/server/ItemReleaseUseAfterEvent": {
-    "sourceHash": "6b43c6c4fb391d551b4f8bb82cbbed19c8b4e72d",
+    "sourceCommentHash": "3c34e115f20533ed92a6537515bf9dbec10ab308",
     "status": "translated"
   },
   "preview-beta/server/ItemReleaseUseAfterEventSignal": {
-    "sourceHash": "7fab0332fb4c4b52cd131a9968092d04eb1027ba",
+    "sourceCommentHash": "8ba82a8d31a6bc2db214e02ee2993b829fe2026d",
     "status": "translated"
   },
   "preview-beta/server/ItemStack": {
-    "sourceHash": "45581e13ad5b0151af32efe28ac66aafcc70a958",
+    "sourceCommentHash": "3088624d294a5dca0bfff85ac05c2d0fe416b332",
     "status": "translated"
   },
   "preview-beta/server/ItemStartUseAfterEvent": {
-    "sourceHash": "7c6249e04043edfb92bc73344359b5f11ee07af0",
+    "sourceCommentHash": "c720939dc4e340e67407703fda0074cf26ba2d66",
     "status": "translated"
   },
   "preview-beta/server/ItemStartUseAfterEventSignal": {
-    "sourceHash": "a658a70b2e79f5da01fd6531577fb26a67af23ee",
+    "sourceCommentHash": "9fe5d29c2da620e17846c0e6218ee45bf99d22e1",
     "status": "translated"
   },
   "preview-beta/server/ItemStartUseOnAfterEvent": {
-    "sourceHash": "92e2e2f691a999aba352d64490116ec31c19a810",
+    "sourceCommentHash": "51e9f4fc317e0a4eb379f1ca1f1087a5c96b1767",
     "status": "translated"
   },
   "preview-beta/server/ItemStartUseOnAfterEventSignal": {
-    "sourceHash": "a8309e7b6c6b1bcf38c1006e947c64e772e54c1a",
+    "sourceCommentHash": "db5a913eab6dc7cf9e163132b6a59278d88dc0f2",
     "status": "translated"
   },
   "preview-beta/server/ItemStopUseAfterEvent": {
-    "sourceHash": "9c0f22b8df4408e7f563cb4a966aa326597a6f5d",
+    "sourceCommentHash": "75cabe86b9d266dc64369716943c4be8ab3ab015",
     "status": "translated"
   },
   "preview-beta/server/ItemStopUseAfterEventSignal": {
-    "sourceHash": "5099dd1442a43c7ef7fe999237e9594a21ae2ed8",
+    "sourceCommentHash": "de4a3ac368aee27eae74f4400f563fa60a69a68a",
     "status": "translated"
   },
   "preview-beta/server/ItemStopUseOnAfterEvent": {
-    "sourceHash": "fb816f19427bdaf1d8a226907be366f2f530034d",
+    "sourceCommentHash": "070ffa292f10b0829e3d6949a7c644d3c238fdac",
     "status": "translated"
   },
   "preview-beta/server/ItemStopUseOnAfterEventSignal": {
-    "sourceHash": "4d57247e0241e30a44128b1eccf6e37b8771076e",
+    "sourceCommentHash": "d75cbc40d9eebf53860849b26766d45e73c52419",
     "status": "translated"
   },
   "preview-beta/server/ItemType": {
-    "sourceHash": "a5f35b0aade8fd6eab0798555a32f2ab746e4b3c",
+    "sourceCommentHash": "6313fd783518953f5352c6c8f571b6b4fec68a0e",
     "status": "translated"
   },
   "preview-beta/server/ItemTypes": {
-    "sourceHash": "f644c9485b908c5e9532e62c8eb2e53092c6d45d",
+    "sourceCommentHash": "b32f5fced3c69e310ec8fd38e0cfeff666eeebd2",
     "status": "translated"
   },
   "preview-beta/server/ItemUseAfterEvent": {
-    "sourceHash": "6aa0c4abce6a016438cb4eb9d761ea68640d672b",
+    "sourceCommentHash": "0d55fc43b99c868b28d9da6246e92c1f05ce0ea2",
     "status": "translated"
   },
   "preview-beta/server/ItemUseAfterEventSignal": {
-    "sourceHash": "97d5e89dbba5a54913331362e5ab2fdbb8893c8b",
+    "sourceCommentHash": "17db55b7f68b060285aeb7f5a5847b666fc762b1",
     "status": "translated"
   },
   "preview-beta/server/ItemUseBeforeEvent": {
-    "sourceHash": "b0e1d67b3d3919608a0bcd0e1efa1c9b9dc6e440",
+    "sourceCommentHash": "dad2d9853693afec134ffca8fff55450509a4707",
     "status": "translated"
   },
   "preview-beta/server/ItemUseBeforeEventSignal": {
-    "sourceHash": "77b45026e738cab620801c18038f9826ba365be5",
+    "sourceCommentHash": "c43139ed764b55094c86c957782b97dcfb1cc819",
     "status": "translated"
   },
   "preview-beta/server/ItemUseOnEvent": {
-    "sourceHash": "b277ae41290f5c345252339bf03985e94525fec1",
+    "sourceCommentHash": "197aed72e414023032a8aab87c328159b2472f83",
     "status": "translated"
   },
   "preview-beta/server/KilledByEntityCondition": {
-    "sourceHash": "a01556cd45e733c519c5449a8fa4649fac41a140",
+    "sourceCommentHash": "0eda223332c491e9eaaa13590ae9e1e1aee19e34",
     "status": "translated"
   },
   "preview-beta/server/KilledByPlayerCondition": {
-    "sourceHash": "e6b599369dd368640339fcfe6eb2982e0fba01de",
+    "sourceCommentHash": "aefbd614263640fafc39fb1c985b31ef743e8350",
     "status": "translated"
   },
   "preview-beta/server/KilledByPlayerOrPetsCondition": {
-    "sourceHash": "e690e4eebee79333b8f8aa16b3a48f2df6614e28",
+    "sourceCommentHash": "5fb1930ecd372e819441f2f2d2b864c718828cd6",
     "status": "translated"
   },
   "preview-beta/server/LeverActionAfterEvent": {
-    "sourceHash": "dde88805330dfd0c29a826264180432c73dc7145",
+    "sourceCommentHash": "1d45036627f63920a20226174327d581e56edf22",
     "status": "translated"
   },
   "preview-beta/server/LeverActionAfterEventSignal": {
-    "sourceHash": "95911df5fa0b0791f5afa117b55b1bfe176cb281",
+    "sourceCommentHash": "5ad760b47b906da93bec58021c1d9e15d053a399",
     "status": "translated"
   },
   "preview-beta/server/LinearSpline": {
-    "sourceHash": "830874b06ee2360005d395ebf7344f0ebfc0bffd",
+    "sourceCommentHash": "fffe0705921e82b10a5ab3c5c74ec00ec58a7198",
     "status": "translated"
   },
   "preview-beta/server/ListBlockVolume": {
-    "sourceHash": "9c75103b236df9837c0d6af3b6e75645b7f300e0",
+    "sourceCommentHash": "2d979a44970043c9e07adb803a057b89ebc1bddb",
     "status": "translated"
   },
   "preview-beta/server/LocationWaypoint": {
-    "sourceHash": "afbcb06f14359fd73675eb2415930e625abe1b0c",
+    "sourceCommentHash": "283b7a0a113aefdca2b9ae6d402637da9616f5fb",
     "status": "translated"
   },
   "preview-beta/server/LocatorBar": {
-    "sourceHash": "3ed70c3a3e68b1c95f16971946111e9c3b5e1256",
+    "sourceCommentHash": "3d21b408de0eb833ae50b386eecbd2270b02aa68",
     "status": "translated"
   },
   "preview-beta/server/LootingEnchantFunction": {
-    "sourceHash": "49166828be3c5c44d09d583fe809d55b85ebbd29",
+    "sourceCommentHash": "2e8af315f652351bbd3e540b9ea7a0306a779b8f",
     "status": "translated"
   },
   "preview-beta/server/LootItem": {
-    "sourceHash": "c33e2a220de8245c031b8404949bd038e34b2f98",
+    "sourceCommentHash": "2143e58eb30d91d2500c94582e001079be2e9ee2",
     "status": "translated"
   },
   "preview-beta/server/LootItemCondition": {
-    "sourceHash": "da660693e6667de2280f2ec389751128d2304b36",
+    "sourceCommentHash": "441d18c95bcc8162a7e5a07115af7cbd6cebe14c",
     "status": "translated"
   },
   "preview-beta/server/LootItemFunction": {
-    "sourceHash": "9f0621d48cee92f2983313d6094ec39e74f55718",
+    "sourceCommentHash": "861207d6f094a4ac490c07e1bf8c867da28e9ba4",
     "status": "translated"
   },
   "preview-beta/server/LootPool": {
-    "sourceHash": "0827b64593d03f1312181ef029046f7f7913b4f7",
+    "sourceCommentHash": "c32f17ea4026cac1034b7595672f98cc005d1af6",
     "status": "translated"
   },
   "preview-beta/server/LootPoolEntry": {
-    "sourceHash": "406fe0372dd248befb3a786f9075efdc667c3a8f",
+    "sourceCommentHash": "284b975df6206417ffde89046579ed6aa4d73605",
     "status": "translated"
   },
   "preview-beta/server/LootPoolTiers": {
-    "sourceHash": "f0ef4dc0742ee777322c0ca3aad1fb1408d8c7ef",
+    "sourceCommentHash": "cc99266f5b5ae46986ebc88c77d256525db0817e",
     "status": "translated"
   },
   "preview-beta/server/LootTable": {
-    "sourceHash": "ae19eabc4fb15e5f1d7248548657665b52aa0d6f",
+    "sourceCommentHash": "912d63a41365d2a807f2366b011084e2bac71aac",
     "status": "translated"
   },
   "preview-beta/server/LootTableEntry": {
-    "sourceHash": "547b2dd45fdc2ac34725b748f79ab1969ec0d91f",
+    "sourceCommentHash": "8fd24189814ec3ae0b0e8c9ece6120b6c2e139c7",
     "status": "translated"
   },
   "preview-beta/server/LootTableManager": {
-    "sourceHash": "6e90c413a64eb753191a7a8721e84187bf70bf0c",
+    "sourceCommentHash": "50277f8bca5a37afb97554063593e5d7607b506a",
     "status": "translated"
   },
   "preview-beta/server/LootTableReference": {
-    "sourceHash": "bdd27a0116c96e9e20d84e0a6d7039840e1122ce",
+    "sourceCommentHash": "e8adbb5ccd77c85e6c6edee1d3221c5993279b48",
     "status": "translated"
   },
   "preview-beta/server/MatchToolCondition": {
-    "sourceHash": "b049e49316a4b20c3cae304b3fe5351cb01f535b",
+    "sourceCommentHash": "ba8a084721ed4ac08e5b395a8393d0f942c7777e",
     "status": "translated"
   },
   "preview-beta/server/MessageReceiveAfterEvent": {
-    "sourceHash": "a736852ebf013e41fa37fe5638611036bf13dffb",
+    "sourceCommentHash": "63834e9f363a633d5fc4ca0f49bad9d6566c4e49",
     "status": "translated"
   },
   "preview-beta/server/MolangVariableMap": {
-    "sourceHash": "4799e9f600d88223c1b97b53544d5198851164ac",
+    "sourceCommentHash": "257cd6e8596df3dabc2f1c6f5751742f507b6c57",
     "status": "translated"
   },
   "preview-beta/server/PackSettingChangeAfterEvent": {
@@ -1493,19 +1493,19 @@
     "status": "translated"
   },
   "preview-beta/server/PackSettingChangeAfterEventSignal": {
-    "sourceHash": "de32c580c89812ddb72a7a0a7a162c6dc0f046d2",
+    "sourceCommentHash": "92ccbce3d86dc9b8b5f5322c6cc53bae7c765bc2",
     "status": "translated"
   },
   "preview-beta/server/PassengerOfEntityCondition": {
-    "sourceHash": "b468c7e4514d5587a92799636000691f4fa7589d",
+    "sourceCommentHash": "6ce81840105c43cc3daf974695c3d76390e7bae8",
     "status": "translated"
   },
   "preview-beta/server/PistonActivateAfterEvent": {
-    "sourceHash": "4ede14ff3ac215bab7f4c065de442f44bf7597ce",
+    "sourceCommentHash": "341dc2ee6580f3534a39153da09b2ed5276b744f",
     "status": "translated"
   },
   "preview-beta/server/PistonActivateAfterEventSignal": {
-    "sourceHash": "dba7eddb0c9ab4c5e98d2cc950822313a295f58e",
+    "sourceCommentHash": "dc7ee0ca8052235ef193a2aee4bae80483eb14c7",
     "status": "translated"
   },
   "preview-beta/server/Player": {
@@ -1513,155 +1513,155 @@
     "status": "translated"
   },
   "preview-beta/server/PlayerAimAssist": {
-    "sourceHash": "d11e93cd8e815b6a9625a429be4d98dd889f2273",
+    "sourceCommentHash": "73f790087f89ecc4b1c7cf0bd96206ed520901e9",
     "status": "translated"
   },
   "preview-beta/server/PlayerBreakBlockAfterEvent": {
-    "sourceHash": "38da7c22acae37097e08f2eafd500de5b69d13d7",
+    "sourceCommentHash": "d3ed7eed684c95eb4e8d684c46ed0c563dd2b2ec",
     "status": "translated"
   },
   "preview-beta/server/PlayerBreakBlockAfterEventSignal": {
-    "sourceHash": "dda15d0d1477357ffeb264c39e263e9ddff166da",
+    "sourceCommentHash": "9307a16dcd8db46350703ec8f950a4bbff5efa29",
     "status": "translated"
   },
   "preview-beta/server/PlayerBreakBlockBeforeEvent": {
-    "sourceHash": "9e74762e97dad2d242d7d1849ea2f33080a4ea21",
+    "sourceCommentHash": "e4e92e54d0baa7fe160b917e936bd7a42496a0a9",
     "status": "translated"
   },
   "preview-beta/server/PlayerBreakBlockBeforeEventSignal": {
-    "sourceHash": "f81a015ca95851751779b7f1af6b60edad0b2876",
+    "sourceCommentHash": "d104dc5fab72b2a3866eaea4f6576197d2decde5",
     "status": "translated"
   },
   "preview-beta/server/PlayerButtonInputAfterEvent": {
-    "sourceHash": "2fa6ed518ae4478835053634b8fae4e262388558",
+    "sourceCommentHash": "638880f056352bd20572171fd0edbf80555dfefc",
     "status": "translated"
   },
   "preview-beta/server/PlayerButtonInputAfterEventSignal": {
-    "sourceHash": "77555eb6182c32921640a9e6bcfcbc469dd052c8",
+    "sourceCommentHash": "bc9e7fff7c07dcd5aaa16e2f1b7ded9f8d9615b7",
     "status": "translated"
   },
   "preview-beta/server/PlayerCancelBreakingBlockAfterEvent": {
-    "sourceHash": "343efab7fa51db9ebe1fc8f3d72f5fe2d53868b1",
+    "sourceCommentHash": "7c6db717bdb3ecf728842d717326327f29a78a59",
     "status": "translated"
   },
   "preview-beta/server/PlayerCancelBreakingBlockAfterEventSignal": {
-    "sourceHash": "253e7ade1f245a1e07a1394a3dc219e796d76d78",
+    "sourceCommentHash": "d9146503ff6bf7231ee1f1b554ecf369519f6c28",
     "status": "translated"
   },
   "preview-beta/server/PlayerCursorInventoryComponent": {
-    "sourceHash": "8ec51d6f32b8d89242e2e980c9a9fc5f982638dc",
+    "sourceCommentHash": "e0cd387ebead4d574082d8329edfcb705cc687dc",
     "status": "translated"
   },
   "preview-beta/server/PlayerDimensionChangeAfterEvent": {
-    "sourceHash": "5dcf6450619c2a292013f6ecab7e7ad1f50082f3",
+    "sourceCommentHash": "ad633091535f3b9e1de2a69baf5aff1d84b0deee",
     "status": "translated"
   },
   "preview-beta/server/PlayerDimensionChangeAfterEventSignal": {
-    "sourceHash": "444bf31ca519927c934006b29bfe620a338474ed",
+    "sourceCommentHash": "ec5c3763683ca2ffb16493d5d74dfe85b18aaa34",
     "status": "translated"
   },
   "preview-beta/server/PlayerEmoteAfterEvent": {
-    "sourceHash": "894fb231dac61eb8740c470275276dfb12b48b34",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/PlayerEmoteAfterEventSignal": {
-    "sourceHash": "5cbc3d46adf397360ba6f86b5e86cd25678a1a33",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/PlayerGameModeChangeAfterEvent": {
-    "sourceHash": "6b581e49a9f386e59c43bf16691281989725bdc5",
+    "sourceCommentHash": "26252ab959eac875a7958b33a458dcd8428e3e26",
     "status": "translated"
   },
   "preview-beta/server/PlayerGameModeChangeAfterEventSignal": {
-    "sourceHash": "8366d543474e0d4718091239aa4b25719b13e15c",
+    "sourceCommentHash": "deede01039efc8807420ced00504565684ea1cb4",
     "status": "translated"
   },
   "preview-beta/server/PlayerGameModeChangeBeforeEvent": {
-    "sourceHash": "fad85aeecc5614474f4dd1adde79a7cc7cd5c672",
+    "sourceCommentHash": "4494a30325dae83cbabc19789a1d2dc72af475c5",
     "status": "translated"
   },
   "preview-beta/server/PlayerGameModeChangeBeforeEventSignal": {
-    "sourceHash": "07122f644b12aaee61ca831cdfabe4221f604a56",
+    "sourceCommentHash": "2c42c008816ef47b3f2b58e3aed629252b9a5460",
     "status": "translated"
   },
   "preview-beta/server/PlayerHotbarSelectedSlotChangeAfterEvent": {
-    "sourceHash": "de118b8f11401e780dd17e12f674718473ab1847",
+    "sourceCommentHash": "ae31ffa596927c740f48076d32c4eef9f1b35835",
     "status": "translated"
   },
   "preview-beta/server/PlayerHotbarSelectedSlotChangeAfterEventSignal": {
-    "sourceHash": "0b6cad67b0fc76b590baa0abbf9f23a2a3d26b23",
+    "sourceCommentHash": "2013c3cd5d36f5d8d754013eab2e89a352265844",
     "status": "translated"
   },
   "preview-beta/server/PlayerInputModeChangeAfterEvent": {
-    "sourceHash": "5f84605fdfef2f383d80d0ed2b3314dd4d4700a9",
+    "sourceCommentHash": "ad7868b0ab3f9b52d497507eb97018fd858afffd",
     "status": "translated"
   },
   "preview-beta/server/PlayerInputModeChangeAfterEventSignal": {
-    "sourceHash": "456e74071fcaecde9329e35f87eb561f68ab1e1f",
+    "sourceCommentHash": "bab354c0ea434048ac23faffa9d7eca675996d28",
     "status": "translated"
   },
   "preview-beta/server/PlayerInputPermissionCategoryChangeAfterEvent": {
-    "sourceHash": "7d8dafd548789e53d6aa2c38c394a3dcf9523b8e",
+    "sourceCommentHash": "6e07aea364b630904a432379e9ad6473f40edf7c",
     "status": "translated"
   },
   "preview-beta/server/PlayerInputPermissionCategoryChangeAfterEventSignal": {
-    "sourceHash": "261dc3176df858e12efbb7ada595e5215e505090",
+    "sourceCommentHash": "02e8c97749de89a2bcf1dd86d8da0533e7198048",
     "status": "translated"
   },
   "preview-beta/server/PlayerInputPermissions": {
-    "sourceHash": "117e464ec41424872536002f3a6ddef5c976f711",
+    "sourceCommentHash": "6d48139f4fea397535e7424ad75b7844dddc5d1b",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithBlockAfterEvent": {
-    "sourceHash": "7a78ea226081af284411e149903a9adae908f22d",
+    "sourceCommentHash": "d6e60634bb94696f2b6a17829559a366595f7705",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithBlockAfterEventSignal": {
-    "sourceHash": "6150df96032fef4f70f3e8686ac28e5c501b5851",
+    "sourceCommentHash": "c8a5f98b4163b7a2e03669df5651a046e3e4d797",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithBlockBeforeEvent": {
-    "sourceHash": "7700b95475a544e30391b160eaf63d23e4b44fb2",
+    "sourceCommentHash": "e418e6efa682f10b74d8bf6f61e921dd6a0ded84",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithBlockBeforeEventSignal": {
-    "sourceHash": "fd1fb8f2fd543daa56b4e251f07898dbc8b2472c",
+    "sourceCommentHash": "19798472f7082f67f73617ec7994e8da01e62920",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithEntityAfterEvent": {
-    "sourceHash": "9f22d82283a6edc79bce93cea4ccb22504b8c49e",
+    "sourceCommentHash": "9b10021a67e5babab7bc5c95b2488a5f38c0e2ed",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithEntityAfterEventSignal": {
-    "sourceHash": "4d23f4f505bf0aed286540e8800cb3156c4d14ea",
+    "sourceCommentHash": "a3c8d3b37555384621585d961c05cc531337c194",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithEntityBeforeEvent": {
-    "sourceHash": "ac6468a3a8fed8a7734b0a522590c1daece83b82",
+    "sourceCommentHash": "4494a30325dae83cbabc19789a1d2dc72af475c5",
     "status": "translated"
   },
   "preview-beta/server/PlayerInteractWithEntityBeforeEventSignal": {
-    "sourceHash": "2913019d00bfce7e44334fced0442cd1f744a3a6",
+    "sourceCommentHash": "00b70a368900840820671ac290b947be89a3a937",
     "status": "translated"
   },
   "preview-beta/server/PlayerInventoryItemChangeAfterEvent": {
-    "sourceHash": "540f798bc3966e826caa06677cecbfde3316958e",
+    "sourceCommentHash": "a196ce2a8a5f33e6514ead2e9ec37d2c7c3af880",
     "status": "translated"
   },
   "preview-beta/server/PlayerInventoryItemChangeAfterEventSignal": {
-    "sourceHash": "57fcbc4c1e106ee50d42d6230a0307127f3c2375",
+    "sourceCommentHash": "cac1513ace6253ec2fe085ba46914e8d01cd8c42",
     "status": "translated"
   },
   "preview-beta/server/PlayerJoinAfterEvent": {
-    "sourceHash": "df527ca41e7868be64b8faef9210c71c7548fe43",
+    "sourceCommentHash": "f2ea11f66ad270836ecdf06574b456d02d6799f3",
     "status": "translated"
   },
   "preview-beta/server/PlayerJoinAfterEventSignal": {
-    "sourceHash": "27ad8414505de459bf3c31f398abb064d36974a2",
+    "sourceCommentHash": "7b5904fca9f5e22c433163304b81cb9b9494205c",
     "status": "translated"
   },
   "preview-beta/server/PlayerLeaveAfterEvent": {
-    "sourceHash": "e217d5f99cb35eb8ff359f6f2cde36dd6494a939",
+    "sourceCommentHash": "c2a478617b4bd1aa2ba8b2844f7abc0895345ede",
     "status": "translated"
   },
   "preview-beta/server/PlayerLeaveAfterEventSignal": {
@@ -1669,275 +1669,275 @@
     "status": "translated"
   },
   "preview-beta/server/PlayerLeaveBeforeEvent": {
-    "sourceHash": "8031590804b6cd9752ca978cfc3e96d7e048b084",
+    "sourceCommentHash": "0b78b12083053030111147b41d64f6e4acce6b64",
     "status": "translated"
   },
   "preview-beta/server/PlayerLeaveBeforeEventSignal": {
-    "sourceHash": "d6baa047e377feee3274378562a9d8c84429ca7b",
+    "sourceCommentHash": "1bd0b85adf101d7d2ebcb95a8a4190c692693bda",
     "status": "translated"
   },
   "preview-beta/server/PlayerPlaceBlockAfterEvent": {
-    "sourceHash": "8471b765b05823dc4a807ffb03423744e0dc1277",
+    "sourceCommentHash": "4846817cc071e331cd2ad776ef420285e3a0985b",
     "status": "translated"
   },
   "preview-beta/server/PlayerPlaceBlockAfterEventSignal": {
-    "sourceHash": "9d974c74629a821f1b507d258efb318f8010ed08",
+    "sourceCommentHash": "d6d699b13b3259301b523da59e0c3c1fd8b63927",
     "status": "translated"
   },
   "preview-beta/server/PlayerPlaceBlockBeforeEvent": {
-    "sourceHash": "31d24f67a89fcd09f90138bc3a63d3b85e2898ba",
+    "sourceCommentHash": "f33431548063e7b6a013fe0db99733505bc5bb55",
     "status": "translated"
   },
   "preview-beta/server/PlayerPlaceBlockBeforeEventSignal": {
-    "sourceHash": "5e9b482d8db65031be9b485040a20911cc030425",
+    "sourceCommentHash": "5bb80395d38221b3aa4f778ee4bbe05c46b2f427",
     "status": "translated"
   },
   "preview-beta/server/PlayerSpawnAfterEvent": {
-    "sourceHash": "f8df725c164c941bafe4225faa093aa84068c502",
+    "sourceCommentHash": "b9c8de8b26727ccec16eea91aed7a0f84633a339",
     "status": "translated"
   },
   "preview-beta/server/PlayerSpawnAfterEventSignal": {
-    "sourceHash": "10272c97fb5b67bdf30d4238f932b2a1c56411a3",
+    "sourceCommentHash": "34387459b72d704513c448111237c2dda5ee1863",
     "status": "translated"
   },
   "preview-beta/server/PlayerStartBreakingBlockAfterEvent": {
-    "sourceHash": "09f87fa07fe941e5379341ec025fd68286d38433",
+    "sourceCommentHash": "c907362b5c72baba8c760f12c797d8ee7c62f41b",
     "status": "translated"
   },
   "preview-beta/server/PlayerStartBreakingBlockAfterEventSignal": {
-    "sourceHash": "5cedda8883175f591ffa461393ae1d53c075fea8",
+    "sourceCommentHash": "b46a26e730a0200f14b20bb00270df2dc6458264",
     "status": "translated"
   },
   "preview-beta/server/PlayerSwingStartAfterEvent": {
-    "sourceHash": "d2edf4886b8a0839f238857f9257c87dff803bf9",
+    "sourceCommentHash": "ea97cf1fa8318e66b26883002bdb358d5ccba5af",
     "status": "translated"
   },
   "preview-beta/server/PlayerSwingStartAfterEventSignal": {
-    "sourceHash": "cd696196593ee2a1522abc84ee1cf484d7d14039",
+    "sourceCommentHash": "82a57f18d843c8c7416f81513c3cc8e9355a5d21",
     "status": "translated"
   },
   "preview-beta/server/PlayerUseNameTagAfterEvent": {
-    "sourceHash": "b7bd39d4dd71c936f87dc0b21a2a3c67431c31fd",
+    "sourceCommentHash": "9958f10064c8c3291d364514b3507e94985d5fe8",
     "status": "translated"
   },
   "preview-beta/server/PlayerUseNameTagAfterEventSignal": {
-    "sourceHash": "20150c661fdbfcf6804f2c0071508ecb08b05825",
+    "sourceCommentHash": "4357c84b8b90506a6c5be78c026d2b35fda9e96c",
     "status": "translated"
   },
   "preview-beta/server/PlayerWaypoint": {
-    "sourceHash": "83725d0b6e36a4e9df61db82b694665d1f7b8881",
+    "sourceCommentHash": "91afc2f46d50f07732dbb7ec9f61cefc07ce33f7",
     "status": "translated"
   },
   "preview-beta/server/PotionDeliveryType": {
-    "sourceHash": "ed31db3272a2001aaf711e188d1f4d5b012154d9",
+    "sourceCommentHash": "ae37498931783758cdae3e0a5e62499b85b879fa",
     "status": "translated"
   },
   "preview-beta/server/PotionEffectType": {
-    "sourceHash": "0474af898aea36a4e2708de82c13dcb55914cbeb",
+    "sourceCommentHash": "6d30236877f95c2e5a8e8ee6cf2addd6bddfbdab",
     "status": "translated"
   },
   "preview-beta/server/Potions": {
-    "sourceHash": "3f40211b52c6e1fa30fc6c6a5dc32045edb4a544",
+    "sourceCommentHash": "f4d60e0a91baa26f9155d6542c4c5df8b54a2c5f",
     "status": "translated"
   },
   "preview-beta/server/PressurePlatePopAfterEvent": {
-    "sourceHash": "7299a4a31c556f4422a8cf033e8050d9560cc588",
+    "sourceCommentHash": "d3988e72505885711b3956c187b78dc2312c0094",
     "status": "translated"
   },
   "preview-beta/server/PressurePlatePopAfterEventSignal": {
-    "sourceHash": "9d3349b965ed896ac00306282554c6f4841211dc",
+    "sourceCommentHash": "af6f6aed86f1a0a4cde823ffb90ae50bbe6ea672",
     "status": "translated"
   },
   "preview-beta/server/PressurePlatePushAfterEvent": {
-    "sourceHash": "dbb787eb4dc9355a6328f73b3e35df29cfd842a4",
+    "sourceCommentHash": "52d9e534dada4dbce29bbdd50817d67219b602a9",
     "status": "translated"
   },
   "preview-beta/server/PressurePlatePushAfterEventSignal": {
-    "sourceHash": "694a289faee57ea0958e10e4648d4c53bef7e21b",
+    "sourceCommentHash": "9cf790cffe81305643bc883da037c2e22a83884d",
     "status": "translated"
   },
   "preview-beta/server/PrimitiveShape": {
-    "sourceHash": "2c8f7b0fa91ce3d7580d772b67c61e6cc272ce87",
+    "sourceCommentHash": "8dc98b1719bade1d866c5b910660499ff9e21227",
     "status": "translated"
   },
   "preview-beta/server/PrimitiveShapesManager": {
-    "sourceHash": "f6aa2c14659e915197131c23f82698b6befc59da",
+    "sourceCommentHash": "33ef7b21f1d3ffd0c6dbed9fc28f96fd2ab36fd8",
     "status": "translated"
   },
   "preview-beta/server/ProjectileHitBlockAfterEvent": {
-    "sourceHash": "feac52de6a9b04cdd615d757374b669f313525d2",
+    "sourceCommentHash": "7c793f0fff4d60478ca5284b5ddaba1cdff778a5",
     "status": "translated"
   },
   "preview-beta/server/ProjectileHitBlockAfterEventSignal": {
-    "sourceHash": "13a4698b450e6002e21343f092bced6ad0b642de",
+    "sourceCommentHash": "6cfc592d2650bd055c6c04977beb047f1008db74",
     "status": "translated"
   },
   "preview-beta/server/ProjectileHitEntityAfterEvent": {
-    "sourceHash": "6504284f316b5b6ace16fc5be6ddcd6ff5ec4329",
+    "sourceCommentHash": "cdd4e1197bb85d26b258a6c8b4917fa5d4a2184d",
     "status": "translated"
   },
   "preview-beta/server/ProjectileHitEntityAfterEventSignal": {
-    "sourceHash": "25a54d53d89a37f434bb0acf37c29eda9b318019",
+    "sourceCommentHash": "0b6b5cea9dd5b9958d85038f76ce7b12a087ea65",
     "status": "translated"
   },
   "preview-beta/server/RandomAuxValueFunction": {
-    "sourceHash": "ff946d179edef367bb3799b8fc724567668e1d9d",
+    "sourceCommentHash": "0b9a21b7229175980f233bedadb5c4bd915502bd",
     "status": "translated"
   },
   "preview-beta/server/RandomBlockStateFunction": {
-    "sourceHash": "6a95808b3322db353eb80df2c67af7e3cd844465",
+    "sourceCommentHash": "bb69122ad88b3dba7de8aad603a59b2927b9bf05",
     "status": "translated"
   },
   "preview-beta/server/RandomChanceCondition": {
-    "sourceHash": "d4a4712f248d255c522c6480346c50035d073164",
+    "sourceCommentHash": "8197581b5e0fe03056fbc3d7d13dbdd360b708c4",
     "status": "translated"
   },
   "preview-beta/server/RandomChanceWithLootingCondition": {
-    "sourceHash": "b45da92d66091aca272e220d840c1c4b98e3b5d3",
+    "sourceCommentHash": "40ef57a8dc52df27b2448cb2ef435418bd1d860d",
     "status": "translated"
   },
   "preview-beta/server/RandomDifficultyChanceCondition": {
-    "sourceHash": "2e0cab6f2ca6c23d6ac1dd979ce8af0de11a7dd7",
+    "sourceCommentHash": "e9ec66791a63ae757d865f3f58e5f36cd104f6a2",
     "status": "translated"
   },
   "preview-beta/server/RandomDyeFunction": {
-    "sourceHash": "a20026150454411d2fb30567b043eec084f64c01",
+    "sourceCommentHash": "eefe5fd370c572a197af1b8de142f6b53dcd6a22",
     "status": "translated"
   },
   "preview-beta/server/RandomRegionalDifficultyChanceCondition": {
-    "sourceHash": "8f821c03abca332456b354029dba74bb3627067c",
+    "sourceCommentHash": "545d2d864baa2438451cb81a4efa3fc8b291ed00",
     "status": "translated"
   },
   "preview-beta/server/Scoreboard": {
-    "sourceHash": "e906d1cf3d40dca16f98bdc2ecf56feed807d2d1",
+    "sourceCommentHash": "26cbc0f888ba35a55322257d10fe3ce9078f3487",
     "status": "translated"
   },
   "preview-beta/server/ScoreboardIdentity": {
-    "sourceHash": "9d454a8ecca9661cd4dd43a66e7770ec406d01db",
+    "sourceCommentHash": "301daf4843d220e6abf85f7860d928644ed067c7",
     "status": "translated"
   },
   "preview-beta/server/ScoreboardObjective": {
-    "sourceHash": "028a928ef2df5d90d5165b8690c09b80a5c267d4",
+    "sourceCommentHash": "dd4191fbb3d34cd6aab0cf8b84155ea033231b02",
     "status": "translated"
   },
   "preview-beta/server/ScoreboardScoreInfo": {
-    "sourceHash": "ef07ef17501a542173a1929b77ae82c2dfe69985",
+    "sourceCommentHash": "8a9f28cbb0f5a1e846ee7c625493f3a4c8602148",
     "status": "translated"
   },
   "preview-beta/server/ScreenDisplay": {
-    "sourceHash": "06067fcf87ad9f2d3c406fcab5472c28d0728474",
+    "sourceCommentHash": "a9955d5a92177c4f3be7e869042827c331a18121",
     "status": "translated"
   },
   "preview-beta/server/ScriptEventCommandMessageAfterEvent": {
-    "sourceHash": "fe0149df04a447c7c979200b2ea3330352d192ec",
+    "sourceCommentHash": "f38ba2a4ef952ecd5aba16e3c859dbcd110bf58b",
     "status": "translated"
   },
   "preview-beta/server/ScriptEventCommandMessageAfterEventSignal": {
-    "sourceHash": "b656f7dcb8fccf736c9b0c95eb272e36c96f5d09",
+    "sourceCommentHash": "455849d0a78c034ffefbdaf5a19473fbee6054ad",
     "status": "translated"
   },
   "preview-beta/server/Seat": {
-    "sourceHash": "f140ac70fd1d5334b3285af41da911a1e3d6fb08",
+    "sourceCommentHash": "b59f4147975a0a9c2c9378e7b2065890edc61aac",
     "status": "translated"
   },
   "preview-beta/server/ServerMessageAfterEventSignal": {
-    "sourceHash": "fc40639ac884fc1b99c8baef73a63037c754a36d",
+    "sourceCommentHash": "785487598852bc2f8c10e72aa1fe24c8d405ad1a",
     "status": "translated"
   },
   "preview-beta/server/SetArmorTrimFunction": {
-    "sourceHash": "b170629f75cb15b5f5dd4e13f36ea5a033d75a92",
+    "sourceCommentHash": "f8675531d4deebee54c4c923895c6861c8f52410",
     "status": "translated"
   },
   "preview-beta/server/SetBannerDetailsFunction": {
-    "sourceHash": "f3ac5c827da70cc4c9614746d6a97e179ef3da6a",
+    "sourceCommentHash": "53a2f7c89db29b53338e73c80020d729fc8180e2",
     "status": "translated"
   },
   "preview-beta/server/SetBookContentsFunction": {
-    "sourceHash": "9e48e563c83646eb58e5048c9cd03c597980d74b",
+    "sourceCommentHash": "1919d651f48033379829f59d8161bed938f67672",
     "status": "translated"
   },
   "preview-beta/server/SetDataFromColorIndexFunction": {
-    "sourceHash": "e7ff8c3ab73f302bb9c388e3c3ed56043cdd8604",
+    "sourceCommentHash": "9bdf3d8fad910633a747759d215278a3ba836bed",
     "status": "translated"
   },
   "preview-beta/server/SetItemCountFunction": {
-    "sourceHash": "2e9c6663921af22fc34e9cdbeb986028cdb2aff7",
+    "sourceCommentHash": "1a17f9446c4359ea88fa9565a9b3bef389bb3065",
     "status": "translated"
   },
   "preview-beta/server/SetItemDamageFunction": {
-    "sourceHash": "247de408bf1acbc4ac940425d3a2ace0170a76dd",
+    "sourceCommentHash": "c17e3a7c44420b3f5cb876eda0805e639d6c46ae",
     "status": "translated"
   },
   "preview-beta/server/SetItemDataFunction": {
-    "sourceHash": "9233f982081493244fbaec464e54dee1cf758a90",
+    "sourceCommentHash": "1754d4abdc046d5a8e6c70c312700df7aad6cc4a",
     "status": "translated"
   },
   "preview-beta/server/SetItemLoreFunction": {
-    "sourceHash": "a6ee79be02ea7a32da87de38be711b33811ed888",
+    "sourceCommentHash": "9fedc331b2b359b0365cac7988f0b6f3b5559193",
     "status": "translated"
   },
   "preview-beta/server/SetItemNameFunction": {
-    "sourceHash": "ef98b0b79423c35058e34187312871d8fb1257a1",
+    "sourceCommentHash": "b6167493d16082cf88d7dbbf817d76d62273339e",
     "status": "translated"
   },
   "preview-beta/server/SetOminousBottleFunction": {
-    "sourceHash": "1595c8b6eb2f93f19bbf1ff9f54acf7d56e629a6",
+    "sourceCommentHash": "63038afca38b1f7d362f6301d4cc102834e33b7f",
     "status": "translated"
   },
   "preview-beta/server/SetPotionFunction": {
-    "sourceHash": "73232ba98fb70a63212f3493fefe7d3d1ef14858",
+    "sourceCommentHash": "7000c4f552ce4df41999a0b96138e3ad0f960766",
     "status": "translated"
   },
   "preview-beta/server/SetSpawnEggFunction": {
-    "sourceHash": "ee5aa825738d865d382e81cea8cb534de16d11ab",
+    "sourceCommentHash": "62da94f8784551f6b89b67263e662655ee73118b",
     "status": "translated"
   },
   "preview-beta/server/SetStewEffectFunction": {
-    "sourceHash": "112f766162aae6ea168f579731b1a425c65e7292",
+    "sourceCommentHash": "26a39985f842ee426993414e72a69306073553b8",
     "status": "translated"
   },
   "preview-beta/server/ShutdownBeforeEventSignal": {
-    "sourceHash": "1f079a43bfea9dd61763b212d53f1d161cda40ab",
+    "sourceCommentHash": "8fd61c61c6a8de94dcca849c04236158c3954181",
     "status": "translated"
   },
   "preview-beta/server/ShutdownEvent": {
-    "sourceHash": "7d2371d8834c5377f566b2ab7350477007193bff",
+    "sourceCommentHash": "41d198aa0a97ca0332f0823f035d6b53f989ba15",
     "status": "translated"
   },
   "preview-beta/server/SmeltItemFunction": {
-    "sourceHash": "047891f833d2e041233d73d7729fd53af352b975",
+    "sourceCommentHash": "514339cae797fe31693c93c89e617708e731df33",
     "status": "translated"
   },
   "preview-beta/server/SoundCompletedAfterEvent": {
-    "sourceHash": "05834ccb295efe18d709a7f38fa76457b1a30637",
+    "sourceCommentHash": "40b97df7c12370bd8b92649388473f7376181b94",
     "status": "translated"
   },
   "preview-beta/server/SoundCompletedAfterEventSignal": {
-    "sourceHash": "b83e9da8295d672d74d18930ce0edcf995ecbda8",
+    "sourceCommentHash": "92b519ce96a0bab6d476d8aca1acf8f18133a7fd",
     "status": "translated"
   },
   "preview-beta/server/SoundDefinition": {
-    "sourceHash": "780090ffe7872bc534ab8aceee37a9252a42c291",
+    "sourceCommentHash": "f3442942ccda5ba1b6219bfdce9d6c51e55730f8",
     "status": "translated"
   },
   "preview-beta/server/SoundDefinitionRegistry": {
-    "sourceHash": "7953f3ffd3b8cb4a31395d81f7407213d6e9b795",
+    "sourceCommentHash": "fde1ad1e1a3ea62f3555363489a0dac710aa3173",
     "status": "translated"
   },
   "preview-beta/server/SoundDurationInfo": {
-    "sourceHash": "0a2952969f3f910d2c1776086348cc604f923624",
+    "sourceCommentHash": "be79cb31bed964d9bcbad5ab5b4ed7b560af6963",
     "status": "translated"
   },
   "preview-beta/server/SoundInstance": {
-    "sourceHash": "a1ea360666993df65d6ef9d742df10a3bd03f010",
+    "sourceCommentHash": "0e9e0cdbdabc27a9ee75808851d2e536b49ed21e",
     "status": "translated"
   },
   "preview-beta/server/SpecificEnchantFunction": {
-    "sourceHash": "644739d163585fea7851df6689c52122af475c0b",
+    "sourceCommentHash": "496a4159d6337e1d7c6c9e4dfb911fa0455090f1",
     "status": "translated"
   },
   "preview-beta/server/StartupBeforeEventSignal": {
-    "sourceHash": "341602aa20db5acdd0903e949de1ed0fe33db097",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/StartupEvent": {
@@ -1945,35 +1945,35 @@
     "status": "translated"
   },
   "preview-beta/server/Structure": {
-    "sourceHash": "a751e9301c90e2d36bb750d624e40336c21cc4b8",
+    "sourceCommentHash": "1c2886a5cb835e29614f6826a78ec71454221e96",
     "status": "translated"
   },
   "preview-beta/server/StructureManager": {
-    "sourceHash": "a357f7def7e89eb6aa9f35fbe50cba2169b32a1c",
+    "sourceCommentHash": "8fe7429dedee0f3631b0b4792d1240e2c3934081",
     "status": "translated"
   },
   "preview-beta/server/System": {
-    "sourceHash": "61d1c01c44956e655496e1b089bb524baa865bed",
+    "sourceCommentHash": "abae42f1b94b611f6bb25fec392c757a1856ed41",
     "status": "translated"
   },
   "preview-beta/server/SystemAfterEvents": {
-    "sourceHash": "cfea6b60d9d483eaef002165ead399cc5853b001",
+    "sourceCommentHash": "217535f7980c07c7cd693d8405bc55e197bdd865",
     "status": "translated"
   },
   "preview-beta/server/SystemBeforeEvents": {
-    "sourceHash": "1ccdb5fd505bf0110e7df766effd328b54149ae6",
+    "sourceCommentHash": "1dd591c0a68a935ec863abbf859572146ad87c99",
     "status": "translated"
   },
   "preview-beta/server/SystemInfo": {
-    "sourceHash": "575f6297db10a7f91b1fc29e2697df9adab3ee0f",
+    "sourceCommentHash": "fcf6e0019ad74949a1fda9d4f971f5305ca31200",
     "status": "translated"
   },
   "preview-beta/server/TargetBlockHitAfterEvent": {
-    "sourceHash": "c0877d866b1c27a17322bae6495a3d8fd8f9670e",
+    "sourceCommentHash": "97c4e7b5181d81792502f599c1860129dbd68c95",
     "status": "translated"
   },
   "preview-beta/server/TargetBlockHitAfterEventSignal": {
-    "sourceHash": "a6af4084ea31e95a17e8d0050dfc0e105ca1ce66",
+    "sourceCommentHash": "e7da7ea135fb704440b0c55aa4763304cb5b4093",
     "status": "translated"
   },
   "preview-beta/server/TextPrimitive": {
@@ -1981,47 +1981,47 @@
     "status": "translated"
   },
   "preview-beta/server/TickingAreaManager": {
-    "sourceHash": "ce9ef48bf3d2424f20675c149551f9a3c4764600",
+    "sourceCommentHash": "f1ddb8a3c8dba0cb41bd0fd71802a3915f79a4d8",
     "status": "translated"
   },
   "preview-beta/server/Trigger": {
-    "sourceHash": "27cc06ba51bfa971a32b79746a705386003dde28",
+    "sourceCommentHash": "ffc835b340febd3657d11da9a708f4b6dbc6a4dd",
     "status": "translated"
   },
   "preview-beta/server/TripWireTripAfterEvent": {
-    "sourceHash": "115791748de2f4c90ee3491dd9309363bcab96b8",
+    "sourceCommentHash": "eb7fdc25b29cacb4c65c1c197a178c06c3f4dba3",
     "status": "translated"
   },
   "preview-beta/server/TripWireTripAfterEventSignal": {
-    "sourceHash": "83c92d445d9d00e844c18b0cd39f2893d0122028",
+    "sourceCommentHash": "4dbd11ae1063e7f34af12f1df72659c1017a4528",
     "status": "translated"
   },
   "preview-beta/server/WatchdogTerminateBeforeEvent": {
-    "sourceHash": "df89ca28591c43b466fe62c5e0c4cd8e69523d06",
+    "sourceCommentHash": "f1a30bce927e05a5f963e8b879beff84c22723d2",
     "status": "translated"
   },
   "preview-beta/server/WatchdogTerminateBeforeEventSignal": {
-    "sourceHash": "f5a47731255a62214d4b3a93a8855cc2c6519e16",
+    "sourceCommentHash": "44039d9b1e9370cc221aa3139def546a289d65ac",
     "status": "translated"
   },
   "preview-beta/server/Waypoint": {
-    "sourceHash": "544e70c5918c9447a600e54b70e73e08379f9844",
+    "sourceCommentHash": "298fe6466b579449d4bd60bae7ac4800a9b80783",
     "status": "translated"
   },
   "preview-beta/server/WeatherChangeAfterEvent": {
-    "sourceHash": "405ef059c6ae586cd5c9dd6e4f293f9f558af491",
+    "sourceCommentHash": "54dd33e0e3cfa4a7cd4f2a42184669a6a104b1a1",
     "status": "translated"
   },
   "preview-beta/server/WeatherChangeAfterEventSignal": {
-    "sourceHash": "51806efa859c9e77ec1b096b032d8b961ad48ddb",
+    "sourceCommentHash": "f6ab0002a2a111dd4eb99566022e0965f0f8a0e4",
     "status": "translated"
   },
   "preview-beta/server/WeatherChangeBeforeEvent": {
-    "sourceHash": "3e1ecff635d9819c49c444ab2fbfb83f867a09cc",
+    "sourceCommentHash": "54dd33e0e3cfa4a7cd4f2a42184669a6a104b1a1",
     "status": "translated"
   },
   "preview-beta/server/WeatherChangeBeforeEventSignal": {
-    "sourceHash": "d1b70613678daf92d555f161de2ebf282754d368",
+    "sourceCommentHash": "41f5a918e6eaace1eb6f6172284d53416e5f2d0a",
     "status": "translated"
   },
   "preview-beta/server/World": {
@@ -2029,411 +2029,411 @@
     "status": "translated"
   },
   "preview-beta/server/WorldAfterEvents": {
-    "sourceHash": "151a850d859b75fd3d1e491458c5db0d964ae746",
+    "sourceCommentHash": "a081d166bb5f5ffbe637f8b9f2bac44b4ede4816",
     "status": "translated"
   },
   "preview-beta/server/WorldBeforeEvents": {
-    "sourceHash": "c2b1d9af6aed4f5b53c3797895a3156f88536c87",
+    "sourceCommentHash": "48c17070153c29182266fdadb77c9b79c5b2ec26",
     "status": "translated"
   },
   "preview-beta/server/WorldLoadAfterEvent": {
-    "sourceHash": "6e87d88eb94f426bda57589b3d8ed7f40a295332",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/WorldLoadAfterEventSignal": {
-    "sourceHash": "fe6fad336bbd241bfe8a4a862509e1358e9d5f33",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/AABB": {
-    "sourceHash": "6001379c0c8b1a4d781c37b5134361a780953e2a",
+    "sourceCommentHash": "cebeab7d01fe68ad272635c23ef2809c46c37b75",
     "status": "translated"
   },
   "preview-beta/server/AnimationOptions": {
-    "sourceHash": "5528882c583b538a0768aff9a881eb52f36cd4bd",
+    "sourceCommentHash": "a7ef53d117a83bf4aad9f622f3f55f1d39104b09",
     "status": "translated"
   },
   "preview-beta/server/BiomeFilter": {
-    "sourceHash": "558d2e4bd23fbf9497ddd8020fa5de6c513799f8",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BiomeSearchOptions": {
-    "sourceHash": "631eed42c917ea215e09e97e268da6bb520d8943",
+    "sourceCommentHash": "f74db7b26cc6bbcadb7cfd9944a40d756ea0d709",
     "status": "translated"
   },
   "preview-beta/server/BlockBoundingBox": {
-    "sourceHash": "740df30eae34420e139c08d4e8d2067a9248f5fc",
+    "sourceCommentHash": "8dc304054856c64436ade095a9661c23f2e26df0",
     "status": "translated"
   },
   "preview-beta/server/BlockContainerAccessEventOptions": {
-    "sourceHash": "888f94b041b76f2d6c2a7d211e249b0fb61e7dfd",
+    "sourceCommentHash": "b6c21d7ee301e12cd5374d0d2ae9418945a59f34",
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponent": {
-    "sourceHash": "fba7cb619d9ae9925bd171784900892691461b82",
+    "sourceCommentHash": "7f47d9acc50f71e9d308652f28fc5259e26b48d6",
     "status": "translated"
   },
   "preview-beta/server/BlockEventOptions": {
-    "sourceHash": "97c6836bdfb96a8d88f6e9ef08db75e2eeb9331e",
+    "sourceCommentHash": "c1f6609b2f59255ebb7f9482dda48b394a97903b",
     "status": "translated"
   },
   "preview-beta/server/BlockFillOptions": {
-    "sourceHash": "b9f388f476bc523f9173d259f426d0b8f338a0ed",
+    "sourceCommentHash": "df5acc8c92e0072c37a8403e87041ff896df1f41",
     "status": "translated"
   },
   "preview-beta/server/BlockFilter": {
-    "sourceHash": "9071a120eccb76c487b59622d00a93b756651b48",
+    "sourceCommentHash": "1095189480c48e4ba4cbcdb76894aa721792148d",
     "status": "translated"
   },
   "preview-beta/server/BlockHitInformation": {
-    "sourceHash": "3f1213053be6a19c4a9ef620964f926366dadf98",
+    "sourceCommentHash": "3d424781a6f3429c854af3f54b97ac9e4ddc0479",
     "status": "translated"
   },
   "preview-beta/server/BlockQueryOptions": {
-    "sourceHash": "80e6bf5a95ca1376d069672fac2145e33a2af499",
+    "sourceCommentHash": "4e4956f940bf8bdecfbda0e1a785d7e54f8acf97",
     "status": "translated"
   },
   "preview-beta/server/BlockRaycastHit": {
-    "sourceHash": "ab7c2276ee5b30e18795bc3a45ee20782629322a",
+    "sourceCommentHash": "fd944ad811040d8de162df26149737567df5ed6d",
     "status": "translated"
   },
   "preview-beta/server/BlockRaycastOptions": {
-    "sourceHash": "a64b9e0160ddf3ed14a8b3c3edb6c2cb8c8080b0",
+    "sourceCommentHash": "2c291c968408422336d385308649d742bd65e919",
     "status": "translated"
   },
   "preview-beta/server/CameraAttachOptions": {
-    "sourceHash": "d6aa359333f894d1745c080a69e727f5c55a7a9c",
+    "sourceCommentHash": "8bc963c819eb9e5131b8d59161e5813fc838c377",
     "status": "translated"
   },
   "preview-beta/server/CameraFadeOptions": {
-    "sourceHash": "2243987ed5229e16ec57c241aadd680e28bc4817",
+    "sourceCommentHash": "a5a9afe1b2212f6b4a8c6a78ebbce6a47f548a3e",
     "status": "translated"
   },
   "preview-beta/server/CameraFadeTimeOptions": {
-    "sourceHash": "a1302325d1003a6a303a29c977943788dc338410",
+    "sourceCommentHash": "45883b2aa7abc8de6dbf5b835ff08fb4fa2eb8f0",
     "status": "translated"
   },
   "preview-beta/server/CameraFixedBoomOptions": {
-    "sourceHash": "c7460d6b9920e08f62abde095648ca7760294a6d",
+    "sourceCommentHash": "0701ed648269f5b2bce86fd9a29e906a04f4e5fa",
     "status": "translated"
   },
   "preview-beta/server/CameraFovOptions": {
-    "sourceHash": "3983fd0431d7c5d01044312e4c424dcafad65ed2",
+    "sourceCommentHash": "1f717d3b62661a03356373351815453f7b0f1184",
     "status": "translated"
   },
   "preview-beta/server/CameraSetFacingOptions": {
-    "sourceHash": "efbf2a067f5a696351f01e83457c0a410ad6313d",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CameraSetLocationOptions": {
-    "sourceHash": "5c4dbdcb5af475bacea440784d5c6df8e99ec34c",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CameraSetPosOptions": {
-    "sourceHash": "1f2fa1b1fc662482b7fdaa040b2426d423eb07e8",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CameraSetRotOptions": {
-    "sourceHash": "fe782a9720b241778804ed906bd3d07eb9e3e7fe",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CameraShakeOptions": {
-    "sourceHash": "0a20016eea5ffbc64ea258b683bcd7005cbf429d",
+    "sourceCommentHash": "164bcfb8fb9d8df5cd81a287057578a8430dd4ed",
     "status": "translated"
   },
   "preview-beta/server/CameraTargetOptions": {
-    "sourceHash": "febca473ebd92e6b6ad30bdb4f4188e2a51c07b9",
+    "sourceCommentHash": "4d453c911bbaec08423fd847143568cb73f68fc2",
     "status": "translated"
   },
   "preview-beta/server/ContainerAccessSource": {
-    "sourceHash": "342393edc082ef3c7bc6c24a33ba79142db1a9a5",
+    "sourceCommentHash": "f0893701a5730ec966938911af7daf29ed05080c",
     "status": "translated"
   },
   "preview-beta/server/ContainerAccessSourceFilter": {
-    "sourceHash": "5307154cac7c7ef342e9f249ea33707f8bef9c7f",
+    "sourceCommentHash": "72a54d4b2ebcfec74419daf9129f04dfa501dac6",
     "status": "translated"
   },
   "preview-beta/server/ContainerRules": {
-    "sourceHash": "c89c9e829ed76d5a06941b538c7385969bebd142",
+    "sourceCommentHash": "eb3e80ca63bd8759763149edb614f52f64b48666",
     "status": "translated"
   },
   "preview-beta/server/CustomCommand": {
-    "sourceHash": "d7e94ae4385d6eb9d44a4996d53210f23a867c60",
+    "sourceCommentHash": "15e9323d713d771f711b33eda63ff07227fdf400",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandParameter": {
-    "sourceHash": "d8ec3c5b9f891ed594c5413477a3206aa2322b1f",
+    "sourceCommentHash": "f9c6e20f5d98d8ce8707a94e27b6ffd1ccfe7f72",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandResult": {
-    "sourceHash": "7b6692c0783352da57c7fe94e16cf8454e7ae001",
+    "sourceCommentHash": "e9865e36a8bca2c1f9223396cfb60923b1b18fcf",
     "status": "translated"
   },
   "preview-beta/server/CustomTexture": {
-    "sourceHash": "c6f227445dc1ebc3f6d4531b69dea1227e218325",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/DefinitionModifier": {
-    "sourceHash": "6727a173f590ecf4dec020a44d1ae10b5f76316e",
+    "sourceCommentHash": "a322261b24033c3dea8bca5ccc670093da71eff4",
     "status": "translated"
   },
   "preview-beta/server/DimensionLocation": {
-    "sourceHash": "e70d26e61e8e8500b3ca31ba8763ca793c1af6f9",
+    "sourceCommentHash": "982187a8e85d360a623ceb7e78f5261276595e90",
     "status": "translated"
   },
   "preview-beta/server/EaseOptions": {
-    "sourceHash": "ef77a6193ee34e3dfb5a6dfd6a7c825972a884c8",
+    "sourceCommentHash": "6bc07ef5c746458af64c442230343e9d601c97a8",
     "status": "translated"
   },
   "preview-beta/server/Enchantment": {
-    "sourceHash": "a48c148d6cc42ce720f2d853849ec4c66e2221e0",
+    "sourceCommentHash": "0dd4ebff10b3f9f4d565334cec5baaec75fe6213",
     "status": "translated"
   },
   "preview-beta/server/EntityApplyDamageByProjectileOptions": {
-    "sourceHash": "47439f831acf907edb19213ebff2966107473da2",
+    "sourceCommentHash": "5a324299cffd2cbaf06891dae39bef1677cb47ed",
     "status": "translated"
   },
   "preview-beta/server/EntityApplyDamageOptions": {
-    "sourceHash": "3c4d704c511229e745bd0e62f478b7ab512c6ece",
+    "sourceCommentHash": "45304907532dfe2d39dabeb4c09b2fd3070daf69",
     "status": "translated"
   },
   "preview-beta/server/EntityContainerAccessEventOptions": {
-    "sourceHash": "72479a4ff66d540ae42aebd95b21aee3a33b3584",
+    "sourceCommentHash": "ba8a418dc58f7224101505f476d1a2e1c5d75202",
     "status": "translated"
   },
   "preview-beta/server/EntityDamageSource": {
-    "sourceHash": "eb0d45485c8033fa9bc118d77a79311f0b29e6dc",
+    "sourceCommentHash": "cb523faf471438cf08163093d675443800fe708a",
     "status": "translated"
   },
   "preview-beta/server/EntityDataDrivenTriggerEventOptions": {
-    "sourceHash": "8f40c15392a50377cc97cf4073da70c505866347",
+    "sourceCommentHash": "f65e49a26c4ddd44996deed7ba2a91f03196adbb",
     "status": "translated"
   },
   "preview-beta/server/EntityEffectOptions": {
-    "sourceHash": "5176b615a4231dc13c660435c2d1291f7abc6115",
+    "sourceCommentHash": "4466f354fc5c65ba145b167816a6588c96650507",
     "status": "translated"
   },
   "preview-beta/server/EntityEventOptions": {
-    "sourceHash": "f9020df53dba95f8cb8e4846ac19862e4fbbad39",
+    "sourceCommentHash": "8fe61435c69853b2042d88e7c2a3ac1e40753725",
     "status": "translated"
   },
   "preview-beta/server/EntityFilter": {
-    "sourceHash": "0a62881931fc8d1fd04bea519ecc5dae4962dc42",
+    "sourceCommentHash": "9b30fa7e08448bc536471a8d38077d7c8a554058",
     "status": "translated"
   },
   "preview-beta/server/EntityHealEventOptions": {
-    "sourceHash": "af67a2dcc0f1ed706440f8a8899d6b7de6946cbd",
+    "sourceCommentHash": "bd2309fa0fb9889dbb4b57e0aa4e6c0154a007e4",
     "status": "translated"
   },
   "preview-beta/server/EntityHitInformation": {
-    "sourceHash": "be546abf5ecf862a0f39879d4336488a5f5f9f3c",
+    "sourceCommentHash": "c557fcbc46d7cb417dfbc678315b1f8e84d8d978",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtAfterEventOptions": {
-    "sourceHash": "2e73182c107cf9feb1fb6a560b222f318fe4d360",
+    "sourceCommentHash": "a9e2681acd2d3cd8d0c505181bc8419f90d0aac8",
     "status": "translated"
   },
   "preview-beta/server/EntityHurtBeforeEventOptions": {
-    "sourceHash": "2820a1fe14ebbcb45164e64488dcbebb6bf0825d",
+    "sourceCommentHash": "a75b6e81f0101c03450129eafc373d6f960c310b",
     "status": "translated"
   },
   "preview-beta/server/EntityItemDropEventOptions": {
-    "sourceHash": "7288f020a53b8ad81bce86aac209f596f804f9aa",
+    "sourceCommentHash": "2917ad372dbe2fa33d6c70657471e4d4df8ea90c",
     "status": "translated"
   },
   "preview-beta/server/EntityItemPickupEventOptions": {
-    "sourceHash": "8737cd2380e705540f97d38ef1314c92449f932f",
+    "sourceCommentHash": "89e52687254dc73c5dc2bd65828a7b5072e038c6",
     "status": "translated"
   },
   "preview-beta/server/EntityQueryOptions": {
-    "sourceHash": "2c7af5f2b01f3a138e6e7afb254441bd3b117afe",
+    "sourceCommentHash": "611e0a1b5fe80d93d7da9f32746f5f3abf398650",
     "status": "translated"
   },
   "preview-beta/server/EntityQueryPropertyOptions": {
-    "sourceHash": "099c188f17b31b5958aa4ab699e1692de2224b03",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntityQueryScoreOptions": {
-    "sourceHash": "7d80a2d319fe3dd2ca7a209a7e4585464f481a60",
+    "sourceCommentHash": "ff39e43ce8c17819a839594749d43524c22237a3",
     "status": "translated"
   },
   "preview-beta/server/EntityRaycastHit": {
-    "sourceHash": "3e61927cf4dae43ce9870b06cdeb9452d1a88093",
+    "sourceCommentHash": "942879b2282830e3eded2fb9e1678444e9cacd21",
     "status": "translated"
   },
   "preview-beta/server/EntityRaycastOptions": {
-    "sourceHash": "47a3c6f7072a678344d0f5abec1bd60a532fc9fb",
+    "sourceCommentHash": "e2ca53c601a70473583cc1a928e48cab9459e293",
     "status": "translated"
   },
   "preview-beta/server/EntitySneakingChangedEventOptions": {
-    "sourceHash": "328698c5fcd775dd342c4fb8e32dc686fb7283d2",
+    "sourceCommentHash": "2cd8e6fd0f876327259e24df3aa010e70ed1f601",
     "status": "translated"
   },
   "preview-beta/server/EntityVisibilityRules": {
-    "sourceHash": "f69ce4f32bc638613f1e1941d0930e68388dc759",
+    "sourceCommentHash": "2e276565bd154e7ce3eca0c944005d66c1e16d6a",
     "status": "translated"
   },
   "preview-beta/server/EqualsComparison": {
-    "sourceHash": "31be052c6f004ef5b9a765b6d4a6861d36419826",
+    "sourceCommentHash": "65629705ae531e850df07ddd22cf73f5d408812a",
     "status": "translated"
   },
   "preview-beta/server/ExplosionOptions": {
-    "sourceHash": "d0524672551870b85df03315e7dd9c40d9b2edfc",
+    "sourceCommentHash": "4cd2f2a0ebe3cbba38072c418a0e34b09ea88116",
     "status": "translated"
   },
   "preview-beta/server/GetBlocksStandingOnOptions": {
-    "sourceHash": "86dd0c46f60ec54d924c223efe601587e8f6ad39",
+    "sourceCommentHash": "0202197bcb94e894f223710208005a7fcbc381c6",
     "status": "translated"
   },
   "preview-beta/server/GreaterThanComparison": {
-    "sourceHash": "e0298274329422628c55b3dd7f40007ccda6ddd2",
+    "sourceCommentHash": "b31e25fbbb3270198370141715dc3fe54e835015",
     "status": "translated"
   },
   "preview-beta/server/GreaterThanOrEqualsComparison": {
-    "sourceHash": "4382364767cf6c4d80c07c081e1b9d2da457af6a",
+    "sourceCommentHash": "d205803ddf37182b04be70df7289ad505cfc1e4c",
     "status": "translated"
   },
   "preview-beta/server/HotbarEventOptions": {
-    "sourceHash": "8c83194f583c601b038e62cc9bad381d3aa84443",
+    "sourceCommentHash": "ffc549d0420e89427ecac632f1da94732ca55184",
     "status": "translated"
   },
   "preview-beta/server/InputEventOptions": {
-    "sourceHash": "c3f7f9a1dc860a6117406272be870e126c9d5ded",
+    "sourceCommentHash": "051cae4fcb49cc7be8428b2b558c98736a1bc124",
     "status": "translated"
   },
   "preview-beta/server/InventoryItemEventOptions": {
-    "sourceHash": "8ff56571e9ba6df4393c968b4f9270d5bf7e7b58",
+    "sourceCommentHash": "c9b041ed72fe5843bf3b061ce9adda420bad50cc",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponent": {
-    "sourceHash": "3a5b1c21725d676676a70f6e0dbb12146cc3b315",
+    "sourceCommentHash": "ecaf951d84ca4c7b871983c0576b708af077526f",
     "status": "translated"
   },
   "preview-beta/server/ItemFilter": {
-    "sourceHash": "34bbe905eb465a927a579cb82243676677d5a529",
+    "sourceCommentHash": "df1db27d1f0efbe516a0ca43ab3585824e671a14",
     "status": "translated"
   },
   "preview-beta/server/JigsawPlaceOptions": {
-    "sourceHash": "fd2d22b932360d0fecbea63f3cc4b8367233c565",
+    "sourceCommentHash": "410a44b90fe45bc604fe096d7423fedd014479fa",
     "status": "translated"
   },
   "preview-beta/server/JigsawStructurePlaceOptions": {
-    "sourceHash": "49b86ac20805a83855169110d4428953fd4f1bef",
+    "sourceCommentHash": "266e1972ea8444f78f38acda05e84ad23f689583",
     "status": "translated"
   },
   "preview-beta/server/LessThanComparison": {
-    "sourceHash": "a8ddadb687c449a8f56c0f98c37adbcff32939ed",
+    "sourceCommentHash": "164a4b1486357bab67b7a7205a7137044e207b4c",
     "status": "translated"
   },
   "preview-beta/server/LessThanOrEqualsComparison": {
-    "sourceHash": "d6c8d74c93378e6a48b3c05455cc37be4a3e2265",
+    "sourceCommentHash": "904f070702e306e6ab1744ae7db9d615d9d89dc0",
     "status": "translated"
   },
   "preview-beta/server/MusicOptions": {
-    "sourceHash": "82d62a310c5a4d91f276dc413c287d0821782ac8",
+    "sourceCommentHash": "22d04aac94ddfaad7f7666bf737ee5c6ec2dc93e",
     "status": "translated"
   },
   "preview-beta/server/NotEqualsComparison": {
-    "sourceHash": "eb9d1ca2880bb779cd76340d8208f36c16337519",
+    "sourceCommentHash": "ecaa75cbd212ec41c2dd415d322247cfb20df146",
     "status": "translated"
   },
   "preview-beta/server/PlayAnimationOptions": {
-    "sourceHash": "9f29da6a110c6a5262dd3656e013cc9ed84a7644",
+    "sourceCommentHash": "4370549aa94843e1ba84f744818ed765088de63c",
     "status": "translated"
   },
   "preview-beta/server/PlayerAimAssistSettings": {
-    "sourceHash": "b73226769a68226550d709d97280bbab80e1cc49",
+    "sourceCommentHash": "5963fd491ba0515cdbb34a3e542fa2d9ccaadf33",
     "status": "translated"
   },
   "preview-beta/server/PlayerBreakingBlockEventOptions": {
-    "sourceHash": "54c7c3ee61df66a52d62f22ef6a5e4802660dd7e",
+    "sourceCommentHash": "012c3724ed12a8f20e64f49c499a376e70942a34",
     "status": "translated"
   },
   "preview-beta/server/PlayerSoundOptions": {
-    "sourceHash": "bb4092538aa7edc68126a41765ce2adfb9f0dfbe",
+    "sourceCommentHash": "b0be9985fbe7fcff35f7221eefc5c41cae5326ff",
     "status": "translated"
   },
   "preview-beta/server/PlayerSwingEventOptions": {
-    "sourceHash": "dc691207e44c210a9d0967e00f51f842bd1f0f8c",
+    "sourceCommentHash": "3904bbbdd1a03cb281bc1b0c32188ca53a2cd027",
     "status": "translated"
   },
   "preview-beta/server/PlayerVisibilityRules": {
-    "sourceHash": "a631057f4add56e1196fb939234cf425121ca0bf",
+    "sourceCommentHash": "06569c221b329d0c0a0313fc506ae38137d97be8",
     "status": "translated"
   },
   "preview-beta/server/PrimitiveShapeQueryOptions": {
-    "sourceHash": "a182d2f2540be82b858357d8e0f918da2fd5b52d",
+    "sourceCommentHash": "ee071a7b630f45bddc05dae1faf49fe0fc3c5cb7",
     "status": "translated"
   },
   "preview-beta/server/ProgressKeyFrame": {
-    "sourceHash": "949fb0b6ca9da2a7855cbd167085094aa824e390",
+    "sourceCommentHash": "f1968381de46afc2085bdd46cfa1afaa6fae2616",
     "status": "translated"
   },
   "preview-beta/server/ProjectileShootOptions": {
-    "sourceHash": "4d9a0e44a1ee7ad1673ba575c982f1eb19bbeb9b",
+    "sourceCommentHash": "c4bf10056e5c180bd0df8f8ae265507b16c8f642",
     "status": "translated"
   },
   "preview-beta/server/RangeComparison": {
-    "sourceHash": "dc4a009a14fa0409678b32875131c184728933fe",
+    "sourceCommentHash": "21e776b6fc18d11d9b5e9c503a3bd4be50cfd357",
     "status": "translated"
   },
   "preview-beta/server/RawMessage": {
-    "sourceHash": "74125f7d27adf172d8c3dfadddbe6f2ce829859d",
+    "sourceCommentHash": "eec3d593baac7efe5bdfc91919b9c6735fd5b516",
     "status": "translated"
   },
   "preview-beta/server/RawMessageScore": {
-    "sourceHash": "db61f7c853bc6dd01527bc49118bfc00330f90bd",
+    "sourceCommentHash": "2f375a3521a2dec5945d0e385afd1ebae830f67d",
     "status": "translated"
   },
   "preview-beta/server/RawText": {
-    "sourceHash": "57c494131e2b39ce22ec0243cc50428893fff719",
+    "sourceCommentHash": "882c03646d012c4f5c74a2a5f4aefbd67494df32",
     "status": "translated"
   },
   "preview-beta/server/RGB": {
-    "sourceHash": "e91374993d4e983e52b74864e72b8c96f8498f7d",
+    "sourceCommentHash": "5b1dfd96c83387450b653f54dcac92710c217f8b",
     "status": "translated"
   },
   "preview-beta/server/RGBA": {
-    "sourceHash": "ba045d0b7d4c3ab39f916b6af968d28592b97a8c",
+    "sourceCommentHash": "5b1dfd96c83387450b653f54dcac92710c217f8b",
     "status": "translated"
   },
   "preview-beta/server/RotationKeyFrame": {
-    "sourceHash": "285e22146386b7ba75c70be73ce5eb7f549a3cd9",
+    "sourceCommentHash": "5153368a5c1468e2f21e0827dac222b603ba2514",
     "status": "translated"
   },
   "preview-beta/server/ScoreboardObjectiveDisplayOptions": {
-    "sourceHash": "660e3f6987bf7b457d64a92b3f6de641d2dd41c7",
+    "sourceCommentHash": "85e28e49d6c07878cbeab7b473dd250e18838988",
     "status": "translated"
   },
   "preview-beta/server/ScriptEventMessageFilterOptions": {
-    "sourceHash": "3487970226a6e93ee1bbb531b37484cc70e2e907",
+    "sourceCommentHash": "a1ae1955913896ddf10df576596aaa7a56932770",
     "status": "translated"
   },
   "preview-beta/server/SoundDefinitionDurationInfo": {
-    "sourceHash": "b1abbc171742e83811978c4ca6298a0aa2ed6f01",
+    "sourceCommentHash": "1a24790faa4fb5ad327f98debaa8fdff989c9e5c",
     "status": "translated"
   },
   "preview-beta/server/SoundDefinitionFilter": {
-    "sourceHash": "ce15311d55b7a6254282eae9711202d8e873d0d1",
+    "sourceCommentHash": "800fb8efc63faea0d211bd84701e9153e0b13575",
     "status": "translated"
   },
   "preview-beta/server/SoundDefinitionMusicInfo": {
-    "sourceHash": "2cca960cfe3105f389f4587aa34dd28677616197",
+    "sourceCommentHash": "064873bc22c53791ef1f99507fda9ea6e8cf93aa",
     "status": "translated"
   },
   "preview-beta/server/SpawnEntityOptions": {
-    "sourceHash": "a6a65543c18f8d37477b9314711060f3836ea6b6",
+    "sourceCommentHash": "6261f1c5529b8df7e131e47c129c93e076c47408",
     "status": "translated"
   },
   "preview-beta/server/SplineAnimation": {
-    "sourceHash": "992081b6e6d5d1050c8414829983bc002a1bd8c1",
+    "sourceCommentHash": "0e291e1bedfeb7e0cfa2d0953688246bd4df3dab",
     "status": "translated"
   },
   "preview-beta/server/StructureCreateOptions": {
-    "sourceHash": "4dccabbfc3080f9514adc5894bc8ff3cc972d998",
+    "sourceCommentHash": "c7be804700a6547e4d65228cd013240e3f405079",
     "status": "translated"
   },
   "preview-beta/server/StructurePlaceOptions": {
-    "sourceHash": "7e78a01b1f1e15a3b1d3fc8684a4d541d9bff151",
+    "sourceCommentHash": "4029d691d0b7e89f349002723d9308967772ca15",
     "status": "translated"
   },
   "preview-beta/server/TeleportOptions": {
@@ -2441,31 +2441,31 @@
     "status": "translated"
   },
   "preview-beta/server/TickingArea": {
-    "sourceHash": "978a1c59b32d19d066b01f99665b4422080b3404",
+    "sourceCommentHash": "5d53db8961088f2b1d4ce2c906cca4e305b57267",
     "status": "translated"
   },
   "preview-beta/server/TitleDisplayOptions": {
-    "sourceHash": "ee60e813bc49dce9f10eb2afc0af89eec63c3423",
+    "sourceCommentHash": "f04144e2d644f3691d4396854caf8957640fac8d",
     "status": "translated"
   },
   "preview-beta/server/Vector2": {
-    "sourceHash": "a65b605e8216b24d6eb615e04071ebb1b080f16e",
+    "sourceCommentHash": "de6ca39996c7d381ea116bc6316c90cb6c72d48d",
     "status": "translated"
   },
   "preview-beta/server/Vector3": {
-    "sourceHash": "dca4eff72e07b95e6e3632c3dc5975dbad1f27fa",
+    "sourceCommentHash": "118e5d20e6bed126251c1d38872dc36322f422a6",
     "status": "translated"
   },
   "preview-beta/server/VectorXZ": {
-    "sourceHash": "e9705dbc9848f098f17f194db76e1ecadf652454",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/WaypointTextureBounds": {
-    "sourceHash": "6123c5cc125684939bed35447f9e18486540fad4",
+    "sourceCommentHash": "1acff4def0af984840c0a0e070fef5a4bdb69bea",
     "status": "translated"
   },
   "preview-beta/server/WaypointTextureSelector": {
-    "sourceHash": "c8e6221ab562a3d60db5eb31de46915fc82fdce0",
+    "sourceCommentHash": "ea13df0cd53da928a789496b9eafb77eb3b57c9d",
     "status": "translated"
   },
   "preview-beta/server/WorldSoundOptions": {
@@ -2473,63 +2473,63 @@
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponentAlreadyRegisteredError": {
-    "sourceHash": "3fb10c6348b26e436f2866316f62257992302cce",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponentReloadNewComponentError": {
-    "sourceHash": "9590e37d3f35eb192b3ffa55ef8b61ac472b345f",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponentReloadNewEventError": {
-    "sourceHash": "036ffbc2a32009e7a8017df62d3263f762e460b1",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BlockCustomComponentReloadVersionError": {
-    "sourceHash": "fcce6d4c44a79b27d24fe6622d57ec5ebdf4139a",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/BookError": {
-    "sourceHash": "d0e051905c81448d2966e5f59efbde21e363ff8a",
+    "sourceCommentHash": "e5341e1b365304cb69e89a9208456aa1e1ca9e79",
     "status": "translated"
   },
   "preview-beta/server/BookPageContentError": {
-    "sourceHash": "384dcd835e90db6a208a636a6f4576ab24f9b518",
+    "sourceCommentHash": "fe5f891b814b180863c95297955fb0073faec60d",
     "status": "translated"
   },
   "preview-beta/server/CommandError": {
-    "sourceHash": "9fa1c3392b79e10f8d36b8af88bbf9f27e20e693",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/ContainerRulesError": {
-    "sourceHash": "f555eac7de0711e3cddbaeb2efbde91ce5313af7",
+    "sourceCommentHash": "ff0c83f13e2c46cac5c0f7386ec925dbefea5695",
     "status": "translated"
   },
   "preview-beta/server/CustomCommandError": {
-    "sourceHash": "8d434f94efc6b88694254d3d44e6246d4dfde5e0",
+    "sourceCommentHash": "5c6d3939f48cb349f635f5b0d7459b531d319282",
     "status": "translated"
   },
   "preview-beta/server/CustomComponentInvalidRegistryError": {
-    "sourceHash": "02349b0b242e618acff04547f02fb22add857143",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CustomComponentNameError": {
-    "sourceHash": "9198e13cb23125b0adf2bf67a35048041b6e2187",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/CustomDimensionAlreadyRegisteredError": {
-    "sourceHash": "8cf84da113540282c2694d73cc37f46b79df06dc",
+    "sourceCommentHash": "cae174d0b7b5debe8f607f84a5c7515409ebb392",
     "status": "translated"
   },
   "preview-beta/server/CustomDimensionInvalidRegistryError": {
-    "sourceHash": "4b82afd02743782455117eb92001737e0ea7cdac",
+    "sourceCommentHash": "a9cd78fde182b56e2ba6d685109a760ac4fed530",
     "status": "translated"
   },
   "preview-beta/server/CustomDimensionNameError": {
-    "sourceHash": "14a0e83e772dad75f265e35d9953b808d0b0be28",
+    "sourceCommentHash": "fc10426f778aa41250d1b062ee34e5928dc98ca8",
     "status": "translated"
   },
   "preview-beta/server/CustomDimensionReloadNewDimensionError": {
-    "sourceHash": "5a5b34ba8c4b792b8ce793e26a6bf966740f8461",
+    "sourceCommentHash": "b96944f72521963467dd3b40579d6b1c77f61b40",
     "status": "translated"
   },
   "preview-beta/server/EnchantmentLevelOutOfBoundsError": {
@@ -2537,147 +2537,199 @@
     "status": "translated"
   },
   "preview-beta/server/EnchantmentTypeNotCompatibleError": {
-    "sourceHash": "604141fb60755fab0fcfd9820d4eb95d0640ad27",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EnchantmentTypeUnknownIdError": {
-    "sourceHash": "33698a3ca403510066f50b9c4616ccc3db8bfc46",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/EntitySpawnError": {
-    "sourceHash": "daae2620a0d0646c073740b83db7c69ae8843edf",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/FogSettingsError": {
-    "sourceHash": "597629c8d5066a0e34f617d04543f4affaf2a5c3",
+    "sourceCommentHash": "2a0b6d33c2063f1e83519f6642bc7e8b3f6db298",
     "status": "translated"
   },
   "preview-beta/server/InvalidBlockComponentError": {
-    "sourceHash": "42e2e7d8fb5a7260bd8256f5bc71d0f423e421ca",
+    "sourceCommentHash": "dd799376da33e6fbd37ccbee50ede65fa453dabb",
     "status": "translated"
   },
   "preview-beta/server/InvalidContainerError": {
-    "sourceHash": "308bf7673d1afe8320d71432469889dafda3812d",
+    "sourceCommentHash": "0355f4e19bb5a31681d6d12a8107c9e65ec8f76f",
     "status": "translated"
   },
   "preview-beta/server/InvalidContainerSlotError": {
-    "sourceHash": "4a4e61937745070b19363d4957b1bda69fbfd0da",
+    "sourceCommentHash": "b5aa6dd0c077d6caea63e3c74f2ee979d38c5dfb",
     "status": "translated"
   },
   "preview-beta/server/InvalidEntityComponentError": {
-    "sourceHash": "36208e96dfb4af98358a6879c199396867b71327",
+    "sourceCommentHash": "e2a927368fcb9012ec77277beaf0b51b8b574222",
     "status": "translated"
   },
   "preview-beta/server/InvalidEntityError": {
-    "sourceHash": "7d66e2b2e2a19981bac60af4752d7e2e44e185fe",
+    "sourceCommentHash": "b1c5c2c3e0bb7dbe12ba34aedaf82021ad2afe0c",
     "status": "translated"
   },
   "preview-beta/server/InvalidItemStackError": {
-    "sourceHash": "071becf0a289bcd89f9b47b346034458a0f3d667",
+    "sourceCommentHash": "261aaa4f16fe1d1c2c802dd0400d864b7a967e20",
     "status": "translated"
   },
   "preview-beta/server/InvalidIteratorError": {
-    "sourceHash": "dade94501ffd9f0f2472e05b3d1e6ced10cfcdd3",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/InvalidPotionDeliveryTypeError": {
-    "sourceHash": "f94b821378da64434ebb0a015d7191701cf242e4",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/InvalidPotionEffectTypeError": {
-    "sourceHash": "3b287c5637f681efff9176207beb0e2142b04d4e",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/InvalidStructureError": {
-    "sourceHash": "cd06e8ca86a45104e0633f5f0ab360eb82466112",
+    "sourceCommentHash": "d42f9cb394b9d52e85dd26bce203a2e121636275",
     "status": "translated"
   },
   "preview-beta/server/InvalidWaypointError": {
-    "sourceHash": "9a346bc8bc00055e6432be4e44e3651a870d0e28",
+    "sourceCommentHash": "5d967efa2f8dcb373a6f5c8652da75a590aa9c8f",
     "status": "translated"
   },
   "preview-beta/server/InvalidWaypointTextureSelectorError": {
-    "sourceHash": "3e2b5de6c6aaf39baa1ed9a479d68206ad9d3eda",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponentAlreadyRegisteredError": {
-    "sourceHash": "994c0de1150c2007d19b075a0a45b3448929fe41",
+    "sourceCommentHash": "880ecf03dba2325fa2f2e387bfee90a81c2e783d",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponentReloadNewComponentError": {
-    "sourceHash": "27e43fe8f29e8af4715a602dce92b92cfaa18a39",
+    "sourceCommentHash": "916cea4ae8c5f2105f3fc9aeae1257f231756c42",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponentReloadNewEventError": {
-    "sourceHash": "f11c8d831d10764290b713dd04e1f3ec67792245",
+    "sourceCommentHash": "3b3425cf0ee6f83c0e4beb476a7685963f29f742",
     "status": "translated"
   },
   "preview-beta/server/ItemCustomComponentReloadVersionError": {
-    "sourceHash": "b6cc719a40d2b38c905cda4a310f010835079801",
+    "sourceCommentHash": "8c885582ddc4b482c257314fe3fe78e5f9e19794",
     "status": "translated"
   },
   "preview-beta/server/LocationInUnloadedChunkError": {
-    "sourceHash": "92ed196fd95b32face4741dacb8404139d89f577",
+    "sourceCommentHash": "7b0a6e7cdb49151b98e3fc1c558dd510d5075be7",
     "status": "translated"
   },
   "preview-beta/server/LocationOutOfWorldBoundariesError": {
-    "sourceHash": "7bbbea81cd79daa16e9d5c9080cddb6aeed5a1e2",
+    "sourceCommentHash": "255def0eaaf1987b70f869c2588a191b85df0f52",
     "status": "translated"
   },
   "preview-beta/server/LocatorBarError": {
-    "sourceHash": "2248f0df5b03a1c927ada889f7c75c3663b13c68",
+    "sourceCommentHash": "0d4355ca6c766726c2a4c76bb6b881f8d6e061ae",
     "status": "translated"
   },
   "preview-beta/server/NamespaceNameError": {
-    "sourceHash": "ee36154483877697810f6d011a8938a16628af13",
+    "sourceCommentHash": "6e40c7df3fee25e8bfd43e4413995c1153c02065",
     "status": "translated"
   },
   "preview-beta/server/PlaceJigsawError": {
-    "sourceHash": "ba71a0a136afea1c629ecfeeec4396e441f6f451",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/PrimitiveShapeError": {
-    "sourceHash": "94c560e7fe0d0c894d124fe9824184a6245b0052",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/RawMessageError": {
-    "sourceHash": "a218c624e3d6ec4792957ad0ce35a39ed7fb4448",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/TickingAreaError": {
-    "sourceHash": "52147dddf55d970506e5b8969a379094e86af5fe",
+    "sourceCommentHash": "f66081aad02f8f8fb2b3736f26db9ae1c1f1daed",
     "status": "translated"
   },
   "preview-beta/server/UnloadedChunksError": {
-    "sourceHash": "64609e80032fad4881a1ae833cad301ab204fdf7",
+    "sourceCommentHash": "64067cb462fdf847457f96333c46218f8a1de5c7",
     "status": "translated"
   },
   "preview-beta/server/HudElementsCount": {
-    "sourceHash": "2ed91385580170c90859e6d98c0b188e69a6a726",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/HudVisibilityCount": {
-    "sourceHash": "fad80d2ea99d864ac8dd586a20edd73723b93f1f",
+    "sourceCommentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "status": "translated"
   },
   "preview-beta/server/MoonPhaseCount": {
-    "sourceHash": "9a267489c894267b71481992d702a149928ab33b",
+    "sourceCommentHash": "b2e8ac595cbedce8baab9469bc9586a18d689d70",
     "status": "translated"
   },
   "preview-beta/server/TicksPerDay": {
-    "sourceHash": "a292839cb7357cff695b69fa3586429b853d68cd",
+    "sourceCommentHash": "589ce32c0cd4ecc25845010169d7b2c60f62c110",
     "status": "translated"
   },
   "preview-beta/server/TicksPerSecond": {
-    "sourceHash": "7167bd44c9b408e8d387c79ac21592bffae7cfb4",
+    "sourceCommentHash": "ef65be976d9959fcb09e05861a7b1cc8b945e5ad",
     "status": "translated"
   },
   "preview-beta/server/system": {
-    "sourceHash": "f9ea1d3d0cc1495145aa24727401125bd5c8f658",
+    "sourceCommentHash": "949d25702e26aa8f54e9a200b0948a80b7061448",
     "status": "translated"
   },
   "preview-beta/server/world": {
-    "sourceHash": "91ff5acb302d12b78b70740789eb93a2e28e7343",
+    "sourceCommentHash": "d117771830dc2fcbce2d4bf9ec80320ca9ea5065",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiBlockOccupancyFilter": {
+    "sourceCommentHash": "8a1b0d1f73825e249e083f6906f514b9e9ba841c",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiBlockInstance": {
+    "sourceCommentHash": "13f24651335c51fea4a90fe374e9606854c97e1b",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiBlockManager": {
+    "sourceCommentHash": "84de6544a52c6db921d56d45daac027db526a406",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiBlockType": {
+    "sourceCommentHash": "0d48cb086f5a59c5084a51be165927a3aa740e8b",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiManager": {
+    "sourceCommentHash": "67431f2068a1b69006d82cd58ff6f6c5be740765",
+    "status": "translated"
+  },
+  "preview-beta/server/EntityTamedEventOptions": {
+    "sourceCommentHash": "19c1262b5ef7c8387c46d412fdbd1d802be9d591",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiDistancePair": {
+    "sourceCommentHash": "569ceda63a86a7eab986155c3412b1189601af4d",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiNameFilter": {
+    "sourceCommentHash": "4442d9c16fdff599f2b2762d40bb6a3e2daf1965",
+    "status": "translated"
+  },
+  "preview-beta/server/PoiTagFilter": {
+    "sourceCommentHash": "94b8853aca9f1c5edc94f3b6f6e6c56417786307",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldClockInvalidRegistryError": {
+    "sourceCommentHash": "1da39249b92c12db3572015a97940b967413f0b2",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldClockNotFoundError": {
+    "sourceCommentHash": "8477acbd4135543cd7f1ea152936ec917bc9f3c2",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldClockRegistrationError": {
+    "sourceCommentHash": "1eb4b02fbfa57c6d8e7b1a601111bb39fa69f3a6",
+    "status": "translated"
+  },
+  "preview-beta/server/WorldClockReloadNewWorldClockError": {
+    "sourceCommentHash": "827499900aa8c1d27d1a1c7debf728cd0264c034",
     "status": "translated"
   }
 }
