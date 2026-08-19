@@ -1,0 +1,308 @@
+/**
+ * Used to affect atmospheric scattering per biome for Vibrant
+ * Visuals
+ */
+export class BiomeAtmospherics {
+    private constructor();
+    /**
+     * @remarks
+     * Resets the horizon blend max to the value set by resource
+     * packs or via the 'setHorizonBlendMax' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetHorizonBlendMax(): void;
+    /**
+     * @remarks
+     * Resets the horizon blend mie start to the value set by
+     * resource packs or via the 'setHorizonBlendMieStart' API in
+     * behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetHorizonBlendMieStart(): void;
+    /**
+     * @remarks
+     * Resets the horizon blend min to the value set by resource
+     * packs or via the 'setHorizonBlendMin' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetHorizonBlendMin(): void;
+    /**
+     * @remarks
+     * Resets the horizon blend start to the value set by resource
+     * packs or via the 'setHorizonBlendStart' API in behavior
+     * packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetHorizonBlendStart(): void;
+    /**
+     * @remarks
+     * Resets the moon mie strength to the value set by resource
+     * packs or via the 'setMoonMieStrength' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetMoonMieStrength(): void;
+    /**
+     * @remarks
+     * Resets the rayleigh strength to the value set by resource
+     * packs or via the 'setRayleighStrength' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetRayleighStrength(): void;
+    /**
+     * @remarks
+     * Resets the sky horizon color to the color set by resource
+     * packs or via the 'setSkyHorizonColor' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetSkyHorizonColor(): void;
+    /**
+     * @remarks
+     * Resets the sky zenith color to the color set by resource
+     * packs or via the 'setSkyZenithColor' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetSkyZenithColor(): void;
+    /**
+     * @remarks
+     * Resets the sun glare shape to the value set by resource
+     * packs or via the 'setSunGlareShape' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetSunGlareShape(): void;
+    /**
+     * @remarks
+     * Resets the sun mie strength to the value set by resource
+     * packs or via the 'setSunMieStrength' API in behavior packs
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    resetSunMieStrength(): void;
+    /**
+     * @remarks
+     * Sets the horizon blend max for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param blendMax
+     * Either a number (range [0,1]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,1])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setHorizonBlendMax(blendMax: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the horizon blend mie start for atmospheric scattering
+     * in Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param blendMieStart
+     * Either a number (range [0,1.2]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,1.2])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setHorizonBlendMieStart(blendMieStart: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the horizon blend min for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param blendMin
+     * Either a number (range [0,1]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,1])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setHorizonBlendMin(blendMin: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the horizon blend start for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param blendStart
+     * Either a number (range [0,1]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,1])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setHorizonBlendStart(blendStart: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the moon mie strength for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param moonMieStrength
+     * Either a number (range [0,60]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,60])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setMoonMieStrength(moonMieStrength: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the rayleigh strength for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param rayleighStrength
+     * Either a number (range [0,11]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,11])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setRayleighStrength(rayleighStrength: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the sky horizon color for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param color
+     * Either a RGB triplet or a set of keyframes. The keyframes
+     * are composed of key value pairs. The key is a number (range
+     * [0,1]) to signify a time of day (0.0 and 1.0 are noon, 0.25
+     * is sunset, 0.5 is midnight, and 0.75 is sunrise). The value
+     * is a RGB triplet
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setSkyHorizonColor(color: Record<number, minecraftserver.RGB> | minecraftserver.RGB): void;
+    /**
+     * @remarks
+     * Sets the sky zenith color for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param color
+     * Either a RGB triplet or a set of keyframes. The keyframes
+     * are composed of key value pairs. The key is a float in the
+     * range 0-1 to signify a time of day and the value is a RGB
+     * triplet
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setSkyZenithColor(color: Record<number, minecraftserver.RGB> | minecraftserver.RGB): void;
+    /**
+     * @remarks
+     * Sets the sun glare shape for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param sunGlareShape
+     * Either a number (range [0,50]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,50])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setSunGlareShape(sunGlareShape: number | Record<number, number>): void;
+    /**
+     * @remarks
+     * Sets the sun mie strength for atmospheric scattering in
+     * Vibrant Visuals
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param sunMieStrength
+     * Either a number (range [0,60]) or a set of keyframes. The
+     * keyframes are composed of key value pairs. The key is a
+     * number (range [0,1]) to signify a time of day (0.0 and 1.0
+     * are noon, 0.25 is sunset, 0.5 is midnight, and 0.75 is
+     * sunrise). The value is also a number (range [0,60])
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     */
+    setSunMieStrength(sunMieStrength: number | Record<number, number>): void;
+}

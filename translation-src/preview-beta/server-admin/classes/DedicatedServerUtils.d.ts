@@ -1,0 +1,60 @@
+/**
+ * Contains apis that are only available when in Bedrock
+ * Dedicated Server.
+ */
+export class DedicatedServerUtils {
+    private constructor();
+    /**
+     * @remarks
+     * Returns an object that manages the server's allow list.
+     *
+     */
+    readonly allowList: AllowList;
+    /**
+     * @remarks
+     * Returns an object that manages the level's storage.
+     *
+     */
+    readonly levelStorage: LevelStorage;
+    /**
+     * @remarks
+     * Reloads the cdn configuration from disk.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    reloadCDNConfig(): void;
+    /**
+     * @remarks
+     * Reloads the permissions for the server from disk.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    reloadPermissions(): void;
+    /**
+     * @remarks
+     * Reloads the script configuration for the server from disk.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    reloadScriptingConfig(): void;
+    /**
+     * @remarks
+     * Shuts down the dedicated server.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    stopServer(): void;
+}

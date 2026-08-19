@@ -1,0 +1,730 @@
+/**
+ * Represents a player within the world.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class Player extends Entity {
+    private constructor();
+    /**
+     * @remarks
+     * The player's Camera.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly camera: Camera;
+    /**
+     * @beta
+     * @remarks
+     * The player's chat display name, composed from
+     * {@link Player.chatNamePrefix} + {@link Player.name} +
+     * {@link Player.chatNameSuffix}. This is the name shown as the
+     * author of chat messages sent by this player. To change the
+     * name shown above the player's head, use
+     * {@link Entity.nameTag}.
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidEntityError}
+     */
+    readonly chatDisplayName: string;
+    /**
+     * @beta
+     * @remarks
+     * An optional string that, when set, is prepended to the text
+     * of chat messages sent by this player. Useful for applying
+     * formatting or color codes to a player's messages (e.g., '§a'
+     * to make their messages green). Does not affect the player's
+     * name display - use {@link Player.chatNamePrefix} for the
+     * name shown in chat, or {@link Entity.nameTag} for the name
+     * above the player's head. Set to undefined to clear.
+     *
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
+     *
+     */
+    chatMessagePrefix?: string;
+    /**
+     * @beta
+     * @remarks
+     * An optional string that, when set, is prepended to the
+     * player's name in chat messages. Does not affect the name tag
+     * above the player's head or the player list - use
+     * {@link Entity.nameTag} for that. To prefix the message text
+     * itself, use {@link Player.chatMessagePrefix}. Set to
+     * undefined to clear.
+     *
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
+     *
+     */
+    chatNamePrefix?: string;
+    /**
+     * @beta
+     * @remarks
+     * An optional string that, when set, is appended to the
+     * player's name in chat messages. Does not affect the name tag
+     * above the player's head or the player list - use
+     * {@link Entity.nameTag} for that. See also
+     * {@link Player.chatNamePrefix}. Set to undefined to clear.
+     *
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
+     *
+     */
+    chatNameSuffix?: string;
+    /**
+     * @remarks
+     * Contains the player's device information.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly clientSystemInfo: ClientSystemInfo;
+    /**
+     * @remarks
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
+     *
+     */
+    commandPermissionLevel: CommandPermissionLevel;
+    /**
+     * @rc
+     * @remarks
+     * Contains methods for manipulating the render distance fog
+     * settings of a Player.
+     *
+     */
+    readonly fogSettings: FogSettings;
+    /**
+     * @remarks
+     * Gets the current graphics mode of the player's client. This
+     * can be changed in the Video section of the settings menu
+     * based on what hardware is available.
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidEntityError}
+     */
+    readonly graphicsMode: GraphicsMode;
+    /**
+     * @remarks
+     * Contains the player's input information.
+     *
+     */
+    readonly inputInfo: InputInfo;
+    /**
+     * @remarks
+     * Input permissions of the player.
+     *
+     */
+    readonly inputPermissions: PlayerInputPermissions;
+    /**
+     * @remarks
+     * If true, the player is currently emoting.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly isEmoting: boolean;
+    /**
+     * @remarks
+     * Whether the player is flying. For example, in Creative or
+     * Spectator mode.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly isFlying: boolean;
+    /**
+     * @remarks
+     * Whether the player is gliding with Elytra.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly isGliding: boolean;
+    /**
+     * @remarks
+     * Whether the player is jumping. This will remain true while
+     * the player is holding the jump action.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly isJumping: boolean;
+    /**
+     * @remarks
+     * The current overall level for the player, based on their
+     * experience.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly level: number;
+    /**
+     * @remarks
+     * The player's Locator Bar. This property is used for managing
+     * waypoints displayed on the HUD.
+     *
+     */
+    readonly locatorBar: LocatorBar;
+    /**
+     * @remarks
+     * Name of the player.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly name: string;
+    /**
+     * @remarks
+     * Contains methods for manipulating the on-screen display of a
+     * Player.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly onScreenDisplay: ScreenDisplay;
+    /**
+     * @beta
+     * @remarks
+     * An identifier that can be used to identify a player across
+     * sessions.
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link InvalidEntityError}
+     */
+    readonly persistentId: string;
+    /**
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidEntityError}
+     */
+    readonly playerPermissionLevel: PlayerPermissionLevel;
+    /**
+     * @remarks
+     * @privilege restricted-execution-read-only - This property can't be edited in restricted-execution mode.
+     *
+     */
+    selectedSlotIndex: number;
+    /**
+     * @remarks
+     * The overall total set of experience needed to achieve the
+     * next level for a player.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly totalXpNeededForNextLevel: number;
+    /**
+     * @remarks
+     * The current set of experience achieved for the player.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly xpEarnedAtCurrentLevel: number;
+    /**
+     * @remarks
+     * Adds/removes experience to/from the Player and returns the
+     * current experience of the Player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param amount
+     * Amount of experience to add. Note that this can be negative.
+     * Min/max bounds at -2^24 ~ 2^24
+     * Bounds: [-16777216, 16777216]
+     * @returns
+     * Returns the current experience of the Player.
+     * @throws This function can throw errors.
+     */
+    addExperience(amount: number): number;
+    /**
+     * @remarks
+     * Adds/removes level to/from the Player and returns the
+     * current level of the Player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param amount
+     * Amount to add to the player. Min/max bounds at -2^24 ~ 2^24
+     * Bounds: [-16777216, 16777216]
+     * @returns
+     * Returns the current level of the Player.
+     * @throws This function can throw errors.
+     */
+    addLevels(amount: number): number;
+    /**
+     * @remarks
+     * For this player, removes all overrides of any Entity
+     * Properties on the target Entity. This change is not applied
+     * until the next tick and will not apply to other players.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param targetEntity
+     * The Entity or the ID of the Entity whose Entity Property
+     * overrides are being cleared.
+     * @throws
+     * Throws if the Entity or Entity ID is invalid.
+     */
+    clearPropertyOverridesForEntity(targetEntity: Entity | string): void;
+    /**
+     * @beta
+     * @remarks
+     * Eats an item, providing the item's hunger and saturation
+     * effects to the player. Can only be used on food items.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param itemStack
+     * The item to eat.
+     * @throws
+     * Throws if the item is not a food item.
+     */
+    eatItem(itemStack: ItemStack): void;
+    /**
+     * @remarks
+     * The player's aim-assist settings.
+     *
+     */
+    getAimAssist(): PlayerAimAssist;
+    /**
+     * @remarks
+     * Returns the player's current control scheme.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidEntityError}
+     */
+    getControlScheme(): ControlScheme;
+    /**
+     * @remarks
+     * Retrieves the active gamemode for this player, if specified.
+     *
+     * @throws This function can throw errors.
+     */
+    getGameMode(): GameMode;
+    /**
+     * @remarks
+     * Gets the current item cooldown time for a particular
+     * cooldown category.
+     *
+     * @param cooldownCategory
+     * Specifies the cooldown category to retrieve the current
+     * cooldown for.
+     * @throws This function can throw errors.
+     */
+    getItemCooldown(cooldownCategory: string): number;
+    /**
+     * @beta
+     * @remarks
+     * Gets the player's ping in milliseconds.
+     *
+     * @returns
+     * The player's ping in milliseconds.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link InvalidEntityError}
+     */
+    getPing(): number;
+    /**
+     * @remarks
+     * Gets the current spawn point of the player.
+     *
+     * @throws This function can throw errors.
+     */
+    getSpawnPoint(): DimensionLocation | undefined;
+    /**
+     * @beta
+     * @remarks
+     * Returns the split screen slot of the player.
+     *
+     * @returns
+     * The split screen slot of the player or undefined if the
+     * player is not in a split screen session.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link InvalidEntityError}
+     */
+    getSplitScreenSlot(): PlayerSplitScreenSlot | undefined;
+    /**
+     * @remarks
+     *  Gets the total experience of the Player.
+     *
+     * @throws This function can throw errors.
+     */
+    getTotalXp(): number;
+    /**
+     * @remarks
+     * Plays a music track that only this particular player can
+     * hear.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param trackId
+     * Identifier of the music track to play.
+     * @param musicOptions
+     * Additional options for the music track.
+     * @throws This function can throw errors.
+     */
+    playMusic(trackId: string, musicOptions?: MusicOptions): void;
+    /**
+     * @remarks
+     * Plays a sound that only this particular player can hear.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param soundOptions
+     * Additional optional options for the sound.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link Error}
+     * @example playMusicAndSound.ts
+     * ```typescript
+     * import { world, MusicOptions, WorldSoundOptions, PlayerSoundOptions, DimensionLocation } from '@minecraft/server';
+     *
+     * function playMusicAndSound(targetLocation: DimensionLocation) {
+     *   const players = world.getPlayers();
+     *
+     *   const musicOptions: MusicOptions = {
+     *     fade: 0.5,
+     *     loop: true,
+     *     volume: 1.0,
+     *   };
+     *   world.playMusic('music.menu', musicOptions);
+     *
+     *   const worldSoundOptions: WorldSoundOptions = {
+     *     pitch: 0.5,
+     *     volume: 4.0,
+     *   };
+     *   world.playSound('ambient.weather.thunder', targetLocation, worldSoundOptions);
+     *
+     *   const playerSoundOptions: PlayerSoundOptions = {
+     *     pitch: 1.0,
+     *     volume: 1.0,
+     *   };
+     *
+     *   players[0].playSound('bucket.fill_water', playerSoundOptions);
+     * }
+     * ```
+     */
+    playSound(soundId: SoundDefinition | string, soundOptions?: PlayerSoundOptions): SoundInstance;
+    /**
+     * @beta
+     * @remarks
+     * This is an internal-facing method for posting a system
+     * message to downstream clients.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     */
+    postClientMessage(id: string, value: string): void;
+    /**
+     * @remarks
+     * Queues an additional music track that only this particular
+     * player can hear. If a track is not playing, a music track
+     * will play.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param trackId
+     * Identifier of the music track to play.
+     * @param musicOptions
+     * Additional options for the music track.
+     * @throws
+     * An error will be thrown if volume is less than 0.0.
+     * An error will be thrown if fade is less than 0.0.
+     *
+     */
+    queueMusic(trackId: string, musicOptions?: MusicOptions): void;
+    /**
+     * @remarks
+     * For this player, removes the override on an Entity Property.
+     * This change is not applied until the next tick and will not
+     * apply to other players.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param targetEntity
+     * The Entity whose Entity Property override is being removed.
+     * @param identifier
+     * The Entity Property identifier.
+     * @throws
+     * Throws if the entity is invalid.
+     * Throws if an invalid identifier is provided.
+     * Throws if the provided value type does not match the
+     * property type.
+     */
+    removePropertyOverrideForEntity(targetEntity: Entity, identifier: string): void;
+    /**
+     * @remarks
+     * Resets the level of the player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     */
+    resetLevel(): void;
+    /**
+     * @remarks
+     * Sends a message to the player.
+     *
+     * @param message
+     * The message to be displayed.
+     * @throws
+     * This method can throw if the provided {@link RawMessage} is
+     * in an invalid format. For example, if an empty `name` string
+     * is provided to `score`.
+     *
+     * {@link InvalidEntityError}
+     *
+     * {@link RawMessageError}
+     * @example nestedTranslation.ts
+     * ```typescript
+     * import { world, DimensionLocation } from '@minecraft/server';
+     *
+     * function nestedTranslation(targetLocation: DimensionLocation) {
+     *   // Displays "Apple or Coal"
+     *   const rawMessage = {
+     *     translate: 'accessibility.list.or.two',
+     *     with: { rawtext: [{ translate: 'item.apple.name' }, { translate: 'item.coal.name' }] },
+     *   };
+     *   world.sendMessage(rawMessage);
+     * }
+     * ```
+     * @example scoreWildcard.ts
+     * ```typescript
+     * import { world, DimensionLocation } from '@minecraft/server';
+     *
+     * function scoreWildcard(targetLocation: DimensionLocation) {
+     *   // Displays the player's score for objective "obj". Each player will see their own score.
+     *   const rawMessage = { score: { name: '*', objective: 'obj' } };
+     *   world.sendMessage(rawMessage);
+     * }
+     * ```
+     * @example sendBasicMessage.ts
+     * ```typescript
+     * import { world, DimensionLocation } from '@minecraft/server';
+     *
+     * function sendBasicMessage(targetLocation: DimensionLocation) {
+     *   const players = world.getPlayers();
+     *
+     *   players[0].sendMessage('Hello World!');
+     * }
+     * ```
+     * @example sendPlayerMessages.ts
+     * ```typescript
+     * import { world, DimensionLocation } from '@minecraft/server';
+     *
+     * function sendPlayerMessages(targetLocation: DimensionLocation) {
+     *   for (const player of world.getAllPlayers()) {
+     *     // Displays "First or Second"
+     *     const rawMessage = { translate: 'accessibility.list.or.two', with: ['First', 'Second'] };
+     *     player.sendMessage(rawMessage);
+     *
+     *     // Displays "Hello, world!"
+     *     player.sendMessage('Hello, world!');
+     *
+     *     // Displays "Welcome, Amazing Player 1!"
+     *     player.sendMessage({ translate: 'authentication.welcome', with: ['Amazing Player 1'] });
+     *
+     *     // Displays the player's score for objective "obj". Each player will see their own score.
+     *     const rawMessageWithScore = { score: { name: '*', objective: 'obj' } };
+     *     player.sendMessage(rawMessageWithScore);
+     *
+     *     // Displays "Apple or Coal"
+     *     const rawMessageWithNestedTranslations = {
+     *       translate: 'accessibility.list.or.two',
+     *       with: { rawtext: [{ translate: 'item.apple.name' }, { translate: 'item.coal.name' }] },
+     *     };
+     *     player.sendMessage(rawMessageWithNestedTranslations);
+     *   }
+     * }
+     * ```
+     * @example sendTranslatedMessage.ts
+     * ```typescript
+     * import { world, DimensionLocation } from '@minecraft/server';
+     *
+     * function sendTranslatedMessage(targetLocation: DimensionLocation) {
+     *   const players = world.getPlayers();
+     *
+     *   players[0].sendMessage({ translate: 'authentication.welcome', with: ['Amazing Player 1'] });
+     * }
+     * ```
+     */
+    sendMessage(message: (RawMessage | string)[] | RawMessage | string): void;
+    /**
+     * @remarks
+     * Set a player's control scheme. The player's active camera
+     * preset must be set by scripts like with camera.setCamera()
+     * or commands.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param controlScheme
+     * Control scheme type. If this argument is undefined, this
+     * method will clear the player's control scheme back to the
+     * player camera's default control scheme.
+     * @returns
+     * Returns nothing if the control scheme was added or updated
+     * successfully. This can throw an InvalidArgumentError if the
+     * control scheme is not allowed by the player's current
+     * camera.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link InvalidEntityError}
+     */
+    setControlScheme(controlScheme?: ControlScheme): void;
+    /**
+     * @remarks
+     * Sets a gamemode override for this player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param gameMode
+     * Active gamemode.
+     * @throws This function can throw errors.
+     */
+    setGameMode(gameMode?: GameMode): void;
+    /**
+     * @remarks
+     * For this player, overrides an Entity Property on the target
+     * Entity to the provided value. This property must be client
+     * synced. This change is not applied until the next tick and
+     * will not apply to other players.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param targetEntity
+     * The Entity whose Entity Property is being overriden.
+     * @param identifier
+     * The Entity Property identifier.
+     * @param value
+     * The override value. The provided type must be compatible
+     * with the type specified in the entity's definition.
+     * @throws
+     * Throws if the entity is invalid.
+     * Throws if an invalid identifier is provided.
+     * Throws if the provided value type does not match the
+     * property type.
+     * Throws if the provided value is outside the expected range
+     * (int, float properties).
+     * Throws if the provided string value does not match the set
+     * of accepted enum values (enum properties)
+     */
+    setPropertyOverrideForEntity(targetEntity: Entity, identifier: string, value: boolean | number | string): void;
+    /**
+     * @remarks
+     * Sets the current starting spawn point for this particular
+     * player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link Error}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     */
+    setSpawnPoint(spawnPoint?: DimensionLocation): void;
+    /**
+     * @remarks
+     * Creates a new particle emitter at a specified location in
+     * the world. Only visible to the target player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param effectName
+     * Identifier of the particle to create.
+     * @param location
+     * The location at which to create the particle emitter.
+     * @param molangVariables
+     * A set of optional, customizable variables that can be
+     * adjusted for this particle.
+     * @throws This function can throw errors.
+     *
+     * {@link Error}
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     * @example spawnParticle.ts
+     * ```typescript
+     * import { world, MolangVariableMap, Vector3 } from '@minecraft/server';
+     *
+     * world.afterEvents.playerSpawn.subscribe(event => {
+     *   const targetLocation = event.player.location;
+     *   for (let i = 0; i < 100; i++) {
+     *     const molang = new MolangVariableMap();
+     *
+     *     molang.setColorRGB('variable.color', {
+     *       red: Math.random(),
+     *       green: Math.random(),
+     *       blue: Math.random(),
+     *     });
+     *
+     *     const newLocation: Vector3 = {
+     *       x: targetLocation.x + Math.floor(Math.random() * 8) - 4,
+     *       y: targetLocation.y + Math.floor(Math.random() * 8) - 4,
+     *       z: targetLocation.z + Math.floor(Math.random() * 8) - 4,
+     *     };
+     *     event.player.spawnParticle('minecraft:colored_flame_particle', newLocation, molang);
+     *   }
+     * });
+     * ```
+     */
+    spawnParticle(effectName: string, location: Vector3, molangVariables?: MolangVariableMap): void;
+    /**
+     * @remarks
+     * Sets the item cooldown time for a particular cooldown
+     * category.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param cooldownCategory
+     * Specifies the cooldown category to retrieve the current
+     * cooldown for.
+     * @param tickDuration
+     * Duration in ticks of the item cooldown.
+     * Bounds: [0, 32767]
+     * @throws This function can throw errors.
+     */
+    startItemCooldown(cooldownCategory: string, tickDuration: number): void;
+    /**
+     * @beta
+     * @remarks
+     * Stops all sounds from playing for this particular player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidEntityError}
+     */
+    stopAllSounds(): void;
+    /**
+     * @remarks
+     * Stops any music tracks from playing for this particular
+     * player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     */
+    stopMusic(): void;
+    /**
+     * @beta
+     * @remarks
+     * Stops a sound from playing for this particular player.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @param soundId
+     * Identifier of the sound.
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidEntityError}
+     */
+    stopSound(soundId: string): void;
+}

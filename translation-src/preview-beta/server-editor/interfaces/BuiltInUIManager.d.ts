@@ -1,0 +1,77 @@
+/**
+ * Represents a UI session for a given player
+ */
+export interface BuiltInUIManager {
+    /**
+     * @remarks
+     * Activates tutorial overlay
+     *
+     */
+    activateTutorial(): void;
+    /**
+     * @remarks
+     * Navigates to the documentation site.
+     *
+     */
+    navigateToDocumentation(): void;
+    /**
+     * @remarks
+     * Navigates to the feedback site
+     *
+     */
+    navigateToFeedback(): void;
+    /**
+     * @remarks
+     * Navigates to the pause screen
+     *
+     */
+    navigateToPauseScreen(): void;
+    /**
+     * @remarks
+     * Navigates to the github-samples site
+     *
+     */
+    navigateToSamples(): void;
+    /**
+     * @remarks
+     * Saves levels & exits back to Editor main menu.
+     *
+     */
+    saveAndExit(): void;
+    /**
+     * @remarks
+     * Shows the Keyboard Settings modal
+     *
+     */
+    showKeyboardSettings(): void;
+    /**
+     * @remarks
+     * Shows update information for the current version
+     *
+     */
+    showUpdateInformation(): void;
+    /**
+     * @remarks
+     * Updates the visibility of the Control Help panel
+     *
+     */
+    updateControlHelpPanelVisibility(visibility: boolean): void;
+    /**
+     * @remarks
+     * Updates the visibility of the log panel
+     *
+     */
+    updateLogPanelVisibility(visibility: boolean): void;
+    /**
+     * @remarks
+     * Updates the visibility of the Structure panel
+     *
+     */
+    updateStructurePanelVisibility(visibility: boolean): void;
+    /**
+     * @remarks
+     * Updates the visibility of the control demo
+     *
+     */
+    updateUISettingsPanelVisibility(visibility: boolean): void;
+}

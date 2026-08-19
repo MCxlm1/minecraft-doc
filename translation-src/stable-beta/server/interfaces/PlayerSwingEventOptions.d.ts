@@ -1,0 +1,24 @@
+/**
+ * An interface that is passed into
+ * {@link PlayerSwingStartAfterEventSignal.subscribe} that
+ * filters out which events are passed to the provided
+ * callback.
+ */
+export interface PlayerSwingEventOptions {
+    /**
+     * @remarks
+     * The held item option that the callback should be called for.
+     * If undefined, the callback will be called whether or not the
+     * player is holding an item in their hand.
+     *
+     */
+    heldItemOption?: HeldItemOption;
+    /**
+     * @remarks
+     * The {@link EntitySwingSource} that the callback should be
+     * called for. If undefined, the callback will be called for
+     * all swing sources.
+     *
+     */
+    swingSource?: EntitySwingSource;
+}
