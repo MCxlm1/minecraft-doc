@@ -1,91 +1,91 @@
 #!/usr/bin/env node
-// molang-gen.mjs - 生成 Molang 独立文档（typedoc 两模块页 math/queries）
+// molang-gen.mjs - 自包含生成 Molang 文档（index 表格 + 每函数详情 + 左栏目录，复用 typedoc 观感）
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { generateTypedocSite } from './typedoc-gen.mjs';
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const BDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'bds-config.json'), 'utf8'));
 const _bi = process.argv.indexOf('--branch');
 const BRANCH = _bi >= 0 ? process.argv[_bi + 1] : (BDS.branch || 'preview');
-
-const data = JSON.parse(fs.readFileSync(
-  path.join(ROOT, 'metadata', BRANCH, 'metadata', 'molang_modules', 'mojang-molang-queries.json'), 'utf8'));
+const dataPath = path.join(ROOT, 'metadata', BRANCH, 'metadata', 'molang_modules', 'mojang-molang-queries.json');
+const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const TRANS = path.join(ROOT, 'translations', 'zh-CN', 'molang');
-const GEN = path.join(ROOT, '_gen-molang');
 const OUT = path.join(ROOT, '_out', 'molang');
+const SET_LABEL = { default: '默认', world_gen: '世界生成', tags: '标签' };
+const safe = (n) => n.replace(/[^\w]+/g, '_').replace(/_$/, '');
+const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const sanitize = (n) => n.replace(/[^\w]+/g, '_').replace(/_$/, '');
-const desc = (g, name, en) => {
+function md(x) { return String(x).replace(/^#+\s*/gm, '').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\n+/g, '<br>'); }
+function trans(g, name, en) {
   const p = path.join(TRANS, g, name + '.md');
   if (fs.existsSync(p)) { const t = fs.readFileSync(p, 'utf8').trim(); if (t) return t; }
   return en;
-};
-const SET_LABEL = { default: '默认', world_gen: '世界生成', tags: '标签' };
-const labelSets = (sets) => (sets || []).map((s) => SET_LABEL[s] || s).filter(Boolean).join(' / ');
-const toDts = (g, items) => (items || []).map((it) => {
-  const name = it.name || '';
-  const lines = ['/**', ' * ' + name, ' * ' + desc(g, name, it.description || '')];
-  if (it.return_type) lines.push(' * @returns ' + it.return_type);
-  const vr = (it.version_ranges || [])[0];
-  if (vr) {
-    const setsL = labelSets(vr.query_sets);
-    if (setsL) lines.push(' * 可用集合：' + setsL);
-    const fv = vr.first_version;
-    if (fv && fv !== '0.0.0') lines.push(' * 版本：' + fv);
-  }
-  lines.push(' */');
-  lines.push('export function ' + sanitize(name) + '(): void;');
-  return lines.join('\n');
-}).join('\n\n');
-
-fs.rmSync(GEN, { recursive: true, force: true });
-fs.mkdirSync(GEN, { recursive: true });
-fs.writeFileSync(path.join(GEN, 'molang-math.d.ts'), toDts('math', data.math_functions || []));
-fs.writeFileSync(path.join(GEN, 'molang-queries.d.ts'), toDts('queries', data.queries || []));
-
-const tsconfig = {
-  compilerOptions: { module: 'commonjs', lib: ['es6', 'dom'], target: 'es6', noEmit: true, skipLibCheck: true },
-  typedocOptions: {
-    name: 'MoLang (' + BRANCH + ')',
-    entryPoints: ['molang-math.d.ts', 'molang-queries.d.ts'],
-    basePath: '.',
-    externalPattern: '',
-    lang: 'zh',
-    githubPages: false,
-    customCss: './extra.css',
-    cascadedModifierTags: []
-  }
-};
-fs.writeFileSync(path.join(GEN, 'tsconfig.json'), JSON.stringify(tsconfig, null, 2));
-fs.writeFileSync(path.join(GEN, 'extra.css'), '');
-await generateTypedocSite({ tsconfigPath: path.join(GEN, 'tsconfig.json'), outDir: OUT });
-
-console.log('MoLang 文档已生成 _out/molang/  math=' + (data.math_functions || []).length +
-  ' queries=' + (data.queries || []).length);
-
-const esc = (x) => String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const safeN = (n) => n.replace(/[^\w]+/g,'_').replace(/_$/,'');
-
-function rowHtml(kind, item) {
-  const name = item.name || '';
-  const href = (kind==='math' ? './modules/molang_math' : './modules/molang_queries') + '.' + safeN(name) + '.html';
-  const sets = (item.version_ranges && item.version_ranges[0] && item.version_ranges[0].query_sets || [])
-    .map((x) => SET_LABEL[x] || x).filter(Boolean).join('、') || '默认';
-  const fv = item.version_ranges && item.version_ranges[0] && item.version_ranges[0].first_version;
-  const ver = fv && fv !== '0.0.0' ? fv : '默认';
-  const ret = item.return_type ? `<code>${esc(item.return_type)}</code>` : '—';
-  return `<tr><td><a href="${href}">${esc(name)}</a></td><td>${esc(desc2(kind, name, item.description))}</td><td>${ret}</td><td>${esc(sets)}</td><td>${esc(ver)}</td></tr>`;
 }
-function desc2(g, name, en) { return desc(g, name, en || ''); }
+function setsOf(it) {
+  const s = (it.version_ranges && it.version_ranges[0] && it.version_ranges[0].query_sets) || [];
+  return s.map((x) => SET_LABEL[x] || x).filter(Boolean).join('、') || '默认';
+}
+function verOf(it) {
+  const f = it.version_ranges && it.version_ranges[0] && it.version_ranges[0].first_version;
+  return f && f !== '0.0.0' ? f : '默认';
+}
+const argText=(it)=>{if(it.max_args===undefined)return '';const a0=it.min_args==null?0:it.min_args;return a0===it.max_args?'('+a0+')':'('+a0+'…'+it.max_args+')'};
+const css = fs.readFileSync(path.join(__dirname, 'molang-style.css'), 'utf8');
 
-function buildIndexHtml({ math, queries }) {
-  const css = 'body{font-family:system-ui,sans-serif;margin:auto;max-width:1100px;padding:2rem;color:#1f2937}table{border-collapse:collapse;width:100%}td,th{border:1px solid #e5e7eb;padding:6px 10px;text-align:left;vertical-align:top}a{color:#4f46e5;text-decoration:none}';
-  const table = (title, rows) => `<h2>${title}（${rows.length}）</h2><table><thead><tr><th>函数</th><th>描述</th><th>返回</th><th>集合</th><th>版本</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
-  const ml = `<body><h1>MoLang 文档（${BRANCH}）</h1>${table('数学函数', math.map(x => rowHtml('math', x)))}${table('查询函数', queries.map(x => rowHtml('queries', x)))}</body>`;
-  fs.writeFileSync(path.join(OUT, 'index.html'), `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>MoLang (${BRANCH})</title><style>${css}</style></head>${ml}</html>`);
+
+function shell(title, body, nav, active) {
+  return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)} · MoLang</title><style>${css}</style>
+<script>document.documentElement.dataset.theme=localStorage.getItem("tsd-theme")||"os"</script></head><body>
+<div class="topbar"><a href="index.html"><b>MoLang</b></a><span class="meta">${esc(BRANCH)}</span></div>
+<div class="wrap">${navHtml(active)}<main>${body}</main></div></body></html>`;
 }
 
-buildIndexHtml({ math: data.math_functions || [], queries: data.queries || [] });
+
+function navHtml(active) {
+  return '<nav>' + ['math', 'queries'].map((g) => {
+    const arr = data[g === 'math' ? 'math_functions' : 'queries'] || [];
+    return '<div class="g">' + (g === 'math' ? '数学函数' : '查询函数') + '</div>' +
+      arr.map((it) => {
+        const hn = (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html';
+        const on = hn === active ? ' class="on"' : '';
+        return `<a${on} href="${hn}">${esc(it.name)}</a>`;
+      }).join('');
+  }).join('') + '</nav>';
+}
+
+function buildIndex() {
+  fs.mkdirSync(path.join(OUT, 'math'), { recursive: true });
+  fs.mkdirSync(path.join(OUT, 'queries'), { recursive: true });
+  const table = (g, arr) => `<h2>${g === 'math' ? '数学函数' : '查询函数'}（${arr.length}）</h2>
+<table><thead><tr><th>函数</th><th>描述</th><th>返回</th><th>集合</th><th>版本</th></tr></thead><tbody>` +
+    arr.map((it) => {
+      const hn = (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html';
+      const ret = it.return_type ? '<code>' + esc(it.return_type) + '</code>' : '-';
+      return `<tr><td><a href="${hn}">${esc(it.name)}</a></td><td>${esc(trans(g, it.name, it.description || ''))}</td><td>${ret}</td><td>${esc(setsOf(it))}</td><td>${esc(verOf(it))}</td></tr>`;
+    }).join('') + '</tbody></table>';
+  const body = `<h1>MoLang 文档（${esc(BRANCH)}）</h1>` + table('math', data.math_functions || []) + table('queries', data.queries || []);
+  fs.writeFileSync(path.join(OUT, 'index.html'), shell('MoLang 索引', body, '', ''));
+}
+
+function buildDetail(g, it) {
+  const hn = (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html';
+  const argl = argText(it);
+  const arg = argText(it);
+  const sig = arg ? `<b>${esc(it.name)}</b><code>${esc(arg)}</code>` : '';
+  const body = `<h1><b>${esc(it.name)}</b></h1>
+<div class="meta">集合：${esc(setsOf(it))}　·　版本：${esc(verOf(it))}</div>
+${it.return_type ? `<div class="meta">返回类型：<code>${esc(it.return_type)}</code></div>` : ''}
+${arg ? `<div class="sig">${sig}</div>` : ''}
+<div class="desc">${md(trans(g, it.name, it.description || ''))}</div>`;
+  fs.writeFileSync(path.join(OUT, (g === 'math' ? 'math' : 'queries'), safe(it.name) + '.html'),
+    shell(it.name + ' · MoLang', body, (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html', body));
+}
+
+// 主构建
+fs.mkdirSync(OUT, { recursive: true });
+buildIndex();
+for (const it of data.math_functions || []) buildDetail('math', it);
+for (const it of data.queries || []) buildDetail('queries', it);
+console.log('MoLang 生成 _out/molang/  math=' + (data.math_functions || []).length + ' queries=' + (data.queries || []).length);
