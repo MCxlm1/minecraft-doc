@@ -30,8 +30,9 @@ jobs:
         env:
           BRANCH_TO_UPDATE: ${{ env.BRANCH_TO_UPDATE }}
           BDS_NO_PUSH: "1"            # 集成到本仓库：只生成，不 git push
-          GITHUB_ACTIONS: "true"
+          GITHUB_ACTIONS: ""          # 置空：让生成器内部的 git 登录/提交(if(!GIT_IS_GITHUB_ACTION))全部跳过
         run: |
+          unset GITHUB_ACTIONS 2>/dev/null || true
           cd vendor/bds-docs
           deno run --allow-all dist/main.js
           echo "完成，目录内容："
