@@ -1,0 +1,21 @@
+{
+   "title": "minecraft:aim_assist_categories",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/camera/1.21.50/Camera%20Aim-Assist%20Categories.json",
+   "x-format-version": "1.21.50",
+   "type": "object",
+   "properties": {
+      "format_version": {
+         "type": "string",
+         "x-ordinal-index": 0
+      },
+      "minecraft:aim_assist_categories": {
+         "$ref": "./CameraAimAssistCategoriesDefinition.json",
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "format_version",
+      "minecraft:aim_assist_categories"
+   ]
+}

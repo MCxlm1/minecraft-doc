@@ -1,0 +1,12 @@
+{
+   "title": "ClientboundDataDrivenUICloseScreenPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ClientboundDataDrivenUICloseScreenPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./Clientbound_Data_Driven_UI_Close_Screen_Payload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 334,
+      "[cereal:packet_details]": ""
+   }
+}

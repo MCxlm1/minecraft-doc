@@ -1,0 +1,12 @@
+{
+   "title": "NetworkChunkPublisherUpdatePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/NetworkChunkPublisherUpdatePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./NetworkChunkPublisherUpdatePacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 121,
+      "[cereal:packet_details]": "Used (from the server) when a user's Chunk View moves, I.e. the area that determines what chunks exist. For ClientSideGeneration we also send the client a list of ChunkPos that the Server will fully build."
+   }
+}

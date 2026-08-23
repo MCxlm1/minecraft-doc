@@ -1,0 +1,21 @@
+{
+   "title": "Biome JSON File",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/biome/beta/Biome%20Document.json",
+   "x-format-version": "beta",
+   "type": "object",
+   "properties": {
+      "format_version": {
+         "type": "string",
+         "x-ordinal-index": 1
+      },
+      "minecraft:biome": {
+         "$ref": "./Biome%20Definition.json",
+         "x-ordinal-index": 0
+      }
+   },
+   "required": [
+      "format_version",
+      "minecraft:biome"
+   ]
+}

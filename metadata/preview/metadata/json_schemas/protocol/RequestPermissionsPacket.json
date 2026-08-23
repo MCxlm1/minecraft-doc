@@ -1,0 +1,12 @@
+{
+   "title": "RequestPermissionsPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/RequestPermissionsPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./RequestPermissionsPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 185,
+      "[cereal:packet_details]": "Can only be used by Operators or Hosts."
+   }
+}

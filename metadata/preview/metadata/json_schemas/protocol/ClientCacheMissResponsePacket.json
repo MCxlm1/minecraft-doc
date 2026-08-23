@@ -1,0 +1,12 @@
+{
+   "title": "ClientCacheMissResponsePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ClientCacheMissResponsePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ClientCacheMissResponsePacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 136,
+      "[cereal:packet_details]": "Any missing blob should just be thrown into one of these packet ASAP and sent. This is actually how chunk data gets to the client the first time."
+   }
+}

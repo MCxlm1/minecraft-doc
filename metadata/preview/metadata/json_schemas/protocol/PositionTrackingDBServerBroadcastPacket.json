@@ -1,0 +1,12 @@
+{
+   "title": "PositionTrackingDBServerBroadcastPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/PositionTrackingDBServerBroadcastPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./PositionTrackingDBServerBroadcastPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 153,
+      "[cereal:packet_details]": ""
+   }
+}

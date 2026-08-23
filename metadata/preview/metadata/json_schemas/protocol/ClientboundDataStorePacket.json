@@ -1,0 +1,12 @@
+{
+   "title": "ClientboundDataStorePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ClientboundDataStorePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./Clientbound_Data_Store_Payload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 330,
+      "[cereal:packet_details]": ""
+   }
+}

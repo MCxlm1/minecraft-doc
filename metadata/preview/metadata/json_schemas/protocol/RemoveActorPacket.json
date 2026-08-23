@@ -1,0 +1,12 @@
+{
+   "title": "RemoveActorPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/RemoveActorPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./RemoveActorPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 14,
+      "[cereal:packet_details]": "This is sent to the client to confirm which entity is being removed. This is done by sending an ActorUniqueID"
+   }
+}

@@ -1,0 +1,54 @@
+{
+   "title": "Biome Components",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/biome/1.26.30/Biome%20Components.json",
+   "x-format-version": "1.26.30",
+   "type": "object",
+   "properties": {
+      "minecraft:climate": {
+         "$ref": "../1.21.110/minecraft_climate.json"
+      },
+      "minecraft:creature_spawn_probability": {
+         "$ref": "../1.21.110/minecraft_creature_spawn_probability.json"
+      },
+      "minecraft:humidity": {
+         "$ref": "../1.21.110/minecraft_humidity.json"
+      },
+      "minecraft:map_tints": {
+         "$ref": "../1.21.110/minecraft_map_tints.json"
+      },
+      "minecraft:mountain_parameters": {
+         "$ref": "../1.21.110/minecraft_mountain_parameters.json"
+      },
+      "minecraft:multinoise_generation_rules": {
+         "$ref": "../1.21.110/minecraft_multinoise_generation_rules.json"
+      },
+      "minecraft:overworld_generation_rules": {
+         "$ref": "../1.21.110/minecraft_overworld_generation_rules.json"
+      },
+      "minecraft:overworld_height": {
+         "$ref": "../1.21.110/minecraft_overworld_height.json"
+      },
+      "minecraft:partially_frozen": {
+         "$ref": "../1.21.110/minecraft_partially_frozen.json"
+      },
+      "minecraft:replace_biomes": {
+         "$ref": "../1.26.0/minecraft_replace_biomes.json"
+      },
+      "minecraft:subsurface_builder": {
+         "$ref": "./minecraft_surface_builder.json"
+      },
+      "minecraft:surface_builder": {
+         "$ref": "./minecraft_surface_builder.json"
+      },
+      "minecraft:surface_material_adjustments": {
+         "$ref": "../1.21.110/minecraft_surface_material_adjustments.json"
+      },
+      "minecraft:tags": {
+         "$ref": "../1.21.110/minecraft_tags.json"
+      },
+      "minecraft:village_type": {
+         "$ref": "../1.26.0/minecraft_village_type.json"
+      }
+   }
+}

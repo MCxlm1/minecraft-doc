@@ -1,0 +1,12 @@
+{
+   "title": "ShowProfilePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ShowProfilePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ShowProfilePacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 104,
+      "[cereal:packet_details]": "The only use in vanilla is a test command called ProfileCommand. It makes the user's xbox profile popup."
+   }
+}

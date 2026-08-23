@@ -22,3 +22,6 @@ registry/
 # BDS 生成物（vendor/bds-docs 运行 bds-docs 后的输出）
 vendor/bds-docs/metadata
 vendor/bds-docs/dist-raw/
+
+# Molang 生成中间
+_gen-molang/

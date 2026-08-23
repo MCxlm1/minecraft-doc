@@ -1,0 +1,12 @@
+{
+   "title": "OpenSignPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/OpenSignPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./OpenSignPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 303,
+      "[cereal:packet_details]": ""
+   }
+}

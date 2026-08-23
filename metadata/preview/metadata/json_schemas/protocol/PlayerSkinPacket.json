@@ -1,0 +1,12 @@
+{
+   "title": "PlayerSkinPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/PlayerSkinPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./PlayerSkinPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 93,
+      "[cereal:packet_details]": "Sent from the client to server, then processed and broadcasted to all clients. This is used by third-party(3P) servers to send custom geometry."
+   }
+}

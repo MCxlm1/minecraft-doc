@@ -1,0 +1,12 @@
+{
+   "title": "LoginPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/LoginPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./LoginPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 1,
+      "[cereal:packet_details]": ""
+   }
+}

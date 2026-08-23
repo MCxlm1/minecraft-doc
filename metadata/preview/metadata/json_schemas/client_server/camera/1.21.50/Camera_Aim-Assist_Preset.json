@@ -1,0 +1,21 @@
+{
+   "title": "minecraft:aim_assist_preset",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/camera/1.21.50/Camera%20Aim-Assist%20Preset.json",
+   "x-format-version": "1.21.50",
+   "type": "object",
+   "properties": {
+      "format_version": {
+         "type": "string",
+         "x-ordinal-index": 0
+      },
+      "minecraft:aim_assist_preset": {
+         "$ref": "./CameraAimAssistPresetDefinition.json",
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "format_version",
+      "minecraft:aim_assist_preset"
+   ]
+}

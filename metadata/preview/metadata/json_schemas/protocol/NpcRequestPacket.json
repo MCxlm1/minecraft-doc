@@ -1,0 +1,12 @@
+{
+   "title": "NpcRequestPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/NpcRequestPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./NpcRequestPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 98,
+      "[cereal:packet_details]": "A request is made from the client during an interaction with an NPC then the request is processed by the server. \n\tActor MUST have the NPCComponent to be handled. \n\tWe currently only use this for EDU, but the goal was to expose the NPC Component to creators."
+   }
+}

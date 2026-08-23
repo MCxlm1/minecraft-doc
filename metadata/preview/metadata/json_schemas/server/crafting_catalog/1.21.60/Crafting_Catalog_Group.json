@@ -1,0 +1,23 @@
+{
+   "title": "Crafting Catalog Group",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/crafting_catalog/1.21.60/Crafting%20Catalog%20Group.json",
+   "x-format-version": "1.21.60",
+   "type": "object",
+   "properties": {
+      "group_identifier": {
+         "$ref": "./Crafting%20Catalog%20Group%20Icon.json",
+         "x-ordinal-index": 0
+      },
+      "items": {
+         "type": "array",
+         "items": {
+            "$ref": "./Crafting%20Catalog%20Item.json"
+         },
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "items"
+   ]
+}

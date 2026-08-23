@@ -1,0 +1,12 @@
+{
+   "title": "ItemRegistryPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ItemRegistryPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ItemRegistryPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 162,
+      "[cereal:packet_details]": "This packet needs to be sent immediately after the StartGamePacket for primary clients."
+   }
+}

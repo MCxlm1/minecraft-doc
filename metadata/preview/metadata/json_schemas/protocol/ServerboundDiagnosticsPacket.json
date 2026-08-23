@@ -1,0 +1,12 @@
+{
+   "title": "ServerboundDiagnosticsPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ServerboundDiagnosticsPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ServerboundDiagnosticsPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 315,
+      "[cereal:packet_details]": ""
+   }
+}

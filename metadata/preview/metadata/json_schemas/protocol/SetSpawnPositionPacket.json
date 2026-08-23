@@ -1,0 +1,12 @@
+{
+   "title": "SetSpawnPositionPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/SetSpawnPositionPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./SetSpawnPositionPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 43,
+      "[cereal:packet_details]": "see RespawnPacket"
+   }
+}

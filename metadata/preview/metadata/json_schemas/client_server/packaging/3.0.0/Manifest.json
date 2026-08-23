@@ -1,0 +1,97 @@
+{
+   "title": "PackManifestDocument",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/packaging/3.0.0/Manifest.json",
+   "x-format-version": "3.0.0",
+   "type": "object",
+   "properties": {
+      "capabilities": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         },
+         "x-ordinal-index": 6
+      },
+      "dependencies": {
+         "type": "array",
+         "items": {
+            "oneOf": [
+               {
+                  "$ref": "./PackDependency.json"
+               },
+               {
+                  "$ref": "./NativeModuleDependency.json"
+               }
+            ],
+            "x-control-value-type": "uint32"
+         },
+         "x-ordinal-index": 3
+      },
+      "format_version": {
+         "type": "integer",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 0,
+         "minimum": 0,
+         "maximum": 255
+      },
+      "has_education_metadata": {
+         "type": "boolean",
+         "x-underlying-type": "boolean",
+         "x-ordinal-index": 8
+      },
+      "header": {
+         "$ref": "./Header.json",
+         "x-ordinal-index": 1
+      },
+      "metadata": {
+         "$ref": "./Metadata.json",
+         "x-ordinal-index": 7
+      },
+      "modules": {
+         "type": "array",
+         "items": {
+            "$ref": "./Module.json"
+         },
+         "x-ordinal-index": 2,
+         "minItems": 1
+      },
+      "settings": {
+         "type": "array",
+         "items": {
+            "oneOf": [
+               {
+                  "$ref": "./LabelSetting.json"
+               },
+               {
+                  "$ref": "./SliderSetting.json"
+               },
+               {
+                  "$ref": "./ToggleSetting.json"
+               },
+               {
+                  "$ref": "./DropdownSetting.json"
+               },
+               {
+                  "$ref": "./MultiSelectSetting.json"
+               }
+            ],
+            "x-control-value-type": "uint32"
+         },
+         "x-ordinal-index": 4,
+         "minItems": 1,
+         "maxItems": 50
+      },
+      "subpacks": {
+         "type": "array",
+         "items": {
+            "$ref": "./Subpack.json"
+         },
+         "x-ordinal-index": 5
+      }
+   },
+   "required": [
+      "format_version",
+      "header",
+      "modules"
+   ]
+}

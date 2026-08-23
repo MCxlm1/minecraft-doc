@@ -1,0 +1,12 @@
+{
+   "title": "SetDifficultyPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/SetDifficultyPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./SetDifficultyPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 60,
+      "[cereal:packet_details]": "Used for when a client changes difficulty through the menu or when the server changes the difficulty."
+   }
+}

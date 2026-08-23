@@ -1,0 +1,26 @@
+{
+   "title": "minecraft:ui-root",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client/ddui/1.21.130/DataDrivenUI%20UI%20Root.json",
+   "x-format-version": "1.21.130",
+   "type": "object",
+   "properties": {
+      "attribs": {
+         "$ref": "./Root.Attribs.json",
+         "x-ordinal-index": 0
+      },
+      "description": {
+         "$ref": "./description.json",
+         "x-ordinal-index": 1
+      },
+      "layout": {
+         "$ref": "./layout.json",
+         "x-ordinal-index": 2
+      }
+   },
+   "required": [
+      "attribs",
+      "description",
+      "layout"
+   ]
+}

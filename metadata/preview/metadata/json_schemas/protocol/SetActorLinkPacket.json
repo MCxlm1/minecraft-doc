@@ -1,0 +1,12 @@
+{
+   "title": "SetActorLinkPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/SetActorLinkPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./SetActorLinkPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 41,
+      "[cereal:packet_details]": "Sent when the player starts riding something. Two are sent at a time for some reason."
+   }
+}

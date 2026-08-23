@@ -1,0 +1,26 @@
+{
+   "title": "minecraft:ui-composition",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client/ddui/1.21.130/DataDrivenUI%20UI%20Composition.json",
+   "x-format-version": "1.21.130",
+   "type": "object",
+   "properties": {
+      "attribs": {
+         "$ref": "./Composition.Attribs.json",
+         "x-ordinal-index": 0
+      },
+      "description": {
+         "$ref": "./description.json",
+         "x-ordinal-index": 2
+      },
+      "layout": {
+         "$ref": "./CompositionLayout.json",
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "attribs",
+      "description",
+      "layout"
+   ]
+}

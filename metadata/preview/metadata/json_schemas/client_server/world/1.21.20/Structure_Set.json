@@ -1,0 +1,29 @@
+{
+   "title": "A Jigsaw Structure Set is a collection of Jigsaw Structures that are placed according to a set of rules.",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/world/1.21.20/Structure%20Set.json",
+   "x-format-version": "1.21.20",
+   "type": "object",
+   "properties": {
+      "description": {
+         "$ref": "./Jigsaw%20Structure%20Set%20Description.json",
+         "x-ordinal-index": 0
+      },
+      "placement": {
+         "$ref": "./RandomSpreadPlacement.json",
+         "x-ordinal-index": 1
+      },
+      "structures": {
+         "type": "array",
+         "items": {
+            "$ref": "./Structure.json"
+         },
+         "x-ordinal-index": 2
+      }
+   },
+   "required": [
+      "description",
+      "placement",
+      "structures"
+   ]
+}

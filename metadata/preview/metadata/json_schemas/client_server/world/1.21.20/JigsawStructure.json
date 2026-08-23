@@ -1,0 +1,127 @@
+{
+   "title": "JigsawStructure",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/world/1.21.20/JigsawStructure.json",
+   "x-format-version": "1.21.20",
+   "type": "object",
+   "properties": {
+      "biome_filters": {
+         "default": {
+            "all_of": null,
+            "any_of": null,
+            "all": null,
+            "OR": null,
+            "none_of": null,
+            "AND": null,
+            "any": null,
+            "NOT": null
+         },
+         "$ref": "../../common/1.21.20/Filter%20Group.json",
+         "x-ordinal-index": 1
+      },
+      "description": {
+         "$ref": "./JigsawDescriptionIdentifier.json",
+         "x-ordinal-index": 0
+      },
+      "dimension_padding": {
+         "oneOf": [
+            {
+               "type": "integer",
+               "x-underlying-type": "uint32",
+               "x-ordinal-index": 0,
+               "minimum": 0
+            },
+            {
+               "$ref": "./DimensionPaddingRange.json"
+            }
+         ],
+         "x-control-value-type": "uint32",
+         "x-ordinal-index": 9
+      },
+      "heightmap_projection": {
+         "default": "none",
+         "$ref": "./HeightmapProjection.json",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 8
+      },
+      "liquid_settings": {
+         "default": "apply_waterlogging",
+         "$ref": "./LiquidSettings.json",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 12
+      },
+      "max_depth": {
+         "type": "integer",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 6,
+         "minimum": 0,
+         "maximum": 20
+      },
+      "max_distance_from_center": {
+         "default": {
+            "horizontal": 80,
+            "vertical": 2147483647
+         },
+         "$ref": "./MaxDistanceFromCenter.json",
+         "x-ordinal-index": 10
+      },
+      "pool_aliases": {
+         "type": "array",
+         "default": [],
+         "items": {
+            "oneOf": [
+               {
+                  "$ref": "./DirectPoolAlias.json"
+               },
+               {
+                  "$ref": "./RandomPoolAlias.json"
+               },
+               {
+                  "$ref": "./RandomGroupPoolAlias.json"
+               }
+            ],
+            "x-control-value-type": "uint32"
+         },
+         "x-ordinal-index": 11
+      },
+      "start_height": {
+         "oneOf": [
+            {
+               "$ref": "./UniformHeightProviderType.json"
+            },
+            {
+               "$ref": "./ConstantHeightProviderType.json"
+            }
+         ],
+         "x-control-value-type": "uint32",
+         "x-ordinal-index": 7
+      },
+      "start_jigsaw_name": {
+         "type": "string",
+         "default": "",
+         "x-ordinal-index": 5
+      },
+      "start_pool": {
+         "$ref": "../../common/legacy/Reference%2015.json",
+         "x-ordinal-index": 4
+      },
+      "step": {
+         "$ref": "./GenerationStep.json",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 2
+      },
+      "terrain_adaptation": {
+         "default": "none",
+         "$ref": "./TerrainAdaptation.json",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 3
+      }
+   },
+   "required": [
+      "description",
+      "max_depth",
+      "start_height",
+      "start_pool",
+      "step"
+   ]
+}

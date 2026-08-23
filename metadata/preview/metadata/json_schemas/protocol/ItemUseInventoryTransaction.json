@@ -1,0 +1,115 @@
+{
+   "title": "ItemUseInventoryTransaction",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ItemUseInventoryTransaction.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "type": "object",
+   "properties": {
+      "Action Type": {
+         "$ref": "./ItemUseActionType.json",
+         "x-underlying-type": "int32",
+         "x-serialization-options": [
+            "Compression",
+            "Enum-as-Value"
+         ],
+         "x-ordinal-index": 1
+      },
+      "Actions": {
+         "$ref": "./InventoryTransaction.json",
+         "x-ordinal-index": 0
+      },
+      "Click Position": {
+         "$ref": "./Vec3.json",
+         "x-ordinal-index": 9
+      },
+      "Client Cooldown State": {
+         "$ref": "./ItemUseClientCooldownState.json",
+         "x-underlying-type": "uint8",
+         "x-serialization-options": [
+            "Enum-as-Value"
+         ],
+         "x-ordinal-index": 12
+      },
+      "Client Interact Prediction": {
+         "$ref": "./ItemUsePredictedResult.json",
+         "x-underlying-type": "uint8",
+         "x-serialization-options": [
+            "Enum-as-Value"
+         ],
+         "x-ordinal-index": 11
+      },
+      "Face": {
+         "type": "integer",
+         "x-underlying-type": "uint8",
+         "x-serialization-options": [
+            "Compression"
+         ],
+         "x-ordinal-index": 4,
+         "minimum": 0,
+         "maximum": 255
+      },
+      "From Position": {
+         "$ref": "./Vec3.json",
+         "x-ordinal-index": 8
+      },
+      "Hand": {
+         "$ref": "./HandSlot.json",
+         "x-underlying-type": "uint8",
+         "x-serialization-options": [
+            "Compression",
+            "Enum-as-Value"
+         ],
+         "x-ordinal-index": 6
+      },
+      "Item": {
+         "$ref": "./NetworkItemStackDescriptor.json",
+         "x-ordinal-index": 7
+      },
+      "Position": {
+         "$ref": "./BlockPos.json",
+         "x-ordinal-index": 3
+      },
+      "Slot": {
+         "type": "integer",
+         "x-underlying-type": "int32",
+         "x-serialization-options": [
+            "Compression"
+         ],
+         "x-ordinal-index": 5
+      },
+      "Target Block Id": {
+         "type": "integer",
+         "x-underlying-type": "uint32",
+         "x-serialization-options": [
+            "Compression"
+         ],
+         "x-ordinal-index": 10,
+         "minimum": 0
+      },
+      "Trigger Type": {
+         "$ref": "./ItemUseTriggerType.json",
+         "x-underlying-type": "uint8",
+         "x-serialization-options": [
+            "Compression",
+            "Enum-as-Value"
+         ],
+         "x-ordinal-index": 2
+      }
+   },
+   "required": [
+      "Action Type",
+      "Actions",
+      "Click Position",
+      "Client Cooldown State",
+      "Client Interact Prediction",
+      "Face",
+      "From Position",
+      "Hand",
+      "Item",
+      "Position",
+      "Slot",
+      "Target Block Id",
+      "Trigger Type"
+   ]
+}

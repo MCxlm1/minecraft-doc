@@ -1,0 +1,12 @@
+{
+   "title": "BookEditPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/BookEditPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./BookEditPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 97,
+      "[cereal:packet_details]": ""
+   }
+}

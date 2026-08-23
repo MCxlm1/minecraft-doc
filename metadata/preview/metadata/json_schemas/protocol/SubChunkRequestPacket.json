@@ -1,0 +1,12 @@
+{
+   "title": "SubChunkRequestPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/SubChunkRequestPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./SubChunkRequestPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 175,
+      "[cereal:packet_details]": ""
+   }
+}

@@ -1,0 +1,12 @@
+{
+   "title": "SetDisplayObjectivePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/SetDisplayObjectivePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./SetDisplayObjectivePacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 107,
+      "[cereal:packet_details]": ""
+   }
+}

@@ -1,0 +1,24 @@
+{
+   "title": "Block Culling",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client/block/1.21.80/Culling.json",
+   "x-format-version": "1.21.80",
+   "type": "object",
+   "properties": {
+      "description": {
+         "$ref": "../1.20.60/Description.json",
+         "x-ordinal-index": 0
+      },
+      "rules": {
+         "type": "array",
+         "items": {
+            "$ref": "./Rule.json"
+         },
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "description",
+      "rules"
+   ]
+}

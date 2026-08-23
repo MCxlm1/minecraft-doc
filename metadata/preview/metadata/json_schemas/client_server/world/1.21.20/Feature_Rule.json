@@ -1,0 +1,25 @@
+{
+   "title": "Feature Rule Definition",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/world/1.21.20/Feature%20Rule.json",
+   "x-format-version": "1.21.20",
+   "type": "object",
+   "properties": {
+      "conditions": {
+         "$ref": "./Feature%20Rule%20Conditions.json",
+         "x-ordinal-index": 1
+      },
+      "description": {
+         "$ref": "./Feature%20Rule%20Description.json",
+         "x-ordinal-index": 0
+      },
+      "distribution": {
+         "$ref": "./Scatter%20Params.json",
+         "x-ordinal-index": 2
+      }
+   },
+   "required": [
+      "conditions",
+      "description"
+   ]
+}

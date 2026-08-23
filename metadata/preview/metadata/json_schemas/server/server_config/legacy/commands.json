@@ -1,0 +1,23 @@
+{
+   "title": "commands",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/server_config/legacy/commands.json",
+   "x-format-version": "legacy",
+   "type": "object",
+   "properties": {
+      "default_permission_level": {
+         "$ref": "./command_permission_level.json",
+         "x-underlying-type": "uint8",
+         "x-ordinal-index": 0
+      },
+      "permission_levels": {
+         "type": "object",
+         "additionalProperties": {
+            "$ref": "./command_permission_level.json",
+            "x-underlying-type": "uint8"
+         },
+         "default": {},
+         "x-ordinal-index": 1
+      }
+   }
+}

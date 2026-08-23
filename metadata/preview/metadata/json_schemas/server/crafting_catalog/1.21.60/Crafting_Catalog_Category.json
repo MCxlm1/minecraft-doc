@@ -1,0 +1,25 @@
+{
+   "title": "Crafting Catalog Category",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/server/crafting_catalog/1.21.60/Crafting%20Catalog%20Category.json",
+   "x-format-version": "1.21.60",
+   "type": "object",
+   "properties": {
+      "category_name": {
+         "$ref": "./CraftingCatalogItemCategory.json",
+         "x-underlying-type": "int32",
+         "x-ordinal-index": 0
+      },
+      "groups": {
+         "type": "array",
+         "items": {
+            "$ref": "./Crafting%20Catalog%20Group.json"
+         },
+         "x-ordinal-index": 1
+      }
+   },
+   "required": [
+      "category_name",
+      "groups"
+   ]
+}

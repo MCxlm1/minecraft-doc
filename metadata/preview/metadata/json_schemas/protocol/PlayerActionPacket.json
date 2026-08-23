@@ -1,0 +1,12 @@
+{
+   "title": "PlayerActionPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/PlayerActionPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./PlayerActionPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 36,
+      "[cereal:packet_details]": "The expected actions change depending on the ServerAuthMovementMode specified in the StartGamePacket.\n\tSee the PlayerActionType enum for details on which have differing behavior.\n\tSee also PlayerAuthInputPacket and InventoryTransactionPacket for similar types of player actions."
+   }
+}

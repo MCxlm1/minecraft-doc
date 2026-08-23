@@ -1,0 +1,12 @@
+{
+   "title": "ContainerClosePacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ContainerClosePacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ContainerClosePacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 47,
+      "[cereal:packet_details]": ""
+   }
+}

@@ -1,0 +1,12 @@
+{
+   "title": "ServerPlayerPostMovePositionPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/ServerPlayerPostMovePositionPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./ServerPlayerPostMovePositionPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 16,
+      "[cereal:packet_details]": "Is currently only used for debug draw. Packets will not be sent if debug draw is not available."
+   }
+}

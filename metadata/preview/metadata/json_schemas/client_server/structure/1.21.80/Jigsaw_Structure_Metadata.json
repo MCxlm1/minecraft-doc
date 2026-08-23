@@ -1,0 +1,24 @@
+{
+   "title": "Jigsaw Structure Metadata",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/client_server/structure/1.21.80/Jigsaw%20Structure%20Metadata.json",
+   "x-format-version": "1.21.80",
+   "type": "object",
+   "properties": {
+      "markers": {
+         "type": "array",
+         "items": {
+            "$ref": "./Jigsaw%20Block%20Metadata.json"
+         },
+         "x-ordinal-index": 1
+      },
+      "size": {
+         "$ref": "../1.21.50/block_pos.json",
+         "x-ordinal-index": 0
+      }
+   },
+   "required": [
+      "markers",
+      "size"
+   ]
+}

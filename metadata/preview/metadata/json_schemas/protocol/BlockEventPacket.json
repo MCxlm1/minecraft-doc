@@ -1,0 +1,12 @@
+{
+   "title": "BlockEventPacket",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "/BlockEventPacket.json",
+   "x-format-version": "MISSING VERSION",
+   "x-protocol-version": 2192,
+   "$ref": "./BlockEventPacketPayload.json",
+   "$metaProperties": {
+      "[cereal:packet]": 26,
+      "[cereal:packet_details]": ""
+   }
+}
