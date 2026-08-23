@@ -18,12 +18,14 @@ async function main(): Promise<number> {
     if (platform !== "win32" && platform !== "linux")
         throw new DumperError(ErrorCodes.UnsupportedPlatform, `Unknown OS platform: ${platform}`);
 
-    // Github setup
+    // [patch] BDS_NO_PUSH=1: 跳过 GitHub 操作（不登录/不 push/不切分支，仅本地生成）
     let failed: number = 0;
-    if ((failed = await GithubUtils.login())) return failed;
-    if ((failed = await GithubUtils.initRepo())) return failed;
-    if ((failed = await GithubUtils.checkoutBranch(BRANCH_TO_UPDATE ?? "stable", true))) return failed;
-    GithubUtils.clear();
+    if (Deno.env.get("BDS_NO_PUSH") !== "1") {
+        if ((failed = await Github.login())) return failed;
+        if ((failed = await Github.initRepo())) return failed;
+        if ((failed = await Github.checkoutBranch(BRANCH_TO_UPDATE ?? "stable", true))) return failed;
+        Github.clear();
+    }
 
     const version = await getLatestBuildVersionFromOSS({
         preview: BRANCH_TO_UPDATE === "preview",

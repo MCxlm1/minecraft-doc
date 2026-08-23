@@ -801,6 +801,8 @@ var GithubUtils = class {
 		return awaiter.promise;
 	}
 	static async initRepo() {
+		if (Deno.env.get("BDS_NO_PUSH") === "1") return 0;
+		if (Deno.env.get("BDS_NO_PUSH") === "1") return 0;
 		if (!GIT_IS_GITHUB_ACTION) return 0;
 		let failed = 0;
 		if (!IS_LOGGED_IN) {
@@ -823,6 +825,7 @@ var GithubUtils = class {
 		return await this.cmd("git", ["fetch", "origin"]);
 	}
 	static async login(name, email) {
+		if (Deno.env.get("BDS_NO_PUSH") === "1") return 0;
 		if (!GIT_IS_GITHUB_ACTION || IS_LOGGED_IN) return 0;
 		let failed = await this.cmd("git", [
 			"config",
@@ -863,6 +866,8 @@ var GithubUtils = class {
 		]);
 	}
 	static async checkoutBranch(branch, force = false) {
+		if (Deno.env.get("BDS_NO_PUSH") === "1") return 0;
+		if (Deno.env.get("BDS_NO_PUSH") === "1") return 0;
 		if (!GIT_IS_GITHUB_ACTION) return 0;
 		let failed = 0;
 		if (!IS_LOGGED_IN) {
