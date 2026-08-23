@@ -36,6 +36,7 @@ const css = fs.readFileSync(path.join(__dirname, 'molang-style.css'), 'utf8');
 
 function shell(title, body, nav, active) {
   return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="/minecraft-doc/molang/">
 <title>${esc(title)} · MoLang</title><style>${css}</style>
 <script>document.documentElement.dataset.theme=localStorage.getItem("tsd-theme")||"os"</script></head><body>
 <div class="topbar"><a href="index.html"><b>MoLang</b></a><span class="meta">${esc(BRANCH)}</span></div>
@@ -46,12 +47,12 @@ function shell(title, body, nav, active) {
 function navHtml(active) {
   return '<nav>' + ['math', 'queries'].map((g) => {
     const arr = data[g === 'math' ? 'math_functions' : 'queries'] || [];
-    return '<div class="g">' + (g === 'math' ? '数学函数' : '查询函数') + '</div>' +
+    return '<details><summary>' + (g === 'math' ? '数学函数' : '查询函数') + '</summary>' +
       arr.map((it) => {
         const hn = (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html';
         const on = hn === active ? ' class="on"' : '';
         return `<a${on} href="${hn}">${esc(it.name)}</a>`;
-      }).join('');
+      }).join('') + '</details>';
   }).join('') + '</nav>';
 }
 
@@ -80,7 +81,7 @@ ${it.return_type ? `<div class="meta">返回类型：<code>${esc(it.return_type)
 ${arg ? `<div class="sig">${sig}</div>` : ''}
 <div class="desc">${md(trans(g, it.name, it.description || ''))}</div>`;
   fs.writeFileSync(path.join(OUT, (g === 'math' ? 'math' : 'queries'), safe(it.name) + '.html'),
-    shell(it.name + ' · MoLang', body, (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html', body));
+    shell(it.name, body, (g === 'math' ? 'math' : 'queries') + '/' + safe(it.name) + '.html', body));
 }
 
 // 主构建
