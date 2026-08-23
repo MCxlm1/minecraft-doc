@@ -62,5 +62,30 @@ const tsconfig = {
 fs.writeFileSync(path.join(GEN, 'tsconfig.json'), JSON.stringify(tsconfig, null, 2));
 fs.writeFileSync(path.join(GEN, 'extra.css'), '');
 await generateTypedocSite({ tsconfigPath: path.join(GEN, 'tsconfig.json'), outDir: OUT });
+
 console.log('MoLang 文档已生成 _out/molang/  math=' + (data.math_functions || []).length +
   ' queries=' + (data.queries || []).length);
+
+const esc = (x) => String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const safeN = (n) => n.replace(/[^\w]+/g,'_').replace(/_$/,'');
+
+function rowHtml(kind, item) {
+  const name = item.name || '';
+  const href = (kind==='math' ? './modules/molang_math' : './modules/molang_queries') + '.' + safeN(name) + '.html';
+  const sets = (item.version_ranges && item.version_ranges[0] && item.version_ranges[0].query_sets || [])
+    .map((x) => SET_LABEL[x] || x).filter(Boolean).join('、') || '默认';
+  const fv = item.version_ranges && item.version_ranges[0] && item.version_ranges[0].first_version;
+  const ver = fv && fv !== '0.0.0' ? fv : '默认';
+  const ret = item.return_type ? `<code>${esc(item.return_type)}</code>` : '—';
+  return `<tr><td><a href="${href}">${esc(name)}</a></td><td>${esc(desc2(kind, name, item.description))}</td><td>${ret}</td><td>${esc(sets)}</td><td>${esc(ver)}</td></tr>`;
+}
+function desc2(g, name, en) { return desc(g, name, en || ''); }
+
+function buildIndexHtml({ math, queries }) {
+  const css = 'body{font-family:system-ui,sans-serif;margin:auto;max-width:1100px;padding:2rem;color:#1f2937}table{border-collapse:collapse;width:100%}td,th{border:1px solid #e5e7eb;padding:6px 10px;text-align:left;vertical-align:top}a{color:#4f46e5;text-decoration:none}';
+  const table = (title, rows) => `<h2>${title}（${rows.length}）</h2><table><thead><tr><th>函数</th><th>描述</th><th>返回</th><th>集合</th><th>版本</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
+  const ml = `<body><h1>MoLang 文档（${BRANCH}）</h1>${table('数学函数', math.map(x => rowHtml('math', x)))}${table('查询函数', queries.map(x => rowHtml('queries', x)))}</body>`;
+  fs.writeFileSync(path.join(OUT, 'index.html'), `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>MoLang (${BRANCH})</title><style>${css}</style></head>${ml}</html>`);
+}
+
+buildIndexHtml({ math: data.math_functions || [], queries: data.queries || [] });
