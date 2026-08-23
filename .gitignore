@@ -18,3 +18,7 @@ registry/
 
 # VitePress 遗留生成物
 /docs/
+
+# BDS 生成物（vendor/bds-docs 运行 bds-docs 后的输出）
+vendor/bds-docs/metadata
+vendor/bds-docs/dist-raw/

@@ -185,7 +185,7 @@ async function main() {
       '</a>'
     );
   }
-  homeReadme.push('</div>', '', '[查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
+  homeReadme.push('</div>', '', '[下载生成的文档 →](/minecraft-doc/downloads/) ｜ [查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
   writeFile(path.join(homeDir, 'README.md'), homeReadme.join('\n'));
 
   const homeTsconfig = {

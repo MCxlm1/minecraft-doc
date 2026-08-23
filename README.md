@@ -77,3 +77,15 @@ node scripts/generate.mjs       # 生成 _out/（4 站点 + 主页 + 未翻译�
 - 仓库只含**源码和配置**：`_gen-t/`、`_out/`（生成）与 `registry/`（需 npm 下载）不入库
 - 完整双版本（stable+preview × 12 模块 × rc/beta）默认启用
 - 参考项目：https://github.com/XeroAlpha/sapi-typedoc （翻译片段 + typedoc 原生机制）
+
+---
+
+## BDS 元数据下载（集成 bedrock-apis/bds-docs）
+
+独立集成 `Bedrock-APIs/bds-docs` 的**生成流程**（不是拉取其产物）：在 CI 上用 Deno 启动真实 Bedrock Dedicated Server（BDS）并开启 `generate_api_metadata`，提取最底层、完整的 Script API 元数据（JSON）与 d.ts。
+
+- **源码位置**：`vendor/bds-docs/`（modules 源码 + 编译产物 `dist/main.js`，已 patch `BDS_NO_PUSH` 避免向仓库 push）
+- **配置**：`bds-config.json`（`branch` = preview / stable，决定 BDS 提取哪个版本）
+- **独立 workflow**：`.github/workflows/bds-docs.yml`（手动触发）→ 装 Deno → 下载 BDS → 运行生成器 → 打包 `metadata-<branch>.zip` → 发布为 GitHub Release（固定 tag `bds-metadata-<branch>`）
+- **下载页**：`/minecraft-doc/downloads/`——同时提供 **bds 元数据 zip**（Release 下载）+ **我们生成的合并 d.ts**（`_out/downloads/dts/<版本>/<模块>.d.ts`）
+- 下载页由 `scripts/make-downloads.mjs` 生成，主 workflow 也调用（保证 d.ts 始终更新）

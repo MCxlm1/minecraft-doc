@@ -1,0 +1,61 @@
+name: 构建 bds-docs 元数据下载
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-bds-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Deno (>=2.4)
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ">=2.4"
+
+      - name: 读取 bds-config 分支
+        id: bdscfg
+        run: |
+          BRANCH=$(node -e "console.log((require('./bds-config.json').branch||'preview').trim())")
+          echo "BRANCH_TO_UPDATE=$BRANCH" >> $GITHUB_ENV
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: 运行 bds-docs 生成器（下载 BDS → 提取元数据 + 类型）
+        env:
+          BRANCH_TO_UPDATE: ${{ env.BRANCH_TO_UPDATE }}
+          BDS_NO_PUSH: "1"            # 集成到本仓库：只生成，不 git push
+          GITHUB_ACTIONS: "true"
+        run: |
+          cd vendor/bds-docs
+          deno run --allow-all dist/main.js
+          echo "完成，目录内容："
+          ls -la | head -20
+
+      - name: 打包 metadata 为 zip
+        run: |
+          cd vendor/bds-docs
+          ls metadata/ >/dev/null && echo "metadata 存在"
+          mkdir -p ../../_release
+          zip -r ../../_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip metadata
+          ls -la ../../_release/
+
+      - name: 发布到 GitHub Release（固定 tag bds-metadata-<branch>）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="bds-metadata-${{ env.BRANCH_TO_UPDATE }}"
+          ASSET="_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG 已存在，更新 asset"
+            gh release upload "$TAG" "$ASSET" --clobber
+          else
+            echo "创建 Release $TAG"
+            gh release create "$TAG" "$ASSET" --title "bds metadata ${{ env.BRANCH_TO_UPDATE }}" --generate-notes --latest=false
+          fi
+          echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"

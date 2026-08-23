@@ -51,6 +51,9 @@ jobs:
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: node scripts/generate.mjs
 
+      - name: 生成下载页
+        run: node scripts/make-downloads.mjs
+
       - name: 部署到 GitHub Pages (gh-pages)
         uses: peaceiris/actions-gh-pages@v4
         with:

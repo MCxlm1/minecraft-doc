@@ -1,0 +1,12 @@
+{
+  "comment": "BDS 文档生成器配置（集成 bedrock-apis/bds-docs 的生成流程）。branch 决定给 b-doc 的 BRANCH_TO_UPDATE（preview=测试版 / stable=正式版 / 其它具体标识由 bsd 侧支持）。",
+  "branch": "preview",
+  "env": {
+    "BDS_NO_PUSH": "1",
+    "BRANCH_TO_UPDATE": "preview"
+  },
+  "output": {
+    "metadataDir": "downloads/bds-metadata",
+    "zipPerBranch": true
+  }
+}
