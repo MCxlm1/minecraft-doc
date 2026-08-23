@@ -1,4 +1,4 @@
-name: 构建文档站 (typedoc 原生)
+name: 构建文档站 (typedoc 原生 + MoLang)
 
 on:
   workflow_dispatch:
@@ -50,6 +50,9 @@ jobs:
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: node scripts/generate.mjs
+
+      - name: 生成 Molang 文档
+        run: node scripts/molang-gen.mjs
 
       - name: 生成下载页
         run: node scripts/make-downloads.mjs
