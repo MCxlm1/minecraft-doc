@@ -6,6 +6,7 @@
  *     自动写回 minecraft-versions.json（保持 JSON 有最新版本数据）
  *  3) 按 版本×rc/beta 生成 registry/<key>/rc 与 registry/<key>/beta 两个子目录，
  *     rc 装 rc 版本、beta 装 beta 版本，各自 npm install
+ *  4) 版本变化时自动生成 changelog 快照与 diff 页面
  *
  * 用法: node scripts/npm-update.mjs
  */
@@ -73,6 +74,15 @@ for (const [mcVer, entry] of Object.entries(versions)) {
     console.log(`\n[${key}/${flavor}] 安装 ${Object.keys(dependencies).length} 个模块…`);
     execFileSync('npm', ['install', '--no-audit', '--no-fund', '--legacy-peer-deps'], { cwd: dir, stdio: 'inherit' });
   }
+}
+
+// 3) 生成 changelog（版本变化时）
+if (changed > 0) {
+  console.log('\n版本已更新，生成 changelog...');
+  await import('./changelog-generate.mjs');
+  console.log('changelog 数据已生成，生成页面...');
+  await import('./make-changelog-page.mjs');
+  console.log('changelog 页面已生成');
 }
 
 console.log('\n完成。下一步执行 node scripts/generate.mjs 重新生成文档。');
