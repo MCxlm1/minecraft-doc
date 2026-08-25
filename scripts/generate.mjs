@@ -181,7 +181,7 @@ async function main() {
     homeReadme.push(
       `<a href="./${ver.id}/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit">`,
       `<span style="font-weight:700;font-size:1.05rem">${ver.title}${isBeta ? ' <span style="color:#e11d48;border:1px solid #e11d48;border-radius:4px;padding:0 5px;font-size:.7rem">@beta</span>' : ''}</span>`,
-      `<span style="color:var(--color-text-aside);font-size:.85rem">${shortMc(e.mcVersion)} ｜ ${(ver.modules || []).length * 2} 个模块（rc + beta）</span>`,
+      `<span style="color:var(--color-text-aside);font-size:.85rem">${shortMc(e.mcVersion)} ｜ ${(ver.modules || []).reduce((s, m) => s + (mcEntry(ver.id)?.modules?.[m.dir]?.beta ? 2 : 1), 0)} 个模块（rc/beta 按可用）</span>`,
       '</a>'
     );
   }
@@ -218,6 +218,7 @@ async function main() {
     // rc + beta 各生成翻译版 d.ts（@minecraft/<模块>.d.ts 与 @minecraft/<模块>@beta.d.ts）
     for (const flavor of ['rc', 'beta']) {
       for (const mod of modules) {
+        if (flavor === 'beta' && !(mcEntry(ver.id)?.modules?.[mod.dir]?.beta)) continue;
         const srcPath = moduleSource(ver, mod, flavor);
         if (!fs.existsSync(srcPath)) {
           console.warn(`  [skip] ${srcPath}`);
@@ -261,6 +262,7 @@ async function main() {
     ];
     for (const mod of modules) {
       for (const flavor of ['rc', 'beta']) {
+        if (flavor === 'beta' && !(mcEntry(ver.id)?.modules?.[mod.dir]?.beta)) continue;
         const modName = `@minecraft/${mod.dir}${flavor === 'beta' ? '@beta' : ''}`;
         // typedoc 模块页文件名：特殊字符替换为 _（如 @minecraft/math → _minecraft_math）
         const fileBase = modName.replace(/[^\w]+/g, '_');
@@ -278,6 +280,7 @@ async function main() {
     // 模块主页：复制翻译版 d.ts 到 _out/<版本>/dts/ + 注入「下载翻译后的 index.d.ts」按钮
     for (const mod of modules) {
       for (const flavor of ['rc', 'beta']) {
+        if (flavor === 'beta' && !(mcEntry(ver.id)?.modules?.[mod.dir]?.beta)) continue;
         const genId = flavor === 'rc' ? mod.dir : `${mod.dir}@beta`;
         const dtsFile = `${genId}.d.ts`;
         const srcDts = path.join(genTDir, '@minecraft', dtsFile);

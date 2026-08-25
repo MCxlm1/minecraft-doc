@@ -33,9 +33,10 @@ for (const [mcVer, entry] of Object.entries(versions)) {
   for (const [mod, verInfo] of Object.entries(entry.modules || {})) {
     const pkg = `@minecraft/${mod}`;
     const rc = npmView([pkg]);
-    const beta = npmView([`${pkg}@beta`]);
+    const beta = ['common','math','vanilla-data'].includes(mod) ? null : npmView([`${pkg}@beta`]);
     if (rc && rc !== verInfo.rc) { verInfo.rc = rc; changed++; }
     if (beta && beta !== verInfo.beta) { verInfo.beta = beta; changed++; }
+    if (!beta && verInfo.beta !== undefined) { delete verInfo.beta; changed++; }
   }
 }
 if (changed > 0) {
