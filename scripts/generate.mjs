@@ -185,7 +185,7 @@ async function main() {
       '</a>'
     );
   }
-  homeReadme.push('</div>', '', '[MoLang 文档 →](/minecraft-doc/molang/) ｜ [下载生成的文档 →](/minecraft-doc/downloads/) ｜ [查看未翻译 / 翻译失效清单 →](/minecraft-doc/untranslated.html)', '');
+  homeReadme.push('</div>', '', '<a href="/minecraft-doc/molang/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit"><span style="font-weight:700;font-size:1.05rem">MoLang 文档</span><span style="color:var(--color-text-aside);font-size:.85rem">查询函数与数学函数</span></a>', '', '<a href="/minecraft-doc/downloads/" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit"><span style="font-weight:700;font-size:1.05rem">下载生成的文档</span><span style="color:var(--color-text-aside);font-size:.85rem">合并 d.ts 与 BDS 元数据</span></a>', '<a href="/minecraft-doc/untranslated.html" style="display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.3rem;min-width:240px;border:1px solid var(--color-border);border-radius:12px;text-decoration:none;color:inherit"><span style="font-weight:700;font-size:1.05rem">未翻译 / 翻译失效清单</span><span style="color:var(--color-text-aside);font-size:.85rem">查看待翻译与失效项</span></a>', '');
   writeFile(path.join(homeDir, 'README.md'), homeReadme.join('\n'));
 
   const homeTsconfig = {
