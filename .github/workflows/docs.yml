@@ -49,9 +49,6 @@ jobs:
       - name: 生成 changelog 快照与 diff
         run: node scripts/changelog-generate.mjs
 
-      - name: 生成 changelog 页面
-        run: node scripts/make-changelog-page.mjs
-
       - name: 生成文档 (typedoc 原生 + 翻译片段 hook)
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
@@ -62,6 +59,9 @@ jobs:
 
       - name: 生成下载页
         run: node scripts/make-downloads.mjs
+
+      - name: 生成 changelog 页面
+        run: node scripts/make-changelog-page.mjs
 
       - name: 部署到 GitHub Pages (gh-pages)
         uses: peaceiris/actions-gh-pages@v4
