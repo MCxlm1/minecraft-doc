@@ -1,4 +1,4 @@
-name: 构建文档站 (typedoc 原生 + MoLang)
+name: 构建文档站 (typedoc 原生 + MoLang + Legacy)
 
 on:
   workflow_dispatch:
@@ -53,6 +53,9 @@ jobs:
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: node scripts/generate.mjs
+
+      - name: 生成 Legacy 旧版本脚本文档
+        run: node scripts/legacy-gen.mjs
 
       - name: 生成 Molang 文档
         run: node scripts/molang-gen.mjs

@@ -10,6 +10,8 @@
  *     - typedoc 原生生成 → _out/<版本>/
  *  3) 主页也用 typedoc 生成（README 放版本入口卡片）→ _out/
  *  4) 未翻译页 _out/untranslated.html
+ *  5) 调用 legacy-gen.mjs 生成旧版本脚本文档
+ *  6) 合并 legacy 未翻译清单到 _out/untranslated.html 和 _out/untranslated.json
  *
  * 用法: node scripts/generate.mjs [--limit <n>]
  */
@@ -129,24 +131,35 @@ function buildUntranslated(groups) {
   lines.push('<h1>未翻译 / 翻译失效清单</h1>');
   const totalMissing = groups.reduce((s, g) => s + g.missing.length, 0);
   const totalExpired = groups.reduce((s, g) => s + (g.expired || []).length, 0);
+  const totalInvalid = groups.reduce((s, g) => s + (g.invalid || []).length, 0);
   lines.push(`<p><a href="./">← 返回主页</a></p>`);
-  lines.push(`<p>未翻译：<b>${totalMissing}</b> 项 ｜ 翻译失效（源已变化，等待重新上传）：<b class="exp">${totalExpired}</b> 项</p>`);
+  lines.push(`<p>未翻译：<b>${totalMissing}</b> 项 ｜ 翻译失效（源已变化，等待重新上传）：<b class="exp">${totalExpired}</b> 项 ｜ 翻译损坏：<b class="exp">${totalInvalid}</b> 项</p>`);
   if (groups.length === 0) lines.push('<p>🎉 当前没有未翻译或失效的内容。</p>');
   for (const g of groups) {
+    // 跳过所有字段都为空的组
+    if ((g.missing || []).length === 0 && (g.expired || []).length === 0 && (g.invalid || []).length === 0) continue;
     lines.push(`<h2>${g.title} / ${g.moduleTitle}</h2>`);
     if ((g.expired || []).length > 0) {
       lines.push('<div class="expired"><b>⚠️ 翻译失效（已隐藏）</b><ul>');
-      for (const s of g.expired) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
+      for (const s of g.expired) lines.push(`<li class="exp">${typeof s === 'string' ? s : (s.symbol || JSON.stringify(s))}</li>`);
       lines.push('</ul></div>');
     }
     if (g.invalid && g.invalid.length > 0) {
       lines.push('<div class="expired"><b>⚠️ 翻译片段损坏（未应用，请修复后重新上传）</b><ul>');
-      for (const s of g.invalid) lines.push(`<li class="exp">${typeof s === 'string' ? s : s.symbol}</li>`);
+      for (const s of g.invalid) lines.push(`<li class="exp">${typeof s === 'string' ? s : (s.symbol || JSON.stringify(s))}</li>`);
       lines.push('</ul></div>');
     }
-    if (g.missing.length > 0) {
+    if ((g.missing || []).length > 0) {
       lines.push('<b>未翻译（显示英文源）</b><ul>');
-      for (const s of g.missing) lines.push(`<li>${typeof s === 'string' ? s : s.symbol}</li>`);
+      for (const s of g.missing) {
+        const symbol = typeof s === 'string' ? s : (s.symbol || JSON.stringify(s));
+        const srcUrl = (typeof s === 'object' && s.srcUrl) ? s.srcUrl : '';
+        if (srcUrl) {
+          lines.push(`<li>${symbol} — <a href="${srcUrl}" target="_blank">下载源文件</a></li>`);
+        } else {
+          lines.push(`<li>${symbol}</li>`);
+        }
+      }
       lines.push('</ul>');
     }
   }
@@ -305,12 +318,63 @@ async function main() {
 
   // 主页（typedoc 生成）——已在 main 开头先生成（见上方），此处避免再次生成覆盖
 
-  // 未翻译页 + 未翻译 JSON（主页/站点生成后再写，避免被 typedoc 清空）
+  // --- 调用 legacy-gen.mjs 生成旧版本脚本文档 ---
+  console.log('\n=== 生成旧版本脚本文档 ===');
+  try {
+    const { main: legacyMain } = await import('./legacy-gen.mjs');
+    await legacyMain();
+    console.log('✅ 旧版本脚本文档生成完成');
+  } catch (err) {
+    if (err.code === 'ERR_MODULE_NOT_FOUND') {
+      console.warn('⚠️ legacy-gen.mjs 未找到，跳过旧版本脚本文档生成');
+    } else {
+      console.error('❌ 旧版本脚本文档生成失败:', err.message);
+      // 不中断主流程，仅报错
+    }
+  }
+
+  // --- 合并 legacy 未翻译清单 ---
+  const legacyUntranslatedPath = path.join(OUT_DIR, 'legacy-untranslated.json');
+  if (fs.existsSync(legacyUntranslatedPath)) {
+    console.log('\n=== 合并 Legacy 未翻译清单 ===');
+    try {
+      const legacyData = readJson(legacyUntranslatedPath);
+      const legacyGroups = legacyData.groups || [];
+      for (const g of legacyGroups) {
+        // 确保字段存在
+        g.missing = g.missing || [];
+        g.expired = g.expired || [];
+        g.invalid = g.invalid || [];
+        // 转换为与主生成器一致的格式（确保有 symbol 字段）
+        g.missing = g.missing.map(item => ({
+          symbol: item.symbol || item,
+          srcUrl: item.srcUrl || ''
+        }));
+        g.expired = g.expired.map(item => ({
+          symbol: item.symbol || item,
+          srcUrl: item.srcUrl || ''
+        }));
+        g.invalid = g.invalid.map(item => ({
+          symbol: item.symbol || item,
+          srcUrl: item.srcUrl || ''
+        }));
+        untranslatedGroups.push(g);
+      }
+      console.log(`  合并了 ${legacyGroups.length} 个 Legacy 模块的未翻译信息`);
+    } catch (err) {
+      console.error('  合并 Legacy 未翻译清单失败:', err.message);
+    }
+  } else {
+    console.log('  未找到 legacy-untranslated.json，跳过合并');
+  }
+
+  // --- 重新生成未翻译页和 JSON（包含 Legacy） ---
+  console.log('\n=== 生成最终未翻译清单 ===');
   writeFile(path.join(OUT_DIR, 'untranslated.html'), buildUntranslated(untranslatedGroups));
   const untranslatedJson = {
     generatedAt: new Date().toISOString(),
     total: {
-      missing: untranslatedGroups.reduce((s, g) => s + g.missing.length, 0),
+      missing: untranslatedGroups.reduce((s, g) => s + (g.missing || []).length, 0),
       expired: untranslatedGroups.reduce((s, g) => s + (g.expired || []).length, 0),
       invalid: untranslatedGroups.reduce((s, g) => s + (g.invalid || []).length, 0),
     },
@@ -320,7 +384,7 @@ async function main() {
 
   console.log('\n完成。输出目录 _out/：');
   console.log('  版本站点:', versions.map((v) => v.id).join(' | '));
-  console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + g.missing.length + (g.invalid || []).length, 0));
+  console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + (g.missing || []).length + (g.invalid || []).length, 0));
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

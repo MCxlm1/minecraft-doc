@@ -49,6 +49,17 @@
         { "id": "server-ui", "dir": "server-ui", "title": "@minecraft/server-ui", "display": true, "order": 11 },
         { "id": "vanilla-data", "dir": "vanilla-data", "title": "@minecraft/vanilla-data", "entry": "lib/index.d.ts", "display": true, "order": 12 }
       ]
+    },
+    {
+      "id": "legacy",
+      "title": "旧版本脚本模块 (Legacy)",
+      "catalog": "legacy",
+      "display": true,
+      "order": 3,
+      "modules": [
+        { "id": "mojang-minecraft", "dir": "mojang-minecraft", "title": "@types/mojang-minecraft", "display": true, "order": 1 },
+        { "id": "mojang-minecraft-ui", "dir": "mojang-minecraft-ui", "title": "@types/mojang-minecraft-ui", "display": true, "order": 2 }
+      ]
     }
   ]
 }
