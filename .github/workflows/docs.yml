@@ -23,12 +23,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20
+      - name: Setup Node 18
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 18
 
-      - name: 安装项目依赖 (pnpm 9，typedoc + ts-morph + docusaurus)
+      - name: 安装项目依赖 (pnpm 9，typedoc + ts-morph)
         run: |
           corepack enable
           corepack prepare pnpm@9.15.9 --activate
@@ -49,10 +49,10 @@ jobs:
       - name: 生成 changelog 快照与 diff
         run: node scripts/changelog-generate.mjs
 
-      - name: 生成完整文档 (TypeDoc + Docusaurus 首页)
+      - name: 生成文档 (typedoc 原生 + 翻译片段 hook)
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
-        run: pnpm run build
+        run: node scripts/generate.mjs
 
       - name: 生成 Legacy 旧版本脚本文档
         run: node scripts/legacy-gen.mjs
