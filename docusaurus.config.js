@@ -58,5 +58,4 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} MCxlm1. Built with Docusaurus.`,
     },
   },
-  outDir: './_out',
 };
