@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: 安装项目依赖 (pnpm 9，typedoc + ts-morph)
+      - name: 安装项目依赖 (pnpm 9，typedoc + ts-morph + docusaurus)
         run: |
           corepack enable
           corepack prepare pnpm@9.15.9 --activate
@@ -49,10 +49,10 @@ jobs:
       - name: 生成 changelog 快照与 diff
         run: node scripts/changelog-generate.mjs
 
-      - name: 生成文档 (typedoc 原生 + 翻译片段 hook)
+      - name: 生成完整文档 (TypeDoc + Docusaurus 首页)
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
-        run: node scripts/generate.mjs
+        run: pnpm run build
 
       - name: 生成 Legacy 旧版本脚本文档
         run: node scripts/legacy-gen.mjs
