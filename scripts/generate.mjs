@@ -23,6 +23,7 @@ import { Project } from 'ts-morph';
 import { splitSymbols, replacePieces, hasSyntaxError } from './split.mjs';
 import { generateTypedocSite } from './typedoc-gen.mjs';
 
+import { execSync } from 'child_process';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, '..');
 
@@ -387,4 +388,73 @@ async function main() {
   console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + (g.missing || []).length + (g.invalid || []).length, 0));
 }
 
+  buildDocusaurusHome();
 main().catch((e) => { console.error(e); process.exit(1); });
+
+
+/* ---------------- 构建 Docusaurus 首页 ---------------- */
+function buildDocusaurusHome() {
+  console.log('\n=== 构建 Docusaurus 首页 ===');
+  
+  const HOME_DIR = path.join(ROOT, 'home');
+  if (!fs.existsSync(HOME_DIR)) {
+    console.warn('⚠️ home 目录不存在，跳过 Docusaurus 构建');
+    return false;
+  }
+  
+  const homePackageJson = path.join(HOME_DIR, 'package.json');
+  if (!fs.existsSync(homePackageJson)) {
+    console.warn('⚠️ home/package.json 不存在，跳过 Docusaurus 构建');
+    return false;
+  }
+  
+  try {
+    console.log('→ 安装 Docusaurus 依赖...');
+    execSync('pnpm install', {
+      cwd: HOME_DIR,
+      stdio: 'inherit',
+      timeout: 120000
+    });
+    
+    console.log('→ 构建 Docusaurus 首页...');
+    execSync('pnpm run build', {
+      cwd: HOME_DIR,
+      stdio: 'inherit',
+      timeout: 120000
+    });
+    
+    const homeBuildDir = path.join(HOME_DIR, 'build');
+    if (!fs.existsSync(homeBuildDir)) {
+      console.warn('⚠️ Docusaurus 构建目录不存在，跳过复制');
+      return false;
+    }
+    
+    const homeIndex = path.join(homeBuildDir, 'index.html');
+    if (fs.existsSync(homeIndex)) {
+      fs.copyFileSync(homeIndex, path.join(OUT_DIR, 'index.html'));
+      console.log('✅ 已复制 index.html');
+    }
+    
+    const homeAssets = path.join(homeBuildDir, 'assets');
+    if (fs.existsSync(homeAssets)) {
+      const outAssets = path.join(OUT_DIR, 'assets');
+      fs.rmSync(outAssets, { recursive: true, force: true });
+      fs.cpSync(homeAssets, outAssets, { recursive: true });
+      console.log('✅ 已复制 assets 目录');
+    }
+    
+    const homeImg = path.join(homeBuildDir, 'img');
+    if (fs.existsSync(homeImg)) {
+      const outImg = path.join(OUT_DIR, 'img');
+      fs.rmSync(outImg, { recursive: true, force: true });
+      fs.cpSync(homeImg, outImg, { recursive: true });
+      console.log('✅ 已复制 img 目录');
+    }
+    
+    console.log('✅ Docusaurus 首页构建完成');
+    return true;
+  } catch (err) {
+    console.error('❌ Docusaurus 构建失败:', err.message);
+    return false;
+  }
+}

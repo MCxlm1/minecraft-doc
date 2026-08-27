@@ -1,0 +1,14 @@
+{
+  "name": "minecraft-doc-home",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "docusaurus build"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
