@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 /**
  * generate.mjs — 主生成器（typedoc 原生 + 翻译片段 hook，参考 sapi-typedoc）
  *  1) 读 site-config.json + minecraft-versions.json
@@ -76,6 +76,7 @@ function saveManifest(m) {
   writeJson(MANIFEST_PATH, m);
 }
 
+
 /* ---------------- 翻译版 d.ts ---------------- */
 function makeTranslatedDts(srcPath, outPath, translationsRoot, keyPrefix, manifest) {
   const content = fs.readFileSync(srcPath, 'utf-8').replace(/\r\n|\r/g, '\n');
@@ -92,6 +93,7 @@ function makeTranslatedDts(srcPath, outPath, translationsRoot, keyPrefix, manife
   }
   return res;
 }
+
 
 /* ---------------- tsconfig ---------------- */
 function writeTsConfig(genTDir, siteName, extraCss) {
@@ -117,6 +119,7 @@ function writeTsConfig(genTDir, siteName, extraCss) {
   writeJson(path.join(genTDir, 'tsconfig.json'), tsconfig);
   writeFile(path.join(genTDir, 'extra.css'), '/* 隐藏 "Defined in"（兜底） */\n.tsd-sources { display: none !important; }\n');
 }
+
 
 /* ---------------- 未翻译页 ---------------- */
 function buildUntranslated(groups) {
@@ -168,6 +171,7 @@ function buildUntranslated(groups) {
   return lines.join('\n');
 }
 
+
 /* ---------------- 主流程 ---------------- */
 async function main() {
   const limitIdx = process.argv.indexOf('--limit');
@@ -183,8 +187,7 @@ async function main() {
   fs.mkdirSync(homeDir, { recursive: true });
   writeFile(path.join(homeDir, 'home.d.ts'), '/** 版本入口（由 generate.mjs 生成） */\nexport const versions = {} as const;\n');
   const homeReadme = [
-    '# Minecraft @minecraft 类型文档',
-    '',
+    '',  // 空行，避免重复一级标题（由 typedocOptions.name 提供）
     '由 typedoc 原生解析 `@minecraft/*` 的 index.d.ts 生成。选择一个版本进入：',
     '',
     '<div style="display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0">',
@@ -250,211 +253,122 @@ async function main() {
         // 未翻译/失效符号的源片段 → _out/translation-src/<版本>-<口味>/<模块>/<类型>/<符号>.d.ts（供工具下载翻译）
         const toSrcItems = (items) =>
           items.map((it) => {
-            const rel = path.relative(TRANS_DIR, it.path);
-            writeFile(path.join(OUT_DIR, 'translation-src', rel), it.text + '\n');
-            return { symbol: it.symbol, srcUrl: `/minecraft-doc/translation-src/${rel.split(path.sep).join('/')}` };
+            if (typeof it === 'string') return { symbol: it };
+            return it;
           });
-        untranslatedGroups.push({
-          version: ver.id,
-          flavor,
-          title: `${ver.title} ${flavor === 'beta' ? '@beta' : ''}`,
-          moduleTitle: mod.title,
-          missing: toSrcItems(res.missing),
-          expired: toSrcItems(res.expired || []),
-          invalid: toSrcItems(res.invalid || []),
-        });
-        if (res.applied.length > 0) console.log(`  ${outName}: 应用翻译 ${res.applied.length} 项`);
+        // 收集未翻译/失效/损坏到 untranslatedGroups
+        const title = `${ver.title} (${flavor})`;
+        const moduleTitle = mod.title || mod.dir;
+        let group = untranslatedGroups.find(g => g.title === title && g.moduleTitle === moduleTitle);
+        if (!group) {
+          group = { title, moduleTitle, missing: [], expired: [], invalid: [] };
+          untranslatedGroups.push(group);
+        }
+        group.missing.push(...(res.untranslated || []).map(s => ({ symbol: s, srcUrl: `https://raw.githubusercontent.com/MCxlm1/minecraft-doc/main/registry/${ver.id}/${flavor}/node_modules/@minecraft/${mod.dir}/index.d.ts` })));
+        if (res.expired) group.expired.push(...res.expired);
+        if (res.invalid) group.invalid.push(...res.invalid);
       }
     }
 
-    // 版本主页 README（无大标题，避免与顶栏重复；typedoc 会用 name(精简版本号) 渲染页面 H1）
+    // 版本 README：标题 + 模块链接列表
     const readmeLines = [
-      `${ver.title}${e.type === 'preview' ? '（@beta）' : ''}（Minecraft ${shortMc(e.mcVersion)}）`,
+      '', // 空行，避免重复一级标题
+      '### 模块列表',
       '',
-      '模块列表：',
-      '',
+      '<ul>',
     ];
     for (const mod of modules) {
-      for (const flavor of ['rc', 'beta']) {
-        if (flavor === 'beta' && !(mcEntry(ver.id)?.modules?.[mod.dir]?.beta)) continue;
-        const modName = `@minecraft/${mod.dir}${flavor === 'beta' ? '@beta' : ''}`;
-        // typedoc 模块页文件名：特殊字符替换为 _（如 @minecraft/math → _minecraft_math）
-        const fileBase = modName.replace(/[^\w]+/g, '_');
-        readmeLines.push(`- [${modName}](modules/${fileBase}.html)`);
-      }
+      const hasBeta = mcEntry(ver.id)?.modules?.[mod.dir]?.beta;
+      const flavorText = hasBeta ? ' (rc + beta)' : '';
+      readmeLines.push(`<li><a href="../${ver.id}/modules/@minecraft_${mod.dir}.html">${mod.title}</a>${flavorText}</li>`);
     }
-    readmeLines.push('');
-    writeFile(path.join(genTDir, 'README.md'), readmeLines.join('\n'));
+    readmeLines.push('</ul>');
+    const readmeContent = readmeLines.join('\n');
+    const readmePath = path.join(genTDir, 'README.md');
+    writeFile(readmePath, readmeContent);
 
-    saveManifest(manifest);
-    writeTsConfig(genTDir, shortMc(e.mcVersion), './extra.css');
-    console.log(`  → typedoc 生成 _out/${ver.id}/…`);
-    await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: path.join(OUT_DIR, ver.id) });
+    // 版本 tsconfig
+    writeTsConfig(genTDir, ver.title, './extra.css');
 
-    // 模块主页：复制翻译版 d.ts 到 _out/<版本>/dts/ + 注入「下载翻译后的 index.d.ts」按钮
-    for (const mod of modules) {
-      for (const flavor of ['rc', 'beta']) {
-        if (flavor === 'beta' && !(mcEntry(ver.id)?.modules?.[mod.dir]?.beta)) continue;
-        const genId = flavor === 'rc' ? mod.dir : `${mod.dir}@beta`;
-        const dtsFile = `${genId}.d.ts`;
-        const srcDts = path.join(genTDir, '@minecraft', dtsFile);
-        if (!fs.existsSync(srcDts)) continue;
-        writeFile(path.join(OUT_DIR, ver.id, 'dts', dtsFile), fs.readFileSync(srcDts, 'utf8'));
-        const modPage = path.join(OUT_DIR, ver.id, 'modules', `@minecraft/${genId}`.replace(/[^\w]+/g, '_') + '.html');
-        if (fs.existsSync(modPage)) {
-          let html = fs.readFileSync(modPage, 'utf8');
-          const btn =
-            '<div style="margin:.6rem 0">' +
-            `<a href="../dts/${dtsFile}" download="index.d.ts" style="display:inline-block;padding:.45rem 1rem;border:1px solid var(--color-accent,#4f46e5);color:var(--color-accent,#4f46e5);border-radius:6px;text-decoration:none;font-size:.85rem">⬇ 下载翻译后的 index.d.ts</a>` +
-            '</div>';
-          const idx = html.indexOf('</h1>');
-          if (idx >= 0) {
-            html = html.slice(0, idx + 5) + btn + html.slice(idx + 5);
-            fs.writeFileSync(modPage, html);
-          }
-        }
-      }
-    }
+    // 额外生成 404.html 用于 SPA 路由（由 generateTypedocSite 统一处理）
+    const outVerDir = path.join(OUT_DIR, ver.id);
+    fs.rmSync(outVerDir, { recursive: true, force: true });
+    console.log(`→ typedoc 生成 ${ver.id} 文档 _out/${ver.id}/…`);
+    await generateTypedocSite({ tsconfigPath: path.join(genTDir, 'tsconfig.json'), outDir: outVerDir });
   }
 
-  // 主页（typedoc 生成）——已在 main 开头先生成（见上方），此处避免再次生成覆盖
-
-  // --- 调用 legacy-gen.mjs 生成旧版本脚本文档 ---
-  console.log('\n=== 生成旧版本脚本文档 ===');
-  try {
-    const { main: legacyMain } = await import('./legacy-gen.mjs');
-    await legacyMain();
-    console.log('✅ 旧版本脚本文档生成完成');
-  } catch (err) {
-    if (err.code === 'ERR_MODULE_NOT_FOUND') {
-      console.warn('⚠️ legacy-gen.mjs 未找到，跳过旧版本脚本文档生成');
-    } else {
-      console.error('❌ 旧版本脚本文档生成失败:', err.message);
-      // 不中断主流程，仅报错
-    }
-  }
-
-  // --- 合并 legacy 未翻译清单 ---
-  const legacyUntranslatedPath = path.join(OUT_DIR, 'legacy-untranslated.json');
-  if (fs.existsSync(legacyUntranslatedPath)) {
-    console.log('\n=== 合并 Legacy 未翻译清单 ===');
-    try {
-      const legacyData = readJson(legacyUntranslatedPath);
-      const legacyGroups = legacyData.groups || [];
-      for (const g of legacyGroups) {
-        // 确保字段存在
-        g.missing = g.missing || [];
-        g.expired = g.expired || [];
-        g.invalid = g.invalid || [];
-        // 转换为与主生成器一致的格式（确保有 symbol 字段）
-        g.missing = g.missing.map(item => ({
-          symbol: item.symbol || item,
-          srcUrl: item.srcUrl || ''
-        }));
-        g.expired = g.expired.map(item => ({
-          symbol: item.symbol || item,
-          srcUrl: item.srcUrl || ''
-        }));
-        g.invalid = g.invalid.map(item => ({
-          symbol: item.symbol || item,
-          srcUrl: item.srcUrl || ''
-        }));
-        untranslatedGroups.push(g);
-      }
-      console.log(`  合并了 ${legacyGroups.length} 个 Legacy 模块的未翻译信息`);
-    } catch (err) {
-      console.error('  合并 Legacy 未翻译清单失败:', err.message);
-    }
-  } else {
-    console.log('  未找到 legacy-untranslated.json，跳过合并');
-  }
-
-  // --- 重新生成未翻译页和 JSON（包含 Legacy） ---
-  console.log('\n=== 生成最终未翻译清单 ===');
-  writeFile(path.join(OUT_DIR, 'untranslated.html'), buildUntranslated(untranslatedGroups));
-  const untranslatedJson = {
-    generatedAt: new Date().toISOString(),
-    total: {
-      missing: untranslatedGroups.reduce((s, g) => s + (g.missing || []).length, 0),
-      expired: untranslatedGroups.reduce((s, g) => s + (g.expired || []).length, 0),
-      invalid: untranslatedGroups.reduce((s, g) => s + (g.invalid || []).length, 0),
-    },
-    versions: untranslatedGroups,
-  };
+  // 生成未翻译页
+  const untranslatedHtml = buildUntranslated(untranslatedGroups);
+  const untranslatedPath = path.join(OUT_DIR, 'untranslated.html');
+  writeFile(untranslatedPath, untranslatedHtml);
+  // 同时输出 JSON
+  const untranslatedJson = untranslatedGroups.map(g => ({
+    title: g.title,
+    moduleTitle: g.moduleTitle,
+    missing: g.missing.map(s => typeof s === 'object' ? s.symbol : s),
+    expired: g.expired,
+    invalid: g.invalid,
+  }));
   writeJson(path.join(OUT_DIR, 'untranslated.json'), untranslatedJson);
 
-  console.log('\n完成。输出目录 _out/：');
-  console.log('  版本站点:', versions.map((v) => v.id).join(' | '));
-  console.log('  未翻译项:', untranslatedGroups.reduce((s, g) => s + (g.missing || []).length + (g.invalid || []).length, 0));
-}
+  // 保存 manifest
+  saveManifest(manifest);
 
-  buildDocusaurusHome();
-main().catch((e) => { console.error(e); process.exit(1); });
-
-
-/* ---------------- 构建 Docusaurus 首页 ---------------- */
-function buildDocusaurusHome() {
-  console.log('\n=== 构建 Docusaurus 首页 ===');
-  
-  const HOME_DIR = path.join(ROOT, 'home');
-  if (!fs.existsSync(HOME_DIR)) {
-    console.warn('⚠️ home 目录不存在，跳过 Docusaurus 构建');
-    return false;
-  }
-  
-  const homePackageJson = path.join(HOME_DIR, 'package.json');
-  if (!fs.existsSync(homePackageJson)) {
-    console.warn('⚠️ home/package.json 不存在，跳过 Docusaurus 构建');
-    return false;
-  }
-  
+  // 调用 legacy-gen.mjs 生成旧版本脚本文档
+  console.log('\n=== 生成旧版本脚本文档 ===');
   try {
-    console.log('→ 安装 Docusaurus 依赖...');
-    execSync('pnpm install', {
-      cwd: HOME_DIR,
-      stdio: 'inherit',
-      timeout: 120000
-    });
-    
-    console.log('→ 构建 Docusaurus 首页...');
-    execSync('pnpm run build', {
-      cwd: HOME_DIR,
-      stdio: 'inherit',
-      timeout: 120000
-    });
-    
-    const homeBuildDir = path.join(HOME_DIR, 'build');
-    if (!fs.existsSync(homeBuildDir)) {
-      console.warn('⚠️ Docusaurus 构建目录不存在，跳过复制');
-      return false;
-    }
-    
-    const homeIndex = path.join(homeBuildDir, 'index.html');
-    if (fs.existsSync(homeIndex)) {
-      fs.copyFileSync(homeIndex, path.join(OUT_DIR, 'index.html'));
-      console.log('✅ 已复制 index.html');
-    }
-    
-    const homeAssets = path.join(homeBuildDir, 'assets');
-    if (fs.existsSync(homeAssets)) {
-      const outAssets = path.join(OUT_DIR, 'assets');
-      fs.rmSync(outAssets, { recursive: true, force: true });
-      fs.cpSync(homeAssets, outAssets, { recursive: true });
-      console.log('✅ 已复制 assets 目录');
-    }
-    
-    const homeImg = path.join(homeBuildDir, 'img');
-    if (fs.existsSync(homeImg)) {
-      const outImg = path.join(OUT_DIR, 'img');
-      fs.rmSync(outImg, { recursive: true, force: true });
-      fs.cpSync(homeImg, outImg, { recursive: true });
-      console.log('✅ 已复制 img 目录');
-    }
-    
-    console.log('✅ Docusaurus 首页构建完成');
-    return true;
-  } catch (err) {
-    console.error('❌ Docusaurus 构建失败:', err.message);
-    return false;
+    execSync('node scripts/legacy-gen.mjs', { stdio: 'inherit', cwd: ROOT });
+  } catch (e) {
+    console.warn('⚠️ legacy-gen.mjs 执行失败（忽略）');
   }
+
+  // 合并 legacy 未翻译清单到 untranslated 页面
+  const legacyUntranslatedPath = path.join(OUT_DIR, 'legacy-untranslated.json');
+  if (fs.existsSync(legacyUntranslatedPath)) {
+    const legacyData = readJson(legacyUntranslatedPath);
+    console.log('\n=== 合并 Legacy 未翻译清单 ===');
+    for (const item of legacyData) {
+      const group = untranslatedGroups.find(g => g.title === item.title && g.moduleTitle === item.moduleTitle);
+      if (group) {
+        group.missing.push(...item.missing.map(s => ({ symbol: s, srcUrl: item.srcUrl })));
+        if (item.expired) group.expired.push(...item.expired);
+        if (item.invalid) group.invalid.push(...item.invalid);
+      } else {
+        untranslatedGroups.push(item);
+      }
+    }
+    // 重新生成 untranslated.html
+    const mergedHtml = buildUntranslated(untranslatedGroups);
+    writeFile(path.join(OUT_DIR, 'untranslated.html'), mergedHtml);
+    // 更新 JSON
+    const mergedJson = untranslatedGroups.map(g => ({
+      title: g.title,
+      moduleTitle: g.moduleTitle,
+      missing: g.missing.map(s => typeof s === 'object' ? s.symbol : s),
+      expired: g.expired,
+      invalid: g.invalid,
+    }));
+    writeJson(path.join(OUT_DIR, 'untranslated.json'), mergedJson);
+    console.log(`  合并了 ${legacyData.length} 个 Legacy 模块的未翻译信息`);
+  }
+
+  console.log('\n=== 生成最终未翻译清单 ===');
+  const finalJson = untranslatedGroups.map(g => ({
+    title: g.title,
+    moduleTitle: g.moduleTitle,
+    missing: g.missing.map(s => typeof s === 'object' ? s.symbol : s),
+    expired: g.expired,
+    invalid: g.invalid,
+  }));
+  writeJson(path.join(OUT_DIR, 'untranslated.json'), finalJson);
+
+  console.log(`\n完成。输出目录 ${OUT_DIR}：`);
+  console.log(`  版本站点: ${versions.map(v => v.id).join(' | ')}`);
+  const totalMissing = untranslatedGroups.reduce((s, g) => s + g.missing.length, 0);
+  console.log(`  未翻译项: ${totalMissing}`);
 }
+
+main().catch((err) => {
+  console.error('生成失败:', err);
+  process.exit(1);
+});
