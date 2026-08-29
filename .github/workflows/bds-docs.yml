@@ -81,6 +81,7 @@ jobs:
       - name: 处理 behavior_packs（使用 brarchive-extractor）
         id: process_brax
         run: |
+          set -e
           # 检查 behavior_packs 是否存在且非空
           if [ ! -d "bds-output/behavior_packs" ] || [ -z "$(ls -A bds-output/behavior_packs)" ]; then
             echo "behavior_packs 不存在或为空，创建占位 zip"
@@ -148,8 +149,8 @@ jobs:
         run: |
           # 检查 bds-output 目录是否存在且非空
           if [ ! -d "bds-output" ] || [ -z "$(ls -A bds-output)" ]; then
-            echo "bds-output 目录为空或不存在，跳过分支推送"
-            exit 0
+            echo "错误：bds-output 目录为空，没有可推送的内容"
+            exit 1
           fi
           
           # 配置 git
@@ -161,7 +162,6 @@ jobs:
           # 检查远程分支是否存在（明确使用 heads 引用）
           if git ls-remote --heads origin "$BRANCH" | grep -q "refs/heads/$BRANCH"; then
             echo "分支 $BRANCH 已存在，切换到该分支"
-            # 使用 refs/heads 明确指定拉取分支，避免与 tag 混淆
             git fetch origin "refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
             git checkout -B "$BRANCH" "origin/$BRANCH"
           else
@@ -175,7 +175,7 @@ jobs:
           
           # 复制 bds-output 内容到根目录
           echo "复制 bds-output 内容..."
-          cp -r bds-output/* . 2>/dev/null || echo "bds-output 为空，跳过复制"
+          cp -r bds-output/* . 2>/dev/null || echo "复制失败"
           rm -rf bds-output
           
           # 添加并提交

@@ -66,9 +66,7 @@ jobs:
         run: |
           # 克隆 bds-output-preview 分支到临时目录
           git clone --branch bds-output-preview --depth 1 https://github.com/MCxlm1/minecraft-doc.git bds-output
-          # 获取当前 commit SHA（仅用于日志）
-          CURRENT_COMMIT=$(cd bds-output && git rev-parse HEAD)
-          echo "拉取到 bds-output-preview 分支，commit: $CURRENT_COMMIT"
+          echo "已拉取 bds-output-preview 分支"
 
       - name: 复制处理后的 behavior_packs
         run: |
