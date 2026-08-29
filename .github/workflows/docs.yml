@@ -60,72 +60,28 @@ jobs:
       - name: 生成 Molang 文档
         run: node scripts/molang-gen.mjs
 
-      # ---------- 集成 brarchive-extractor 处理 behavior_packs（带缓存） ----------
-      - name: 拉取 bds-output-preview 分支并检查更新
+      # ---------- 拉取 bds-output-preview 分支的数据 ----------
+      - name: 拉取 bds-output-preview 分支
         id: fetch_bds
         run: |
           # 克隆 bds-output-preview 分支到临时目录
-          git clone --branch bds-output-preview --depth 1 https://github.com/MCxlm1/minecraft-doc.git bds-output-temp
-          mv bds-output-temp bds-output
-          # 获取当前 commit SHA
+          git clone --branch bds-output-preview --depth 1 https://github.com/MCxlm1/minecraft-doc.git bds-output
+          # 获取当前 commit SHA（仅用于日志）
           CURRENT_COMMIT=$(cd bds-output && git rev-parse HEAD)
-          echo "CURRENT_COMMIT=$CURRENT_COMMIT" >> $GITHUB_ENV
-          # 读取上次处理的 commit SHA（如果存在）
-          if [ -f bds-output/.brax_processed_commit ]; then
-            PREV_COMMIT=$(cat bds-output/.brax_processed_commit)
+          echo "拉取到 bds-output-preview 分支，commit: $CURRENT_COMMIT"
+
+      - name: 复制处理后的 behavior_packs
+        run: |
+          # 检查 bds-output 中是否存在 processed-behavior_packs.zip
+          if [ -f "bds-output/processed-behavior_packs.zip" ]; then
+            mkdir -p _out/downloads
+            cp bds-output/processed-behavior_packs.zip _out/downloads/
+            echo "已复制 processed-behavior_packs.zip"
           else
-            PREV_COMMIT=""
+            echo "bds-output 中未找到 processed-behavior_packs.zip，跳过"
           fi
-          echo "PREV_COMMIT=$PREV_COMMIT" >> $GITHUB_ENV
-          # 比较，设置 should_process
-          if [ "$CURRENT_COMMIT" != "$PREV_COMMIT" ]; then
-            echo "should_process=true" >> $GITHUB_ENV
-            echo "behavior_packs 已更新，需要处理"
-          else
-            echo "should_process=false" >> $GITHUB_ENV
-            echo "behavior_packs 未更新，跳过处理"
-          fi
-
-      - name: 克隆 brarchive-extractor
-        if: env.should_process == 'true'
-        uses: actions/checkout@v4
-        with:
-          repository: LPaicen/brarchive-extractor
-          path: brarchive-extractor
-          ref: main
-
-      - name: 构建 brax
-        if: env.should_process == 'true'
-        run: |
-          cd brarchive-extractor
-          npm install
-          npm run build
-
-      - name: 使用 brax 处理 behavior_packs
-        if: env.should_process == 'true'
-        run: |
-          mkdir -p _out/downloads/processed-behavior_packs
-          node brarchive-extractor/dist/src/cli.js bds-output/behavior_packs --schema bds-output/metadata/json_schemas/ --output _out/downloads/processed-behavior_packs --overwrite --verbose
-
-      - name: 打包处理后的 behavior_packs
-        if: env.should_process == 'true'
-        run: |
-          cd _out/downloads
-          zip -r processed-behavior_packs.zip processed-behavior_packs
-
-      - name: 更新处理标记并推送回 bds-output-preview
-        if: env.should_process == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "$CURRENT_COMMIT" > bds-output/.brax_processed_commit
-          cd bds-output
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/MCxlm1/minecraft-doc.git
-          git add .brax_processed_commit
-          git commit -m "Update brax processed commit marker"
-          git push origin bds-output-preview
+          # 清理临时目录
+          rm -rf bds-output
 
       # ---------- 继续原有流程 ----------
       - name: 生成下载页（包含处理后的 behavior_packs）
