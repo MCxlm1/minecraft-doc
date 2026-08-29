@@ -136,15 +136,15 @@ jobs:
           
           BRANCH="bds-output-${{ env.BRANCH_TO_UPDATE }}"
           
-          # 检查远程分支是否存在，并正确处理切换
-          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+          # 检查远程分支是否存在（明确使用 heads 引用）
+          if git ls-remote --heads origin "$BRANCH" | grep -q "refs/heads/$BRANCH"; then
             echo "分支 $BRANCH 已存在，切换到该分支"
-            # 拉取远程分支到本地同名分支
-            git fetch origin "$BRANCH:$BRANCH"
-            git switch "$BRANCH"
+            # 使用 refs/heads 明确指定拉取分支，避免与 tag 混淆
+            git fetch origin "refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+            git checkout -B "$BRANCH" "origin/$BRANCH"
           else
             echo "创建新分支 $BRANCH"
-            git switch --orphan "$BRANCH"
+            git checkout --orphan "$BRANCH"
           fi
           
           # 清空工作目录（保留 .git）
