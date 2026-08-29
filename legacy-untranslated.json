@@ -1,0 +1,973 @@
+{
+  "generatedAt": "2026-08-29T05:43:12.563Z",
+  "groups": [
+    {
+      "version": "legacy",
+      "flavor": "",
+      "title": "旧版本脚本模块 (Legacy)",
+      "moduleTitle": "@types/mojang-minecraft",
+      "missing": [
+        {
+          "symbol": "Direction",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/Direction.d.ts"
+        },
+        {
+          "symbol": "DisplaySlotId",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/DisplaySlotId.d.ts"
+        },
+        {
+          "symbol": "EntityDamageCause",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/EntityDamageCause.d.ts"
+        },
+        {
+          "symbol": "FluidType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/FluidType.d.ts"
+        },
+        {
+          "symbol": "GameMode",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/GameMode.d.ts"
+        },
+        {
+          "symbol": "ObjectiveSortOrder",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/ObjectiveSortOrder.d.ts"
+        },
+        {
+          "symbol": "ScoreboardIdentityType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/ScoreboardIdentityType.d.ts"
+        },
+        {
+          "symbol": "WatchdogTerminateReason",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/enums/WatchdogTerminateReason.d.ts"
+        },
+        {
+          "symbol": "BeforeChatEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeChatEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeChatEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeChatEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeDataDrivenEntityTriggerEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeDataDrivenEntityTriggerEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeDataDrivenEntityTriggerEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeDataDrivenEntityTriggerEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeExplosionEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeExplosionEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeExplosionEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeExplosionEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeItemDefinitionEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemDefinitionEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeItemDefinitionTriggeredEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemDefinitionTriggeredEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeItemUseEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemUseEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeItemUseEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemUseEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeItemUseOnEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemUseOnEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeItemUseOnEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeItemUseOnEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforePistonActivateEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforePistonActivateEvent.d.ts"
+        },
+        {
+          "symbol": "BeforePistonActivateEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforePistonActivateEventSignal.d.ts"
+        },
+        {
+          "symbol": "BeforeWatchdogTerminateEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeWatchdogTerminateEvent.d.ts"
+        },
+        {
+          "symbol": "BeforeWatchdogTerminateEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BeforeWatchdogTerminateEventSignal.d.ts"
+        },
+        {
+          "symbol": "BlockAreaSize",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockAreaSize.d.ts"
+        },
+        {
+          "symbol": "BlockBreakEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockBreakEvent.d.ts"
+        },
+        {
+          "symbol": "BlockBreakEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockBreakEventSignal.d.ts"
+        },
+        {
+          "symbol": "BlockComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockComponent.d.ts"
+        },
+        {
+          "symbol": "BlockEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockEvent.d.ts"
+        },
+        {
+          "symbol": "BlockExplodeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockExplodeEvent.d.ts"
+        },
+        {
+          "symbol": "BlockExplodeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockExplodeEventSignal.d.ts"
+        },
+        {
+          "symbol": "BlockHitInformation",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockHitInformation.d.ts"
+        },
+        {
+          "symbol": "BlockInventoryComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockInventoryComponent.d.ts"
+        },
+        {
+          "symbol": "BlockInventoryComponentContainer",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockInventoryComponentContainer.d.ts"
+        },
+        {
+          "symbol": "BlockLavaContainerComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockLavaContainerComponent.d.ts"
+        },
+        {
+          "symbol": "BlockLocation",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockLocation.d.ts"
+        },
+        {
+          "symbol": "BlockPermutation",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockPermutation.d.ts"
+        },
+        {
+          "symbol": "BlockPistonComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockPistonComponent.d.ts"
+        },
+        {
+          "symbol": "BlockPlaceEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockPlaceEvent.d.ts"
+        },
+        {
+          "symbol": "BlockPlaceEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockPlaceEventSignal.d.ts"
+        },
+        {
+          "symbol": "BlockPotionContainerComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockPotionContainerComponent.d.ts"
+        },
+        {
+          "symbol": "BlockProperties",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockProperties.d.ts"
+        },
+        {
+          "symbol": "BlockRaycastOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockRaycastOptions.d.ts"
+        },
+        {
+          "symbol": "BlockRecordPlayerComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockRecordPlayerComponent.d.ts"
+        },
+        {
+          "symbol": "BlockSignComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockSignComponent.d.ts"
+        },
+        {
+          "symbol": "BlockSnowContainerComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockSnowContainerComponent.d.ts"
+        },
+        {
+          "symbol": "BlockType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockType.d.ts"
+        },
+        {
+          "symbol": "BlockWaterContainerComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BlockWaterContainerComponent.d.ts"
+        },
+        {
+          "symbol": "BoolBlockProperty",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/BoolBlockProperty.d.ts"
+        },
+        {
+          "symbol": "ButtonPushEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ButtonPushEvent.d.ts"
+        },
+        {
+          "symbol": "ButtonPushEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ButtonPushEventSignal.d.ts"
+        },
+        {
+          "symbol": "ChatEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ChatEvent.d.ts"
+        },
+        {
+          "symbol": "ChatEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ChatEventSignal.d.ts"
+        },
+        {
+          "symbol": "Color",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Color.d.ts"
+        },
+        {
+          "symbol": "CommandResult",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/CommandResult.d.ts"
+        },
+        {
+          "symbol": "Container",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Container.d.ts"
+        },
+        {
+          "symbol": "DataDrivenEntityTriggerEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/DataDrivenEntityTriggerEvent.d.ts"
+        },
+        {
+          "symbol": "DataDrivenEntityTriggerEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/DataDrivenEntityTriggerEventSignal.d.ts"
+        },
+        {
+          "symbol": "DefinitionModifier",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/DefinitionModifier.d.ts"
+        },
+        {
+          "symbol": "DirectionBlockProperty",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/DirectionBlockProperty.d.ts"
+        },
+        {
+          "symbol": "DynamicPropertiesDefinition",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/DynamicPropertiesDefinition.d.ts"
+        },
+        {
+          "symbol": "Effect",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Effect.d.ts"
+        },
+        {
+          "symbol": "EffectAddEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EffectAddEvent.d.ts"
+        },
+        {
+          "symbol": "EffectAddEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EffectAddEventSignal.d.ts"
+        },
+        {
+          "symbol": "EffectType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EffectType.d.ts"
+        },
+        {
+          "symbol": "Enchantment",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Enchantment.d.ts"
+        },
+        {
+          "symbol": "EnchantmentList",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EnchantmentList.d.ts"
+        },
+        {
+          "symbol": "EnchantmentSlot",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EnchantmentSlot.d.ts"
+        },
+        {
+          "symbol": "EnchantmentType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EnchantmentType.d.ts"
+        },
+        {
+          "symbol": "EntityAddRiderComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityAddRiderComponent.d.ts"
+        },
+        {
+          "symbol": "EntityAgeableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityAgeableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityBreathableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityBreathableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityCanClimbComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityCanClimbComponent.d.ts"
+        },
+        {
+          "symbol": "EntityCanFlyComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityCanFlyComponent.d.ts"
+        },
+        {
+          "symbol": "EntityCanPowerJumpComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityCanPowerJumpComponent.d.ts"
+        },
+        {
+          "symbol": "EntityColorComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityColorComponent.d.ts"
+        },
+        {
+          "symbol": "EntityCreateEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityCreateEvent.d.ts"
+        },
+        {
+          "symbol": "EntityCreateEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityCreateEventSignal.d.ts"
+        },
+        {
+          "symbol": "EntityDataDrivenTriggerEventOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityDataDrivenTriggerEventOptions.d.ts"
+        },
+        {
+          "symbol": "EntityDefinitionFeedItem",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityDefinitionFeedItem.d.ts"
+        },
+        {
+          "symbol": "EntityEventOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityEventOptions.d.ts"
+        },
+        {
+          "symbol": "EntityFireImmuneComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityFireImmuneComponent.d.ts"
+        },
+        {
+          "symbol": "EntityFloatsInLiquidComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityFloatsInLiquidComponent.d.ts"
+        },
+        {
+          "symbol": "EntityFlyingSpeedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityFlyingSpeedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityFrictionModifierComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityFrictionModifierComponent.d.ts"
+        },
+        {
+          "symbol": "EntityGroundOffsetComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityGroundOffsetComponent.d.ts"
+        },
+        {
+          "symbol": "EntityHealableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHealableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityHealthComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHealthComponent.d.ts"
+        },
+        {
+          "symbol": "EntityHitEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHitEvent.d.ts"
+        },
+        {
+          "symbol": "EntityHitEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHitEventSignal.d.ts"
+        },
+        {
+          "symbol": "EntityHitInformation",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHitInformation.d.ts"
+        },
+        {
+          "symbol": "EntityHurtEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHurtEvent.d.ts"
+        },
+        {
+          "symbol": "EntityHurtEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityHurtEventSignal.d.ts"
+        },
+        {
+          "symbol": "EntityInventoryComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityInventoryComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsBabyComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsBabyComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsChargedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsChargedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsChestedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsChestedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsDyableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsDyableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsHiddenWhenInvisibleComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsHiddenWhenInvisibleComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsIgnitedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsIgnitedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsIllagerCaptainComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsIllagerCaptainComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsSaddledComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsSaddledComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsShakingComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsShakingComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsShearedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsShearedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsStackableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsStackableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsStunnedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsStunnedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIsTamedComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIsTamedComponent.d.ts"
+        },
+        {
+          "symbol": "EntityItemComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityItemComponent.d.ts"
+        },
+        {
+          "symbol": "EntityIterator",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityIterator.d.ts"
+        },
+        {
+          "symbol": "EntityLavaMovementComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityLavaMovementComponent.d.ts"
+        },
+        {
+          "symbol": "EntityLeashableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityLeashableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMarkVariantComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMarkVariantComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMountTamingComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMountTamingComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementAmphibiousComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementAmphibiousComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementBasicComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementBasicComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementFlyComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementFlyComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementGenericComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementGenericComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementGlideComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementGlideComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementHoverComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementHoverComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementJumpComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementJumpComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementSkipComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementSkipComponent.d.ts"
+        },
+        {
+          "symbol": "EntityMovementSwayComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityMovementSwayComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationClimbComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationClimbComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationFloatComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationFloatComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationFlyComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationFlyComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationGenericComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationGenericComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationHoverComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationHoverComponent.d.ts"
+        },
+        {
+          "symbol": "EntityNavigationWalkComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityNavigationWalkComponent.d.ts"
+        },
+        {
+          "symbol": "EntityPushThroughComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityPushThroughComponent.d.ts"
+        },
+        {
+          "symbol": "EntityQueryScoreOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityQueryScoreOptions.d.ts"
+        },
+        {
+          "symbol": "EntityRaycastOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityRaycastOptions.d.ts"
+        },
+        {
+          "symbol": "EntityRideableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityRideableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityScaleComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityScaleComponent.d.ts"
+        },
+        {
+          "symbol": "EntitySkinIdComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntitySkinIdComponent.d.ts"
+        },
+        {
+          "symbol": "EntityStrengthComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityStrengthComponent.d.ts"
+        },
+        {
+          "symbol": "EntityTameableComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityTameableComponent.d.ts"
+        },
+        {
+          "symbol": "EntityType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityType.d.ts"
+        },
+        {
+          "symbol": "EntityTypeIterator",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityTypeIterator.d.ts"
+        },
+        {
+          "symbol": "EntityTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityTypes.d.ts"
+        },
+        {
+          "symbol": "EntityUnderwaterMovementComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityUnderwaterMovementComponent.d.ts"
+        },
+        {
+          "symbol": "EntityVariantComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityVariantComponent.d.ts"
+        },
+        {
+          "symbol": "EntityWantsJockeyComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/EntityWantsJockeyComponent.d.ts"
+        },
+        {
+          "symbol": "Events",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Events.d.ts"
+        },
+        {
+          "symbol": "ExplosionEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ExplosionEvent.d.ts"
+        },
+        {
+          "symbol": "ExplosionEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ExplosionEventSignal.d.ts"
+        },
+        {
+          "symbol": "ExplosionOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ExplosionOptions.d.ts"
+        },
+        {
+          "symbol": "FeedItem",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/FeedItem.d.ts"
+        },
+        {
+          "symbol": "FeedItemEffect",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/FeedItemEffect.d.ts"
+        },
+        {
+          "symbol": "FilterGroup",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/FilterGroup.d.ts"
+        },
+        {
+          "symbol": "FluidContainer",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/FluidContainer.d.ts"
+        },
+        {
+          "symbol": "IBlockProperty",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/IBlockProperty.d.ts"
+        },
+        {
+          "symbol": "IEntityComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/IEntityComponent.d.ts"
+        },
+        {
+          "symbol": "IntBlockProperty",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/IntBlockProperty.d.ts"
+        },
+        {
+          "symbol": "InventoryComponentContainer",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/InventoryComponentContainer.d.ts"
+        },
+        {
+          "symbol": "ItemCompleteChargeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemCompleteChargeEvent.d.ts"
+        },
+        {
+          "symbol": "ItemCompleteChargeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemCompleteChargeEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemCooldownComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemCooldownComponent.d.ts"
+        },
+        {
+          "symbol": "ItemDefinitionEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemDefinitionEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemDefinitionTriggeredEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemDefinitionTriggeredEvent.d.ts"
+        },
+        {
+          "symbol": "ItemDurabilityComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemDurabilityComponent.d.ts"
+        },
+        {
+          "symbol": "ItemEnchantsComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemEnchantsComponent.d.ts"
+        },
+        {
+          "symbol": "ItemFoodComponent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemFoodComponent.d.ts"
+        },
+        {
+          "symbol": "ItemReleaseChargeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemReleaseChargeEvent.d.ts"
+        },
+        {
+          "symbol": "ItemReleaseChargeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemReleaseChargeEventSignal.d.ts"
+        },
+        {
+          "symbol": "Items",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Items.d.ts"
+        },
+        {
+          "symbol": "ItemStartChargeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStartChargeEvent.d.ts"
+        },
+        {
+          "symbol": "ItemStartChargeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStartChargeEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemStartUseOnEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStartUseOnEvent.d.ts"
+        },
+        {
+          "symbol": "ItemStartUseOnEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStartUseOnEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemStopChargeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStopChargeEvent.d.ts"
+        },
+        {
+          "symbol": "ItemStopChargeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStopChargeEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemStopUseOnEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStopUseOnEvent.d.ts"
+        },
+        {
+          "symbol": "ItemStopUseOnEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemStopUseOnEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemType",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemType.d.ts"
+        },
+        {
+          "symbol": "ItemUseEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemUseEvent.d.ts"
+        },
+        {
+          "symbol": "ItemUseEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemUseEventSignal.d.ts"
+        },
+        {
+          "symbol": "ItemUseOnEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemUseOnEvent.d.ts"
+        },
+        {
+          "symbol": "ItemUseOnEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ItemUseOnEventSignal.d.ts"
+        },
+        {
+          "symbol": "LeverActionEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/LeverActionEvent.d.ts"
+        },
+        {
+          "symbol": "LeverActionEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/LeverActionEventSignal.d.ts"
+        },
+        {
+          "symbol": "Location",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Location.d.ts"
+        },
+        {
+          "symbol": "MinecraftBlockTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftBlockTypes.d.ts"
+        },
+        {
+          "symbol": "MinecraftDimensionTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftDimensionTypes.d.ts"
+        },
+        {
+          "symbol": "MinecraftEffectTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftEffectTypes.d.ts"
+        },
+        {
+          "symbol": "MinecraftEnchantmentTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftEnchantmentTypes.d.ts"
+        },
+        {
+          "symbol": "MinecraftEntityTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftEntityTypes.d.ts"
+        },
+        {
+          "symbol": "MinecraftItemTypes",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MinecraftItemTypes.d.ts"
+        },
+        {
+          "symbol": "MolangVariableMap",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MolangVariableMap.d.ts"
+        },
+        {
+          "symbol": "MusicOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/MusicOptions.d.ts"
+        },
+        {
+          "symbol": "NavigationResult",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/NavigationResult.d.ts"
+        },
+        {
+          "symbol": "NumberRange",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/NumberRange.d.ts"
+        },
+        {
+          "symbol": "PistonActivateEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PistonActivateEvent.d.ts"
+        },
+        {
+          "symbol": "PistonActivateEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PistonActivateEventSignal.d.ts"
+        },
+        {
+          "symbol": "Player",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Player.d.ts"
+        },
+        {
+          "symbol": "PlayerInventoryComponentContainer",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerInventoryComponentContainer.d.ts"
+        },
+        {
+          "symbol": "PlayerIterator",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerIterator.d.ts"
+        },
+        {
+          "symbol": "PlayerJoinEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerJoinEvent.d.ts"
+        },
+        {
+          "symbol": "PlayerJoinEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerJoinEventSignal.d.ts"
+        },
+        {
+          "symbol": "PlayerLeaveEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerLeaveEvent.d.ts"
+        },
+        {
+          "symbol": "PlayerLeaveEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PlayerLeaveEventSignal.d.ts"
+        },
+        {
+          "symbol": "ProjectileHitEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ProjectileHitEvent.d.ts"
+        },
+        {
+          "symbol": "ProjectileHitEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ProjectileHitEventSignal.d.ts"
+        },
+        {
+          "symbol": "PropertyRegistry",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/PropertyRegistry.d.ts"
+        },
+        {
+          "symbol": "Scoreboard",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Scoreboard.d.ts"
+        },
+        {
+          "symbol": "ScoreboardIdentity",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ScoreboardIdentity.d.ts"
+        },
+        {
+          "symbol": "ScoreboardObjective",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ScoreboardObjective.d.ts"
+        },
+        {
+          "symbol": "ScoreboardObjectiveDisplayOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ScoreboardObjectiveDisplayOptions.d.ts"
+        },
+        {
+          "symbol": "ScoreboardScoreInfo",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ScoreboardScoreInfo.d.ts"
+        },
+        {
+          "symbol": "ScreenDisplay",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/ScreenDisplay.d.ts"
+        },
+        {
+          "symbol": "Seat",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Seat.d.ts"
+        },
+        {
+          "symbol": "SoundOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/SoundOptions.d.ts"
+        },
+        {
+          "symbol": "StringBlockProperty",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/StringBlockProperty.d.ts"
+        },
+        {
+          "symbol": "SystemEvents",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/SystemEvents.d.ts"
+        },
+        {
+          "symbol": "TickEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/TickEvent.d.ts"
+        },
+        {
+          "symbol": "TickEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/TickEventSignal.d.ts"
+        },
+        {
+          "symbol": "TitleDisplayOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/TitleDisplayOptions.d.ts"
+        },
+        {
+          "symbol": "Trigger",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Trigger.d.ts"
+        },
+        {
+          "symbol": "Vector",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/Vector.d.ts"
+        },
+        {
+          "symbol": "WeatherChangeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/WeatherChangeEvent.d.ts"
+        },
+        {
+          "symbol": "WeatherChangeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/WeatherChangeEventSignal.d.ts"
+        },
+        {
+          "symbol": "World",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/World.d.ts"
+        },
+        {
+          "symbol": "WorldInitializeEvent",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/WorldInitializeEvent.d.ts"
+        },
+        {
+          "symbol": "WorldInitializeEventSignal",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/WorldInitializeEventSignal.d.ts"
+        },
+        {
+          "symbol": "XYRotation",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/classes/XYRotation.d.ts"
+        },
+        {
+          "symbol": "EntityQueryOptions",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/interfaces/EntityQueryOptions.d.ts"
+        },
+        {
+          "symbol": "RawMessage",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/interfaces/RawMessage.d.ts"
+        },
+        {
+          "symbol": "Vector3",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/interfaces/Vector3.d.ts"
+        },
+        {
+          "symbol": "TicksPerSecond",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/variables/TicksPerSecond.d.ts"
+        },
+        {
+          "symbol": "system",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft/variables/system.d.ts"
+        }
+      ],
+      "expired": [],
+      "invalid": []
+    },
+    {
+      "version": "legacy",
+      "flavor": "",
+      "title": "旧版本脚本模块 (Legacy)",
+      "moduleTitle": "@types/mojang-minecraft-ui",
+      "missing": [
+        {
+          "symbol": "ActionFormData",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/ActionFormData.d.ts"
+        },
+        {
+          "symbol": "ActionFormResponse",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/ActionFormResponse.d.ts"
+        },
+        {
+          "symbol": "FormResponse",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/FormResponse.d.ts"
+        },
+        {
+          "symbol": "MessageFormData",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/MessageFormData.d.ts"
+        },
+        {
+          "symbol": "MessageFormResponse",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/MessageFormResponse.d.ts"
+        },
+        {
+          "symbol": "ModalFormData",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/ModalFormData.d.ts"
+        },
+        {
+          "symbol": "ModalFormResponse",
+          "srcUrl": "/minecraft-doc/translation-src/legacy/mojang-minecraft-ui/classes/ModalFormResponse.d.ts"
+        }
+      ],
+      "expired": [],
+      "invalid": []
+    }
+  ]
+}

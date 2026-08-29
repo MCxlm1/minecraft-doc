@@ -1,0 +1,34 @@
+export class MinecraftEffectTypes {
+    static readonly "absorption": EffectType;
+    static readonly "badOmen": EffectType;
+    static readonly "blindness": EffectType;
+    static readonly "conduitPower": EffectType;
+    static readonly "darkness": EffectType;
+    static readonly "empty": EffectType;
+    static readonly "fatalPoison": EffectType;
+    static readonly "fireResistance": EffectType;
+    static readonly "haste": EffectType;
+    static readonly "healthBoost": EffectType;
+    static readonly "hunger": EffectType;
+    static readonly "instantDamage": EffectType;
+    static readonly "instantHealth": EffectType;
+    static readonly "invisibility": EffectType;
+    static readonly "jumpBoost": EffectType;
+    static readonly "levitation": EffectType;
+    static readonly "miningFatigue": EffectType;
+    static readonly "nausea": EffectType;
+    static readonly "nightVision": EffectType;
+    static readonly "poison": EffectType;
+    static readonly "regeneration": EffectType;
+    static readonly "resistance": EffectType;
+    static readonly "saturation": EffectType;
+    static readonly "slowFalling": EffectType;
+    static readonly "slowness": EffectType;
+    static readonly "speed": EffectType;
+    static readonly "strength": EffectType;
+    static readonly "villageHero": EffectType;
+    static readonly "waterBreathing": EffectType;
+    static readonly "weakness": EffectType;
+    static readonly "wither": EffectType;
+    protected constructor();
+}

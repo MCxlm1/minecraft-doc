@@ -1,0 +1,34 @@
+export class WidgetComponentRenderPrimitive extends WidgetComponentBase {
+    private constructor();
+    /**
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidWidgetComponentError}
+     *
+     * {@link InvalidWidgetError}
+     */
+    readonly primitiveType: PrimitiveType;
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidWidgetComponentError}
+     *
+     * {@link InvalidWidgetError}
+     */
+    setPrimitive(
+        primitive:
+            | WidgetComponentRenderPrimitiveTypeAxialSphere
+            | WidgetComponentRenderPrimitiveTypeBox
+            | WidgetComponentRenderPrimitiveTypeCone
+            | WidgetComponentRenderPrimitiveTypeCuboid
+            | WidgetComponentRenderPrimitiveTypeCylinder
+            | WidgetComponentRenderPrimitiveTypeDisc
+            | WidgetComponentRenderPrimitiveTypeEllipsoid
+            | WidgetComponentRenderPrimitiveTypeLine
+            | WidgetComponentRenderPrimitiveTypePyramid
+            | WidgetComponentRenderPrimitiveTypeWireframeMesh,
+    ): void;
+}

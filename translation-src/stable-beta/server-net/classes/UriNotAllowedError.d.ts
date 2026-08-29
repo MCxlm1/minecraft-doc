@@ -1,0 +1,16 @@
+/**
+ * An error thrown when a network request targets a URI that is
+ * not in the configured allow list.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class UriNotAllowedError extends Error {
+    private constructor();
+    /**
+     * @remarks
+     * URI that was rejected because it is not allowed.
+     *
+     * @privilege early-execution-readable - This property can be read in early-execution mode.
+     *
+     */
+    readonly uri: string;
+}

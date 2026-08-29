@@ -1,0 +1,107 @@
+/**
+ * The base class for all debug shapes. Represents an object in
+ * the world and its base properties.
+ */
+export class DebugShape {
+    private constructor();
+    /**
+     * @remarks
+     * The entity this shape is attached to. When set, this shape
+     * will copy the root location of the attached entity and the
+     * shape's position will be used as an offset.
+     *
+     */
+    attachedTo?: minecraftserver.Entity;
+    /**
+     * @remarks
+     * The color of the shape.
+     *
+     */
+    color: minecraftserver.RGBA;
+    /**
+     * @remarks
+     * The dimension the shape is visible within. If the dimension
+     * is undefined, it will display in all dimensions.
+     *
+     */
+    readonly dimension: minecraftserver.Dimension;
+    /**
+     * @remarks
+     * Returns true if the shape has a limited time span before
+     * being removed.
+     *
+     */
+    readonly hasDuration: boolean;
+    /**
+     * @remarks
+     * The location of the shape. For most shapes the location is
+     * the centre of the shape, except DebugLine and DebugArrow
+     * where this represents the start point of the line.
+     *
+     */
+    readonly location: minecraftserver.Vector3;
+    /**
+     * @remarks
+     * If defined, this distance will be used to determine how far
+     * away this shape will be rendered for each client. By default
+     * the distance will match the client's render distance
+     * setting.
+     *
+     * Minimum Value: 0
+     */
+    maximumRenderDistance?: number;
+    /**
+     * @remarks
+     * The rotation of the shape in degrees (Euler angles - [Pitch,
+     * Yaw, Roll]).
+     *
+     */
+    rotation: minecraftserver.Vector3;
+    /**
+     * @remarks
+     * The scale of the shape. This does not apply to DebugLine or
+     * DebugArrow.
+     *
+     */
+    scale: number;
+    /**
+     * @remarks
+     * The time left (in seconds) until this shape is automatically
+     * removed. Returns undefined if the shape does not have a
+     * limited life-span.
+     *
+     */
+    timeLeft?: number;
+    /**
+     * @remarks
+     * The total initial time-span (in seconds) until this shape is
+     * automatically removed. Returns undefined if the shape does
+     * not have a limited life-span.
+     *
+     */
+    readonly totalTimeLeft?: number;
+    /**
+     * @remarks
+     * The list of players that this shape will be visible to. If
+     * left empty, the shape will be visible to all players.
+     *
+     */
+    visibleTo: minecraftserver.Player[];
+    /**
+     * @remarks
+     * Removes this shape from the world. The shape can be re-added
+     * via the DebugDrawer's addShape method.
+     *
+     */
+    remove(): void;
+    /**
+     * @remarks
+     * Set the location and dimension of the shape. If the
+     * dimension is undefined, it will display in all dimensions.
+     * For most shapes the location is the centre of the shape,
+     * except DebugLine and DebugArrow where this represents the
+     * start point of the line.
+     *
+     */
+    setLocation(location: minecraftserver.DimensionLocation | minecraftserver.Vector3): void;
+}

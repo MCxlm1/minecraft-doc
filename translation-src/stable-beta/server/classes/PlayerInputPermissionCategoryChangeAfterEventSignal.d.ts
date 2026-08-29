@@ -1,0 +1,31 @@
+/**
+ * Manages callbacks that are connected to after a players
+ * input permissions change.
+ */
+export class PlayerInputPermissionCategoryChangeAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called after a players input
+     * permissions change.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: PlayerInputPermissionCategoryChangeAfterEvent) => void,
+    ): (arg0: PlayerInputPermissionCategoryChangeAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called after a players input
+     * permissions change.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: PlayerInputPermissionCategoryChangeAfterEvent) => void): void;
+}

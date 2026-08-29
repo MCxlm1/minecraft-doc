@@ -1,0 +1,30 @@
+/**
+ * @rc
+ * Manages callbacks that are invoked when a tracked sound's
+ * declared duration elapses.
+ */
+export class SoundCompletedAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be invoked when a tracked sound's
+     * declared duration elapses.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     */
+    subscribe(callback: (arg0: SoundCompletedAfterEvent) => void): (arg0: SoundCompletedAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being invoked when a tracked sound's
+     * declared duration elapses.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: SoundCompletedAfterEvent) => void): void;
+}

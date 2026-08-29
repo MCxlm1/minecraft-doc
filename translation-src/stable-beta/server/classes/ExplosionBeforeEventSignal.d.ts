@@ -1,0 +1,36 @@
+/**
+ * Manages callbacks that are connected to before an explosion
+ * occurs.
+ */
+export class ExplosionBeforeEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when before an explosion
+     * occurs. The callback can optionally change or cancel
+     * explosion behavior.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     * @returns
+     * Closure that is called with restricted-execution privilege.
+     */
+    subscribe(callback: (arg0: ExplosionBeforeEvent) => void): (arg0: ExplosionBeforeEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called from before when an
+     * explosion would occur.
+     *
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     * @privilege early-execution-allowed - This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     */
+    unsubscribe(callback: (arg0: ExplosionBeforeEvent) => void): void;
+}
