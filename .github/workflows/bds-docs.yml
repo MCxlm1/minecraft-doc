@@ -38,13 +38,39 @@ jobs:
           echo "完成，目录内容："
           ls -la | head -20
 
-      - name: 打包 metadata 为 zip
+      - name: 收集生成产物（metadata 和 behavior_packs）
+        id: collect
         run: |
           cd vendor/bds-docs
-          ls metadata/ >/dev/null && echo "metadata 存在"
-          mkdir -p ../../_release
-          zip -r ../../_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip metadata
-          ls -la ../../_release/
+          mkdir -p ../../bds-output
+          # 复制 metadata 如果存在
+          if [ -d "metadata" ]; then
+            cp -r metadata ../../bds-output/
+            echo "metadata 已复制"
+          else
+            echo "metadata 目录不存在"
+          fi
+          # 复制 behavior_packs 如果存在
+          if [ -d "behavior_packs" ]; then
+            cp -r behavior_packs ../../bds-output/
+            echo "behavior_packs 已复制"
+          else
+            echo "behavior_packs 目录不存在"
+          fi
+          # 列出最终产物
+          echo "bds-output 目录内容："
+          ls -la ../../bds-output/ || echo "bds-output 目录为空或不存在"
+
+      - name: 打包 metadata 为 zip（保持原有 Release 兼容性）
+        run: |
+          cd vendor/bds-docs
+          if [ -d "metadata" ]; then
+            mkdir -p ../../_release
+            zip -r ../../_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip metadata
+            ls -la ../../_release/
+          else
+            echo "metadata 不存在，跳过打包"
+          fi
 
       - name: 发布到 GitHub Release（固定 tag bds-metadata-<branch>）
         env:
@@ -52,11 +78,56 @@ jobs:
         run: |
           TAG="bds-metadata-${{ env.BRANCH_TO_UPDATE }}"
           ASSET="_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release $TAG 已存在，更新 asset"
-            gh release upload "$TAG" "$ASSET" --clobber
+          if [ -f "$ASSET" ]; then
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              echo "Release $TAG 已存在，更新 asset"
+              gh release upload "$TAG" "$ASSET" --clobber
+            else
+              echo "创建 Release $TAG"
+              gh release create "$TAG" "$ASSET" --title "bds metadata ${{ env.BRANCH_TO_UPDATE }}" --generate-notes --latest=false
+            fi
           else
-            echo "创建 Release $TAG"
-            gh release create "$TAG" "$ASSET" --title "bds metadata ${{ env.BRANCH_TO_UPDATE }}" --generate-notes --latest=false
+            echo "没有可发布的 asset，跳过"
           fi
-          echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
+
+      - name: 推送 bds-output 到独立分支（供 docs workflow 使用）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # 检查 bds-output 目录是否存在且非空
+          if [ ! -d "bds-output" ] || [ -z "$(ls -A bds-output)" ]; then
+            echo "bds-output 目录为空或不存在，跳过分支推送"
+            exit 0
+          fi
+          
+          # 配置 git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          BRANCH="bds-output-${{ env.BRANCH_TO_UPDATE }}"
+          
+          # 检查远程分支是否存在
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            echo "分支 $BRANCH 已存在，切换到该分支"
+            git fetch origin "$BRANCH"
+            git switch "$BRANCH"
+          else
+            echo "创建新分支 $BRANCH"
+            git switch --orphan "$BRANCH"
+          fi
+          
+          # 清空工作目录（保留 .git）
+          echo "清空工作目录..."
+          find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} \; 2>/dev/null || true
+          
+          # 复制 bds-output 内容到根目录
+          echo "复制 bds-output 内容..."
+          cp -r bds-output/* . 2>/dev/null || echo "bds-output 为空，跳过复制"
+          rm -rf bds-output
+          
+          # 添加并提交
+          echo "提交更改..."
+          git add .
+          git commit -m "Update BDS output for ${{ env.BRANCH_TO_UPDATE }} branch" --allow-empty
+          echo "推送到远程分支..."
+          git push --force origin "$BRANCH"
