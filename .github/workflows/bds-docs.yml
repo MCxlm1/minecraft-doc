@@ -82,32 +82,45 @@ jobs:
           fi
           echo "should_process=true" >> $GITHUB_ENV
           
-          # 彻底清理重复的 schema $id（使用 Node.js 扫描所有文件）
-          echo "清理重复的 schema $id..."
+          # 彻底清理重复的 schema $id（递归扫描所有子目录）
+          echo "清理重复的 schema $id（递归）..."
           if [ -d "bds-output/metadata/json_schemas" ]; then
             node -e "
               const fs = require('fs');
               const path = require('path');
-              const dir = 'bds-output/metadata/json_schemas';
-              const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+              function walkDir(dir) {
+                let results = [];
+                const list = fs.readdirSync(dir);
+                list.forEach((file) => {
+                  const filePath = path.join(dir, file);
+                  const stat = fs.statSync(filePath);
+                  if (stat && stat.isDirectory()) {
+                    results = results.concat(walkDir(filePath));
+                  } else if (file.endsWith('.json')) {
+                    results.push(filePath);
+                  }
+                });
+                return results;
+              }
+              const baseDir = 'bds-output/metadata/json_schemas';
+              const files = walkDir(baseDir);
               const seen = new Map();
-              for (const file of files) {
-                const filePath = path.join(dir, file);
+              for (const filePath of files) {
                 try {
                   const content = fs.readFileSync(filePath, 'utf-8');
                   const json = JSON.parse(content);
                   const id = json['$id'];
                   if (id) {
                     if (seen.has(id)) {
-                      console.log('Duplicate \$id:', id, 'in file', file, 'already seen in', seen.get(id));
+                      console.log('Duplicate \$id:', id, 'in file', path.basename(filePath), 'already seen in', path.basename(seen.get(id)));
                       fs.unlinkSync(filePath);
-                      console.log('Deleted', file);
+                      console.log('Deleted', path.basename(filePath));
                     } else {
-                      seen.set(id, file);
+                      seen.set(id, filePath);
                     }
                   }
                 } catch (e) {
-                  console.error('Error processing', file, e.message);
+                  console.error('Error processing', filePath, e.message);
                 }
               }
             "
