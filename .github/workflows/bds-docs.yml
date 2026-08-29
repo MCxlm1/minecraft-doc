@@ -114,73 +114,37 @@ jobs:
           cd ..
           echo "processed-behavior_packs.zip 已生成"
 
-      - name: 打包 metadata 为 zip（保持原有 Release 兼容性）
+      - name: 打包产物到 _release 目录
         run: |
-          cd vendor/bds-docs
-          if [ -d "metadata" ]; then
-            mkdir -p ../../_release
+          mkdir -p _release
+          # 打包 metadata（如果存在）
+          if [ -d "vendor/bds-docs/metadata" ]; then
+            cd vendor/bds-docs
             zip -r ../../_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip metadata
-            ls -la ../../_release/
+            cd ../..
           else
             echo "metadata 不存在，跳过打包"
           fi
+          # 复制 processed-behavior_packs.zip（如果存在）
+          if [ -f "bds-output/processed-behavior_packs.zip" ]; then
+            cp bds-output/processed-behavior_packs.zip _release/processed-behavior_packs-${{ env.BRANCH_TO_UPDATE }}.zip
+            echo "processed-behavior_packs.zip 已复制到 _release"
+          else
+            echo "processed-behavior_packs.zip 不存在，跳过"
+          fi
+          ls -la _release/
 
-      - name: 发布 metadata 到 GitHub Release
+      - name: 发布到 GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="bds-metadata-${{ env.BRANCH_TO_UPDATE }}"
-          ASSET="_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
-          if [ -f "$ASSET" ]; then
-            if gh release view "$TAG" >/dev/null 2>&1; then
-              echo "Release $TAG 已存在，更新 asset"
-              gh release upload "$TAG" "$ASSET" --clobber
-            else
-              echo "创建 Release $TAG"
-              gh release create "$TAG" "$ASSET" --title "bds metadata ${{ env.BRANCH_TO_UPDATE }}" --generate-notes --latest=false
-            fi
+          TAG="bds-assets-${{ env.BRANCH_TO_UPDATE }}"
+          # 检查 Release 是否存在
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG 已存在，更新 asset"
+            gh release upload "$TAG" _release/* --clobber
           else
-            echo "没有可发布的 asset，跳过"
+            echo "创建 Release $TAG"
+            gh release create "$TAG" _release/* --title "BDS assets (${{ env.BRANCH_TO_UPDATE }})" --generate-notes --latest=false
           fi
-
-      - name: 推送 bds-output 到独立分支（包含处理后的 behavior_packs）
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # 检查 bds-output 目录是否存在且非空
-          if [ ! -d "bds-output" ] || [ -z "$(ls -A bds-output)" ]; then
-            echo "错误：bds-output 目录为空，没有可推送的内容"
-            exit 1
-          fi
-          
-          # 配置 git
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          BRANCH="bds-output-${{ env.BRANCH_TO_UPDATE }}"
-          
-          # 检查远程分支是否存在（明确使用 heads 引用）
-          if git ls-remote --heads origin "$BRANCH" | grep -q "refs/heads/$BRANCH"; then
-            echo "分支 $BRANCH 已存在，切换到该分支"
-            git fetch origin "refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
-            git checkout -B "$BRANCH" "origin/$BRANCH"
-          else
-            echo "创建新分支 $BRANCH"
-            git checkout --orphan "$BRANCH"
-          fi
-          
-          # 清空工作目录（保留 .git）
-          echo "清空工作目录..."
-          find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} \; 2>/dev/null || true
-          
-          # 复制 bds-output 内容到根目录
-          echo "复制 bds-output 内容..."
-          cp -r bds-output/* . 2>/dev/null || echo "复制失败"
-          rm -rf bds-output
-          
-          # 添加并提交
-          echo "提交更改..."
-          git add .
-          git commit -m "Update BDS output for ${{ env.BRANCH_TO_UPDATE }} branch" --allow-empty
-          echo "推送到远程分支..."
-          git push --force origin "$BRANCH"
+          echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/"
