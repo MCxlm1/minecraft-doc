@@ -37,25 +37,30 @@ jobs:
           deno run --allow-all dist/main.js
           echo "完成，目录内容："
           ls -la | head -20
+          echo "查找 __installation__ 目录内容："
+          if [ -d "__installation__" ]; then
+            ls -la __installation__/ | head -20
+          fi
 
       - name: 收集生成产物（metadata 和 behavior_packs）
         id: collect
         run: |
           cd vendor/bds-docs
           mkdir -p ../../bds-output
-          # 复制 metadata 如果存在
+          # 复制 metadata（由生成器产生）
           if [ -d "metadata" ]; then
             cp -r metadata ../../bds-output/
             echo "metadata 已复制"
           else
             echo "metadata 目录不存在"
           fi
-          # 复制 behavior_packs 如果存在
-          if [ -d "behavior_packs" ]; then
-            cp -r behavior_packs ../../bds-output/
-            echo "behavior_packs 已复制"
+          # 查找 behavior_packs 目录（BDS 自带的）
+          BEHAVIOR_DIR=$(find . -type d -name "behavior_packs" -print -quit 2>/dev/null || true)
+          if [ -n "$BEHAVIOR_DIR" ]; then
+            cp -r "$BEHAVIOR_DIR" ../../bds-output/
+            echo "behavior_packs 已从 $BEHAVIOR_DIR 复制"
           else
-            echo "behavior_packs 目录不存在"
+            echo "behavior_packs 未找到"
           fi
           # 列出最终产物
           echo "bds-output 目录内容："
@@ -66,8 +71,13 @@ jobs:
         run: |
           # 检查 behavior_packs 是否存在且非空
           if [ ! -d "bds-output/behavior_packs" ] || [ -z "$(ls -A bds-output/behavior_packs)" ]; then
-            echo "behavior_packs 不存在或为空，跳过处理"
-            echo "should_process=false" >> $GITHUB_ENV
+            echo "behavior_packs 不存在或为空，创建占位 zip"
+            cd bds-output
+            echo "No behavior_packs data available." > README_empty.txt
+            zip processed-behavior_packs.zip README_empty.txt
+            rm README_empty.txt
+            cd ..
+            echo "should_process=true" >> $GITHUB_ENV
             exit 0
           fi
           echo "should_process=true" >> $GITHUB_ENV
