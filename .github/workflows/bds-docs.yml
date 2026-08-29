@@ -29,8 +29,8 @@ jobs:
       - name: 运行 bds-docs 生成器（下载 BDS → 提取元数据 + 类型）
         env:
           BRANCH_TO_UPDATE: ${{ env.BRANCH_TO_UPDATE }}
-          BDS_NO_PUSH: "1"            # 集成到本仓库：只生成，不 git push
-          GITHUB_ACTIONS: ""          # 置空：让生成器内部的 git 登录/提交(if(!GIT_IS_GITHUB_ACTION))全部跳过
+          BDS_NO_PUSH: "1"
+          GITHUB_ACTIONS: ""
         run: |
           unset GITHUB_ACTIONS 2>/dev/null || true
           cd vendor/bds-docs
@@ -61,6 +61,39 @@ jobs:
           echo "bds-output 目录内容："
           ls -la ../../bds-output/ || echo "bds-output 目录为空或不存在"
 
+      - name: 处理 behavior_packs（使用 brarchive-extractor）
+        if: env.should_process_brax == 'true'
+        id: process_brax
+        env:
+          SHOULD_PROCESS_BRAX: ${{ steps.check_brax_needed.outputs.should_process }}
+        run: |
+          # 检查 behavior_packs 是否存在且非空
+          if [ ! -d "bds-output/behavior_packs" ] || [ -z "$(ls -A bds-output/behavior_packs)" ]; then
+            echo "behavior_packs 不存在或为空，跳过处理"
+            echo "should_process=false" >> $GITHUB_ENV
+            exit 0
+          fi
+          echo "should_process=true" >> $GITHUB_ENV
+          
+          # 克隆 brarchive-extractor
+          git clone https://github.com/LPaicen/brarchive-extractor.git brarchive-extractor
+          
+          # 构建 brax
+          cd brarchive-extractor
+          npm install
+          npm run build
+          cd ..
+          
+          # 处理 behavior_packs
+          mkdir -p bds-output/processed-behavior_packs
+          node brarchive-extractor/dist/src/cli.js bds-output/behavior_packs --schema bds-output/metadata/json_schemas/ --output bds-output/processed-behavior_packs --overwrite --verbose
+          
+          # 打包处理结果
+          cd bds-output
+          zip -r processed-behavior_packs.zip processed-behavior_packs
+          cd ..
+          echo "processed-behavior_packs.zip 已生成"
+
       - name: 打包 metadata 为 zip（保持原有 Release 兼容性）
         run: |
           cd vendor/bds-docs
@@ -72,7 +105,7 @@ jobs:
             echo "metadata 不存在，跳过打包"
           fi
 
-      - name: 发布到 GitHub Release（固定 tag bds-metadata-<branch>）
+      - name: 发布 metadata 到 GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -90,7 +123,7 @@ jobs:
             echo "没有可发布的 asset，跳过"
           fi
 
-      - name: 推送 bds-output 到独立分支（供 docs workflow 使用）
+      - name: 推送 bds-output 到独立分支（包含处理后的 behavior_packs）
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
