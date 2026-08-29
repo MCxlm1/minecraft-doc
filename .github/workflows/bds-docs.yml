@@ -38,25 +38,57 @@ jobs:
           echo "完成，目录内容："
           ls -la | head -20
 
-      - name: 打包 metadata 为 zip
+      - name: 收集生成产物（metadata 和 behavior_packs）
+        id: collect
         run: |
           cd vendor/bds-docs
-          ls metadata/ >/dev/null && echo "metadata 存在"
-          mkdir -p ../../_release
-          zip -r ../../_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip metadata
-          ls -la ../../_release/
+          mkdir -p ../../bds-output
+          # 复制 metadata 如果存在
+          if [ -d "metadata" ]; then
+            cp -r metadata ../../bds-output/
+            echo "metadata 已复制"
+          else
+            echo "metadata 目录不存在"
+          fi
+          # 复制 behavior_packs 如果存在
+          if [ -d "behavior_packs" ]; then
+            cp -r behavior_packs ../../bds-output/
+            echo "behavior_packs 已复制"
+          else
+            echo "behavior_packs 目录不存在"
+          fi
+          # 列出最终产物
+          ls -la ../../bds-output/
 
-      - name: 发布到 GitHub Release（固定 tag bds-metadata-<branch>）
+      - name: 上传 bds 输出为 artifact（供其他 workflow 临时使用）
+        uses: actions/upload-artifact@v4
+        with:
+          name: bds-output-${{ env.BRANCH_TO_UPDATE }}
+          path: bds-output/
+          retention-days: 7
+
+      - name: 打包完整输出为 zip（用于 Release 永久保存）
+        run: |
+          cd bds-output
+          mkdir -p ../_release
+          zip -r ../_release/bds-output-${{ env.BRANCH_TO_UPDATE }}.zip .
+          ls -la ../_release/
+
+      - name: 发布到 GitHub Release（固定 tag bds-output-<branch>，每次覆盖）
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="bds-metadata-${{ env.BRANCH_TO_UPDATE }}"
-          ASSET="_release/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
+          TAG="bds-output-${{ env.BRANCH_TO_UPDATE }}"
+          ASSET="_release/bds-output-${{ env.BRANCH_TO_UPDATE }}.zip"
+          if [ ! -f "$ASSET" ]; then
+            echo "没有可发布的 asset，退出"
+            exit 1
+          fi
           if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release $TAG 已存在，更新 asset"
+            echo "Release $TAG 已存在，更新 asset（覆盖）"
             gh release upload "$TAG" "$ASSET" --clobber
           else
             echo "创建 Release $TAG"
-            gh release create "$TAG" "$ASSET" --title "bds metadata ${{ env.BRANCH_TO_UPDATE }}" --generate-notes --latest=false
+            gh release create "$TAG" "$ASSET" --title "BDS 完整输出 (${{ env.BRANCH_TO_UPDATE }})" --generate-notes --latest=false
           fi
-          echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/metadata-${{ env.BRANCH_TO_UPDATE }}.zip"
+          echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/bds-output-${{ env.BRANCH_TO_UPDATE }}.zip"
