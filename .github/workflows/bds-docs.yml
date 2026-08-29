@@ -82,16 +82,35 @@ jobs:
           fi
           echo "should_process=true" >> $GITHUB_ENV
           
-          # 修复重复 schema $id 问题（大小写冲突）
-          echo "检查并清理重复的 schema 文件..."
+          # 彻底清理重复的 schema $id（使用 Node.js 扫描所有文件）
+          echo "清理重复的 schema $id..."
           if [ -d "bds-output/metadata/json_schemas" ]; then
-            cd bds-output/metadata/json_schemas
-            # 删除重复的 Item_Descriptor.json（保留 item_descriptor.json）
-            if [ -f "Item_Descriptor.json" ] && [ -f "item_descriptor.json" ]; then
-              echo "发现重复 schema：Item_Descriptor.json 和 item_descriptor.json，删除前者"
-              rm -f "Item_Descriptor.json"
-            fi
-            cd -
+            node -e "
+              const fs = require('fs');
+              const path = require('path');
+              const dir = 'bds-output/metadata/json_schemas';
+              const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
+              const seen = new Map();
+              for (const file of files) {
+                const filePath = path.join(dir, file);
+                try {
+                  const content = fs.readFileSync(filePath, 'utf-8');
+                  const json = JSON.parse(content);
+                  const id = json['$id'];
+                  if (id) {
+                    if (seen.has(id)) {
+                      console.log('Duplicate \$id:', id, 'in file', file, 'already seen in', seen.get(id));
+                      fs.unlinkSync(filePath);
+                      console.log('Deleted', file);
+                    } else {
+                      seen.set(id, file);
+                    }
+                  }
+                } catch (e) {
+                  console.error('Error processing', file, e.message);
+                }
+              }
+            "
           fi
           
           # 克隆 brarchive-extractor
