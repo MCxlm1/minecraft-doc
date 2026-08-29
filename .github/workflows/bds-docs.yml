@@ -82,6 +82,18 @@ jobs:
           fi
           echo "should_process=true" >> $GITHUB_ENV
           
+          # 修复重复 schema $id 问题（大小写冲突）
+          echo "检查并清理重复的 schema 文件..."
+          if [ -d "bds-output/metadata/json_schemas" ]; then
+            cd bds-output/metadata/json_schemas
+            # 删除重复的 Item_Descriptor.json（保留 item_descriptor.json）
+            if [ -f "Item_Descriptor.json" ] && [ -f "item_descriptor.json" ]; then
+              echo "发现重复 schema：Item_Descriptor.json 和 item_descriptor.json，删除前者"
+              rm -f "Item_Descriptor.json"
+            fi
+            cd -
+          fi
+          
           # 克隆 brarchive-extractor
           git clone https://github.com/LPaicen/brarchive-extractor.git brarchive-extractor
           
