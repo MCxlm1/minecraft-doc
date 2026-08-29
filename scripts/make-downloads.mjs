@@ -4,6 +4,7 @@
  *   - 我们现有生成的各模块合并 d.ts（_out/<版本>/dts/*.d.ts）→ 复制到 _out/downloads/dts/<版本>/
  *   - b-doc 产物（bedrock-apis/bds-docs 生成）由独立 workflow 打包并发布为 GitHub Release asset
  *     约定 asset 名 metadata-<branch>.zip；下载页直链 /releases/latest/download/metadata-<branch>.zip
+ *   - 处理后的 behavior_packs（由 brax 提取）→ 打包为 processed-behavior_packs.zip 提供下载
  * 调用：node scripts/make-downloads.mjs
  */
 import fs from 'fs';
@@ -39,7 +40,12 @@ if (fs.existsSync(OUT)) {
   }
 }
 
-// 2) 渲染下载页
+// 2) 检查处理后的 behavior_packs 是否存在
+const processedZip = path.join(DL, 'processed-behavior_packs.zip');
+const hasProcessed = fs.existsSync(processedZip);
+const processedLink = hasProcessed ? `${BASE}/downloads/processed-behavior_packs.zip` : null;
+
+// 3) 渲染下载页
 const html = `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>下载 - Minecraft @minecraft 类型文档</title>
@@ -52,13 +58,19 @@ td,th{text-align:left;padding:.3rem;border-bottom:1px solid #f3f4f6}
 code{background:#f3f4f6;padding:0 .3em;border-radius:4px}
 </style></head><body>
 <h1>下载生成文档</h1>
-<p><a href="../">← 返回主页</a></p>
+<p><a href="..">← 返回主页</a></p>
 
 <div class="sec"><h2>📦 BDS Script API 完整元数据（bedrock-apis/bds-docs 生成）</h2>
 <div class="card">
   <strong><a href="${RELEASE_LINK}" download>metadata-${BRANCH}.zip</a></strong>
   <div class="dt">由独立「构建 bds 元数据」工作流从 Bedrock Dedicated Server 提取（最完整、底层），作为 GitHub Release 发布。分支：<code>${BRANCH}</code>（由 <code>bds-config.json</code> 控制）。</div>
 </div></div>
+
+${hasProcessed ? `<div class="sec"><h2>📁 处理后的 behavior_packs（由 brarchive-extractor 提取并还原为 JSON）</h2>
+<div class="card">
+  <strong><a href="${processedLink}" download>processed-behavior_packs.zip</a></strong>
+  <div class="dt">使用 <code>brarchive-extractor</code> 处理 BDS 生成的 <code>behavior_packs</code> 文件夹，Schema 指向 <code>metadata/json_schemas/</code>，将 .brarchive 和 .mcb 文件提取并还原为可读 JSON 文档。</div>
+</div></div>` : ''}
 
 <div class="sec"><h2>📄 我们生成的合并 d.ts（翻译 + 原文，每模块一个文件）</h2>
 ${dtsEntries.length === 0 ? '<div class="card">当前构建尚未产出 d.ts，先运行主构建 workflow。</div>' : '<table><tr><th>版本</th><th>文件</th></tr>' + dtsEntries.map(e => `<tr><td>${e.version}</td><td><a href="${e.url}">${e.file}</a></td></tr>`).join('') + '</table>'}
@@ -68,4 +80,4 @@ ${dtsEntries.length === 0 ? '<div class="card">当前构建尚未产出 d.ts，�
 </body></html>`;
 fs.mkdirSync(DL, { recursive: true });
 fs.writeFileSync(path.join(DL, 'index.html'), html);
-console.log(`下载页已生成：_out/downloads/index.html（d.ts ${dtsEntries.length} 个，branch=${BRANCH}）`);
+console.log(`下载页已生成：_out/downloads/index.html（d.ts ${dtsEntries.length} 个，branch=${BRANCH}，processed behavior_packs ${hasProcessed ? '已包含' : '未生成'}）`);
