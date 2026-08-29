@@ -66,6 +66,18 @@ jobs:
           echo "bds-output 目录内容："
           ls -la ../../bds-output/ || echo "bds-output 目录为空或不存在"
 
+      - name: 删除冲突的 protocol 子目录（解决重复 $id）
+        id: remove_protocol
+        run: |
+          PROTOCOL_DIR="bds-output/metadata/json_schemas/protocol"
+          if [ -d "$PROTOCOL_DIR" ]; then
+            echo "删除 $PROTOCOL_DIR 以解决重复 $id 冲突"
+            rm -rf "$PROTOCOL_DIR"
+            echo "已删除 protocol 目录"
+          else
+            echo "protocol 目录不存在，跳过"
+          fi
+
       - name: 处理 behavior_packs（使用 brarchive-extractor）
         id: process_brax
         run: |
@@ -81,50 +93,6 @@ jobs:
             exit 0
           fi
           echo "should_process=true" >> $GITHUB_ENV
-          
-          # 彻底清理重复的 schema $id（递归扫描所有子目录）
-          echo "清理重复的 schema $id（递归）..."
-          if [ -d "bds-output/metadata/json_schemas" ]; then
-            node -e "
-              const fs = require('fs');
-              const path = require('path');
-              function walkDir(dir) {
-                let results = [];
-                const list = fs.readdirSync(dir);
-                list.forEach((file) => {
-                  const filePath = path.join(dir, file);
-                  const stat = fs.statSync(filePath);
-                  if (stat && stat.isDirectory()) {
-                    results = results.concat(walkDir(filePath));
-                  } else if (file.endsWith('.json')) {
-                    results.push(filePath);
-                  }
-                });
-                return results;
-              }
-              const baseDir = 'bds-output/metadata/json_schemas';
-              const files = walkDir(baseDir);
-              const seen = new Map();
-              for (const filePath of files) {
-                try {
-                  const content = fs.readFileSync(filePath, 'utf-8');
-                  const json = JSON.parse(content);
-                  const id = json['$id'];
-                  if (id) {
-                    if (seen.has(id)) {
-                      console.log('Duplicate \$id:', id, 'in file', path.basename(filePath), 'already seen in', path.basename(seen.get(id)));
-                      fs.unlinkSync(filePath);
-                      console.log('Deleted', path.basename(filePath));
-                    } else {
-                      seen.set(id, filePath);
-                    }
-                  }
-                } catch (e) {
-                  console.error('Error processing', filePath, e.message);
-                }
-              }
-            "
-          fi
           
           # 克隆 brarchive-extractor
           git clone https://github.com/LPaicen/brarchive-extractor.git brarchive-extractor
