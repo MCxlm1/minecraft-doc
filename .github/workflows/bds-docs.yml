@@ -62,10 +62,7 @@ jobs:
           ls -la ../../bds-output/ || echo "bds-output 目录为空或不存在"
 
       - name: 处理 behavior_packs（使用 brarchive-extractor）
-        if: env.should_process_brax == 'true'
         id: process_brax
-        env:
-          SHOULD_PROCESS_BRAX: ${{ steps.check_brax_needed.outputs.should_process }}
         run: |
           # 检查 behavior_packs 是否存在且非空
           if [ ! -d "bds-output/behavior_packs" ] || [ -z "$(ls -A bds-output/behavior_packs)" ]; then
@@ -139,10 +136,11 @@ jobs:
           
           BRANCH="bds-output-${{ env.BRANCH_TO_UPDATE }}"
           
-          # 检查远程分支是否存在
+          # 检查远程分支是否存在，并正确处理切换
           if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
             echo "分支 $BRANCH 已存在，切换到该分支"
-            git fetch origin "$BRANCH"
+            # 拉取远程分支到本地同名分支
+            git fetch origin "$BRANCH:$BRANCH"
             git switch "$BRANCH"
           else
             echo "创建新分支 $BRANCH"
