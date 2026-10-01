@@ -31,32 +31,46 @@ jobs:
         env:
           BRANCH_TO_UPDATE: ${{ env.BRANCH_TO_UPDATE }}
           BDS_NO_PUSH: "1"
-          GITHUB_ACTIONS: ""
         run: |
           unset GITHUB_ACTIONS 2>/dev/null || true
           cd vendor/bds-docs
-          deno run --allow-all dist/main.js
+
+          # 捕获生成器全部输出，同时实时打印
+          LOG_FILE="$RUNNER_TEMP/bds-docs.log"
+          deno run --allow-all dist/main.js 2>&1 | tee "$LOG_FILE" || true
+
+          echo "===== 开始解析 BDS 版本号 ====="
+
+          # ① 优先从下载链接解析：bedrock-server-<version>.zip
+          VERSION=$(grep -oE 'bedrock-server-[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?' "$LOG_FILE" \
+            | head -1 | sed 's/bedrock-server-//')
+
+          # ② 兜底：从任意 bedrock-server-*.zip 形式的 URL 解析
+          if [ -z "$VERSION" ]; then
+            VERSION=$(grep -oE 'bedrock-server-[0-9]+(\.[0-9]+)+' "$LOG_FILE" \
+              | head -1 | sed 's/bedrock-server-//')
+          fi
+
+          # ③ 兜底：version.txt（如果有）
+          if [ -z "$VERSION" ] && [ -f "__installation__/version.txt" ]; then
+            VERSION=$(tr -d '\n\r' < "__installation__/version.txt" | head -c 64)
+          fi
+
+          # ④ 兜底：日期
+          if [ -z "$VERSION" ]; then
+            VERSION=$(date +%Y.%m.%d)
+            echo "⚠️ 未能从日志解析版本，退化为日期: $VERSION"
+          fi
+
+          echo "✅ 解析到 BDS_VERSION=$VERSION"
+          echo "BDS_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
           echo "完成，目录内容："
           ls -la | head -20
           echo "查找 __installation__ 目录内容："
           if [ -d "__installation__" ]; then
             ls -la __installation__/ | head -20
-            # 提取 BDS 版本号
-            if [ -f "__installation__/version.txt" ]; then
-              VERSION=$(cat __installation__/version.txt)
-              echo "BDS_VERSION=$VERSION" >> $GITHUB_ENV
-              echo "BDS_VERSION: $VERSION"
-            elif [ -f "__installation__/bedrock_server" ]; then
-              # 尝试从二进制文件提取版本
-              VERSION=$(strings __installation__/bedrock_server | grep -oE '[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?' | head -1)
-              echo "BDS_VERSION=$VERSION" >> $GITHUB_ENV
-              echo "BDS_VERSION: $VERSION"
-            else
-              # 默认使用日期作为版本
-              VERSION=$(date +%Y.%m.%d)
-              echo "BDS_VERSION=$VERSION" >> $GITHUB_ENV
-              echo "无法提取版本，使用日期: $VERSION"
-            fi
           fi
 
       - name: 收集生成产物（metadata 和 behavior_packs）
@@ -111,20 +125,20 @@ jobs:
             exit 0
           fi
           echo "should_process=true" >> $GITHUB_ENV
-          
+
           # 克隆 brarchive-extractor
           git clone https://github.com/LPaicen/brarchive-extractor.git brarchive-extractor
-          
+
           # 构建 brax
           cd brarchive-extractor
           npm install
           npm run build
           cd ..
-          
+
           # 处理 behavior_packs
           mkdir -p bds-output/processed-behavior_packs
           node brarchive-extractor/dist/src/cli.js bds-output/behavior_packs --schema bds-output/metadata/json_schemas/ --output bds-output/processed-behavior_packs --overwrite --verbose
-          
+
           # 打包处理结果
           cd bds-output
           zip -r processed-behavior_packs.zip processed-behavior_packs
@@ -151,7 +165,7 @@ jobs:
           fi
           ls -la _release/
 
-      - name: 发布到 GitHub Release（带版本号）
+      - name: 发布到 GitHub Release（带真实 BDS 版本号）
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -162,18 +176,24 @@ jobs:
           # 清理版本号（移除特殊字符）
           CLEAN_VERSION=$(echo "$BDS_VERSION" | sed 's/[^a-zA-Z0-9.]//g')
           TAG="bds-assets-${{ env.BRANCH_TO_UPDATE }}-${CLEAN_VERSION}"
-          
+
           echo "发布版本: $CLEAN_VERSION"
           echo "Tag: $TAG"
-          
+
           # 检查 Release 是否存在
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release $TAG 已存在，更新 asset"
             gh release upload "$TAG" _release/* --clobber
           else
             echo "创建 Release $TAG"
-            gh release create "$TAG" _release/* --title "BDS assets (${{ env.BRANCH_TO_UPDATE }}) - $CLEAN_VERSION" --generate-notes --latest=false
+            gh release create "$TAG" _release/* \
+              --title "BDS assets (${{ env.BRANCH_TO_UPDATE }}) - $CLEAN_VERSION" \
+              --notes "BDS 版本: \`$CLEAN_VERSION\`
+          来源分支: \`${{ env.BRANCH_TO_UPDATE }}\`
+          生成时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" \
+              --latest=false
           fi
+
           echo "下载地址: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/"
           # 保存版本信息供后续步骤使用
           echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
